@@ -1,0 +1,1133 @@
+Draft version February 16, 2026
+Typeset using L ATEXtwocolumnstyle in AASTeX631
+Demographics of Wandering Black Holes Powering Off-Nuclear Tidal Disruption Events
+Muryel Guolo
+1
+1Bloomberg Center for Physics and Astronomy, Johns Hopkins University, 3400 N. Charles St., Baltimore, MD 21218, USA
+ABSTRACT
+The recent discovery of three off-nuclear tidal disruption events (EP240222a, AT2024tvd, and
+AT2025abcr)—following the first such source, 3XMM J2150−05—reveals a small but robust popula-
+tion of off-nuclear, or “wandering,” black holes (WBHs) with massesM •>104M⊙. Two demographic
+trends are already apparent: (i) all events occur in massive, early-type parent galaxies with stellar
+masses 10.8≲log10(M⋆/M⊙)≲11.1; and (ii) events at larger halo-centric radii (R TDE/R200) are
+associated with dwarf satellites (M ⋆∼107M⊙), while those closer to halo centers lack detected stellar
+counterparts. Using results from theROMULUScosmological simulation, we show that both trends natu-
+rally arise from hierarchical galaxy formation. By combining the simulation with empirical constraints
+on the local galaxy population, we compute the volumetric density of WBHs,ϕ WBH(M⋆), finding that
+it peaks at log10(M⋆/M⊙) = 11.10+0.05
+−0.10 and that more than half of all WBHs in the local Universe
+reside in galaxies with 10.7≲log10(M⋆/M⊙)≲11.2, explaining (i) and predicting its persistence
+as the sample grows. We further show that ii), i.e., the observed link between detection of stellar
+counterparts andR TDE/R200, is also expected from tidal stripping. These results demonstrate that
+off-nuclear TDEs are powered by the population of WBHs long predicted by cosmological simulations.
+Keywords:Intermediate-mass black hole (816) Supermassive black holes (1663);
+Elliptical galaxies (456); Ultracompact dwarf galaxies (1734) ;
+1.INTRODUCTION
+It is now established that nearly all massive galaxies
+host a massive black hole (MBH) at their centers (Ko-
+rmendy & Ho 2013). MBH masses correlate strongly
+with the properties of their host galaxies’ central re-
+gions (Magorrian et al. 1998; Ferrarese & Merritt 2000;
+Tremaine et al. 2002; G¨ ultekin et al. 2009), indicating
+a co-evolution of black holes and galaxies over cosmic
+time (e.g., Volonteri et al. 2003; Natarajan 2014).
+In the standard paradigm of galaxy formation, MBHs
+grow primarily through gas accretion in galactic nuclei,
+producing active galactic nuclei (AGN), while galaxies
+assemble hierarchically through mergers. This process
+naturally leads to a population of MBHs1that are dis-
+placed from galaxy centers in the local Universe.
+The pathway from galactic scales to the coalescence of
+MBH binaries in galactic centers involve multiple phys-
+ical processes operating across wide spatial and tem-
+1Here MBHs are defined as black holes not formed through stan-
+dard stellar evolution, i.e., with massesM •≫103M⊙, including
+intermediate-mass black holes (IMBHs; 103≪M •≲105M⊙)
+and supermassive black holes (SMBHs;M •≫105M⊙).poral scales (Begelman et al. 1980; Colpi 2014). Only
+MBHs that efficiently sink to galactic centers can form
+bound binaries and eventually merge, producing grav-
+itational waves detectable by space-based interferom-
+eters such as LISA (Amaro-Seoane et al. 2017). In
+many systems, however, orbital decay stalls at kilopar-
+sec scales, where dynamical friction dominates (Chan-
+drasekhar 1943) and can exceed a Hubble time for suffi-
+ciently low-mass MBHs. As a result, a substantial pop-
+ulation of off-nuclear MBHs is expected to persist to low
+redshift.
+The existence of these long-lived, off-nuclear massive
+black holes was predicted based on semi-analytical cal-
+culations, well before modern hydrodynamical simula-
+tions, as a natural consequence of hierarchical galaxy
+assembly and inefficient orbital decay (e.g., Governato
+et al. 1994; Volonteri et al. 2003; Islam et al. 2004;
+Bellovary et al. 2010).
+Nowadays cosmological simulations are the primary
+theoretical tool for studying this population of wander-
+ing black holes (WBHs), here defined as MBHs not lo-
+cated at the center of their main galactic halo or residing
+in satellite substructures. In particular, those simula-
+tions that seed black holes based on local gas properties,arXiv:2602.12970v1  [astro-ph.GA]  13 Feb 2026
+2
+21h50m24s23s22s21s20s-5°50'20"
+40"
+51'00"
+20"
+ DecN
+E
+20" = 20.8 kpc
+z = 0.0553XMM J2150-05
+11h32m06s04s02s00s31m58s27°01'00"
+00'30"
+00"
+26°59'30"
+  N
+E
+20" = 12.4 kpc
+z = 0.032EP240222a
+17h10m46s44s42s40s38s28°51'00"
+50'30"
+00"
+49'30"
+RADecN
+E
+20" = 17.2 kpc
+z = 0.045AT2024tvd
+1h47m00s46m58s56s54s52s-15°21'30"
+22'00"
+30"
+23'00"
+RA N
+E
+20" = 18.6 kpc
+z = 0.049AT2025abcr
+Figure 1.Pre-TDE optical imaging of the parent galaxies of the four known off-nuclear tidal disruption events. For each
+source, the panel shows a color composite of the host galaxy and a zoomed-in view centered on the TDE location. Purple circles
+mark the most precise positions of the transients, derived from space-based X-ray or ultraviolet observations. Pronounced
+stellar overdensities consistent with bound dwarf satellites are detected for 3XMM J2150−05 and EP240222a, whereas no
+resolved stellar counterpart is visible at the locations of AT2024tvd and AT2025abcr above the smooth halo light. The stellar
+counterpart overdensities (or lack thereof) are quantified in Appendix C, and the results are shown in Table 1.
+incorporate subgrid prescriptions for dynamical friction,
+and allow MBHs to orbit freely rather than being arti-
+ficially repositioned at halo centers. Notable examples
+includeROMULUS(Tremmel et al. 2017) andASTRID(Ni
+et al. 2022) simulations.
+Studies based onROMULUSfind a roughly linear scal-
+ing between the number of WBHs per halo and the halo
+virial mass, with Milky Way–like halos hosting order ten
+WBHs (Tremmel et al. 2018a) and massive galaxy clus-
+ters hosting more than a thousand (Ricarte et al. 2021b).
+Despite their predicted abundance, WBHs are expected
+to accrete weakly in the local Universe, with typical Ed-
+dington ratios≲10−4(Ricarte et al. 2021a), owing to
+gas-poor environments and the lack of efficient angular-momentum diffusion mechanisms, such as those avail-
+able to secularly fed central SMBHs (Storchi-Bergmann
+& Schnorr-M¨ uller 2019). This makes them extremely
+difficult to detect directly, and observationally WBHs
+have therefore proven elusive.
+Non-accreting WBHs have been inferred dynamically
+in a small number of ultra-compact dwarf galaxies
+(UCDs; e.g., Seth et al. 2014; Taylor et al. 2025), which
+are common in galaxy clusters (Pfeffer et al. 2014;
+Voggel et al. 2019). Accreting WBHs have been pro-
+posed to appear as off-nuclear AGN, particularly in
+merging systems (Comerford et al. 2009; Comerford &
+Greene 2014; Reines et al. 2020; Ward et al. 2021; Up-
+pal et al. 2024), but such sources are rare and often
+3
+ambiguous (e.g., Sturm et al. 2026), being difficult to
+distinguish from recoiling SMBHs or from dual, similar-
+mass AGN produced by major mergers. WBHs (of
+intermediate mass) have also been invoked as engines
+of some ultra-luminous X-ray sources (ULXs;L X≳
+1039erg s−1), although most objects in this class are now
+understood to be extreme stellar-mass accretors (Kaaret
+et al. 2017). A notable exception is ESO 243–49 HLX-
+1 (Farrell et al. 2009; Soria et al. 2017), which reaches
+LX∼1042erg s−1and provided the first strong case for
+an accreting off-nuclear IMBH; however, this source ap-
+pears unique, and the physical origin of its repeating
+outbursts remains unclear.
+If the WBHs retain some bound stellar population,
+tidal disruption events (TDEs, Rees 1988; Gezari et al.
+2021) can supply the accreting material needed to briefly
+power luminous emission. Such off-nuclear TDEs there-
+fore provide one of the most direct and unambiguous
+probes of WBHs. Unlike AGN, black hole masses in
+TDEs can be inferred directly from multi-wavelength
+modeling based on first principle models, independent
+of any scaling relations (like those based on single-epoch
+broad line emission measurements, which are poorly cal-
+ibrated at the low mass end of interest here) enabling,
+e.g., black hole–host scaling relations to be recover in-
+dependently (e.g., Mummery et al. 2024; Guolo et al.
+2025).
+The discovery of 3XMM J215-05 in 2018 (Lin et al.
+2018, 2020) marked the first off-nuclear TDE. Over the
+past year, three additional sources have been identi-
+fied: EP240222a (Jin et al. 2025) byEinstein Probe
+(Yuan et al. 2018), and AT2024tvd (Yao et al. 2025) and
+AT2025abcr (Stein et al. 2026) by the Zwicky Transient
+Facility (Bellm et al. 2019).
+Despite the small current sample, two demographic
+trends are already apparent. All events occur in mas-
+sive, early-type parent galaxies with total stellar masses
+in the order ofM ⋆∼1011M⊙. In addition, the two
+events at larger halo-centric radii (R TDE/R200) are as-
+sociated with dwarf satellite galaxies (M ⋆∼107M⊙),
+while those occurring closer to halo centers lack de-
+tectable stellar counterparts. The goal of thisLetteris
+to show that these trends arise naturally from hierarchi-
+cal galaxy and black hole assembly and can be extracted
+from theROMULUSsimulation results. In§2 we describe
+the off-nuclear TDE sample and simulation data; in§3
+we present our results; and we conclude in§4. In this pa-
+per we adopt a flatλCDM cosmology, withH 0= 69 km
+s−1Mpc−1(Planck Collaboration et al. 2020); uncer-tainties (error-bars and contours) are reported as 68%
+credible intervals, unless otherwise stated.
+2.OFF-NUCLEAR TDES AND THEROMULUS
+SIMULATIONS
+2.1.Sample and Properties
+Our sample consists of four sources: 3XMM J215-
+05, EP20240222a, AT2024tvd, and AT2025abcr. These
+sources share several defining properties: (i) transient
+multi-wavelength light curves; (ii) detections spanning
+X-ray through UV/optical wavelengths; (iii) super-
+soft/thermal X-ray spectra, a unique feature of TDEs
+(Guolo et al. 2024); (iv) peak X-ray luminositiesL X>
+1042erg s−1(excluding stellar-mass accretors); and (v)
+when early-time optical spectra are available (all except
+3XMM J215-05), the presence of transient broad Balmer
+emission lines and, in some cases, higher-ionization fea-
+tures such as He II and Bowen fluorescence, similar
+to those observed in nuclear TDEs (Charalampopou-
+los et al. 2022). Crucially, however, all four sources
+are significantly displaced from the centers of their par-
+ent galaxies, with projected offsets ranging from 0.9′′
+to 53′′. These properties are individually all character-
+istic of TDEs (e.g., van Velzen et al. 2021; Charalam-
+popoulos et al. 2022; Yao et al. 2023; Guolo et al. 2024;
+Mummery et al. 2024; Grotova et al. 2025; Mummery &
+van Velzen 2025) and, when considered together, make
+these events the most secure cases of off-nuclear TDEs
+currently known.
+Two additional sources, eRASS J1421−29 (Grotova
+et al. 2025) and 4XMM J1615+19 (also known as
+NGC 6099 HLX-1; Chang et al. 2025), are, in our view,
+likely to be genuine off-nuclear TDEs. However, the
+analyses presented for these sources and/or the currently
+available data are, in our view, yet insufficient to con-
+clusively rule out alternative explanations. We therefore
+do not include them in our sample2.
+A third source, WINGS J1348+26 (Maksym et al.
+2013; Donato et al. 2014), is a TDE originating from the
+nucleus of a dwarf galaxy (M ⋆∼108M⊙), spectroscopi-
+cally confirmed to be associated with the galaxy cluster
+Abell 1795 (Maksym et al. 2014). In some sense, this
+event could be considered “off-nuclear” with respect to
+the cluster center (and its brightest cluster galaxy, BCG)
+and would qualify as such under the definition of wan-
+dering black holes inROMULUS. At this point, however,
+this classification becomes largely a matter of semantics
+2Importantly, both sources seems to be associated with massive
+early-type galaxies with stellar masses similar to those of our
+hosts. Including them would not alter our conclusions regarding
+the galaxy-mass preference discussed in§3.1.
+4
+Table 1.Host and halo properties of off-nuclear TDEs
+Sourcez R TDE,p log10M⋆ R1/2 log10M200 R200 RTDE RTDE/R200 Σ⋆,local /Σ⋆,halo
+(arcsec, kpc) (M ⊙) (arcsec, kpc) (M ⊙) (kpc) (kpc)
+3XMM J2150-05 0.055 11.6, 12.6 10.87±0.06 2.3, 2.5 12.6+0.2
+−0.3329.0+46.0
+−61.015.7+7.4
+−2.90.052+0.023
+−0.0143.6±0.1
+EP240222a 0.032 53.1, 34.4 10.98±0.07 12.1, 7.8 13.0+0.2
+−0.3448.0+64.0
+−88.043.0+20.2
+−8.10.106+0.047
+−0.0307±2
+AT2024tvd 0.045 0.9, 0.8 10.84±0.07 5.3, 4.8 12.7+0.2
+−0.3337.0+47.0
+−64.01.0+0.5
+−0.20.003+0.001
+−0.0011
+AT2025abcr 0.049 9.5, 9.2 11.11±0.08 8.0, 7.8 13.3+0.2
+−0.3565.0+82.0
+−114.011.5+5.4
+−2.20.023+0.010
+−0.0071
+and arbitrary definitions, and we choose not to include
+this source in our sample.
+We also do not include luminous fast blue optical tran-
+sients (LFBOTs; e.g., Perley et al. 2019; Ho et al. 2023;
+Somalwar et al. 2025) or ESO 243–49 HLX-1. Although
+these sources have been interpreted as TDEs by some
+authors, their observed properties—including light-
+curve evolution, repeating of outbursts, and/or spectral
+characteristics—are fundamentally distinct from those
+of the off-nuclear TDEs analyzed here, suggesting a dif-
+ferent physical origin.
+Having selected and described our sample, Fig. 1
+shows pre-TDE color images of the four parent galaxies,
+with zoomed-in regions indicating the TDE locations.
+Images are taken from the Legacy Survey (Dey et al.
+2019) for all sources except 3XMM J215-05, for which
+deeper pre-TDE CFHT MegaCam (Gwyn 2012) data are
+available. The purple circles mark the most precise tran-
+sient positions, derived from space-based UV or X-ray
+observations using eitherChandra(∼1′′PSF) orHST
+(∼0.1′′PSF). Clear stellar overdensities are visible at
+the locations of 3XMM J215-05 and EP20240222a, but
+not for AT2024tvd or AT2025abcr. The latter is con-
+firmed by detailed image decomposition analyses pre-
+sented by Yao et al. (2025) and Stein et al. (2026).
+In Table 1, we summarize the basic parent-galaxy
+properties: redshift (z); projected (R TDE,p ) and depro-
+jected (R TDE) offsets of the TDEs from their host nuclei;
+stellar (M ⋆) and virial (M 200) masses; half-light (R 1/2)
+and virial (R 200) radii; and the ratio of local to halo stel-
+lar surface densities (Σ ⋆,local /Σ⋆,halo ). Projected offsets
+are taken from the discovery papers, while deprojected
+distances assume an isotropic orientation distribution,
+i.e.,R TDE=RTDE,p
+sin(θ), withP(θ)∝cosθ. Half-light radii
+are taken from the Legacy Survey Data Release 10 (Dey
+et al. 2019), and virial masses and radii are inferred from
+M⋆andR 1/2as described in Appendix A.
+Rather than relying on heterogeneous (distinct stel-
+lar population models and/or apertures) stellar-mass es-
+timates from the literature, we measure parent-galaxy
+stellar masses in a uniform manner. As described inAppendix B, we adopt a color-dependent mass-to-light
+ratio (M ⋆/Li) applied to S´ ersic-profile luminosities, fol-
+lowing the same approach used by Baldry et al. (2012)
+to derive the local galaxy stellar mass function. This
+choice is essential for our comparison with GSMF pre-
+dictions in§3. Our derived stellar masses are consistent
+with those reported in the discovery papers, typically
+within∼0.1 dex, but at most∼0.2 dex, which does not
+affect our conclusions. Finally, the local-to-halo stellar
+overdensities for 3XMM J215-05 and EP20240222a are
+calculated using the deepest available pre-TDE imag-
+ing—HSTand the Legacy Survey, respectively—as de-
+scribed in Appendix C.
+We do not present black hole mass estimates for the
+full sample. A reliable and uniform method capable of
+recovering black hole–host scaling relations has not yet
+been applied to all four sources. The method of Guolo
+& Mummery (2025) has been applied to AT2024tvd
+and 3XMM J215-05 Guolo et al. (2025, 2026), find-
+ing that the black hole powering AT2024tvd is approx-
+imately∼106/104.4≃40 times more massive than
+that of 3XMM J215-05. Comparable estimates are un-
+available for the remaining events, precluding a homo-
+geneous comparison. Moreover, in theROMULUSsimu-
+lations all black holes are seeded with the same initial
+mass,M •= 106M⊙, preventing a direct comparison
+between simulated and observed black hole masses.
+2.2.ROMULUSSimulation
+We summarize here the aspects of massive black hole
+(MBH) modeling in theROMULUSsimulations most rel-
+evant to this work; full technical details are provided
+in Tremmel et al. (2017, 2019); Ricarte et al. (2021b).
+The simulation suite consists ofROMULUS25, a (25 Mpc)3
+cosmological volume, andROMULUSC, a higher-resolution
+zoom-in simulation of a galaxy cluster withM 200∼
+1014M⊙. Both were run using the Tree+SPH code
+ChaNGa(Menon et al. 2015; Wadsley et al. 2017), with
+dark matter and gas particle masses of 3.4×105M⊙and
+2.1×105M⊙, respectively.
+5
+10 11 12 13 14
+log10(M200/M)
+1
+0123log10NwBH [# per Halo]
+9 10 11 12
+log10(M/M)
+1011121314log10(M200/M)
+9 10 11 12
+log10(M/M)
+6
+5
+4
+3
+2
+1
+log10(M)[Mpc3dex1]
+9 10 11 12
+log10(M/M)
+6
+5
+4
+3
+2
+1
+log10(M)[Mpc3dex1]
+WBHs distribution in ROMULUS (Ricarte et al. 2021)
+Stellar-Halo Mass Relation (Moster et al. 2013)
+T otal Galaxy Stellar Mass Function (GSMF, Baldry et al. 2012)Blue Population GSMF (Baldry et al. 2012)
+Red Population GSMF (Baldry+12)
+Figure 2.Left:Mean number of wandering black holes per halo as a function of halo virial mass atz≃0.05 in theROMULUS
+simulations, reproduced from Ricarte et al. (2021b). Purple points show the binned simulation results, the dashed line shows
+the best-fitting power-law relation, and the shaded region indicates the 1σuncertainty.Middle left:Stellar-to-halo mass relation
+atz≃0 from Moster et al. (2013), mapping halo virial mass to galaxy stellar mass.Middle right:Total galaxy stellar mass
+function (GSMF) in the local Universe from Baldry et al. (2012). Together, these components are combined to compute the
+volumetric density of wandering black holes, shown in Fig. 3.Right:Decomposition of the GSMF into blue (star-forming) and
+red (quenched) galaxy populations, also from Baldry et al. (2012).
+The simulations include a correction for unresolved
+gravitational forces below scales of 350 pc (the so-called
+softening length), which would otherwise underestimate
+the dynamical friction acting on moving MBHs. This
+correction follows the classical formulation of Chan-
+drasekhar (1943), allowing MBHs to orbit freely within
+their host halos rather than being artificially pinned to
+galaxy centers (Tremmel et al. 2015). MBH mergers
+are permitted once pairs become gravitationally bound
+within two softening lengths, corresponding to∼0.7
+kpc. This work directly adopts theROMULUSpost-
+processing analysis presented in Ricarte et al. (2021b).
+In that study, halos were identified using theAmiga
+halo finder (Knollmann & Knebe 2009), which was used
+to measure halo masses, radii, and centers. MBHs were
+assigned to halos or substructures based on gravitational
+binding, and halo centers were determined with an ac-
+curacy limited by the gravitational softening length of
+350 pc.
+In Ricarte et al. (2021b), MBHs were classified as
+“central” if located within 0.7 kpc of the halo center
+and as “wandering” otherwise. This definition allows for
+multiple central MBHs within a single halo and permits
+even the most massive or luminous MBH to be classi-
+fied as wandering. The adopted threshold reflects un-
+certainties in MBH dynamics and center determination
+and corresponds to the scale below which MBH mergers
+are allowed. Beyond this radius, MBH orbits are well
+resolved and not artificially close to merging.
+Here we explicitly use three results describing the low-
+redshift (z∼0.05) wandering black hole population re-
+ported by Ricarte et al. (2021b). These results are dis-cussed in detail in the next section, but are summarized
+here for convenience:
+•The mean number of wandering black holes per
+halo increases approximately linearly with halo
+virial mass, reflecting the cumulative impact of hi-
+erarchical mergers and satellite accretion. This is
+shown in the left panel of Fig. 2.
+•Byz∼0, most wandering black holes no longer
+retain a resolved stellar counterpart as a result
+of tidal stripping; those that do are preferentially
+found at larger halo-centric distances.
+•Wandering black holes populate a broad range
+of halo-centric distances, with a characteris-
+tic concentration at intermediate radii (0.01≲
+R•/R200≲0.1), and an extended distribution
+reaching from the halo nucleus to near the virial
+radius.
+3.RESULTS AND DISCUSSION
+3.1.Parent Galaxy Preference
+From Table 1 it is immediately apparent, as first noted
+by Yao et al. (2025), that the parent galaxies of off-
+nuclear TDEs share remarkably similar global proper-
+ties. All four events occur in massive, early-type galax-
+ies, with total stellar masses confined to the narrow
+range 10.8≲log10(M⋆/M⊙)≲11.1. Given the small
+current sample, this uniformity is striking and suggests
+an underlying physical or demographic origin rather
+than a coincidence.
+This combination of high stellar mass and early-type
+morphology is notablynotcharacteristic of the hosts of
+6
+9.0 9.5 10.0 10.5 11.0 11.5 12.0
+log10(M/M)
+104
+103
+102
+101
+100WBH[Mpc3dex1]
+0.000.250.500.751.00
+Cumulative fraction of WBHsOff-nuclear TDE parent galaxies
+Figure 3.Volumetric density of wandering black holes as a function of parent galaxy stellar mass atz≃0, constructed by
+combining theROMULUSwandering black hole occupation statistics with the local galaxy stellar mass function. The purple curve
+showsϕ WBH(M⋆), while the gold curve shows the cumulative fraction of wandering black holes. The distribution peaks sharply
+(note the log scale) atM ⋆∼1011.1M⊙, and half of the WBH should be located in galaxies with 10.7≲log10(M⋆/M⊙)≲11.2
+(gold ticks), explaining why all off-nuclear TDE parent galaxies (red kernels) are in this mass range.
+nuclear TDEs (Hammerstein et al. 2021; Yao et al. 2023;
+Mummery & van Velzen 2025). Early-type galaxies in
+this mass regime typically have central stellar velocity
+dispersionsσ ⋆≳200 km s−1, implying central black
+hole massesM •≳108.5M⊙based on theM •–σ⋆relation
+(Kormendy & Ho 2013). At these masses, the nuclear
+TDE rate is super-exponentially suppressed by the Hills
+mass effect (Yao et al. 2023; Mummery & van Velzen
+2025), since stars are swallowed whole for most combi-
+nations of stellar mass and black hole spin. This follows
+from the different scaling of the tidal radius (r T∝M1/3
+•)
+and the event horizon (r H∝M•) with black hole mass.
+We now show that the preference for this specific class
+of galaxies arises naturally from the demographics of
+wandering black holes predicted byROMULUS, once com-
+bined with the observed local galaxy population. To
+this end, we compute the volumetric density of wander-
+ing black holes as a function of parent galaxy stellar
+mass,ϕ WBH(M⋆).
+As discussed in§2.2 and shown in the left top panel of
+Fig. 2, the mean number of WBHs per halo inROMULUS
+scales approximately linearly with halo virial mass. The
+simulation results are well described by:
+log10⟨NWBH⟩=Alog10M200
+1012M⊙
++B,(1)withA= 1.17±0.17 andB= 0.95±0.223The quasi-
+linear nature of the⟨N WBH⟩–M 200relation is a key in-
+gredient of this result. While the absolute normalization
+of the relation depends on the specific black hole seeding
+prescription adopted inROMULUS, its slope is expected
+to be a robust feature of hierarchical structure forma-
+tion. In particular, the accumulation of wandering black
+holes is driven primarily by the merger and accretion
+history of the host halo, rather than by the details of
+early black hole formation physics. Alternative seeding
+models may therefore shift the overall normalization of
+⟨NWBH⟩(e.g., Untzaga et al. 2024), but are not expected
+to qualitatively alter the strong, monotonic increase of
+WBH abundance with halo mass.
+To express this relation in terms of galaxy stellar mass,
+we adopt the stellar-to-halo mass relation (SHMR) pa-
+rameterization of Moster et al. (2013),
+M⋆(M200) = 2N M 200"M200
+M1−β
++M200
+M1γ#−1
+,
+(2)
+with best-fit parameters atz≃0 of log10(M1/M⊙) =
+11.6±0.2,N= 0.035±0.010,β= 1.38±0.15, and
+3Only the average number of WBHs per bin (of 0.5 dex in halo
+mass) is given by Ricarte et al. (2021b), such that our uncertain-
+ties are based only on the scatter introduced by the somewhat
+large bin size.
+7
+γ= 0.61±0.06. This mapping is shown in the middle
+left panel of Fig. 2.
+Finally, to account for the abundance of galaxies as
+a function of stellar mass, we adopt the local galaxy
+stellar mass function (GSMF) of Baldry et al. (2012),
+parameterized as a double Schechter function,
+ϕgal(M⋆) dM ⋆= ln(10)e−M⋆/M∗
+×"
+ϕ∗
+1M⋆
+M∗α1+1
++ϕ∗
+2M⋆
+M∗α2+1#
+d log10M⋆,(3)
+with parameters log10(M∗/M⊙) = 10.66±0.02,ϕ∗
+1=
+(3.96±0.34)×10−3Mpc−3,α1=−0.35±0.10,ϕ∗
+2=
+(0.79±0.07)×10−3Mpc−3, andα 2=−1.47±0.05. The
+GSMF is shown in middle right panel of Fig. 2.
+The volumetric density of wandering black holes as a
+function of parent galaxy stellar mass is then given by
+ϕWBH(M⋆)∝ϕ gal(M⋆)⟨N WBH[M200(M⋆)]⟩.(4)
+Equation (4) captures the competing effects that
+shape the WBH demographics. Low-mass galaxies
+(log10(M⋆/M⊙)≲10) dominate the galaxy number
+density but host, on average,⟨N WBH⟩≲1 wandering
+black hole per system. Conversely, very massive galax-
+ies (log10(M⋆/M⊙)≳11.3) host many hundreds to thou-
+sands of WBHs each, but are exponentially rare. As a
+result, their product peaks at intermediate-to-high stel-
+lar masses, where galaxies are both sufficiently common
+and individually rich in wandering black holes.
+The resultingϕ WBH(M⋆) is shown by the purple
+curve in Fig. 3. The distribution peaks sharply at
+log10(M⋆/M⊙) = 11.10+0.05
+−0.10 (note the log scale). The
+cumulative distribution, shown in yellow, indicates that
+more than 50% of all wandering black holes in the local
+Universe reside in galaxies with 10.7≲log10(M⋆/M⊙)≲
+11.2. All currently known off-nuclear TDE parent galax-
+ies fall squarely within this dominant interval (Table 1).
+The observed preference of off-nuclear TDEs for mas-
+sive, early-type galaxies therefore follows naturally from
+the demographics of wandering black holes. Even with
+the probability for an individual WBH to produce a
+TDE been independent of parent galaxy properties, the
+observed parent-galaxy distribution will cluster around
+M⋆∼1011M⊙, simply because this is where the cos-
+mic density of wandering black holes is maximized. In
+this sense, the parent-galaxy preference of off-nuclear
+TDEs is a purely demographic consequence of hierar-
+chical structure formation.
+Finally, the early-type morphology of the observed
+hosts is also consistent with this picture. In the mass
+range 10.7≲log10(M⋆/M⊙)≲11.2, the local galaxy
+population is dominated by quenched spheroids, whilestar-forming late-type galaxies are already exponentially
+suppressed, as shown in the right panel of Fig. 2, which
+show the local GSMF divided in blue (star-forming) and
+red (quenched) galaxies. More specifically, in this mass
+range, red (quenched) galaxies are∼7times more com-
+mon than blue (star-forming) galaxies. The observed
+morphological preference therefore also follows from the
+same demographic peak inϕ WBH(M⋆).
+A clear prediction of this framework is that, as the
+sample of off-nuclear TDEs grows, their parent galaxies
+will continue to be drawn predominantly from the nar-
+row stellar-mass range 10.7≲log10(M⋆/M⊙)≲11.2.
+3.2.Stellar Counterparts
+In addition to the preference for massive parent galax-
+ies, the current sample of off-nuclear TDEs exhibits
+a apparent dichotomy in the detection of local stel-
+lar counterparts. Two events, 3XMM J2150−05 and
+EP240222a, are associated with clear stellar overdensi-
+ties consistent with bound dwarf satellite galaxies, while
+AT2024tvd and AT2025abcr, show no detected stellar
+counterpart above the ambient halo background. This
+dichotomy is quantified by the stellar surface density
+contrast at the TDE position, Σ ⋆,local /Σ⋆,halo , measured
+from deep pre-TDE imaging (in Appendix C) and re-
+ported in the final column of Table 1.
+Both 3XMM J2150−05 and EP240222a, showing
+Σ⋆,local /Σ⋆,halo >3, quantifying the fact the WBH
+remains embedded in a detectable stellar system.
+In contrast, both AT2024tvd and AT2025abcr have
+no detected overdensity and therefore (by definition)
+Σ⋆,local /Σ⋆,halo≡1.
+Figure 4 places the observed off-nuclear TDEs in the
+context of the stellar overdensity properties of WBHs
+predicted byROMULUS. The background points show the
+simulated population atz≃0.05, color-coded by halo-
+centric distanceR •/R200, while the stars mark the lo-
+cations of the four observed events. InROMULUS, the
+stellar overdensity associated with each wandering black
+hole is defined as the ratio of the stellar mass enclosed
+within a fixed physical aperture of 1 kpc centered on the
+black hole to the mean stellar density of the host halo
+at the same halo-centric radius,ρ ⋆,local /ρ⋆,halo (Ricarte
+et al. 2021b). This metric quantifies whether a wan-
+dering black hole remains embedded in a bound stellar
+system or has been effectively stripped of its extended
+stellar envelope.
+Our observational measurements necessarily rely on
+projected quantities. We therefore characterize the stel-
+lar environments of the observed off-nuclear TDEs us-
+ing the analogous surface-density ratio Σ ⋆,local /Σ⋆,halo .
+While this differs formally from the three-dimensional
+8
+Figure 4.Stellar overdensity around wandering black holes as a function of host halo mass. Colored circles show the
+ROMULUS(Ricarte et al. 2021b) wandering black hole population atz≃0.05, with color indicating halo-centric radiusR •/R200.
+The vertical axis gives the stellar overdensity around the WBHs,ρ ⋆,local /ρ⋆,halo . Stars denote observed off-nuclear TDEs,
+for which the analogous projected quantity Σ ⋆,local /Σ⋆,halo is measured. Events associated with surviving dwarf satellites
+(3XMM J2150−05 and EP240222a) populate the high-overdensity tail, while events without detected stellar counterparts
+(AT2024tvd and AT2025abcr) fall within the dominant population of stripped WBHs. The bimodality between stellar overden-
+sity and halo-centric radius seen in the simulation is also reflected in the current off-nuclear TDE sample.
+definition used in the simulation, both quantities scale
+monotonically with enclosed stellar mass for compact
+systems, providing a directly comparable classification
+of stellar-embedded versus stripped objects.
+A central point illustrated by Fig. 4 is that the physi-
+cally relevant quantity governing the stellar environment
+of a wandering black hole is the normalized halo-centric
+distance,R TDE/R200, rather than the projected offset
+on the sky,R TDE,p , even if in physical (kpc) scale. This
+dimensionless radius scale with strength of the tidal field
+experienced by the system and therefore controls the ef-
+ficiency of stellar stripping; it is encoded by the color
+scale in the figure. In massive halos, a large projected
+separation from the galaxy nucleus does not necessarily
+imply a large normalized halo-centric distance.
+This is clearly illustrated by comparing
+3XMM J2150−05 and AT2025abcr using the values
+in Table 1. Despite having comparable projected off-
+sets (R TDE,p ≃10 kpc), the two events occupy dif-
+ferent positions within their host halos (e.g., see their
+diferent colors in Fig. 4). 3XMM J2150−05 lies at
+RTDE/R200≃0.05, while AT2025abcr, hosted by a
+more massive halo with a larger virial radius (see Table
+1), resides deeper in the potential atR TDE/R200≃0.02.
+This places the two systems in qualitatively different
+tidal regimes, naturally explaining why the former re-
+tains a dense stellar counterpart while the latter does
+not. In this sense,R TDE,p alone can be misleading, asit does not capture the depth of the system within the
+host halo.
+Importantly, a stellar overdensity ratio consistent with
+unity does not imply that a wandering black hole is
+entirely devoid of orbiting stars. Both the simulation
+and the observations probe stellar structure on 100’s
+pc scales, limited by stellar particle mass resolution
+inROMULUSand by surface-brightness sensitivity and
+PSF smearing in the imaging data. Compact stellar
+systems—such as dense nuclear star clusters originally
+associated with the black hole—are more resilient to
+tidal stripping (Van Wassenhove et al. 2014; Tremmel
+et al. 2018b), yet may remain unresolved or undetectable
+at the available resolution. Such components could
+nonetheless be sufficiently massive and dense to sustain
+a detectable TDE rate, even in the absence of an ex-
+tended/detectable stellar counterpart.
+As the observed sample grows, we therefore expect
+the fraction of events with detectable stellar counter-
+parts to remain (in general terms) a bimodal function of
+halo-centric radius. Finally, we note that an additional
+population of off-nuclear black holes may reside in even
+more compact stellar systems, such as globular clus-
+ters. While no TDE has yet been securely identified in a
+globular cluster, dynamical evidence suggests that some
+massive clusters (e.g.,ωCentauri in the Milky Way,
+Haberle et al. 2024) likely host IMBHs. Such systems
+would fall below the resolution and surface-brightness
+limits of both current cosmological simulations and most
+9
+extragalactic imaging, yet could in principle contribute
+to the off-nuclear TDE population.
+3.3.Radial Distribution
+The final demographic property of the current off-
+nuclear TDE sample is the wide range of halo-centric
+radii at which these events occur. From the deprojected
+offsets listed in Table 1, the four events span nearly
+two orders of magnitude in normalized radius, from
+RTDE/R200≃0.003 (AT2024tvd) toR TDE/R200≃0.11
+(EP240222a).
+Figure 5 compares these locations to the radial distri-
+bution of wandering black holes predicted byROMULUS.
+The blue and teal curves show the simulated halo-centric
+distributions, dN/d(R •/R200), atz= 0.05 for halos
+with log10(M200/M⊙) = 12.5–13 and 13–13.5, respec-
+tively, while the red kernels mark the observed events.
+In the simulations, most wandering black holes reside at
+0.01≲R •/R200≲0.1, with a declining tail toward both
+smaller and larger radii.
+The observed off-nuclear TDEs fall within this pre-
+dicted range. AT2024tvd, atR TDE/R200≃0.003, lies
+near the inner edge of the simulated distribution, where
+wandering black holes are rare and typically in the final
+stages of orbital decay toward the halo center. Accord-
+ingly, the discovery of additional off-nuclear TDEs at
+similarly small halo-centric radii to AT2024tvd is ex-
+pected to be rare. The remaining events sample the
+main body and outer tail of the distribution.
+Overall, the radial locations of the current off-nuclear
+TDE sample are fully consistent with the expectations
+for wandering black holes in massive halos.
+4.CONCLUSION
+The growing sample of secure off-nuclear TDEs pro-
+vides direct empirical evidence for, and a path to the
+study of the long-predicted population of off-nuclear
+massive black holes (M •≥104M⊙). Despite the small
+sample size, these events already exhibit two demo-
+graphic patterns: (i) all occur in massive, early-type
+galaxies withM ⋆≃1011M⊙; and (ii) events at larger
+halo-centric radii are associated with detectable satellite
+dwarfs, whereas those deeper in their parent galaxy halo
+lack stellar counterpart.
+In thisLetterwe showed that both trends can be ex-
+tracted from theROMULUSsimulations and are therefore
+general expectations of hierarchical galaxy assembly. By
+combining the simulation’s WBH occupation statistics
+with empirical constraints on the local galaxy popula-
+tion, we computed the volumetric WBH density as a
+function of parent stellar mass,ϕ WBH(M⋆). This distri-
+bution peaks sharply atM ⋆= 1011M⊙and places the
+102
+101
+100
+R/R200
+0.02.55.07.510.012.515.0dN/dR
+ROMULUS: z=0.05, log10(M200)[12.5,13)
+ROMULUS: z=0.05, log10(M200)[13,13.5)
+Off-Nuclear TDEs
+Typical galaxy half-light radiusFigure 5.Radial distribution of wandering black holes in
+ROMULUScompared to the observed locations of off-nuclear
+TDEs. Blue and teal curves show the halo-centric distribu-
+tions, dN/d(R •/R200), of wandering black holes atz= 0.05
+for halos with log10(M200/M⊙) = 12.5–13 and 13–13.5, re-
+spectively (Ricarte et al. 2021b). Red kernels mark the de-
+projected halo-centric radii of the four observed off-nuclear
+TDEs. Yellow line and contour illustrate the typical half-
+light radius (R 1/2) of galaxies.
+majority of WBHs in the local Universe in parent galax-
+ies within the narrow range 10.7≲log10(M⋆/M⊙)≲
+11.2, naturally explaining why the entire off-nuclear
+TDE sample is located in galaxies with such mass range.
+We further showed that the observed presence or ab-
+sence of a detectable stellar counterpart follows from
+tidal stripping. InROMULUS, WBHs that retain resolved
+stellar overdensities (e.g., bound dwarf satellites, as ob-
+served for 3XMM J215-05 and EP20240222a) preferen-
+tially reside at larger halo-centric radii, while the dom-
+inant population at smallerR •/R200has overdensities
+near unity, consistent with the non-detection of stellar
+counterpart for AT2024tvd and AT2025abcr.
+Taken together, these results support a simple in-
+terpretation: off-nuclear TDEs are transient accretion
+signposts of the WBH population long predicted by
+cosmological simulations. As the sample expands with
+wide-field time-domain surveys, two clear, testable pre-
+dictions follow: parent galaxies should continue to clus-
+ter around 10.7≲log10(M⋆/M⊙)≲11.2, and the bi-
+modality in the relation between stellar overdensity and
+halo-centric radius should, with a few exceptions, per-
+sist. The growing sample of off-nuclear TDEs will there-
+fore provide increasingly stringent tests of off-nuclear
+massive black hole demographics, satellite disruption,
+and hierarchical structure formation.
+Acknowledgments– MG is grateful to Suvi Gezari and
+Andrew Mummery for their comments on an early ver-
+sion of this paper, and to Angelo Ricarte for a valuable
+discussion on wandering black holes.
+10
+APPENDIX
+A.FROMM ⋆ANDR 1/2TOM 200ANDR 200
+We estimate the virial mass (M 200) and correspond-
+ing virial radius (R 200) of each galaxy from its stellar
+mass (M ⋆), projected half-light radius (R 1/2), and red-
+shift (z) using a Bayesian framework that combines the
+stellar-to-halo mass relation (SHMR) with the empiri-
+cal size–halo relation. The SHMR provides a monotonic
+mapping between stellar and halo mass, reflecting the
+efficiency of baryon conversion into stars across cosmic
+time. We adopt the functional form of Moster et al.
+(2013), as shown in Equation 2, with an intrinsic scat-
+ter ofσ logM ∗= 0.1 dex.
+Galaxy size information is incorporated through the
+empirical scaling between the half-light radius and halo
+radius,R 1/2=fsizeR200, which encapsulates the struc-
+tural coupling between galaxies and their host halos.
+For early-type (quenched) systems, we adopt a prior
+fsize= 0.015 with a lognormal dispersionσ logf =
+0.1 dex, consistent with observed size–halo relations for
+massive ellipticals (e.g., Kravtsov 2013). BothM 200
+andf sizeare treated as free parameters, and their joint
+posterior distribution is sampled usingemcee(Foreman-
+Mackey et al. 2013).
+The likelihood simultaneously constrains the stellar
+and structural observables as
+lnL=−1
+2"
+(logMobs
+∗−logMmodel
+∗ (M200))2
+σ2
+logM ∗#
++
+1
+2"
+(logRobs
+1/2−log(f sizeR200(M200)))2
+σ2
+logR#
+,(A1)
+whereσ logR= 0.1 dex represents the intrinsic scatter in
+the size–halo relation.
+For each MCMC sample, the virial radius is computed
+from the corresponding halo mass using
+M200=4
+3πR3
+200200ρ c(z),(A2)
+whereρ c(z) is the critical density of the Universe at
+redshiftz. The critical density evolves with redshift as
+ρc(z) =3H2(z)
+8πG, whereGis the gravitational constant
+andH(z) is the Hubble parameter at redshiftz. The
+latter is obtained from the cosmological expansion law
+in a flat ΛCDM model,H(z) =H 0p
+Ωm(1 +z)3+ Ω Λ,
+so thatρ c(z) increases with redshift. This evolving crit-
+ical density defines the overdensity threshold used to
+calculate virial masses and radii.
+Overall, this approach combines stellar mass and
+galaxy size information to infer self-consistent halo prop-erties while naturally incorporating observational scat-
+ter and empirical scaling uncertainties.
+B.GALAXY MASSES
+We estimate parent-galaxy stellar masses in a homoge-
+neous manner using optical photometry from the Legacy
+Survey Data Release 10 (Dey et al. 2019), following
+the color–dependent mass-to-light ratio prescription of
+Baldry et al. (2012). Total galaxy fluxes are measured
+from the best-fittingTractorS´ ersic models in theg
+andibands.
+All photometry is corrected for Galactic extinction
+using the dust maps of Schlafly & Finkbeiner (2011)
+and the extinction law of Cardelli et al. (1989). Stellar
+masses are then computed from the extinction-corrected
+i-band luminosity and the rest-frame color (g−i) 0via
+log10(M⋆/Li) =a+b(g−i) 0,(B3)
+with coefficientsa=−0.68±0.05 andb= 0.73±0.05, as
+calibrated by Baldry et al. (2012). Luminosity distances
+are calculated assuming a flat ΛCDM cosmology with
+H0= 69 km s−1Mpc−1.
+Uncertainties onM ⋆include contributions from pho-
+tometric errors in thegandiband and the intrinsic
+scatter in the mass-to-light ratio calibration. We assume
+no internal extinction within the parent galaxies, which
+is a reasonable approximation for quenched systems.
+By using S´ ersic luminosities, as in Baldry et al. (2012),
+we ensure that the effective aperture is not fixed but in-
+stead scales with galaxy distance and physical size. This
+guarantees that stellar masses are measured consistently
+across the sample and can be meaningfully compared.
+Importantly, by adopting the exact same methodology
+as Baldry et al. (2012), we ensure that our inferred stel-
+lar masses are directly comparable to those entering the
+galaxy stellar mass function used throughout this work.
+C.COMPUTING Σ ⋆,LOCAL /Σ⋆,HALO FOR
+3XMM J2150−05 AND EP240222A
+To characterize the local stellar environments of the
+two off-nuclear TDE associated with dwarf satellites,
+EP240222a and 3XMM J2150−05, we compute the ra-
+tio between the local and ambient stellar surface densi-
+ties, Σ ⋆,local /Σ⋆,halo , using deep optical pre-TDE imag-
+ing. For 3XMM J2150−05 we use a 1999HST/WFPC2
+image on filter F814W, while for EP240222a use use
+Legacy Surveyr−band image from 2014. This quantity
+provides a projected, observational analogue to the lo-
+11
+cal stellar density contrast used in numerical studies of
+wandering black holes (e.g., Ricarte et al. 2021b).
+For each system, we define a narrow slit connecting
+the host galaxy nucleus and the transient position, along
+which a one-dimensional flux profile is measured. The
+slit defines the radial direction of the galaxy in projec-
+tion and serves to locate the transient relative to the
+host and to visualize the local environment (upper right
+panel in Fig. 6).
+The local stellar surface density, Σ ⋆,local , is measured
+within a circular aperture (red in Fig. 6) with a ra-
+dius that is 3×the image Point Spread Function (PSF),
+∼0.15′′HST/WFPC2 and∼1′′for Legacy, centered
+on the dwarf position. The ambient halo surface den-
+sity, Σ ⋆,halo , is estimated using two rectangular regions
+placed perpendicular to the slit direction at the same
+projected host-centric radius as the dwarf (yellow in
+Fig. 6). These regions sample the surrounding stel-
+lar light while excluding the dwarf. Both Σ ⋆,local and
+Σ⋆,halo are computed as the mean surface brightness
+within their respective regions, minimizing sensitivity
+to outliers and small-scale substructure.
+We convert the measured surface brightness ratio into
+a stellar surface-density ratio by assuming that the stel-
+lar mass-to-light ratio is the same in the local and halo
+regions. This assumption is reasonable for these sys-
+tems, as the off-nuclear transients are associated with
+compact dwarf hosts that exhibit old stellar popula-
+tions (Lin et al. 2018; Jin et al. 2025). The ratio
+Σ⋆,local /Σ⋆,halo is then computed directly from the me-
+dian surface densities.
+For AT2024tvd and AT2025abcr, no statistically sig-
+nificant local overdensity is detected (Yao et al. 2025;
+Stein et al. 2026); for these systems we therefore set
+Σ⋆,local /Σ⋆,halo = 1 by definition.
+12
+21h50m23s22s21s-5°50'40"
+50"
+51'00"
+10"
+20"
+RADec
+10 kpcN
+EParent Galaxy Nucleus
+102
+101
+Flux Density (arbitrary units)0.0 2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0
+Radius from peak along slit (arcsec)102
+101
+100101Flux (arbitrary units)
+Flux profile (neighbor-median smoothed)
+±3× PSF's FWHM around dwarf 
+21h50m23.0s22.8s22.6s22.4s22.2s22.0s-5°51'05"
+10"
+15"
+RADec
+11h32m06s04s02s00s27°01'00"
+00'30"
+00"
+26°59'30"
+RADec
+10 kpcParent Galaxy Nucleus
+102
+101
+Flux Density (arbitrary units)0 10 20 30 40 50 60
+Radius from peak along slit (arcsec)102
+101
+100Flux (arbitrary units)
+Flux profile (neighbor-median smoothed)
+±3× PSF's FHWM around dwarf 
+11h32m07s06s05s27°00'30"
+15"
+00"
+RADec
+Figure 6.Stellar counterparts of the off-nuclear TDEs 3XMM J2150−05 (Top) and EP240222a (Bottom). For each system,
+the left panel shows the parent galaxy image (pre-TDE) with the slit connecting the galaxy nucleus to the dwarf galaxy position
+(blue) and the two rectangular regions used to estimate the ambient halo surface density (yellow), placed perpendicular to the slit
+at the same projected host-centric radius. The right panel shows the radial flux profile measured along the slit, with red points
+highlighting the region around the dwarf galaxy location. The lower panels show zoomed views of the dwarf environments,
+including the local aperture (red) and the halo comparison regions (yellow). These regions are used to compute the ratio
+Σ⋆,local /Σ⋆,halo shown in Table 1.
+13
+REFERENCES
+Amaro-Seoane, P., Audley, H., Babak, S., et al. 2017, arXiv
+e-prints, arXiv:1702.00786,
+doi: 10.48550/arXiv.1702.00786
+Baldry, I. K., Driver, S. P., Loveday, J., et al. 2012,
+MNRAS, 421, 621, doi: 10.1111/j.1365-2966.2012.20340.x
+Begelman, M. C., Blandford, R. D., & Rees, M. J. 1980,
+Nature, 287, 307, doi: 10.1038/287307a0
+Bellm, E. C., Kulkarni, S. R., Graham, M. J., et al. 2019,
+PASP, 131, 018002, doi: 10.1088/1538-3873/aaecbe
+Bellovary, J. M., Governato, F., Quinn, T. R., et al. 2010,
+ApJL, 721, L148, doi: 10.1088/2041-8205/721/2/L148
+Cardelli, J. A., Clayton, G. C., & Mathis, J. S. 1989, ApJ,
+345, 245, doi: 10.1086/167900
+Chandrasekhar, S. 1943, ApJ, 97, 255, doi: 10.1086/144517
+Chang, Y.-C., Soria, R., Kong, A. K. H., et al. 2025, ApJ,
+983, 109, doi: 10.3847/1538-4357/adbbee
+Charalampopoulos, P., Leloudas, G., Malesani, D. B., et al.
+2022, A&A, 659, A34, doi: 10.1051/0004-6361/202142122
+Colpi, M. 2014, SSRv, 183, 189,
+doi: 10.1007/s11214-014-0067-1
+Comerford, J. M., & Greene, J. E. 2014, ApJ, 789, 112,
+doi: 10.1088/0004-637X/789/2/112
+Comerford, J. M., Griffith, R. L., Gerke, B. F., et al. 2009,
+ApJL, 702, L82, doi: 10.1088/0004-637X/702/1/L82
+Dey, A., Schlegel, D. J., Lang, D., et al. 2019, AJ, 157, 168,
+doi: 10.3847/1538-3881/ab089d
+Donato, D., Cenko, S. B., Covino, S., et al. 2014, ApJ, 781,
+59, doi: 10.1088/0004-637X/781/2/59
+Farrell, S. A., Webb, N. A., Barret, D., Godet, O., &
+Rodrigues, J. M. 2009, Nature, 460, 73,
+doi: 10.1038/nature08083
+Ferrarese, L., & Merritt, D. 2000, ApJL, 539, L9,
+doi: 10.1086/312838
+Foreman-Mackey, D., Hogg, D. W., Lang, D., & Goodman,
+J. 2013, PASP, 125, 306, doi: 10.1086/670067
+Gezari, S., Hammerstein, E., Yao, Y., et al. 2021, Transient
+Name Server AstroNote, 103, 1
+Governato, F., Colpi, M., & Maraschi, L. 1994, MNRAS,
+271, 317, doi: 10.1093/mnras/271.2.317
+Grotova, I., Rau, A., Baldini, P., et al. 2025, A&A, 697,
+A159, doi: 10.1051/0004-6361/202553669
+G¨ ultekin, K., Richstone, D. O., Gebhardt, K., et al. 2009,
+ApJ, 698, 198, doi: 10.1088/0004-637X/698/1/198
+Guolo, M., Gezari, S., Yao, Y., et al. 2024, ApJ, 966, 160,
+doi: 10.3847/1538-4357/ad2f9f
+Guolo, M., & Mummery, A. 2025, ApJ, 978, 167,
+doi: 10.3847/1538-4357/ad990aGuolo, M., Mummery, A., van Velzen, S., et al. 2025, arXiv
+e-prints, arXiv:2510.26774,
+doi: 10.48550/arXiv.2510.26774
+—. 2026, arXiv e-prints, arXiv:2602.12272.
+https://arxiv.org/abs/2602.12272
+Gwyn, S. D. J. 2012, AJ, 143, 38,
+doi: 10.1088/0004-6256/143/2/38
+Haberle, M., Neumayer, N., Seth, A., et al. 2024, Nature,
+631, 285, doi: 10.1038/s41586-024-07511-z
+Hammerstein, E., Gezari, S., van Velzen, S., et al. 2021,
+ApJL, 908, L20, doi: 10.3847/2041-8213/abdcb4
+Ho, A. Y. Q., Perley, D. A., Gal-Yam, A., et al. 2023, ApJ,
+949, 120, doi: 10.3847/1538-4357/acc533
+Islam, R. R., Taylor, J. E., & Silk, J. 2004, MNRAS, 354,
+427, doi: 10.1111/j.1365-2966.2004.08201.x
+Jin, C. C., Li, D. Y., Jiang, N., et al. 2025, arXiv e-prints,
+arXiv:2501.09580, doi: 10.48550/arXiv.2501.09580
+Kaaret, P., Feng, H., & Roberts, T. P. 2017, ARA&A, 55,
+303, doi: 10.1146/annurev-astro-091916-055259
+Knollmann, S. R., & Knebe, A. 2009, ApJS, 182, 608,
+doi: 10.1088/0067-0049/182/2/608
+Kormendy, J., & Ho, L. C. 2013, ARA&A, 51, 511,
+doi: 10.1146/annurev-astro-082708-101811
+Kravtsov, A. V. 2013, ApJL, 764, L31,
+doi: 10.1088/2041-8205/764/2/L31
+Lin, D., Strader, J., Carrasco, E. R., et al. 2018, Nature
+Astronomy, 2, 656, doi: 10.1038/s41550-018-0493-1
+Lin, D., Strader, J., Romanowsky, A. J., et al. 2020, ApJL,
+892, L25, doi: 10.3847/2041-8213/ab745b
+Magorrian, J., Tremaine, S., Richstone, D., et al. 1998, AJ,
+115, 2285, doi: 10.1086/300353
+Maksym, W. P., Ulmer, M. P., Eracleous, M. C., Guennou,
+L., & Ho, L. C. 2013, MNRAS, 435, 1904,
+doi: 10.1093/mnras/stt1379
+Maksym, W. P., Ulmer, M. P., Roth, K. C., et al. 2014,
+MNRAS, 444, 866, doi: 10.1093/mnras/stu1485
+Menon, H., Wesolowski, L., Zheng, G., et al. 2015,
+Computational Astrophysics and Cosmology, 2, 1,
+doi: 10.1186/s40668-015-0007-9
+Moster, B. P., Naab, T., & White, S. D. M. 2013, MNRAS,
+428, 3121, doi: 10.1093/mnras/sts261
+Mummery, A., & van Velzen, S. 2025, arXiv e-prints,
+arXiv:2410.17087, doi: 10.48550/arXiv.2410.17087
+Mummery, A., van Velzen, S., Nathan, E., et al. 2024,
+MNRAS, 527, 2452, doi: 10.1093/mnras/stad3001
+Natarajan, P. 2014, General Relativity and Gravitation, 46,
+1702, doi: 10.1007/s10714-014-1702-6
+Ni, Y., Di Matteo, T., Bird, S., et al. 2022, MNRAS, 513,
+670, doi: 10.1093/mnras/stac351
+14
+Perley, D. A., Mazzali, P. A., Yan, L., et al. 2019, MNRAS,
+484, 1031, doi: 10.1093/mnras/sty3420
+Pfeffer, J., Griffen, B. F., Baumgardt, H., & Hilker, M.
+2014, MNRAS, 444, 3670, doi: 10.1093/mnras/stu1705
+Planck Collaboration, Aghanim, N., Akrami, Y., et al.
+2020, A&A, 641, A6, doi: 10.1051/0004-6361/201833910
+Rees, M. J. 1988, Nature, 333, 523, doi: 10.1038/333523a0
+Reines, A. E., Condon, J. J., Darling, J., & Greene, J. E.
+2020, ApJ, 888, 36, doi: 10.3847/1538-4357/ab4999
+Ricarte, A., Tremmel, M., Natarajan, P., & Quinn, T.
+2021a, ApJL, 916, L18, doi: 10.3847/2041-8213/ac1170
+Ricarte, A., Tremmel, M., Natarajan, P., Zimmer, C., &
+Quinn, T. 2021b, MNRAS, 503, 6098,
+doi: 10.1093/mnras/stab866
+Schlafly, E. F., & Finkbeiner, D. P. 2011, ApJ, 737, 103,
+doi: 10.1088/0004-637X/737/2/103
+Seth, A. C., van den Bosch, R., Mieske, S., et al. 2014,
+Nature, 513, 398, doi: 10.1038/nature13762
+Somalwar, J. J., Ravi, V., Margutti, R., et al. 2025, ApJ,
+995, 228, doi: 10.3847/1538-4357/ae1501
+Soria, R., Musaeva, A., Wu, K., et al. 2017, MNRAS, 469,
+886, doi: 10.1093/mnras/stx888
+Stein, R., Carney, J., Ward, C., et al. 2026, arXiv e-prints,
+arXiv:2602.10180. https://arxiv.org/abs/2602.10180
+Storchi-Bergmann, T., & Schnorr-M¨ uller, A. 2019, Nature
+Astronomy, 3, 48, doi: 10.1038/s41550-018-0611-0
+Sturm, M. R., Reines, A. E., Lohfink, A. M., et al. 2026,
+ApJ, 996, 41, doi: 10.3847/1538-4357/ae1eec
+Taylor, M. A., Tahmasebzadeh, B., Thompson, S., et al.
+2025, ApJL, 991, L24, doi: 10.3847/2041-8213/ae028e
+Tremaine, S., Gebhardt, K., Bender, R., et al. 2002, ApJ,
+574, 740, doi: 10.1086/341002
+Tremmel, M., Governato, F., Volonteri, M., Pontzen, A., &
+Quinn, T. R. 2018a, ApJL, 857, L22,
+doi: 10.3847/2041-8213/aabc0a
+Tremmel, M., Governato, F., Volonteri, M., & Quinn, T. R.
+2015, MNRAS, 451, 1868, doi: 10.1093/mnras/stv1060Tremmel, M., Governato, F., Volonteri, M., Quinn, T. R.,
+& Pontzen, A. 2018b, MNRAS, 475, 4967,
+doi: 10.1093/mnras/sty139
+Tremmel, M., Karcher, M., Governato, F., et al. 2017,
+MNRAS, 470, 1121, doi: 10.1093/mnras/stx1160
+Tremmel, M., Quinn, T. R., Ricarte, A., et al. 2019,
+MNRAS, 483, 3336, doi: 10.1093/mnras/sty3336
+Untzaga, J., Bonoli, S., Izquierdo-Villalba, D., Mezcua, M.,
+& Spinoso, D. 2024, MNRAS, 535, 3293,
+doi: 10.1093/mnras/stae2454
+Uppal, A., Ward, C., Gezari, S., et al. 2024, ApJ, 975, 286,
+doi: 10.3847/1538-4357/ad7ff0
+van Velzen, S., Gezari, S., Hammerstein, E., et al. 2021,
+ApJ, 908, 4, doi: 10.3847/1538-4357/abc258
+Van Wassenhove, S., Capelo, P. R., Volonteri, M., et al.
+2014, MNRAS, 439, 474, doi: 10.1093/mnras/stu024
+Voggel, K. T., Seth, A. C., Baumgardt, H., et al. 2019,
+ApJ, 871, 159, doi: 10.3847/1538-4357/aaf735
+Volonteri, M., Haardt, F., & Madau, P. 2003, ApJ, 582,
+559, doi: 10.1086/344675
+Wadsley, J. W., Keller, B. W., & Quinn, T. R. 2017,
+MNRAS, 471, 2357, doi: 10.1093/mnras/stx1643
+Ward, C., Gezari, S., Frederick, S., et al. 2021, ApJ, 913,
+102, doi: 10.3847/1538-4357/abf246
+Yao, Y., Ravi, V., Gezari, S., et al. 2023, ApJL, 955, L6,
+doi: 10.3847/2041-8213/acf216
+Yao, Y., Chornock, R., Ward, C., et al. 2025, ApJL, 985,
+L48, doi: 10.3847/2041-8213/add7de
+Yuan, W., Zhang, C., Ling, Z., et al. 2018, in Society of
+Photo-Optical Instrumentation Engineers (SPIE)
+Conference Series, Vol. 10699, Space Telescopes and
+Instrumentation 2018: Ultraviolet to Gamma Ray, ed.
+J.-W. A. den Herder, S. Nikzad, & K. Nakazawa,
+1069925, doi: 10.1117/12.2313358

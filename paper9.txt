@@ -1,0 +1,965 @@
+Draft version February 16, 2026
+Typeset using L ATEXtwocolumnstyle in AASTeX7.0.1
+Presaging Doppler beaming discoveries of double white dwarfs during the Rubin LSST era
+Gautham Adamane Pallathadka
+ ,1Yossef Zenati
+ ,2, 1Nadia L. Zakamska
+ ,1, 3Ngan H. Nguyen
+ ,1and
+Anthony L. Piro
+4
+1William H. Miller III Department of Physics & Astronomy, Johns Hopkins University, 3400 N Charles St, Baltimore, MD 21218, USA
+2Astrophysics Research Center of the Open University (ARCO), Department of Natural Sciences, Ra’anana 4353701, Israel
+3Institute for Advanced Study, Princeton, NJ 08540, USA
+4The Observatories of the Carnegie Institution for Science, Pasadena, CA 91101, USA
+ABSTRACT
+Double white dwarfs (DWDs) are by far the most common compact binaries in the Milky Way,
+are important low-frequency gravitational-wave sources, and in some cases merge to become Type Ia
+supernovae. So far, no DWD has been identified solely through relativistic Doppler beaming, even
+though the beaming amplitude directly relates to the radial velocity semi-amplitude. In this work,
+we initiate a comprehensive binary population synthesis using SeBa and incorporate the resulting
+binaries into a tripartite Galaxy model. Our proof-of-concept simulations demonstrate that the Vera
+C. Rubin Observatory Legacy Survey of Space and Time (LSST) can reliably recover relatively bright
+(r≲20mag) unequal-mass binaries in compact orbits with P≈10–600 minutes with moderate
+to high inclinations. We find that LSST can detect at least 287 short-period DWDs, of which 47
+are LISA-detectable gravitational wave sources. LSST lightcurves allow us to readily determine the
+period and fully characterize the orbit, in contrast with the challenges of orbit determination for
+DWDsinspectroscopicsearches. Theformationofunequalmass, short-periodDWDsstronglydepends
+on the assumptions regarding the mass-transfer phases during binary population synthesis, and the
+total number and characteristics of Doppler-beamed DWD systems observed in LSST will provide
+new tests of models of stellar binary evolution. Here, we lay the foundation for the comprehensive
+integration of synthetic Galactic binary population into realistic LSST survey simulations, thereby
+enabling quantitative forecasts of the number and characteristics of any binary sub-population during
+the LSST era.
+Keywords:White dwarfs (1799) — Binaries (154) — Close binary stars (254) — Common envelope
+binary stars (2156) — Compact object binaries (283) — Lightcurves (918)
+1.INTRODUCTION
+With nearly half of all stars in the Galaxy in binaries,
+stellar binary evolution plays a key role in shaping the
+visible universe. The interactions and mergers within
+stellar binary systems lead to some of the most excit-
+ing astrophysical transients (B. Paczyński 1971; F. K.
+Röpke & O. De Marco 2023; P. Marchant & J. Boden-
+steiner 2024). The mergers of two White Dwarfs (WDs)
+may dominate the production of Type Ia supernovae
+(e.g., I. Iben & A. V. Tutukov 1984; R. F. Webbink
+1984; D. Maoz et al. 2014; A. J. Ruiter & I. R. Seiten-
+zahl 2025), a cornerstone of modern cosmology (A. G.
+Riess et al. 1998; S. Perlmutter et al. 1999). Compact
+Email: gadaman1@jh.edubinaries are sources of gravitational waves (GW) (G.
+Nelemans et al. 2001), and double WD (DWD) binaries
+are expected to be the most dominant Galactic source of
+GW detectable by upcoming space based GW detector
+Laser Interferometer Space Antenna (LISA); G. Nele-
+mans et al. 2001a; T. Kupfer et al. 2018; V. Korol et al.
+2017; H.-M. Jin et al. 2024).
+Discovery of DWDs in large-scale spectroscopic sur-
+veys such as Sloan Digital Sky Survey (SDSS) is ineffi-
+cientduetothetimeintensivemulti-epochspectroscopic
+observations and low DWD binary fraction of≈10%
+(C. Badenes & D. Maoz 2012; D. Maoz & N. Hallak-
+oun 2017; G. Adamane Pallathadka et al. 2025). So
+far, only around 400 close DWDs (optically unresolved)
+have been spectroscopically confirmed (J. Munday et al.
+2024). However, only a fraction of these have measuredarXiv:2602.13137v1  [astro-ph.SR]  13 Feb 2026
+2
+periods, and an even smaller fraction with compact or-
+bits with periods of few hours. The discovery of short-
+period DWDs in large-scale photometric surveys such
+as Zwicky Transient Facility (ZTF; E. C. Bellm et al.
+2019; R. Dekany et al. 2020) and Transiting Exoplanet
+Survey Satellite (TESS; G. R. Ricker et al. 2015) is pos-
+sible only in edge-on systems that show eclipses due to
+the compact radii of WDs. Low-mass short-period WD
+binaries can be identified due to tidal deformations and
+the resulting lightcurve variations (J. J. Hermes et al.
+2014), while binaries detected through reflection effects
+require an exceedingly hot companion (e.g., T. Kupfer
+et al. 2019, 2020; V. Schaffenroth et al. 2022)
+Most well-known close WD binaries have been identi-
+fied through effects that are highly dependent on geome-
+try or temperature (I. Iben & A. V. Tutukov 1986; L. R.
+Yungelson et al. 1994; G. Nelemans et al. 2001b; Z. Han
+1998; S. Toonen et al. 2012, 2017). Recently, L. Hell-
+ström et al. (2025) show that eccentric, tight DWs form
+through dynamical interactions in dense stellar clusters,
+not in the field. While rare—about10−15in the Milky
+Way—they can produce detectable GWs. These bina-
+ries offer a chance to independently measure their host
+distances clusters (see, B. Willems et al. 2007).
+An alternative pathway to discovering short-period
+DWDs is through the Doppler beaming effect, but it
+requires extremely precise photometry. Doppler beam-
+ing is a special-relativistic variation in the observed flux
+due to the time-varying velocity of the source relative to
+the observer (S. Zucker et al. 2007). Space missions such
+asCoRoTandKeplerhave already demonstrated that
+Doppler beaming can be utilized to detect non-eclipsing
+compact binaries and to directly infer their radial veloc-
+ity (RV) semi-amplitudes from photometric data (e.g.,
+T. Mazeh & S. Faigler 2010; P. Eigmüller et al. 2018; C.
+Zheng et al. 2024). A. Shporer et al. (2010) reported the
+first ground-based measurement of Doppler beaming in
+aDWDwithorbitalperiodof5.6hrandbeamingampli-
+tude of only 3 mmag. Typically, Doppler beaming effect
+is only of the order of a few milli-mags or less, and WDs
+are faint. Consequently, to the best of our knowledge,
+no DWD binary has been discovered through Doppler
+beaming alone.
+With the upcoming wide-field time-domain surveys
+with Vera Rubin Observatory’s Legacy Survey of Space
+and Time (LSST; LSST Science Collaboration et al.
+2009, 2017; Ž. Ivezić et al. 2019; N. J. Fantin et al.
+2020), the single visit photometric error can be as low
+as 5 millimags, which is comparable to Doppler beam-
+ing amplitudes. These amplitudes are readily measur-
+able when data from hundreds of visits are aggregated.
+LSST expands beyond targeted follow-up searches andcovers the entire Southern sky, and thus we are finally
+at the precipice of detecting binaries through Doppler
+beamingalone. Thissamplewillcomplementtheseveral
+hundred DWDs that will be discovered in LSST using
+eclipses (V. Korol et al. 2017; H.-M. Jin et al. 2024), will
+vastly increase the number of short-period DWDs, and
+contribute to the growing sample of LISA verification
+binaries – DWDs that are detectable by LISA as indi-
+vidual sources of low-frequency GWs (E. Finch et al.
+2023).
+This study is similar to the works of V. Korol et al.
+(2017) and H.-M. Jin et al. (2024), which estimated
+the number of eclipsing binaries detectable by LSST.
+We integrate binary population synthesis with a realis-
+tic model of the Milky Way to predict the number and
+characteristics of DWDs that LSST can detect through
+Doppler beaming, employing the SeBa rapid binary evo-
+lution code (G. Nelemans et al. 2001b; S. Toonen et al.
+2012; N. J. Fantin et al. 2020). These systems are incor-
+porated into a three-component Galactic model, encom-
+passing the thin disk, the thick disk, and the bulge. We
+utilize a time-dependent star formation history and as-
+sign sky positions and distances accordingly. For these
+DWDs, we generate LSST light curves based on the
+baseline ten-year observing strategy and assess the ef-
+ficiency of Doppler beaming in enabling the discovery of
+DWDs. Our primary objective is to evaluate whether
+LSST can identify approximately∼102DWDs through
+beaming and develop a strategy to efficiently identify
+DWDs in LSST with minimal false-positives.
+The paper is organized as follows: in Sec. 2, we de-
+scribe the Galactic DWD population synthesis and spa-
+tial distribution; in Sec. 3, we present our LSST ob-
+serving and period-recovery simulations; in Sec. 4 and
+Sec. 5, we summarize our main results and discuss their
+implications for DWD demographics and future GW ob-
+servations; andinSec.6weprovideourfinalconclusions.
+Orbital inclinations are defined relative to the plane of
+the sky.
+2.SIMULATING GALACTIC DWD POPULATION
+2.1.Binary Population Synthesis
+To simulate the DWD formation in the Galaxy, we
+use the rapid binary population synthesis code SeBa
+(G. Nelemans et al. 2001b; S. Toonen & G. Nelemans
+2013). For the mass-transfer phases in binary evolution,
+we follow theγαprescription and the parameter val-
+ues assumed by S. Toonen & G. Nelemans (2013). The
+primary star mass is drawn from the Kroupa mass func-
+tion between 0.9 – 10 M ⊙with solar metallicity. The
+secondary to primary mass ratio is drawn uniformly be-
+tween(0,1]. Thesemi-majoraxisisdrawnfromapower-
+3
+law distribution with index -1 between 0 and106R⊙,
+such that the semi-major axis distribution is flat in log
+scale. The eccentricity is drawn from a uniform distri-
+bution, which has been favored over the thermal distri-
+bution for close binaries (D. Raghavan et al. 2010; M.
+Moe & R. Di Stefano 2017; H.-C. Hwang et al. 2022;
+Y. Wu et al. 2025). We also repeated the analysis for
+a thermal distribution of eccentricity but found negligi-
+ble difference in our final result, which is likely because
+the close binaries that form short-period DWDs quickly
+circularize, making the initial eccentricity largely incon-
+sequential.
+2.2.Galactic Distribution of Stars
+We simulate the Galactic stellar population by divid-
+ing the Galaxy into the thin disk, the thick disk, and
+the bulge, as described in Appendix A. For the thin and
+thick disk, we model the star formation following N. J.
+Fantinetal.(2019)andapproximateitusingclosedform
+functions, resulting in the star formation rate (SFR) as
+a function of time shown in Fig. 1. The current thin disk
+SFR is 2.6 M ⊙/yr, and the peak of the thick disk SFR at
+9 M⊙/yr and 0.6 Gyr width. For the bulge, we assume
+a Gaussian distribution centered at 4.5 Gyr (8.5 Gyr in
+lookback time) and 1.5 Gyr width. The normalization
+is chosen such that total bulge mass matches the results
+of T. C. Licquia & J. A. Newman (2015). We obtain a
+total present-day stellar mass of4.73×1010M⊙.
+We split the age of the Galaxy intodt= 0.5Gyr bins
+and calculate the mass of formed stars in each bin for
+each component. We assume half of all visible stars are
+in binaries, or an initial binary fraction of 0.5, consis-
+tent with past binary population synthesis studies (S.
+Toonen et al. 2012; A. Lamberts et al. 2019; K. Breivik
+et al. 2020). M. Moe & R. Di Stefano (2017) find the bi-
+nary fraction to be less than 50% and dependent on the
+primary mass, and a fraction of stars to be in triples and
+quadruples. However, we only simulate binaries follow-
+ing the binary population synthesis simulations in the
+literature and, thus, set a constant binary fraction of 0.5
+for simplicity. Under this assumption, the total mass of
+stars in primaries is the same as the total mass of sin-
+gle stars in the galaxy. Assuming a uniform mass-ratio
+for the secondary, over a large sample (which is always
+satisfied at galactic scales) the average mass ratio is 0.5.
+Thus, for the entire Galactic stellar population 40% of
+the mass is in single stars, 40% of the mass is in the pri-
+mary stars of the binaries, and finally 20% of the mass is
+in the secondaries. The 40% of the mass in the primaries
+is distributed between [0.1,100] M ⊙based on Kroupa
+mass function. By integrating the Kroupa mass func-
+tion (or equivalently, by drawing a large mock sample),we find that nearly half of the total mass is contained in
+our simulation range between [0.9,10] M ⊙– i.e., in the
+types of stars that can lead to the formation of WDs
+in binaries over cosmic time. Thus, we expect 20% of
+the total stellar mass is assigned to be in such primaries
+in our simulation. Further, the mean mass of the stars
+sampled between [0.9,10] M ⊙is 2.11 M ⊙. IfdM T(t)is
+the total stellar mass formed in a time bin[t, t+dt], then
+we expect nearlydN(t)= (0.2dM T(t))/2.11 number of
+such binaries. For each star, we assign a formation time
+uniformly within the time bin[t, t+dt]with a resolution
+of 10 million years. The orbital inclination for each bi-
+nary is drawn from a sinusoidal distribution, consistent
+with randomly oriented orbits.
+Simulating the entire Galactic population, which
+amounts to nearly 4 billion binaries in the range of pa-
+rameters that is of interest to us, is computationally
+expensive. The stellar populations of a given age in dif-
+ferent regions of the Galaxy are identical in our model.
+Thus, we simulate 50 million binaries in SeBa, with stel-
+lar evolution time inferred based on the star formation
+distribution described above. We then assign coordi-
+nates and formation time to 1/4th of the total Galac-
+tic population, or nearly 1 billion binaries and resam-
+ple the 50 million simulated binaries to a much bigger
+sample of 1 billion. While the same DWD will get as-
+signed multiple times in the final sample, these copies
+will be distributed across the Galaxy and still give us
+a well-sampled population. Finally, any number that is
+inferred from this population is multiplied by 4 to get
+the total realistic number estimates.
+2.3.Synthetic photometry
+We use synthetic WD colors to simulate the observed
+photometry (P. M. Kowalski & D. Saumon 2006; P.-
+E. Tremblay et al. 2011; S. Blouin et al. 2018; A. Bé-
+dard et al. 2020)5. LSST filters are well approximated
+by SDSS and Pan-STARRS optical filters, and we use
+SDSSu-band absolute magnitude to represent the LSST
+uband, and Pan-STARRSgrizyabsolute magnitudes
+for the LSSTgrizybands. The absolute magnitude of
+the binary is computed from the sum of fluxes from both
+WDs. Taking into the account the dust extinctionA b
+(calculated as described in Appendix B) for a DWD at
+distanced kpc, the observed magnitude in a bandbcan
+be written as:
+mb,obs =m b,abs+ 5 logd kpc+ 10 +A b.(1)
+5https://www.astro.umontreal.ca/~bergeron/CoolingModels/
+4
+0 5 10
+Age of the Galaxy (Gyrs)0246810Star Formation Rate (M ⊙/yr)Thin disk
+Thick disk
+Bulge
+Combined
+0 5 10
+Age of the Galaxy (Gyrs)01234Total Stellar Mass ( ×1010M⊙)
+Figure 1.Left: Our adopted model for the SFR of the Milky Way (black line) composed of the thin disk (blue dashed line),
+thick disk (green dashed line), and the bulge (orange dashed line). Right: Cumulative stellar mass of these components as a
+function of time.
+For this work, we limit our analysis to targets brighter
+than 20th magnitude. Such WDs are in theGaiafoot-
+print with good distance estimates, and we use the
+nearly complete sample of WDs forG <20mag by
+N. P. Gentile Fusillo et al. (2021) to estimate the false-
+positive rate. Our work can be extended once the WD
+populationisbettercharacterizedatfaintermagnitudes.
+We also discard systems brighter than the 17th magni-
+tude as they are near the saturation limit of the LSST
+detector.
+3.LIGHTCURVE SIMULATION AND PERIOD
+RECOVERY
+3.1.Simulating LSST lightcurves
+To simulate the LSST cadence, we use the 10-year
+simulated LSST observations with the baseline strategy
+baseline_v5.0.0_10yrs6. For each DWD, we select
+all fields that are within the LSST FOV (1.75◦radius).
+A source in LSST footprint typically gets about 700 ob-
+servations with a minimum time gap of 30 minutes be-
+tween exposures.
+The Doppler beaming amplitude at band-pass wave-
+lengthλ bfor a binary with orbital periodP, massesm 1
+andm 2, surface temperaturesT eff,1andT eff,2, observ-
+able RV semi-amplitudesK 1andK 2, blackbody fluxes
+6https://s3df.slac.stanford.edu/data/rubin/sim-data/sims_
+featureScheduler_runs5.0/baseline/Fλb,1andF λb,2, andobservedmagnitudem b,obs, isgiven
+by (S. Zucker et al. 2007):
+A(λ b, mb,obs) =1
+cK1α′
+1(λb)Fλb,1−K 2α′
+2(λb)Fλb,2
+Fλb,1+Fλb,2.
+(2)
+Here,α′
+i(λ) =y ieyi/(eyi−1)andy i=hc/(λ bkBTeff,i),
+withi= 1,2.
+Assuming circular orbits, as expected for systems that
+have experienced common-envelope evolution and sub-
+sequent GW circularisation, and including the observa-
+tional errorδm b,obs, the binary model above results in
+a time-varying flux given by
+∆f(t)
+f(t)≈∆m(t) =A(λ, m b,obs) sin(2πt
+P+ϕ) +δm b,obs.
+(3)
+Thestandarddeviationofthenormallydistributederror
+of LSST photometry can be expressed as (Ž. Ivezić et al.
+2019):
+σb=q
+σ2sys+σ2
+rand;σ2
+rand= (0.04−γ)x+γx2,(4)
+where the systematic error isσ sys= 0.005mag and the
+random error isσ2
+rand. Here,x= 100.4(m b,obs−m5),m5is
+the5σdepth obtained from the baseline simulation and
+γdepends on sky brightness, readout noise, etc., and is
+taken from Table 2 of Ž. Ivezić et al. (2019).
+In Fig. 2 we show the variation resulting from Doppler
+beaming for different orbital periods for a prototypical
+5
+10−1100101
+Period (hours)10−410−310−2∆m∼∆f
+f
+Doppler Boosting amplitude
+Single exposure error
+Error after stacking 70 exposures
+Figure 2.Doppler beaming amplitude is shown for a
+binary with(M 1,Teff,1) = (0.3 M ⊙,10000 K),(M 2,Teff,2)
+= (0.6 M ⊙,7500 K), inclination of 60 degrees, and source
+magnitude of20 magsinrband. The dotted line corre-
+sponds to a single exposure error, and the dashed line is the
+estimated error after stacking 70 exposures or approximately
+10% of the total LSST exposures for a typical target.
+system. The single-exposure photometric error exceeds
+the Doppler beaming amplitude and is insufficient to de-
+tect photometric variation. However, over the lifespan
+of LSST such a system will be observed up to approxi-
+mately 700 times covering several thousand orbits. Per-
+forming a periodogram search has a similar to effect to
+stacking the observations at the same phase, and we can
+use this technique to check whether the system will be
+visible to LSST as a binary. Stacking 70 exposures, or
+10% of all observations, reduces the photometric error
+as shown in Fig. 2. Thus, in the phase-folded lightcurve
+the Doppler beaming amplitude can be greater than
+the photometric error, and, under favorable conditions,
+LSSTdatacanbeusedtoclassifythesystemasabinary.
+3.2.Period Recovery:
+WeusetheacceleratedLomb-Scargleperiodogramim-
+plemented byNIFTyinastropyto find the best-fit pe-
+riod (N. R. Lomb 1976; J. D. Scargle 1982; L. H. Gar-
+rison et al. 2024). We perform the periodogram search
+for periods between 10 minutes and 50 hours, a typi-
+cal range of periods expected for photometric variation
+in WDs. The Doppler beaming amplitude can vary for
+different bands, and some bands, such as ther-band,
+receive much more observations than others. We com-
+bine data from all the photometric bands into a singlelightcurve. These differences in amplitudes and the ef-
+fect of combining them can be seen as tracks with dif-
+fering amplitudes in the lightcurves shown in Fig. 3. In
+principle, performing a multi-band Lomb-Scargle peri-
+odogram will produce better results (see, e.g, J. T. Van-
+derPlas & Ž. Ivezić 2015). However, we find this compu-
+tationally impractical and suggest it only for improving
+systems that are first identified as varying.
+We compute the false-alarm probability inastropy
+which is the probability that a noisy dataset with the
+same cadence produces a periodic power as strong as
+the best-fit period (R. V. Baluev 2008). We classify
+systems with false alarm probability less than10−5as
+binary candidates.Gaiahas observed around 200,000
+WDs brighter than the 20th magnitude in optical band,
+which is a nearly complete sample (N. P. Gentile Fusillo
+et al. 2021). Only about half of these are in the southern
+hemisphereandfallintheLSSTfootprint. Afalsealarm
+probability of 0.001% implies that we expect around one
+WD to be incorrectly classified as a binary. We find that
+increasing this cutoff does not significantly increase the
+number of DWDs detected, while the false positives in-
+crease rapidly. Considering systems beyond 20th mag-
+nitude can also increase the number of DWDs detected,
+but at the cost of increased number of false-positives. A
+better characterization of LSST noise behavior in real
+observations, combined with simulations of the single
+WD population, will allow us to make a less conserva-
+tive estimate on the number of DWDs detected in the
+future.
+4.RESULTS
+We repeat the lightcurve simulation and period recov-
+ery ten times for different random seeds to ensure that
+the results are largely independent of the choice of the
+initial seed. Taking the average of ten runs, we find that
+LSST can detect at least 287 DWD binary candidates
+using Doppler beaming alone, of which at most a couple
+will be false-positives. We find that for a vast majority
+of these we can recover the true period, although there
+can be secondary peaks confounding the period deter-
+mination. In Fig. 3 we show four different examples of
+period recovery. The systems classified as binaries show
+a clear peak in the power spectrum, and the best-fit
+model closely matches the simulated model. As the false
+alarm probability increases, the amplitude of variation
+decreases and the binned lightcurve becomes noisier.
+To estimate the number of sources detectable by LISA
+wecalculatethecharacteristicstrainfollowingT.Kupfer
+et al. (2018) and compare it to the 4-year LISA sensi-
+tivity curve given by T. Robson et al. (2019). We find
+47 systems that are detectable by LISA. With further
+6
+-0.5 0 0.5
+Phase−0.04−0.020.000.020.04Flux
+Simulation model
+Bestﬁt model
+Raw Lightcurve
+Binned lightcurve
+100101
+Period [h]0.000.020.040.060.080.100.12Power
+True Period = 0.78 h
+Best Fit Period = 0.78 h
+False Alarm Probability = 3.7e-19
+-0.5 0 0.5
+Phase−0.06−0.04−0.020.000.020.040.06Flux
+Simulation model
+Bestﬁt model
+Raw Lightcurve
+Binned lightcurve
+100101
+Period [h]0.000.010.020.030.040.050.06Power
+True Period = 5.43 h
+Best Fit Period = 5.43 h
+False Alarm Probability = 9.8e-06
+-0.5 0 0.5
+Phase−0.15−0.10−0.050.000.050.100.15Flux
+Simulation model
+Bestﬁt model
+Raw Lightcurve
+Binned lightcurve
+100101
+Period [h]0.000.010.020.030.040.050.06Power
+True Period = 4.88 h
+Best Fit Period = 4.88 h
+False Alarm Probability = 1.6e-05
+-0.5 0 0.5
+Phase−0.2−0.10.00.10.2Flux
+Simulation model
+Bestﬁt model
+Raw Lightcurve
+Binned lightcurve
+100101
+Period [h]0.000.010.020.030.040.05Power
+True Period = 4.40 h
+Best Fit Period = 2.04 h
+False Alarm Probability = 7.3e-03
+Figure 3.Examples of period recovery for different values of false alarm probability. The systems in the top row would be
+classified as binary candidates, while those in the bottom row would be discarded based on our chosen cutoff. We have combined
+lightcurves from all available bands to reduce computational cost of periodogram search, even if the beaming amplitude varies
+for different bands, which can be seen in the inset plots as tracks with differing amplitudes.
+Prediction type Number
+Total number of DWDs in the Galaxy 7.2×108
+Number of DWDs identified in LSST 287
+Number of LISA detectable DWDs in LSST 47
+Table 1.SummaryofthesimulationandthenumberDWDs
+detected through Doppler beaming in this work.
+followup, such systems will enlarge the number of LISA
+verification binaries. The result is summarized in Ta-
+ble 1.
+5.DICUSSION
+Fig. 4 shows the inter-dependencies between various
+parameters of the detected DWDs. We find that most
+DWDs have a He-core WD companion, consistent with
+observations (W. R. Brown et al. 2020; A. Kosakowski
+et al. 2023; G. Adamane Pallathadka et al. 2025). The
+distribution of masses and temperatures makes it clear
+that Doppler beaming is strongest in systems where one
+of the two stars dominates the total luminosity, such
+that the Doppler beaming of one does not offset the
+Doppler beaming of the other. We find that shorter
+orbital periods are preferred but with a long tail, and
+with longer orbital periods requiring larger inclinations
+and brighter systems, as expected.
+To illustrate the multi-dimensional selection function
+that will influence the LSST detections, in Fig. 5 wecompare the period, total mass, and the mass ratio of
+detected DWDs to the rest of the DWDs withr <20
+mag and orbital period less than 10 hours. The pe-
+riod distribution shows that short-period binaries with
+orbital periods shorter than 5 hours are preferentially
+selected – the beaming amplitude is proportional to RV
+semi-amplitude which decreases at longer orbital peri-
+ods. From the mass ratio distribution, it is clear that
+Doppler beaming detections are biased to unequal-mass
+binaries. This is primarily because the WDs in equal
+mass binaries will have similar RV semi-amplitudes, and
+due to their similar sizes, they are more likely to have
+comparable luminosities. Thus, the Doppler beaming
+of one offsets the other (see, Equation 2). Also, at the
+same orbital period and same total system mass, the
+lower mass WD in unequal mass binaries has a larger
+RV semi-amplitude than either WDs in equal mass bi-
+naries, leadingtoalargerbeamingamplitude. Thispref-
+erence for unequal mass binaries leads to a narrow peak
+in total mass around 1 M ⊙, since extremely low mass
+and extremely high mass systems are more likely to be
+produced by equal mass binaries.
+We can make use of these selection preferences to ex-
+plore the mass-transfer phases of compact binary evo-
+lution. The mass-ratio distribution of DWDs strongly
+depends on assumptions regarding the mass-transfer
+phases during binary evolution. Some binary popula-
+tion models or the choice of parameters such as theα CE
+7
+0.2 0.6 1.003978118
+0.20.61.0M2(M⊙)
+0.2 0.6 1.00326497
+3.54.04.5log T eﬀ,1(K)
+3.5 4.0 4.50265277
+3.54.04.5log T eﬀ,2(K)
+3.5 4.0 4.50285684
+0300600Period (min)
+0 300 6000163248
+161820r (mag)
+16 18 200183755
+0.2 0.6 1.0
+M1(M⊙)04590i(◦)
+0.2 0.6 1.0
+M2(M⊙)
+3.5 4.0 4.5
+log T eﬀ,1(K)
+3.5 4.0 4.5
+log T eﬀ,2(K)
+0 300 600
+Period (min)
+16 18 20
+r (mag)0 45 90
+i(◦)0224365
+Figure 4.The distribution of parameters of recovered DWDs is shown. We show the 2D histograms in the background and
+the actual data points as a scatter plot on top.
+parameter of the common envelope phase can result in a
+dearth of unequal-mass binaries (Z. Li et al. 2023). This
+leadstonearlynobinariesshowingDopplerbeamingsig-
+nals. Thus, by comparing the total number of binaries
+detected through Doppler beaming in LSST and their
+characteristics with the binary population synthesis re-
+sults, we can constrain the binary evolution models.
+Fig. 6 shows that only systems within≈500 pc are
+recovered, which is a consequence of our magnitude cut-
+off (r <20mag). We find that most detected DWDs
+have ages around 6 Gyrs, indicating a thin disk origin,
+and a broad tail indicating a thick disk origin. Thick
+disk stars would originate with metallicity lower thanthe assumed solar value and consequently lead to WD
+masses greater than those with solar metallicity progen-
+itors (A. D. Romero et al. 2015). Thus, our work likely
+underestimates the number of massive WDs in binaries.
+Given the typical distances, we do not expect any stars
+to be located in the central bulge. The age-distance
+distribution shows a feeble tail, with stars further away
+being younger – a consequence of them being hotter and
+brighter. These DWDs are distributed throughout the
+Galaxy, although there is a slight preference towards the
+Galactic center as seen in Fig. 7.
+Detecting DWDs through Doppler beaming can po-
+tentially be contaminated by several types of interesting
+8
+0.0 2.5 5.0 7.5 10.0
+Period (hours)0102030405060# DWDs recovered
+02004006008001000
+# DWDs
+0.5 1.0 1.5 2.0
+Total Mass (M ⊙)0102030405060# DWDs recovered
+020040060080010001200
+# DWDs
+0.25 0.50 0.75 1.00
+q = M bright/Mdim020406080100# DWDs recovered
+0200400600800100012001400
+# DWDs
+Figure 5.The distribution of periods (left), total mass (middle), and the mass ratio (right) of the recovered DWDs (blue) as
+compared to the rest of the DWDs withr <20mag and period within 10 hours (grey). The figure illustrates the biases in the
+DWD sample selected through the Doppler beaming effect. We find that unequal mass binaries with period between 2–5 hours
+and total mass of 1 M ⊙are preferentially recovered.
+0.0 0.5 1.003469103
+0.0 0.5 1.0
+dICRS(kpc)0600012000Age (Myrs)
+0 6000 12000
+Age (Myrs)0203959
+Figure 6.The distribution of age and distance of the de-
+tected binaries is shown. We find that younger binaries that
+are hotter than the rest are detected to farther away dis-
+tances compared to rest of the sample.
+30 60 90 120 150 180 210 240 270 300 330
+RA-75°-60°-45°-30°-15°0°15°30°45°60°75°Dec
+DWDs
+LSST observation region
+Galactic plane
+Galactic center
+Figure 7.The distribution of detected DWDs in the Galaxy
+from one iteration of the period recovery simulation.
+interlopers. Pulsating WDs can produce lightcurve vari-
+ationsthatmaybeconfusedwiththeperiodicvariability
+of Doppler-beamed binaries. However, pulsating WDs
+are restricted to a narrow range of stellar temperatures
+and to periods within a couple of hours (V. Van Grootel
+et al. 2012). In addition to pulsating WDs, reflectionbinaries and ellipsoidal variables can produce similar si-
+nusoidally varying lightcurves (J. J. Hermes et al. 2014).
+Both these effects originate due to binary nature of the
+system and are equally interesting as Doppler beaming
+to detect short period DWDs. The color information
+provided by LSST and the spectroscopic followups will
+be helpful in distinguishing between these effects.
+6.CONCLUSIONS
+In this work, we have developed a forward-modeling
+framework to predict the binary population of DWDs
+thattheLSSTcandetectthroughDopplerbeaming. We
+start with a large SeBa binary population synthesis run,
+which provides the intrinsic properties and evolutionary
+histories of millions of binaries over 13 Gyrs. These sys-
+tems are then embedded in a three-component Milky
+Way model (thin disk, thick disk, and bulge) with a
+time-dependentstarformationhistoryinspiredbyrecent
+measurements of star formation rate. Together with a
+realistic spatial distribution and dust extinction model,
+this approach yields a synthetic present-day Galactic
+DWD population with distances and physical param-
+eters suitable for comparison with observations, LSST
+positions, and magnitudes. With such a sample, we sim-
+ulate their lightcurves including Doppler beaming and
+attempt to recover the binaries. We find that this is a
+promisingwaytoexpandthecatalogofcloseDWDbina-
+ries and find that we can expect to observe at least 287
+short-period DWDs with a median period of 4 hours, of
+which 47 will be LISA verification binaries. Once such
+systems are identified, inexpensive follow-up campaign
+of couple of exposures per target will be sufficient to de-
+termine the source of photometric variation and to clas-
+sify the system as a binary, with a well-measured orbital
+period using the lightcurve. Observing and characteriz-
+ing this population of binaries will help us answer some
+ofthelong-standingproblemsinstellarbinaryevolution.
+9
+Component rs zs Reference
+Thin Disk (H/R≃0.2) 3 kpc×(1−0.3(13−t/Gyr)
+8)0.3 kpc J. Bland-Hawthorn & O. Gerhard (2016); N. Frankel et al. (2018)
+Thick Disk (H/R≥0.3) 2 kpc 0.9 kpc J. Bland-Hawthorn & O. Gerhard (2016)
+Bulge (H/R≥0.3) 0.5 kpc 0.2 kpc J. Bland-Hawthorn & O. Gerhard (2016)
+Table 2.Distribution of parameters of the Galactic components. Here,H/R∼c s/(rΩ(r)).
+ACKNOWLEDGMENTS
+GAP and NLZ acknowledge support by the JHU Pres-
+ident’s Frontier Award to NLZ. YZ acknowledges sup-
+port from MAOF grant 12641898 and visitor support
+from the Observatories of the Carnegie Institution for
+Science, Pasadena CA, where part of this work was com-
+pleted. This work was carried out at the Advanced
+Research Computing at Hopkins (ARCH) core facility
+(rockfish.jhu.edu), which is supported by the National
+ScienceFoundation(NSF)grantnumberOAC1920103.
+AUTHOR CONTRIBUTIONS
+GAP was responsible for writing and submitting the
+manuscript. All other authors contributed equally and
+edited the manuscript.DATA AVAILABILITY
+All codes and final results of the DWD population,
+including the code used to produce the figures, are made
+public and available at the GitHub repository Doppler-
+BeamingDWDs_LSST.
+Software:SeBa(S. Toonen et al. 2012),
+AstroColour(Z.G.Lane2025),astropy(AstropyCol-
+laboration et al. 2013, 2018, 2022),matplotlib(J. D.
+Hunter 2007),numpy(C. R. Harris et al. 2020),pandas
+(W. McKinney 2010),scipy(P. Virtanen et al. 2020),
+lightkurve( Lightkurve Collaboration et al. 2018),
+NIFTy(L. H. Garrison et al. 2024),dustmaps(G. M.
+Green 2018).
+APPENDIX
+A.STRUCTURE OF THE GALAXY
+We consider a realistic Galactic model by splitting the Galaxy into three components: thin disk, thick disk, and
+bulge (N. Frankel et al. 2018; T. Wagg et al. 2022). Each component is modeled using cylindrical coordinates(r, ϕ, z).
+1. Dependence onr: Assuming exponentially decaying surface brightness profile of galaxies, the probability density
+distribution of stars is given by:
+p(r) =r
+r2sexp
+−r
+rs
+,(A1)
+wherer sis the scale-length and varies for each Galactic components. This is a gamma distribution with shape
+parameter 2 and scale parameterr s. We make use ofscipy.stats.gammato draw samples from this distribution.
+2. Dependence onz: The exponentially decaying surface brightness profile assumption results in a probability
+density distribution ofz-coordinate of stars give by:
+p(z) =1
+zsexp
+−|z|
+zs
+,(A2)
+wherez sis the scale-length. This is a gamma distribution with shape parameter 1 and scale parameterz s. We
+again make use ofscipy.stats.gammato draw samples from this distribution.
+3. Dependence onϕ: The angular component is uniformly assigned between [0,2π].
+The full 3D probability distribution is the product of the three probability densities. The different scale-lengths
+are summarized in Table 2. The coordinates(r, ϕ, z)are converted to Galactocentric coordinates(x, y, z)≡
+(rcosϕ, rsinϕ, z), which are then converted to (RA,dec,d) usingastropy. For the Galactocentric coordinates, we
+use theastropydefault definition with the Earth situated along negativex-axis i.eϕ=180 degrees.
+10
+B.DUST EXTINCTION
+Following the same prescription as A. Sandage (1972) and G. Nelemans et al. (2004), we assume a uniform sheet of
+dust along the Galactic plane with density in thez-direction proportional to the stellar density of the thin disk, with
+scale heightz s= 0.3kpc. This approximation works well when the observed stars are at a distance smaller than the
+scale-lengths in Table 2, which is true for WDs withr≲20mag. Under this assumption, extinction can be written as
+the ratio of the total column density of dust towards a star with Galactic coordinates(l, b)at distancedand a star
+along the same direction at infinite distance:
+AV(l, b, d)
+AV(l, b,∞)=Rd
+0exp 
+−Lsin|b|
+zs
+dL
+R∞
+0exp 
+−Lsin|b|
+zs
+dL
+=⇒A V(l, b, d) =A V(l, b,∞)
+1−e−dsin|b|
+zs(B3)
+This equation becomes ill-defined for|b| ≪1when we use a realistic map forA V(l, b,∞)and thus we set
+b=max(|b|,1◦)which makes the function well behaved for all angles. We obtainA V(l, b,∞)from 2D dust ex-
+tinction map by D. J. Schlegel et al. (1998), implemented industmapspackage (G. M. Green 2018). To con-
+vertA Vto appropriate babd-passes, we use the result from E. F. Schlafly & D. P. Finkbeiner (2011) and get
+Ab= [1.37,1.02,0.73,0.54,0.43,0.35]×A Vforu, g, r, i, z, ybands, respectively.
+REFERENCES
+Adamane Pallathadka, G., Chandra, V., Zakamska, N. L.,
+et al. 2025, Double White Dwarf Binaries in SDSS-V
+DR19 : A catalog of DA white dwarf binaries and
+constraints on the binary population, arXiv,
+doi: 10.48550/arXiv.2509.02906
+Astropy Collaboration, Robitaille, T. P., Tollerud, E. J.,
+et al. 2013, Astronomy and Astrophysics, 558, A33,
+doi: 10.1051/0004-6361/201322068
+Astropy Collaboration, Price-Whelan, A. M., Sipőcz,
+B. M., et al. 2018, AJ, 156, 123,
+doi: 10.3847/1538-3881/AABC4F
+Astropy Collaboration, Price-Whelan, A. M., Lim, P. L.,
+et al. 2022, ApJ, 935, 167,
+doi: 10.3847/1538-4357/AC7C74
+Badenes, C., & Maoz, D. 2012, The Astrophysical Journal,
+749, L11, doi: 10.1088/2041-8205/749/1/L11
+Baluev, R. V. 2008, Monthly Notices of the Royal
+Astronomical Society, 385, 1279,
+doi: 10.1111/j.1365-2966.2008.12689.x
+Bellm, E. C., Kulkarni, S. R., Graham, M. J., et al. 2019,
+PASP, 131, 018002, doi: 10.1088/1538-3873/aaecbe
+Bland-Hawthorn, J., & Gerhard, O. 2016, Annual Review
+of Astronomy and Astrophysics, 54, 529,
+doi: 10.1146/annurev-astro-081915-023441
+Blouin, S., Dufour, P., & Allard, N. F. 2018, The
+Astrophysical Journal, 863, 184,
+doi: 10.3847/1538-4357/aad4a9Breivik, K., Coughlin, S., Zevin, M., et al. 2020, The
+Astrophysical Journal, 898, 71,
+doi: 10.3847/1538-4357/ab9d85
+Brown, W. R., Kilic, M., Kosakowski, A., et al. 2020, The
+Astrophysical Journal, 889, 49,
+doi: 10.3847/1538-4357/ab63cd
+Bédard, A., Bergeron, P., Brassard, P., & Fontaine, G.
+2020, The Astrophysical Journal, 901, 93,
+doi: 10.3847/1538-4357/abafbe
+Dekany, R., Smith, R. M., Riddle, R., et al. 2020, PASP,
+132, 038001, doi: 10.1088/1538-3873/ab4ca2
+Eigmüller, P., Csizmadia, S., Endl, M., et al. 2018,
+MNRAS, 480, 3864, doi: 10.1093/mnras/sty2155
+Fantin, N. J., Côté, P., & McConnachie, A. W. 2020, ApJ,
+900, 139, doi: 10.3847/1538-4357/aba270
+Fantin, N. J., Côté, P., & McConnachie, A. W. 2020, The
+Astrophysical Journal, 900, 139,
+doi: 10.3847/1538-4357/aba270
+Fantin, N. J., Côté, P., McConnachie, A. W., et al. 2019,
+The Astrophysical Journal, 887, 148,
+doi: 10.3847/1538-4357/ab5521
+Finch, E., Bartolucci, G., Chucherko, D., et al. 2023,
+MNRAS, 522, 5358, doi: 10.1093/mnras/stad1288
+Frankel, N., Rix, H.-W., Ting, Y.-S., Ness, M., & Hogg,
+D. W. 2018, The Astrophysical Journal, 865, 96,
+doi: 10.3847/1538-4357/aadba5
+Garrison, L. H., Foreman-Mackey, D., Shih, Y.-h., &
+Barnett, A. 2024, Research Notes of the AAS, 8, 250,
+doi: 10.3847/2515-5172/ad82cd
+11
+Gentile Fusillo, N. P., Tremblay, P. E., Cukanovaite, E.,
+et al. 2021, Monthly Notices of the Royal Astronomical
+Society, 508, 3877, doi: 10.1093/mnras/stab2672
+Green, G. M. 2018, The Journal of Open Source Software,
+3, 695, doi: 10.21105/joss.00695
+Han, Z. 1998, MNRAS, 296, 1019,
+doi: 10.1046/j.1365-8711.1998.01475.x
+Harris, C. R., Millman, K. J., van der Walt, S. J., et al.
+2020, Nature, 585, 357, doi: 10.1038/s41586-020-2649-2
+Hellström, L., Giersz, M., Askar, A., et al. 2025, A&A, 702,
+A131, doi: 10.1051/0004-6361/202555960
+Hermes, J. J., Brown, W. R., Kilic, M., et al. 2014, The
+Astrophysical Journal, 792, 39,
+doi: 10.1088/0004-637X/792/1/39
+Hunter, J. D. 2007, Computing in Science & Engineering, 9,
+90, doi: 10.1109/MCSE.2007.55
+Hwang, H.-C., Ting, Y.-S., & Zakamska, N. L. 2022,
+Monthly Notices of the Royal Astronomical Society, 512,
+3383, doi: 10.1093/mnras/stac675
+Iben, Jr., I., & Tutukov, A. V. 1984, ApJS, 54, 335,
+doi: 10.1086/190932
+Iben, Jr., I., & Tutukov, A. V. 1986, ApJ, 311, 753,
+doi: 10.1086/164813
+Ivezić, Ž., Kahn, S. M., Tyson, J. A., et al. 2019, ApJ, 873,
+111, doi: 10.3847/1538-4357/ab042c
+Jin, H.-M., Ma, B., Shao, Y., & Wang, Y. 2024, Detecting
+eclipsing double white dwarfs with electromagnetic and
+gravitational waves, arXiv,
+doi: 10.48550/arXiv.2406.16474
+Korol, V., Rossi, E. M., Groot, P. J., et al. 2017, Monthly
+Notices of the Royal Astronomical Society, 470, 1894,
+doi: 10.1093/mnras/stx1285
+Kosakowski, A., Brown, W. R., Kilic, M., et al. 2023, The
+Astrophysical Journal, 950, 141,
+doi: 10.3847/1538-4357/acd187
+Kowalski, P. M., & Saumon, D. 2006, The Astrophysical
+Journal, 651, L137, doi: 10.1086/509723
+Kupfer, T., Korol, V., Shah, S., et al. 2018, Monthly
+Notices of the Royal Astronomical Society, 480, 302,
+doi: 10.1093/mnras/sty1545
+Kupfer, T., Bauer, E. B., Burdge, K. B., et al. 2019, ApJL,
+878, L35, doi: 10.3847/2041-8213/ab263c
+Kupfer, T., Bauer, E. B., Marsh, T. R., et al. 2020, ApJ,
+891, 45, doi: 10.3847/1538-4357/ab72ff
+Lamberts, A., Blunt, S., Littenberg, T. B., et al. 2019,
+Monthly Notices of the Royal Astronomical Society, 490,
+5888, doi: 10.1093/mnras/stz2834
+Lane, Z. G. 2025, AstroColour,
+https://github.com/ZacharyLane1204/AstroColour.gitLi, Z., Chen, X., Ge, H., Chen, H.-L., & Han, Z. 2023,
+Astronomy & Astrophysics, 669, A82,
+doi: 10.1051/0004-6361/202243893
+Licquia, T. C., & Newman, J. A. 2015, The Astrophysical
+Journal, 806, 96, doi: 10.1088/0004-637X/806/1/96
+Lightkurve Collaboration, Cardoso, J. V. d. M., Hedges, C.,
+et al. 2018, Astrophysics Source Code Library,
+ascl:1812.013.
+https://ui.adsabs.harvard.edu/abs/2018ascl.soft12013L
+Lomb, N. R. 1976, Astrophysics and Space Science, 39, 447,
+doi: 10.1007/BF00648343
+LSST Science Collaboration, Abell, P. A., Allison, J., et al.
+2009, arXiv e-prints, arXiv:0912.0201,
+doi: 10.48550/arXiv.0912.0201
+LSST Science Collaboration, Marshall, P., Anguita, T.,
+et al. 2017, arXiv e-prints, arXiv:1708.04058,
+doi: 10.48550/arXiv.1708.04058
+Maoz, D., & Hallakoun, N. 2017, Monthly Notices of the
+Royal Astronomical Society, 467, 1414,
+doi: 10.1093/mnras/stx102
+Maoz, D., Mannucci, F., & Nelemans, G. 2014, Annual
+Review of Astronomy and Astrophysics, 52, 107,
+doi: 10.1146/annurev-astro-082812-141031
+Marchant, P., & Bodensteiner, J. 2024, ARA&A, 62, 21,
+doi: 10.1146/annurev-astro-052722-105936
+Mazeh, T., & Faigler, S. 2010, A&A, 521, L59,
+doi: 10.1051/0004-6361/201015550
+McKinney, W. 2010, in Proceedings of the 9th Python in
+Science Conference, ed. S. van der Walt & J. Millman, 56
+– 61, doi: 10.25080/Majora-92bf1922-00a
+Moe, M., & Di Stefano, R. 2017, The Astrophysical Journal
+Supplement Series, 230, 15,
+doi: 10.3847/1538-4365/aa6fb6
+Munday, J., Pelisoli, I., Tremblay, P. E., et al. 2024,
+Monthly Notices of the Royal Astronomical Society, 532,
+2534, doi: 10.1093/mnras/stae1645
+Nelemans, G., Yungelson, L. R., & Portegies Zwart, S. F.
+2001, Astronomy & Astrophysics, 375, 890,
+doi: 10.1051/0004-6361:20010683
+Nelemans, G., Yungelson, L. R., & Portegies Zwart, S. F.
+2001a, A&A, 375, 890, doi: 10.1051/0004-6361:20010683
+Nelemans, G., Yungelson, L. R., & Portegies Zwart, S. F.
+2004, Monthly Notices of the Royal Astronomical
+Society, 349, 181, doi: 10.1111/j.1365-2966.2004.07479.x
+Nelemans, G., Yungelson, L. R., Portegies Zwart, S. F., &
+Verbunt, F. 2001b, A&A, 365, 491,
+doi: 10.1051/0004-6361:20000147
+Paczyński, B. 1971, ARA&A, 9, 183,
+doi: 10.1146/annurev.aa.09.090171.001151
+12
+Perlmutter, S., Aldering, G., Goldhaber, G., et al. 1999,
+The Astrophysical Journal, 517, 565, doi: 10.1086/307221
+Raghavan, D., McAlister, H. A., Henry, T. J., et al. 2010,
+The Astrophysical Journal Supplement Series, 190, 1,
+doi: 10.1088/0067-0049/190/1/1
+Ricker, G. R., Winn, J. N., Vanderspek, R., et al. 2015,
+Journal of Astronomical Telescopes, Instruments, and
+Systems, 1, 014003, doi: 10.1117/1.JATIS.1.1.014003
+Riess, A. G., Filippenko, A. V., Challis, P., et al. 1998, The
+Astronomical Journal, 116, 1009, doi: 10.1086/300499
+Robson, T., Cornish, N. J., & Liu, C. 2019, Classical and
+Quantum Gravity, 36, 105011,
+doi: 10.1088/1361-6382/ab1101
+Romero, A. D., Campos, F., & Kepler, S. O. 2015, Monthly
+Notices of the Royal Astronomical Society, 450, 3708,
+doi: 10.1093/mnras/stv848
+Röpke, F. K., & De Marco, O. 2023, Living Reviews in
+Computational Astrophysics, 9, 2,
+doi: 10.1007/s41115-023-00017-x
+Ruiter, A. J., & Seitenzahl, I. R. 2025, Astronomy and
+Astrophysics Review, 33, 1,
+doi: 10.1007/s00159-024-00158-9
+Sandage, A. 1972, The Astrophysical Journal, 178, 1,
+doi: 10.1086/151763
+Scargle, J. D. 1982, The Astrophysical Journal, 263, 835,
+doi: 10.1086/160554
+Schaffenroth, V., Pelisoli, I., Barlow, B. N., Geier, S., &
+Kupfer, T. 2022, A&A, 666, A182,
+doi: 10.1051/0004-6361/202244214
+Schlafly, E. F., & Finkbeiner, D. P. 2011, The Astrophysical
+Journal, 737, 103, doi: 10.1088/0004-637X/737/2/103
+Schlegel, D. J., Finkbeiner, D. P., & Davis, M. 1998, The
+Astrophysical Journal, 500, 525, doi: 10.1086/305772Shporer, A., Kaplan, D. L., Steinfadt, J. D. R., et al. 2010,
+The Astrophysical Journal, 725, L200,
+doi: 10.1088/2041-8205/725/2/L200
+Toonen, S., Hollands, M., Gänsicke, B. T., & Boekholt, T.
+2017, A&A, 602, A16, doi: 10.1051/0004-6361/201629978
+Toonen, S., & Nelemans, G. 2013, Astronomy &
+Astrophysics, 557, A87,
+doi: 10.1051/0004-6361/201321753
+Toonen, S., Nelemans, G., & Portegies Zwart, S. 2012,
+A&A, 546, A70, doi: 10.1051/0004-6361/201218966
+Toonen, S., Nelemans, G., & Portegies Zwart, S. 2012,
+Astronomy & Astrophysics, 546, A70,
+doi: 10.1051/0004-6361/201218966
+Tremblay, P.-E., Bergeron, P., & Gianninas, A. 2011, The
+Astrophysical Journal, 730, 128,
+doi: 10.1088/0004-637X/730/2/128
+Van Grootel, V., Dupret, M.-A., Fontaine, G., et al. 2012,
+Astronomy & Astrophysics, 539, A87,
+doi: 10.1051/0004-6361/201118371
+VanderPlas, J. T., & Ivezić, Ž. 2015, ApJ, 812, 18,
+doi: 10.1088/0004-637X/812/1/18
+Virtanen, P., Gommers, R., Oliphant, T. E., et al. 2020,
+Nature Methods, 17, 261, doi: 10.1038/s41592-019-0686-2
+Wagg, T., Broekgaarden, F. S., De Mink, S. E., et al. 2022,
+The Astrophysical Journal, 937, 118,
+doi: 10.3847/1538-4357/ac8675
+Webbink, R. F. 1984, ApJ, 277, 355, doi: 10.1086/161701
+Willems, B., Kalogera, V., Vecchio, A., et al. 2007, ApJL,
+665, L59, doi: 10.1086/521049
+Wu, Y., Hadden, S., Dewberry, J., El-Badry, K., &
+Matzner, C. D. 2025, The Astrophysical Journal Letters,
+982, L34, doi: 10.3847/2041-8213/adb751
+Yungelson, L. R., Livio, M., Tutukov, A. V., & Saffer, R. A.
+1994, ApJ, 420, 336, doi: 10.1086/173563
+Zheng, C., Huang, Y., Liu, J., et al. 2024, ApJ, 972, 151,
+doi: 10.3847/1538-4357/ad6b09
+Zucker, S., Mazeh, T., & Alexander, T. 2007, The
+Astrophysical Journal, 670, 1326, doi: 10.1086/521389
