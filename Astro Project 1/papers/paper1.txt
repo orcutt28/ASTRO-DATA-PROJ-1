@@ -1,0 +1,60 @@
+MNRAS000, 1–24 (2026) Preprint 16 February 2026 Compiled using MNRAS L ATEX style file v3.3
+Spatially resolved star-formation histories of local post-starburst galaxies:
+Starburst and quenching spatial patterns consistent with recent mergers
+Ho-Hin Leung1,2★, Vivienne Wild1, Michail Papathomas3, Daniel J. Mortlock4,5,
+Amy L. Rankine2, Emma Curtis-Lake6, Yirui Zheng7,8, Adam C. Carnall2, and
+Peter H. Johansson9
+1SUPA†, School of Physics & Astronomy, University of St Andrews, North Haugh, St Andrews, Fife KY16 9SS, UK
+2SUPA, Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh EH9 3HJ, UK
+3School of Mathematics and Statistics, University of St Andrews, North Haugh, St Andrews, Fife, KY16 9SS, UK
+4Department of Physics, Imperial College London, Blackett Laboratory, Prince Consort Road, London SW7 2AZ, UK
+5Department of Mathematics, Imperial College London, London, SW7 2AZ, UK
+6Centre for Astrophysics Research, Department of Physics, Astronomy and Mathematics, University of Hertfordshire, Hatfield AL10 9AB, UK
+7School of Mathematics and Physics, Anqing Normal University, Anqing, People’s Republic of China
+8Institute of Astronomy and Astrophysics, Anqing Normal University, Anqing, People’s Republic of China
+9Department of Physics, University of Helsinki, Gustaf Hällströmin katu 2, FI-00014 Helsinki, Finland
+Accepted XXX. Received YYY; in original form ZZZ
+ABSTRACT
+Post-starburst (PSB) galaxies, having recently experienced a starburst followed by rapid quenching, are excellent laboratories
+to probe physical mechanisms that drive starbursts and shutting down of star formation. Integral-field spectroscopy reveals the
+galaxies’ spatially-resolved properties, where observed directional patterns can be linked to the galaxies’ past evolution. We
+measure the resolved star-formation histories (SFHs), stellar metallicity evolution and dust properties of three local PSBs from
+theMaNGAsurvey,downto0.5′′resolution(∼0.3kpc)usingahierarchicalBayesianmodel.Localparameterswereconstrained
+simultaneously with parameters describing spatial trends. We found that all three galaxies first experienced an outer, weaker
+andslowerquenchingstarburst,followedbyacentral,strongerandfasterquenchingstarburstthatpeaked∼1Gyrafterthefirst.
+The central starbursts induced a significantly stronger rise in stellar metallicity compared to the outer starbursts. These results
+are consistent with the effects of a recent gas-rich (wet) merger, where the first pericentre passage triggered starbursts in the
+outer regions, while the later coalescence triggers a stronger centralised starburst. We find non-axisymmetric features in the
+mapsofburstmassfractionanddustattenuationinallgalaxies,whichcouldbecausedbytidaleffectsduringtherecentmerger.
+Comparisonswithliteraturebinarymergersimulationssuggeststhatthegalaxies’rapidquenchingwasdrivenbygasconsumption
+andthestabilisationagainstgasgravitationalcollapsebyagrowingspheroid,whileAGNfeedbackwasnotnecessarilyaprimary
+cause.
+Key words:galaxies:evolution – galaxies:starburst – galaxies:abundances – galaxies:stellar content – methods: statistical
+1 INTRODUCTION
+The shutting down of star formation in galaxies, known as “quench-
+ing”, is a crucial stage of galaxy evolution as galaxies transition
+from actively star-forming into “red and dead” quiescent systems
+(seeDeLuciaetal.2025,forareview).However,numerousphysical
+mechanismscapableofdrivingquenchinghavebeenproposedinthe
+literature, ranging from simple gas exhaustion, to energy injection
+from supernovae or central supermassive black holes, to influences
+fromgalaxyinternalstructureandthewidergalaxyenvironment(see
+Man&Belli2018,andreferencestherein).Therelativecontribution
+among these mechanisms remains unclear.
+A common approach to constrain the relative importance of dif-
+★E-mail: hleung2@roe.ac.ukferent quenching mechanisms is to study spatially resolved patterns
+in star formation. The simplest pattern identifies “inside-out” vs.
+“outside-in” quenching, where either the inner or outer region com-
+mencesquenchingfirstleadingtoradialgradientsincurrentstarfor-
+mation rate (SFR), specific star formation rate (sSFR = SFR/stellar
+mass), mean stellar ages or star formation histories (e.g. González
+Delgado et al. 2016; Spindler et al. 2018; Lin et al. 2019; Bluck
+et al. 2020). Quenching mechanisms that are driven by centralised
+processes, such as active galactic nuclei (AGN) feedback and stel-
+lar/supernovae feedback from central bursts of star formation, are
+expected to result in inside-out quenching and positive SFR gradi-
+ents(Zubovas&King2016;Nietal.2025;McClymontetal.2025).
+On the other hand, environmental quenching mechanisms, such as
+starvation of gas, tidal effects and ram-pressure stripping, could re-
+sultingasbeinglostpreferentiallyfromtheouterregionsofgalaxies
+©2026 The AuthorsarXiv:2602.13114v1  [astro-ph.GA]  13 Feb 2026

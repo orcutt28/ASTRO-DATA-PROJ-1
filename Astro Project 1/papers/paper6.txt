@@ -1,0 +1,1231 @@
+Prepared for submission toJCAP
+Is cosmic birefringence due to dark
+energy or dark matter?
+Simulation-based inference
+Florie Carralot,a,bPatricia Diego-Palazuelos,cAdriaan J.
+Duivenvoorden,cEiichiro Komatsu,c,d,eNicoletta Krachmalnicoff,a,f,g
+Carlo Baccigalupia,f,g
+aInternational School for Advanced Studies (SISSA), Via Bonomea 265, 34136, Trieste, Italy
+bUniversita di Trento, Dipartimento di Fisica, Via Sommarive 14, 38123, Trento, Italy
+cMax Planck Institute for Astrophysics, Karl-Schwarzschild-Str. 1, D-85748 Garching, Germany
+dLudwig-Maximilians-Universit ¨at M ¨unchen, Schellingstr. 4, 80799 M ¨unchen, Germany
+eKavli Institute for the Physics and Mathematics of the Universe (Kavli IPMU, WPI), UTIAS, The
+University of Tokyo, Chiba, 277-8583, Japan
+fINFN Sezione di Trieste, via Valerio 2, 34127 Trieste, Italy
+gIFPU, Via Beirut, 2, 34151 Grignano, Trieste, Italy
+E-mail: fcarralo@sissa.it
+Abstract.Simulation-based inference (SBI) is a powerful inference technique for cases where the
+exact functional form of the likelihood is not known. A prime example is the likelihood of cross-
+correlation power spectra of the cosmic microwave background (CMB) fields at low multipoles,
+ℓ≲10. In this paper, we investigate a parity-violating cross-correlation betweenE- andB- mode
+polarization fields using SBI. TheEBcorrelation at lowℓis essential to distinguish between pos-
+sible axion dark energy and dark matter interpretations of ‘cosmic birefringence’, a rotation of the
+plane of linear polarization of the CMB, recently reported fromWMAP,Planck, and Atacama Cos-
+mology Telescope data. We use neural likelihood estimation to infer the likelihood of theEBcor-
+relation at lowℓand show that it is highly non-Gaussian. We then employ neural posterior esti-
+mation to constrain the scalar field mass (m ϕ), the cosmic birefringence amplitude (gϕ in/2), and the
+instrumental miscalibration angle (α), from simulated datasets. We find that the posterior onm ϕ
+shows two regimes, with a transition marked by 10−32eV , highlighting a strong sensitivity to the
+scale dependence of cosmic birefringence. To quantify this behavior, we compute the probability
+p(mϕ<10−32eV) for various fiducial values ofm ϕ. We find thatαand the contribution of lensedB
+modes ultimately limit our ability to exclude the dark energy scenario fully.
+Keywords:CMBR polarisation – axions – Machine learningarXiv:2602.12019v1  [astro-ph.CO]  12 Feb 2026
+
+Contents
+1 Introduction 1
+2EBpower spectrum from scalar field dynamics 3
+3 Simulation-based inference 4
+3.1 Inference networks 4
+3.2 Normalizing flows 5
+4 Simulator 6
+5 Results 7
+5.1 Non-Gaussianity ofEBstatistics 7
+5.2 Exploring phenomenology with amortized inference 9
+5.2.1 Dark energy vs dark matter scenarios 9
+5.2.2 Impact of lensingBmodes 11
+5.2.3 Excluding the dark energy interpretation 12
+5.3 Towards real data analysis: sequential inference 13
+6 Discussion 15
+A Power spectrum emulator 17
+B Impact of prior 18
+C Neural network hyper-parameters 20
+D Posterior checks and diagnosis 20
+1 Introduction
+The standard model of cosmology, known as theΛCold Dark Matter (ΛCDM) model, is grounded in
+fundamental physical laws that are symmetric under parity transformations. In particular, it does not
+predictT BandEBcross-correlations between the parity-even (T,E) and parity-odd (B) anisotropies
+of the cosmic microwave background (CMB), whereTdenotes temperature, andEandBrepresent
+the parity-even and parity-odd components of the linear polarization field [1, 2]. Detecting such
+correlations from CMB observations would provide strong evidence for parity-violating mechanisms
+in the Universe [3], offering a window into new physics [4].
+Parity-violation in the CMB could arise from a pseudo-scalar field,ϕ, potentially associated
+with axionlike particles [5], that changes sign under parity. This field can couple with the electro-
+magnetic tensor,F µν, and its dual, ˜Fµν, through aChern Simonsterm [6–8], introducing an additional
+element in the Lagrangian density:L⊂−1
+4ϕgFµν˜Fµν. Whenϕis dynamical, this term induces differ-
+ent phase velocities for left- and right-handed photons, resulting in a net rotation of the polarization
+plane of the CMB by an angleβ(e.g., see review [4]). This effect, referred to ascosmic birefrin-
+gence, gives rise to nonzeroEBandT Bparity-violating correlations. In the rest of the paper, we
+focus exclusively on theEBcorrelation as it has a higher signal-to-noise ratio thanT B[9].
+– 1 –
+
+Recent constraints on cosmic birefringence from the analysis ofPlanckdata [10–12], its joint
+analysis withWMAP[13], and the Atacama Cosmology Telescope (ACT) data release 6 [14, 15],
+have reported consistent positiveEBsignals described byβ≈0.3◦. Independently, the statistical
+significance of these results ranges from 2.4 to 3.6σ, reaching a 4.6σconfidence level when com-
+bined [15]. The main impediment these measurements face for observing theEBpower spectrum is
+the systematic rotation produced by miscalibration of instrumental polarization angles,α. The un-
+certainty in the orientation of the detectors’ polarization plane and nonidealities in the optics used
+for the experiments induce spurious nonzeroEBandT Bcorrelations, which can be confused with
+the cosmic birefringence signal [16, 17]. A miscalibration ofαcan be corrected for through the use
+of precise models of the telescope optics [15, 18] or polarized Galactic emission [11, 19]. Although
+confirmation from experiments using artificial polarization sources as calibrators instead of relying
+on models of optics or Galactic polarization, such as BICEP3 [20], CLASS [21], and the Simons
+Observatory (SO) [22], is still missing, it is compelling that independent data sets and calibration
+methodologies have yielded consistent values forβ.
+The nature of the field responsible for the observed signal remains, however, uncertain: doesϕ
+act as dark energy, or could it instead correspond to a fraction of dark matter? If the mass ism ϕ≲
+H0≈10−33eV , the field is frozen across cosmological timescales and behaves as dark energy today.
+This evolution results in theEBcross-correlation power spectrum that is proportional to the difference
+between theEEandBBauto power spectra at all angular scales. In contrast, when 10−33eV<mϕ<
+10−28eV ,ϕevolves during the reionization epoch, leading to a different angular dependence of the
+EBpower spectrum [23, 24]. This is characteristic of a field that constitutes a fraction of dark matter.
+Hence, the full shape of theEBpower spectrum offers crucial insights into the time evolution of
+the field, allowing constraints to be placed on its mass, and helps to disentangle the cosmological
+signal from instrumental miscalibration ofα, as shown in [23, 24]. Specifically, detecting theEB
+power spectrum that is incompatible with the difference between theEEandBBpower spectra would
+effectively rule out the dark energy scenario. We emphasize that observing such properties from
+theEBpower spectrum requires access to the largest angular scales (ℓ <20). The only upcoming
+experiment capable of measuring both reionization (ℓ≲10) and recombination (50≲ℓ≲200) bumps
+of the CMB power spectrum is theLiteBIRDsatellite [25], whose launch is planned for the 2030s. Its
+complementarity with ground-based CMB experiments that are sensitive to smaller angular scales,
+such as SO [26], ACT [27], and the South Pole Telescope [28], could provide a complete picture of
+cosmic birefringence andϕ’s dynamics.
+To fully capture the evolution of theϕfield and infer its underlying parameters from theEB
+power spectrum, it is essential to extract information from both reionization and recombination
+bumps. A major challenge in using theEBpower spectrum for parameter inference is that its statisti-
+cal distribution deviates significantly from Gaussianity at low multipoles, making standard likelihood
+approaches unsuitable [29]. This complication arises partly from our choice of using only theEB
+power spectrum, rather than exploiting the full set of polarization spectra (EE,BB,EB), for which
+the form of the likelihood is known [30]. The motivation for focusing only onEBis thatEEand
+BBare typically more susceptible to foreground contamination, instrumental systematic effects, and
+correlated noise. However, this choice comes with an intractable likelihood function whose form
+can become even more complex in the presence of Galactic emission and partial sky coverage. Con-
+sequently, it is essential to use alternative approaches capable of performing parameter inference
+without direct access to the likelihood.
+In this paper, we employsimulation-based inference(SBI) [31, 32] to constrain the scalar field
+massmϕ, the cosmic birefringence amplitudegϕ in/2, and the polarization angle miscalibrationαus-
+ing theEBpower spectrum. SBI refers to a class of methods designed to infer posterior distributions
+– 2 –
+
+over model parameters using synthetic data generated from a forward model, often referred to as
+simulator. A key advantage of SBI is that it does not require an explicit form of the likelihood dis-
+tribution. While several subcategories of SBI methods exist [33], this analysis focuses on a neural
+network-based approach that learns probability distributions relating data and parameters.
+This paper is organized as follows. Section 2 presents the characteristics of theEBpower
+spectrum under different field dynamics. The SBI framework is introduced in section 3, and the
+implementation of the simulator used to build the training dataset is presented in section 4. Section 5
+presents the constraints onm ϕ,gϕ in/2, andαfor different SBI approaches. A discussion relating the
+main results and possible improvements to this study is given in section 6.
+2EBpower spectrum from scalar field dynamics
+The equation of motion of a homogeneous scalar fieldϕ, evolving in a quadratic potentialV(ϕ)=
+m2
+ϕϕ2/2, is given by the Klein-Gordon equation [34]:
+¨ϕ+3H ˙ϕ+mϕ2ϕ=0,(2.1)
+where ˙xdenotes derivatives with respect to the physical time. Whenm ϕ≪H(t), the friction term
+3H˙ϕdominates and the field evolution is overdamped by cosmic expansion. The field is therefore
+frozen and evolves slowly compared to the expansion rate. In this regime, the scalar field corresponds
+to a fluid with equation of statew=−1, and thus behaves as a dark energy component. In contrast,
+whenmϕ≫H(t), the mass term dominates in eq. (2.1), and the field oscillates around the minimum
+value of its potential. In this case, the field behaves as a pressureless fluid (time-averaged⟨w⟩≈0)
+contributing to a fraction of the total dark matter density [35]. In particular, axionlike particles would
+act as dark energy today ifm ϕ≲H 0≈10−33eV , while constituting a fraction of the dark matter today
+ifmϕ>10−33eV .
+The mass governs the field evolution, leading to distinct angular-scale signatures in theEB
+power spectrum [23, 24]. Specifically, the cosmic birefringence angle at a certain conformal time,η,
+is expressed as a difference in the field values between the emission and observation [36, 37]:
+β(η)=gϕin
+2[f(η 0)−f(η)],(2.2)
+wheregrepresents the coupling constant ofϕand photons,f(η)=ϕ(η)/ϕ in, andη 0corresponds to the
+conformal time today. In eq. (2.2), the constantgϕ in/2 can be interpreted as a ‘cosmic birefringence
+amplitude’ (in degrees, after unit conversion of the dimensionlessgϕ in). When the field acs as dark
+energy, eq. (2.2) gives an isotropic cosmic birefringence angle that uniformly multiplies all angular
+scales of theEBpower spectrum [23].
+The evolution ofϕfor different masses and the correspondingEBpower spectra are presented
+in fig. 1. Form ϕ≲10−32eV , the field does not evolve during recombination and reionization epoch
+and remains fixed at its initial value, so thatϕ rec=ϕ reio=ϕ in. In this case, theEBpower spectrum is
+given by1
+2sin(4β)(CEE
+ℓ−CBB
+ℓ), withβ=gϕ in∆f/2 and∆f=f(η 0)−f(η). Assumingβto be small
+andCBB
+ℓ≪CEE
+ℓ, it impliesCEB
+ℓ≈2βCEE
+ℓ. A distinct signature of dark energy fields is therefore
+finding anEBspectrum with a similar shape asEE. In the extreme limit wherem ϕ≪10−32eV (dark
+blue), the field remains effectively frozen up to the present time, leading toβ∝∆f→0 according to
+eq. (2.2). Consequently, the characteristicEE-like shape of theEBpower spectrum is preserved, but
+the signal strength diminishes for smaller masses.
+For larger masses,m ϕ≳10−32eV , the field starts evolving during (or even before) the reioniza-
+tion epoch, and enters an oscillatory phase around the minimum of the potential. In this case,β(η) is
+– 3 –
+
+102
+100101102103
+redshift z0.2
+0.00.20.40.60.81.0φ/φin
+101102103
+multipole /lscript106
+105
+104
+103
+102
+101
+100/lscript(/lscript+1)CEB
+/lscript/2π[µK2]
+33
+32
+31
+30
+29
+28
+logmφ[eV]Figure 1:Left: Evolution ofϕ(normalized at its initial value) as a function of redshift for different
+masses. The shaded areas represent the reionization (z∼10) and recombination (z∼1100) epochs.
+Right: The corresponding CMBEBpower spectra for the same masses. For all spectra, the cosmic
+birefringence amplitude isgϕ in/2=0.35◦.
+smaller at reionization than at recombination. This produces a suppression of the ‘reionization bump’
+in theEBsignal atℓ≲10. Therefore, the cosmic birefringence effect becomes scale-dependent for
+fields that contribute to dark matter [24, 38]. Detecting such a scale-dependent cosmic birefringence
+effect would indicate a complex time evolution ofϕ, and, therefore, rule out the dark energy origin of
+the signal. Note that even when the field has completely vanished during reionization, a small reion-
+ization bump remains in theEBspectrum: theEmodes converted intoBmodes during recombination
+remain correlated with the large-scaleEmodes produced during the reionization epoch [24]. When
+the mass exceedsm ϕ≳10−29eV (brown), the field starts evolving before or during recombination,
+and its oscillations result in a cancelation of the birefringence effect, leading to an overall suppression
+ofCEB
+ℓ[38, 39].
+As shown in [24], the threshold mass that marks the distinction between scale-independent and
+scale-dependent cosmic birefringence effect is∼10−32eV . The goal of this work is therefore to probe
+the nature ofϕby identifying any potential scale dependence in the cosmic birefringence signal that
+could rule out the dark energy interpretation of theEBspectrum, rather than placing strong constraints
+on its mass.
+3 Simulation-based inference
+3.1 Inference networks
+In this paper, we consider the SBI [40, 41] method that makes use of neural networks to learn proba-
+bility distributions relating simulated data,x, and model parameters,θ. Theseinference networksrely
+solely on the prior knowledge ofθand a model to generate simulations, called thesimulator. By sam-
+pling parameters from the prior,θ∼p(θ), and producing synthetic data with the simulator,x∼p(x|θ),
+SBI is capable of learning different probability distributions relatingxandθ, depending on the choice
+of one of these algorithms:neural posterior estimation(NPE), which directly estimates the poste-
+rior distribution,p(θ|x) [42, 43];neural likelihood estimation(NLE), which estimates the likelihood,
+p(x|θ) [44, 45]; andneural ratio estimation(NRE), which estimates the likelihood-to-evidence ratio,
+p(x|θ)/p(x) [46].
+The NLE framework can be particularly advantageous as it enables a straightforward com-
+bination with other observational constraints through simple likelihood multiplication. However,
+– 4 –
+
+obtaining the posterior distribution still requires an additional Monte Carlo sampling step. In con-
+trast, the NPE approach directly approximates the posterior distribution over the model parameters,
+p(θ|x)=p(θ 1,θ2,...,θ N|x1,x2,...,x N).1
+In the case of multiple observational (test) datasets, one may favor anamortizedinference ap-
+proach [47, 48] that learns a single inference model for all available observations supported by the
+prior. This method amortizes the computational cost since it can reproduce an accurate posterior for
+any new dataset, without needing to re-train the model. It is particularly advantageous when dealing
+with multiple observations, but can be suboptimal in terms of simulation cost as it often requires a
+large number of simulations.
+An efficient method allowing a reduction of the simulation budget issequentialinference [44,
+46]. Sequential neural posterior estimation (SNPE) aims to estimate the posterior distribution over
+parameters given a specific observationxobs, through an iterative process. In the first round, parame-
+tersθare sampled from a proposal distribution ˜p(θ), initially the prior, and simulations are generated.
+A neural network is trained to approximate the posterior, which is then conditioned inxobsand serves
+as a proposal for the next round. In each subsequent round, parameters are sampled from the updated
+proposal, generating new simulations that focus on regions of the parameter space more consistent
+with the observation. The neural network is retrained using the new data, and the proposal is replaced
+with the latest posterior estimate. This sequential refinement allows the posterior to become increas-
+ingly accurate by focusing on relevant regions of the parameter space, for a given observation. For
+this reason, the SNPE method is expected to achieve convergence to the true posterior with fewer
+simulations with respect to the amortized case. However, because the posterior estimate is tailored to
+a single observation, the inference is no longer amortized and therefore does not guarantee an accu-
+rate posterior estimate for another observation. As a result, the neural network must be retrained for
+each new observation.
+In this work, we explore amortized and sequential inference in sections 5.2 and 5.3, respectively,
+using the tools provided by theSBI2software package.
+3.2 Normalizing flows
+The algorithms presented in section 3.1 define the target probability distribution, but various mecha-
+nisms, known asneural density estimators, can approximate probability distributions. In this work,
+we employ normalizing flows (NFs) [49] that transform a simple base distribution into a more com-
+plex target distribution through a sequence of invertible and differentiable transformations. The key
+idea behind NFs is that, despite the simplicity of the base distribution (e.g., a standard Gaussian)
+and the potential complexity of the target distribution (e.g., non-Gaussian or multi-modal), one can
+construct a sequence of bijective transformations that maps the base distribution to the target.
+We callxour data vector, andua vector sampled from a simple base distribution,u∼p u(u).
+Consider a compositionTof invertible and differentiable transformations, such thatx=T(u) and
+u=T−1(x). This construction allows us to express the density ofxin terms of the base distribution
+puand the composition of transformationsT:
+p(x)=p u(u)det ∂T−1
+∂x!=p u(T−1(x))det ∂T−1
+∂x!.(3.1)
+We assume aflow-based model,q λ(θ|x), that begins with a simple base distribution and applies
+a sequence of invertible transformations that progressively map it to the unknown target distribution.
+1Throughout the paper, bold symbols designate vector quantities.
+2https://sbi.readthedocs.io/en/latest/
+– 5 –
+
+The model is fully specified by a set of parametersλ={γ,ρ}, whereρandγare associated to
+the transformations and base distribution features, respectively. During the training phase, theλ
+parameters are adjusted to minimize the discrepancy between the flow-based model and the target. In
+the context of NPE, this consists of fitting a flow-based model to the posterior distribution,p(θ|x), by
+minimizing the forward Kullback-Leibler (KL) divergence, which quantifies the difference between
+p(θ|x) andq λ(θ|x):
+L(λ)=E p(x)DKLp(θ|x)∥qλ(θ|x)(3.2)
+=Z
+p(x)Z
+p(θ|x)"
+logp(θ|x)
+qλ(θ|x)#
+dθdx
+=Z
+p(x,θ)logp(θ|x)−logq λ(θ|x)dθdx
+=−E p(x,θ) logqλ(θ|x)+const.
+wherep(x,θ)=p(θ|x)p(x). The flow parameters are optimized by minimizing the loss function in
+the final expression of eq. (3.2). The constant term does not affect the optimization process, as it is
+independent ofλ. Analogously, the loss function in the case of NLE is−E p(x,θ) logqλ(x|θ).
+By changing variables, both the flow-based model and the posterior distributions are expressed
+in terms ofuand the transformationT. Then, eq. (3.2) becomes:
+L(λ)=−E p(x,θ)logp u(T−1(x,λ),γ)+log|detJT−1(x,λ)|,(3.3)
+whereJT−1denotes the Jacobian ofT−1. Equation (3.3) highlights that this estimate does not require
+evaluations of the target distribution.
+For the normalizing flow, we use a Masked Autoregressive Flow (MAF) [50] network archi-
+tecture. The MAF network is part of class ofautoregressive flowmodels that decompose a joint
+probability density as a product of one dimensional conditional densitiesp(x)=Q
+ip(xi|x1:i−1). The
+autoregressive nature (i.e., eachx idepends only on the previous inputsx 1:i−1) ensures that the Jaco-
+bian in eq. (3.1) becomes triangular, which means that its determinant can be evaluated efficiently as
+the product of the diagonal terms.
+4 Simulator
+In this section, we outline the simulation procedure used to generate the SBI training dataset to jointly
+constrainm ϕ,gϕ in/2 andα.
+We start by computingN simCMB power spectra, denotedCXY
+ℓ(withX,Y=E,B), for different
+values ofm ϕandgϕ in/2 and over a multipole range fromℓ min=2 toℓ max=2500. These calculations
+are performed with thebirefCLASS[24, 51, 52] code, which solves the Boltzmann equations cou-
+pled with the dynamics ofϕ, assuming that the energy density ofϕis negligible (i.e.,ϕis a spectator
+field). We adopt thePlanckbest-fit cosmological parameters [53], fixing the optical depth at reion-
+ization toτ=0.054 and assuming no primordial tensorBmodes (tensor-to-scalar ratio ofr=0).
+Due to its high computational cost,birefCLASSis not suitable for the multi-round inference loops
+described in section 5.3. Therefore, we employ theCosmoPower3[54] emulator to learn the underly-
+ing structure of the CMB power spectra under varying cosmological parameters, allowing for highly
+efficient generation of new spectra. Further details on the emulator are presented in section A.
+3https://alessiospuriomancini.github.io/cosmopower/
+– 6 –
+
+A miscalibration angleαis then propagated to the previously computedCEE
+ℓ,CBB
+ℓandCEB
+ℓ
+power spectra, according to the following transformation relationships [55]:
+CEE,obs
+ℓ=cos2(2α)CEE
+ℓ+sin2(2α)CBB
+ℓ−sin(4α)CEB
+ℓ
+CBB,obs
+ℓ=cos2(2α)CBB
+ℓ+sin2(2α)CEE
+ℓ+sin(4α)CEB
+ℓ
+CEB,obs
+ℓ=1
+2sin(4α)[CEE
+ℓ−CBB
+ℓ]+cos(4α)CEB
+ℓ.(4.1)
+Equation (4.1) yieldsN simofEE,BBandEBpower spectra for various combinations ofm ϕ,
+gϕin/2 andα. As required for the application of SBI, these three parameters are sampled from specific
+prior distributions. We drawm ϕfrom a uniform distribution as logm ϕ∼U(−34,−28), to cover a
+broad mass range that encompasses both dark energy and dark matter scenarios. The constraints are
+set on the logarithm ofm ϕwith base 10 to avoid extremely small numbers and prevent numerical
+instabilities. We employ a Gaussian prior,gϕ in/2∼N(0,0.3◦), forgϕ in/2 based on observational
+hints of a potential deviation fromβ=0 in the range of 0.2 to 0.35◦[10–15]. We further justify the
+validity of this prior in section B. Lastly,αis sampled from a Gaussian distributionα∼N(0,0.5◦),
+since the typical systematic uncertainty on polarization angle calibration is currently≈0.5◦, for
+experiments without an external absolute polarization calibrator [56–58].
+To account for the uncertainty in the power spectrum estimation, we generate a statistical en-
+semble of spherical harmonics coefficients of the observedEandBmodes,aE
+ℓmandaB
+ℓm, using the
+hp.synalmroutine ofhealpy4[59] and eq. (4.1). We smooth the observedEandBmodes with
+a Gaussian beam of 30 arcmin full-width at half maximum. We also generate Gaussian white noise
+realizations of 2µK-arcmin, corresponding to the typical combined sensitivity ofLiteBIRD[25]. We
+combine each single CMB and noise realization, and compute the corresponding angular power spec-
+trum up to a maximum multipole ofℓ max=512:
+bCEB
+ℓ=1
+2ℓ+1ℓX
+m=−ℓRe
+aE
+ℓmaB∗
+ℓm
+.(4.2)
+Since SBI methods become computationally challenging as the size of the data vector increases sig-
+nificantly, we do not retain all multipoles fromℓ=2 to 512 of bCEB
+ℓto build our training set. To keep
+the data vector size manageable while preserving the full sensitivity to the reionization bump, we use
+all multipoles fromℓ=2 to 30 and then group higher multipoles from 31 to 200 into bins of width
+∆ℓ=10.
+In this paper, we do not consider additional sources of uncertainty other than white noise, such
+as Galactic foregrounds or partial sky coverage. Therefore, bCEB
+ℓis solely affected by cosmic and noise
+variance. We expect SBI to be able to learn and marginalize over such observational uncertainties
+during inference. We leave the inclusion of these extra levels of complexity to future work.
+5 Results
+5.1 Non-Gaussianity ofEBstatistics
+In this analysis, we constrainm ϕ,gϕ in/2, andα, exploiting only the information contained in the
+EBpower spectrum rather than the full set,EE,BB, andEB, of polarization spectra. As shown in
+eq. (4.2), the computation of bCEB
+ℓinvolves the product of two correlated Gaussian random fields,aE
+ℓm
+andaB
+ℓm. Consequently, the likelihoodp( bCEB
+ℓ|CEB
+ℓ), describing the probability of the estimated bCEB
+ℓ
+4https://healpy.readthedocs.io/en/latest/
+– 7 –
+
+Figure 2: Statistical distributions of theEBpower spectrum estimator bCEB
+ℓ, given a fiducial spectrum
+CEB
+ℓ, forℓ=2,3,4,5. The distributions obtained with NLE (black) are compared to those assuming
+a Gaussian distribution (red). The upper panels correspond to a dark energy case with fiducial mass
+ofmϕ=10−32eV , and the lower panels to a dark matter case withm ϕ=10−29eV , for which the
+reionizationEBsignal is nearly zero. The vertical dashed lines indicate the fiducial values ofCEB
+ℓ.
+given a fiducial power spectrumCEB
+ℓ, is non-Gaussian and analytically intractable at low multipoles
+(ℓ≲10), even in the ideal case of full-sky and noiseless observations [29, 30, 60]. At higher multi-
+poles, the central limit theorem makes the likelihood distribution tend toward a Gaussian because the
+power spectrum at a given multipoleℓis estimated from 2ℓ+1 independentmmodes. In general,
+the distribution becomes analytically intractable when accounting for realistic complications such as
+partial sky coverage, complex instrumental noise, and foreground contamination.
+We exploit the capability of SBI, specifically the NLE approach, to estimate the truep( bCEB
+ℓ|CEB
+ℓ)
+likelihood and highlight its non-Gaussian nature at low multipoles. We train the likelihood estimator
+onN sim=105full-sky and CMB-only simulations of both the estimated ( bCEB
+ℓ) and fiducial (CEB
+ℓ)
+spectra over the multipole range 2≤ℓ≤5. The fiducial spectra are generated from parametersm ϕ,
+andgϕ in/2 that are drawn from the prior. Due to the assumption of isotropy in our full-sky setup, the
+estimates from different multipole bins are uncorrelated. As a result, the distribution of bCEB
+ℓover the
+range 2≤ℓ≤5 is fully determined by the fiducial valuesCEB
+ℓwithin the same range.
+Once estimated, the likelihoodp( bCEB
+ℓ|CEB
+ℓ) is evaluated for two fiducialCEB
+ℓthat have dif-
+ferent masses: one withm ϕ=10−32eV for which theEBreionization bump is maximum (dark
+energy), and another with a larger mass for which theEBsignal nearly vanishes at low-ℓ(dark
+matter). Both fiducial spectra have the samegϕ in/2=0.35◦. In fig. 2, the likelihood distribu-
+tions obtained with NLE are shown for both the dark energy and dark matter scenarios and com-
+pared with a common Gaussian approximation of the likelihood, for which⟨ bCEB
+ℓ⟩ ≈CEB
+ℓand
+σ2(bCEB
+ℓ)=⟨(bCEB
+ℓ)2⟩−⟨bCEB
+ℓ⟩2≈[CEE
+ℓCBB
+ℓ+(CEB
+ℓ)2]/(2ℓ+1) (see eq. (4.2)). Forgϕ in/2=0.35◦,
+CEB
+ℓshows a relatively large positive reionization signal in the dark energy regime. As a result, the
+– 8 –
+
+32
+ 31
+ 30
+ 29
+logmφ[eV]0.20.30.40.50.60.70.8gφin/2[deg]logmφ=−32.30
+logmφ=−29.45samples0
+samples1
+101102
+multipole /lscript103
+0103
+102
+/lscript(/lscript+1)CEB
+/lscript/2π[µK2]
+logmφ=−29.45
+logmφ=−32.30Figure 3:Left:68% and 95% highest-posterior density contours ofp(m ϕ,gϕ in/2|bCEB
+ℓ) for two fiducial
+masses: logm ϕ=−29.45 (blue) and logm ϕ=−32.30 (orange). The black dotted line shows the
+required value ofgϕ in/2 for theEBpower spectrum at high mutipoles to match the fiducial cosmic
+birefringence amplitude (0.35◦) at recombination.Right:The correspondingEBpower spectra (same
+realization). Solid lines represent the fiducialCEB
+ℓand the points show the estimated bCEB
+ℓ. Note the
+change from logarithmic to a linear scale forℓ(ℓ+1)CEB
+ℓ/2π<5.10−4µK2to accommodate negative
+fluctuations.
+likelihoodp( bCEB
+ℓ|CEB
+ℓ) becomes positively skewed, with a tail extending towards large values of bCEB
+ℓ.
+For negative values ofgϕ in/2, the likelihood instead has negative skewness. In contrast, sinceCEB
+ℓ
+is close to zero in the dark matter regime, its likelihood is centered on zero, although it still has
+non-Gaussian heavy tails.
+5.2 Exploring phenomenology with amortized inference
+In this section, we adopt the more flexible approach of amortized inference to explore the phe-
+nomenology of the problem. We show posteriors for test data that are generated assuming different
+masses in section 5.2.1, the impact of lensedBmodes on the constraining power in section 5.2.2,
+and quantify the confidence at which the full shape ofCEB
+ℓcan reject the dark energy interpretation
+of cosmic birefringence in section 5.2.3. These results are computed using the NPE method (and
+MAF normalizing flow) applied toN sim=105simulations of bCEB
+ℓgenerated for various values of
+θ=(mϕ,gϕ in/2,α) that are drawn from the prior. Details on the neural network architecture and
+posterior diagnostic tests are presented in sections C and D, respectively.
+5.2.1 Dark energy vs dark matter scenarios
+First, we explore the simplest case for which onlym ϕandgϕ in/2 change across simulations, fixing
+α=0◦, and estimatep(m ϕ,gϕ in/2|bCEB
+ℓ), as a validation test of our framework. In fig. 3 (left panel),
+we show the expected 68% and 95% highest-posterior density (HPD) contours in the (m ϕ,gϕ in/2)
+plane, evaluated at bCEB
+ℓwith logmfid
+ϕ=−32.30 (orange) and logmfid
+ϕ=−29.45 (blue). BothEB
+power spectra (right panel) have fiducialgϕ in/2=0.35◦.
+– 9 –
+
+34
+32
+30
+28
+logmφ[eV]0.5
+0.00.5α[deg]0.5
+0.00.5gφin/2[deg]
+0.5
+0.00.5
+gφin/2[deg]0.5
+0.00.5
+α[deg]logmφ=−29.45
+logmφ=−32.30Figure 4: Marginal posterior distributions ofm ϕ,gϕ in/2, andα. The black dashed lines represent the
+ground truth parameters:α=0◦andgϕ in/2=0.35◦. The blue and orange dashed lines show two
+fiducial masses: logm ϕ=−29.45 and logm ϕ=−32.30, respectively. The grey line represents the
+prior distribution used for each parameter.
+For logmfid
+ϕ=−32.30, the data favor masses below∼10−32eV , for which the predictedEB
+power spectrum shape is similar to that ofEE, therefore consistent with the fiducial model. In
+contrast, for logmfid
+ϕ=−29.45, the reionization bump of bCEB
+ℓis suppressed, rendering masses below
+∼10−32eV incompatible with the data. Since theEBsignal is weaker for ultralight (m ϕ≪10−32eV)
+and heavier fields (m ϕ≳10−29eV) as explained in section 2, the required value ofgϕ in/2 must
+increase to reach the fiducial amplitude (black dotted line).5
+Figure 4 shows the posterior when the miscalibration angleαis allowed to vary as well. The
+posteriorp(m ϕ,gϕ in/2,α|bCEB
+ℓ) is evaluated for the two sameEBpower spectra shown in fig. 3. The
+5Following [24], for each mass, we compute the cosmic birefringence rotation at recombination:βrec(mϕ)=P500
+ℓ=11βeff
+ℓ/490, withβeff
+ℓ=arcsin(2x ℓ/(1+x2
+ℓ))/4 andx ℓ=CEB
+ℓ/CEE
+ℓ. By construction,βrecreaches its maximum for
+masses that do not suppress high-ℓmodes (see fig. 1). The black dotted line in fig. 3 represents the required value of
+gϕin/2 to match our fiducial amplitude of 0.35◦, while accounting for the suppression ofβrecacross the mass range such
+thatgϕ in/2·βrec(mϕ)=0.35◦·βrec,max.
+– 10 –
+
+fiducial value for these two test datasets is set toα=0◦.
+For logm ϕ=−32.30 (orange),gϕ in/2 andαare degenerate [23, 24], so that the fiducial model
+can be reproduced by different combinations of these two parameters. In particular, ultralight fields
+are consistent with the data through a polarization rotation ofα≃0.35◦, whilegϕ in/2 remains un-
+constrained, since reproducing the fiducial amplitude would require values much larger than those
+supported by the prior. For masses near the fiducial value,αandgϕ in/2 are fully degenerate, and any
+combination satisfyingα+gϕ in/2≃0.35◦reproduces the data equally well. Heavier masses can also
+match the fiducial model provided thatgϕ in/2≃0◦andα≃0.35◦.
+For logm ϕ=−29.43 (blue), the degeneracy betweenαandgϕ in/2 is partially broken since the
+reionization bump is supressed, whileαyieldsCEB
+ℓ∝CEE
+ℓ−CBB
+ℓ. For this reason, the data disfavor
+models for which theEBreionization bump closely follows the shape ofCEE
+ℓ, restricting the posterior
+to masses above 10−32eV . We emphasize that, given our current configuration, it is not possible to
+distinguish between masses below 10−32eV , as the corresponding low-ℓEBsignal is too low and
+becomes dominated by cosmic variance and instrumental noise (see fig. 3). These results highlight
+the importance of using the full shape of theEBpower spectrum, and especially the largest angular
+scales, to probe the nature of the scalar field.
+5.2.2 Impact of lensingBmodes
+As discussed in section 5.1, the variance of bCEB
+ℓscales as∝CEE
+ℓCBB
+ℓ. Therefore, lensingBmodes
+contribute significantly to the variance of the estimatedEBspectrum. Although lensing dominates
+theB-mode power at intermediate and high multipoles, its contribution is also not negligible at low
+multipoles, particularly in the absence of primordial tensor modes and for weakEBsignals. Sev-
+eral analyses [20, 52, 61] demonstrated that lensingBmodes lead to larger uncertainties on cosmic
+birefringence constraints.
+We produce a new set ofN sim=105bCEB
+ℓsimulations without lensing, and estimate the joint
+posterior distributionp(m ϕ,gϕ in/2,α|bCEB
+ℓ) with NPE. Even in the absence of lensing or primordial
+tensor modes, there remains a smallBBsignal due to birefringence (see eq. (4.1)). In fig. 5, we
+evaluate the posterior distributions for different values ofm ϕranging from 10−33to 10−29eV . The
+upper panels correspond to the case with the lensingBmodes, while the lower panels show the case
+without them. As explained in section 2, for a fixedgϕ in/2, the overall amplitude ofCEB
+ℓvaries
+acrossm ϕ. Since observational constraints atℓ >50 suggestβclose to 0.35◦, we only use fiducial
+values ofgϕ in/2 which ensure that our 50 test power spectra have a high-ℓamplitude consistent with
+a uniform rotation of 0.35◦. For each mass, we find the correspondinggϕ in/2 values by miniziming
+χ2=P
+ℓ>50CEB,ref
+ℓ−(gϕ in/2)CEB
+ℓ(mϕ,gϕ in/2=1◦)2/(σEB
+ℓ)2, whereCEB,ref
+ℓis a reference template
+of a uniform 0.35◦rotation across angular scales. In this way, our constraints would be solely driven
+by low-ℓvariations ofCEB
+ℓ.
+As expected, the parameter estimation is more precise in the absence of lensingBmodes, es-
+pecially forαandgϕ in/2. The lower variance of bCEB
+ℓat low multipoles helps break the degeneracy
+betweengϕ in/2 andαby improving the sensitivity to the reionization bump. More importantly, the
+absence of lensing enhances the difference between the dark energy- and dark matter-like posterior
+distributions ofm ϕ. While dark matter posteriors (m ϕ≳10−31) show a smooth decrease in prob-
+ability towards lower masses in the upper panels, we see a sharper cutoffatm ϕ=10−32eV in the
+lower panels. Therefore, delensing could play an important role in determining the origin of cosmic
+birefringence.
+– 11 –
+
+34
+ 32
+ 30
+ 28
+logmφ[eV]0.5
+0.0 0.5
+gφin/2[deg]0.5
+0.0 0.5
+α[deg]
+34
+ 32
+ 30
+ 28
+logmφ[eV]0.5
+0.0 0.5
+gφin/2[deg]0.5
+0.0 0.5
+α[deg]
+33
+32
+31
+30
+29
+logmfid
+φ[eV]Figure 5: Posterior distributions onm ϕ,gϕ in/2, andαwith different fiducial masses (indicated with
+the colorbar). Each posterior is conditioned on the same CMB and noise realization, for both upper
+and lower panels. The black dashed lines representgϕ in/2=0.35◦andα=0◦. The upper panels
+show the case in which simulations include lensingBmodes, while the lower panels do not include
+them. The upper and lower panels are normalized such that the area under each histogram is 1.
+5.2.3 Excluding the dark energy interpretation
+Throughout section 5.2, we demonstrated that the constraints onm ϕare highly sensitive to the full
+shape of theEBpower spectrum, offering a distinctive probe on the nature ofϕ. In this section,
+we quantify how the posterior onm ϕshifts, when conditioned onEBpower spectra generated with
+different fiducial masses. We use the probabilityp(m ϕ<10−32eV) as a metric to measure the
+confidence level with which we would reject the dark energy interpretation of the observed cosmic
+birefringence signal, if a dark matter axion field sources it.
+Similarly to fig. 5, we generateEBpower spectra forNfiducial masses and evaluate the poste-
+rior onm ϕ, conditioned at each simulation. This results inNposterior distributions onm ϕfrom which
+we computep(m ϕ<10−32eV), and assess how this probability evolves under different fiducial values
+ofmϕ.
+The probabilityp(m ϕ<10−32eV) is shown in fig. 6 forαfid=0◦(blue), 0.1◦(green), and 0.2◦
+(red), while the fiducial value ofgϕ in/2 is computed for each mass so that theEBpower spectrum at
+high multipoles remains unchanged, as explained in section 5.2.2. To mitigate the impact of cosmic
+variance and noise on this forecast, the probability is averaged over 50 independent simulations with
+different CMB and noise realizations. For fiducial massesmfid
+ϕ<10−32eV , the probability saturates to
+a constantp(m ϕ<10−32eV)≈40−50 % value as theEBpower spectrum is identical for all masses
+below 10−32eV . Going to heavier masses, all curves exhibit a decrease in probability, reflecting the
+transition between the two posterior regimes that occurs for masses around 10−32to 10−31eV , as
+shown in section 5.2.1. This result is consistent with what was found in [24]. As anticipated from
+– 12 –
+
+33.0
+ 32.5
+ 32.0
+ 31.5
+ 31.0
+ 30.5
+ 30.0
+ 29.5
+ 29.0
+logmfid
+φ[eV] 104
+103
+102
+101
+100p(mφ<10−32eV)
+αfid=0◦
+αfid=0.1◦
+αfid=0.2◦Figure 6: Probability ofm ϕ<10−32eV for different fiducial massesmfid
+ϕ(a single point represents the
+averaged probability over 50 realizations of CMB and noise). The dashed and dotted lines represent
+the case with and without lensingBmodes, respectively. The probability is shown for three fiducial
+values ofα=0◦(blue), 0.1◦(green), and 0.2◦(red). The shaded areas highlight the<1% (blue) and
+<5% (grey) probability regions.
+fig. 5, this drop in probability is even sharper when lensingBmodes are removed (solid vs dashed
+lines). Without lensingBmodes, the scale-dependent signal is easier to distinguish, thus tightening
+the constraints. Formfid
+ϕ>10−31eV , the probability appears to level offnear a minimum value. Such
+large fiducial masses induce a sufficient scale-dependent effect to confidently exclude the dark energy
+origin of the signal.
+Overall, fig. 6 highlights that delensing enables us to reject a dark energy scenario formfid
+ϕ≳
+10−31.3eV at the 99% confidence level, even in the presence of miscalibrations up to 0.2◦. In the
+presence of lensing,p(m ϕ<10−32eV) stays at the level of 1% whenαfid=0◦, but increases up
+to 5% for larger miscalibrations. Therefore, we conclude thatαmiscalibrations have a significant
+impact on the probability of rejecting a dark energy interpretation.
+5.3 Towards real data analysis: sequential inference
+The amortized inference approach of section 5.2 required the generation of training sets withN sim=
+105simulations. For a realistic analysis, simulations must include instrumental noise and systematic
+effects, the cleaning of Galactic foreground emission, and the correction of mode couplings and leak-
+ages introduced by masking. The computational cost to produce such a large number of high-fidelity
+simulations is prohibitive. Furthermore, since real CMB measurements consist of a single observed
+power spectrum, the generalization of the posterior model over multiple observational data provided
+by the amortized inference is unnecessary. These two arguments motivate the SNPE approach, which
+is expected to achieve convergence to the true posterior with fewer simulations by adaptively focusing
+the inference process on regions of high posterior probability.
+– 13 –
+
+34
+33
+32
+31
+30
+29
+28
+logmφ[eV]0.5
+0.00.5α[deg]0.5
+0.00.5gφin/2[deg]
+0.5
+0.00.5
+gφin/2[deg]0.4
+0.0 0.4
+α[deg]Round 1
+Round 4
+Round 7
+Round 10
+Round 13
+NPEFigure 7: Marginal posterior distributions form ϕ,gϕ in/2, andαfor several TSNPE rounds. The
+posterior distribution obtained with the amortized NPE (N sim=105simulations) from section 5.2 is
+shown with the black dashed contours. The black dotted lines show the true parameters.
+Here, we employ truncated sequential neural posterior estimation (TSNPE) [62], which uses the
+inferred posterior from each round to identify the highest probability regions (HPR) of the parameter
+space. TSNPE filters out prior regions that fall outside the HPR defined by 1−ϵ, whereϵis a
+rejection threshold. This leads to a truncated version of the prior, which is then used as the proposal
+distribution for the next round. The rejection thresholdϵessentially indicates the fraction of low-
+probability regions that are excluded from the prior. Therefore, this parameter is crucial since, if
+too large, some high-density regions might be excluded, potentially biasing the posterior. However,
+[62] demonstrated that forϵ≤10−4, the HPR retains nearly 100% of the true posterior samples,
+confirming that our chosen value ofϵis sufficiently small.
+We opt for a TSNPE configuration with 15 rounds, allocating more simulations to the initial
+rounds and gradually reducing the number of simulations in later rounds, for a total of 30000 simu-
+lations. This configuration accommodates the high variability of posteriors with fiducial parameters
+(see fig. 4), with earlier rounds capturing the global structure and later rounds refining it locally. The
+rejection threshold isϵ=10−4, meaning that we reject 0.01 % of the prior samples that are outside
+– 14 –
+
+the HPR. In each round, the posterior is evaluated for a specific bCEB
+ℓwithα=0◦andgϕ in/2=0.35◦.
+The colored contours in fig. 7 show that the TSNPE posterior forαandgϕ in/2 nearly converge
+to the NPE reference (obtained withN sim=105simulations, black dashed line), already at round 4.
+Subsequent rounds (7, 10, and 13) adjust the distribution tails via truncation, resulting in consistent
+contours with the amortized NPE solution. The constraints onm ϕ, however, evolve considerably even
+in the latest inference rounds, closely matching the amortized inference posterior at round 13. This
+suggests that our simulations are less sensitive tom ϕ, making it a more challenging parameter to infer
+thangϕ in/2 andα. For clarity, we do not show the posterior contours of rounds 14 and 15 in fig. 7,
+since TSNPE has already converged at round 13.
+Minor differences persist between TSNPE and NPE solutions, likely due to the use of an em-
+ulator in TSNPE rather than the exactbirefCLASSspectra in NPE. Overall, 13 rounds of TSNPE
+are enough to closely reproduce the NPE reference using only 28600 simulations. This constitutes a
+reduction of the simulation budget by a factor of≈3.5.
+6 Discussion
+In this paper, we demonstrated how to use SBI to constrain the scalar field mass (m ϕ), the cosmic
+birefringence amplitude (gϕ in/2), and the polarization angle miscalibration (α), from the CMBEB
+power spectrum. The intractability of the low-ℓEBlikelihood makes SBI a natural choice, as it
+performs parameter inference without relying on an explicit likelihood function. In section 5.1, we
+demonstrated the non-Gaussian nature of this likelihood by applying NLE to infer the distribution of
+the estimatedEBpower spectrum, bCEB
+ℓ, given a fiducial power spectrum,CEB
+ℓ, atℓ=2,3,4,5. In
+a dark energy-like scenario, characterized by an enhanced reionization bump, the likelihood exhibits
+a strong departure from Gaussianity and is positively skewed (assuming a positive amplitude). Con-
+versely, in a dark matter scenario, the reionization bump nearly vanishes and the likelihood takes the
+form of a symmetric non-Gaussian distribution, with pronounced heavy tails.
+In section 5.2.1, we used the NPE pipeline with an amortized inference approach, to estimate the
+posterior distributionp(logm ϕ,gϕ in/2,α|bCEB
+ℓ). The posterior was then evaluated for two realizations
+of theEBpower spectrum: a dark energy case (logm ϕ=−32.30) and a dark matter case (logm ϕ=
+−29.45). In the dark energy case,gϕ in/2 andαare fully degenerate. As a result, the full mass
+range is supported by the data, but with different combinations ofαandgϕ in/2. In the dark matter
+case, the degeneracy betweengϕ in/2 andαis partly broken since the cosmic birefringence effect
+affects differently the reionization scales (ℓ≲10) and higher multipoles, whileαuniformly rotates
+all angular scales. The resulting posterior onm ϕprefersm ϕ>10−32eV , reflecting the incompatibility
+of smaller mass with a suppressed reionization bump. Overall, our results show that the posterior
+alternates between two distinct regimes depending on whether the fiducial mass lies above or below
+10−32eV . This is consistent with [24].
+In section 5.2.2, we showed that the absence of lensedBmodes results in significantly tighter
+parameter constraints. This behavior is expected as the lensingBmodes contribute significantly to
+the overall variance of bCEB
+ℓ[52, 61]. This improvement suggests that forthcoming CMB experiments
+could benefit from incorporating delensing strategies for cosmic birefringence analyses [63, 64]. The
+improvement provided by delensing is further illustrated in section 5.2.3, where we find that the
+dark energy interpretation of cosmic birefringence can be ruled out at the 99% confidence level, for
+polarization angle miscalibrations up to 0.2◦. In the lensed case, the constraint is less stringent, if the
+assumed miscalibration is≳0.1◦. Overall, these results indicate that the combined effect of lensing
+B-mode variance and a non-zero polarization angle miscalibration reduces, but does not negate, our
+ability to clearly distinguish between dark energy and dark matter scenarios.
+– 15 –
+
+We considered an idealized cosmic variance-limited scenario, neglecting important sources of
+uncertainty present in real CMB analyses, i.e., Galactic foregrounds, masking, and instrumental sys-
+tematic effects. Our primary goal was to present an alternative parameter inference approach that
+can handle non-Gaussianity of theEBlikelihood as discussed in section 5.1, even in this simplified
+setup. Although these sources of uncertainty will inevitably degrade the signal-to-noise ratio and
+introduce correlations between multipoles, SBI is expected to recover the relevant features of the
+data, including nuisance parameters, given a sufficient amount of simulations and a well-optimized
+neural network. This expectation, of course, relies on our ability to accurately simulate the effect
+of all revelant sources of uncertainty. In view of a real data analysis, for which high-fidelity and
+experiment-specific simulations are limited, we used the sequential inference approach of section 5.3
+as a first attempt to reduce the simulation budget. By tailoring the posterior estimate to each ob-
+servation and adjusting the proposal distribution across successive rounds, this method allowed us to
+reduce the simulation budget by a factor of≈3, with respect to an amortized inference approach (sec-
+tion 5.2). While this is not a dramatic improvement, additional data-compression techniques [65–67]
+could be used to further reduce the required number of simulations. As noted in section 4, a CMB
+power spectrum emulator [54] offers a fast alternative to the usual Boltzmann solvers, a useful feature
+given the need to produce substantial simulation datasets for SBI. Further implementations capable
+of emulating CMB systematic effects [68] could also be relevant for this study.
+Throughout this paper, we used the power spectrum as a summary statistic, assuming a specific
+binning scheme (section 4) to keep the dimensionality of the data vector manageable. This choice
+is reasonable for the current analysis because we focus on the cosmic birefringence effect induced
+by very light fields,m ϕ≲10−28eV , whose impact on theEBpower spectrum is mainly focused
+at reionization scales. Although it is still possible to include higher multipoles and explore a wider
+range of masses using SBI, one of the aforementioned data compression techniques would be required
+to keep the size of the data vector reasonable. Alternatively, one could adopt a standard likelihood
+approach for the high multipole regime and combine it with the low multipole likelihood obtained
+via NLE in section 5.1.
+As explained in section 4, we adopted a Gaussian prior for the cosmic birefringence amplitude
+gϕin/2 centered at 0 (corresponding to the expectedΛCDM value) with a standard deviation of 0.3◦
+(consistent with current observational limits on the cosmic birefringence angle atℓ >50 [10–15]).
+In section B, we assessed the impact of a less informative prior ongϕ in/2 (flat prior between−1◦
+and 1◦). We find that this change affects the results in the dark energy regime, becauseαandgϕ in/2
+are degenerate, making the constraints prior-driven (otherwise anyα+gϕ in/2 would reproduce the
+bCEB
+ℓamplitude). However, the impact remains limited, since the narrower prior onαcontinues to
+dominate. This result highlights the importance of a precise polarization angle calibration. In the
+dark matter regime, the constraints are weakly sensitive to the prior ongϕ in/2 and are essentially
+driven by the data.
+A natural extension of this work would be to assume aLiteBIRD[25] instrumental configura-
+tion, which will measure the large angular scales of the polarization CMB power spectra, the most
+sensitive to ultralight fields. In this framework, the final parameter constraints would also depend on
+the fidelity of theEandBmode reconstruction, the efficiency of foreground cleaning, and the control
+of instrumental systematics.
+Acknowledgments
+We thank K. Murai, T. Namikawa, and F. Naokawa for their help withbirefCLASS, and N. Anau
+Montel for useful discussions on the SBI. This analysis benefited from the following packages:numpy
+– 16 –
+
+[69],matplotlib[70],healpy[59],sbi[40, 41],getdist[71],CosmoPower[54] andoptuna
+[72]. This work was supported in part by the Excellence Cluster ORIGINS which is funded by the
+Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany’s Excel-
+lence Strategy: Grant No. EXC-2094 - 390783311. This work has also received funding from the
+European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-
+Curie grant agreement no. 101007633. The Kavli IPMU is supported by World Premier International
+Research Center Initiative (WPI), MEXT, Japan. Authors acknowledge partial support by the Ital-
+ian Space Agency LiteBIRD Project (ASI Grants No. 2020-9-HH.0 and 2016-24-H.1-2018), and the
+Italian Space Agency Euclid Project, as well as the InDark and LiteBIRD Initiative of the National In-
+stitute for Nuclear Phyiscs, and the RadioForegroundsPlus Project HORIZON-CL4-2023-SPACE-01,
+GA 101135036, and Project SPACE-IT-UP by the Italian Space Agency and Ministry of University
+and Research, Contract Number 2024-5-E.0.
+A Power spectrum emulator
+In the sequential inference analysis presented in section 5.3, we replacebirefCLASS[24, 51, 52] with
+a power spectrum emulator, which significantly accelerates the generation of simulations. The emu-
+lator is designed to reproduce theoretical power spectra (BB,EB) as a function ofm ϕandgϕ in/2. As
+discussed in section 2, theEBpower spectrum follows a similar shape form ϕ<10−32eV , but changes
+noticeably at low mutipoles for largerm ϕ, with a suppression of the reionization bump. Hence, to
+improve the accuracy of emulated power spectra, we partition the training data form ϕ<10−32eV
+andmϕ>10−32eV and train two separate emulators. During sequential inference, the appropriate
+emulator is selected depending on whether the mass sampled from the proposal distribution is above
+or below the 10−32eV threshold.
+We useN sim=105EBpower spectra calculated for various values ofm ϕandgϕ in/2 up to
+ℓmax=600 (same theoretical power spectra than in section 5.2.1). Since multipoles are uncorrelated,
+higher multipoles are not necessary for computing bCEB
+ℓwithℓ max=512 (see section 4). Rather than
+training the emulator directly on these power spectra, we first apply principal component analysis
+(PCA) [73] to reduce the dimensionality of the data, using 128 PCA components. This transformation
+allows the emulator to focus on the most informative features of the spectra, improving the training
+efficiency.
+We validate the emulator by comparing theEBspectra it generates with the exact calculation
+frombirefCLASS. In particular, we emulateEBpower spectra for a test set of 500 simulations and
+compute the ratio of the residuals compared tobirefCLASS, over the total expected uncertainty:
+∆CEB
+ℓ
+σEB
+ℓ=|CEB,em
+ℓ−CEB,exact
+ℓ|
+σEB
+ℓ.(A.1)
+Here,σEB
+ℓcorresponds to the standard deviation per multipole, which includes cosmic variance and
+instrumental noise [54]:
+σEB
+ℓ=s
+(CEE
+ℓ+Nℓ)(CBB
+ℓ+Nℓ)+CEB
+ℓ2
+2ℓ+1,(A.2)
+whereN ℓ= 2µK.arcminπ
+108002∼3.38.10−7µK2str. Although the emulator is trained to reproduce
+theoretical power spectra, in eq. (A.2) we evaluate its accuracy compared to the total uncertainty
+arising from power spectrum estimation in simulations (eq. (4.2)). Indeed, the emulator will remain
+an acceptable approximation as long as it stays within the statistical uncertainty given by cosmic
+variance and instrumental noise.
+– 17 –
+
+101102
+multipole /lscript0.000.010.020.030.040.050.060.07∆CEB
+/lscript/σEB
+/lscriptEmulator mφ>10−32 eV
+99%
+95%
+68%
+101102
+multipole /lscript0.0000.0020.0040.0060.0080.010∆CEB
+/lscript/σEB
+/lscriptEmulator mφ<10−32 eV
+99%
+95%
+68%Figure 8: Relative error of the emulatedEBspectra with respect to the exactbirefCLASSsolution.
+Shaded areas indicate the 68, 95, and 99 % percentiles of the relative error for a set of 500 simulations.
+Left and right panels show the emulators form ϕ>10−32eV andm ϕ<10−32eV , respectively.
+Figure 8 shows the relative error of the 500 emulatedEBpower spectra. Form ϕ>10−32eV (left
+panel), the emulator error remains at the level of 4% of the total statistical uncertainty for 99% of the
+test dataset, at low multipoles (ℓ<10). At higher multipoles,∆CEB
+ℓ/σEB
+ℓincreases up to 7% because
+σEB
+ℓgrows smaller. Therefore, even minor differences between the emulated and exact power spectra
+lead to comparatively larger∆CEB
+ℓ/σEB
+ℓvalues. Form ϕ<10−32eV (right panel), we notice a smaller
+error, with at most∆CEB
+ℓ/σEB
+ℓ≈1 % at low multipoles. As only the overall amplitude ofEBchanges
+in this mass range, the emulation ofCEB
+ℓis simpler than for them ϕ>10−32eV case. While we only
+detailed the emulation procedure and validation tests for theEBspectra here, analogous tests were
+applied to theBBspectra. We do not apply the emulation procedure to theEEpower spectra, as they
+remain nearly unchanged under variations ofm ϕandgϕ in/2.
+B Impact of prior
+We assess the impact of a less informative prior for the cosmic birefringence amplitude than that
+used in the main analysis, i.e.,gϕ in/2∼N(0,0.3◦). We train the NPE (with identical configuration
+as in section 5.2) onN sim=105simulatedEBpower spectra that depend onm ϕ,gϕ in/2, andα,
+now adopting a flat prior forgϕ in/2 between−1◦and 1◦. Because redefining the prior ongϕ in/2
+requires generating a new set of theoretical power spectra, we use the emulator for fast simulation
+production. However, the emulator was trained withgϕ in/2∼ N(0,0.3◦) and is expected to be
+reasonably accurate up to 3σ. As largergϕ in/2 values rely on interpolation, we can expect a small
+additional uncertainty in the emulator’s prediction. The priors onm ϕandαremain unchanged from
+those specified in section 4. The posterior is then evaluated for the same bCEB
+ℓobservations than in
+fig. 4. Figure 9 shows the the marginal posterior for each parameter obtained assuming a flat prior
+(dashed line) and a Gaussian prior (solid line) forgϕ in/2. Blue (green) contours represent the dark
+energy (matter) scenario.
+In the dark energy scenario,αandgϕ in/2 are degenerate; thus, priors are required to obtain
+closed confidence contours. Otherwise, there would be an infinite combination ofα+gϕ in/2 con-
+sistent with the observedEBpower spectrum amplitude. Consequently, the constraints are at risk of
+becoming prior-dominated. This is why we observe some impact when adopting a uniform prior on
+gϕin/2 (mainly in the tails, and complementary forαandgϕ in/2), but it is not dramatic, since the
+narrower prior onαcontinues to control the constraints. This result highlights the importance of a
+– 18 –
+
+34
+32
+30
+28
+logmφ[eV]0.5
+0.00.5α[deg]0.5
+0.00.5gφin/2[deg]
+0.5
+0.00.5
+gφin/2[deg]0.5
+0.00.5
+α[deg]samples0
+samples1
+samples2
+samples3
+Gaussian prior
+Uniform prior
+dark matter
+dark energy
+Figure 9: Marginal posterior distributions ofm ϕ,gϕ in/2, andα, assuming two different priors for
+gϕin/2: flat prior between−1◦and 1◦(dashed) and a Gaussian prior centered at 0 with standard
+deviation of 0.3◦(solid). The blue and green contours correspond to the dark energy and dark matter
+scenarios, respectively. The black dotted lines represent the true parameters.
+precise polarization angle calibration, and demonstrates that adopting an informative prior ingϕ in/2
+is valid, as long as the calibration of polarization angles remains reasonably accurate. As mentioned
+in section 5.2, whenm ϕ≪10−32,eV, the values ofgϕ in/2 supported by the prior are insufficient to
+match the fiducial amplitude. Widening the prior therefore allows a broader range ofgϕ in/2 values,
+whileαremains fixed at∼0.35◦.
+In the dark matter scenario, the choice of the prior ongϕ in/2 has only a minor effect on the
+constraints sinceαandgϕ in/2 are now disentangled through the shape of theEBpower spectrum. In
+this case, constraints are primarily driven by the data.
+– 19 –
+
+Feature Function With lensing Without lensing
+Learning rateInterval between neural network
+weight updates5·10−52·10−4
+Batch sizeNumber of simulations pro-
+cessed together256 128
+Hidden featuresNumber of units per neural net-
+work layer128 128
+Number of transformsNumber of transforms of the
+base distribution in the NF11 15
+Table 1: Neural network hyper-parameters used in the NPE for simulations that include or exclude
+lensingBmodes.
+C Neural network hyper-parameters
+Optimization of neural network hyper-parameters involves tuning the elements that characterize the
+training process to minimize loss and improve generalization. During this process, both the training
+and validation losses are inspected to assess model performance. The final validation loss is used as
+the main objective metric, as it reflects how well the model is expected to perform on unseen data.
+Additionally, the gap between training and validation losses is measured as an indicator of overfitting:
+a small gap suggests good generalization, while a large gap indicates overfitting. We automate this
+process by using theoptuna6hyper-parameter optimization framework [72], which runs successive
+trials considering different combinations of hyper-parameters. For each trial, we evaluate the final
+validation loss, and select the best configurations that result in both the lowest validation loss and
+weak overfitting. Theoptunaframework is able to rank the hyper-parameters by importance, and
+to trace their individual impact on the validation loss. Table 1 presents the most relevant hyper-
+parameters, their functions, and their values.
+D Posterior checks and diagnosis
+Once the inference network is trained on a simulated data set, one may want to perform poste-
+rior checks and detect, if any, a bad posterior calibration. A straightforward approach is to first
+draw parameter values from the prior,θ i∼p(θ), and then generate simulated data from the model,
+xi∼p(x|θ i), using the simulator. For each simulated datasetx i, we compute the posterior distribu-
+tionp(θ|x i) and draw posterior samplesθ(j)
+s∼p(θ|x i). The so-calledsimulation-based calibration
+(SBC) [74] relies on the principle that, if the posterior is well-calibrated, the posterior samplesθ(j)
+s
+should be distributed consistently with the prior. In practice, this can be assessed using rank statistics:
+for each simulation, one counts how many posterior samplesθ(j)
+sfall below the corresponding true
+parameter valueθ i. If the posterior is well-calibrated, the resulting ranks should be uniformly dis-
+tributed across simulations. Deviations from uniformity indicate systematic biases or miscalibration
+in the inferred posterior.
+We perform SBC by generating 500 parameter samples from the priorθ∼p(θ), whereθ=
+(mϕ,gϕ in/2,α) and produce the corresponding bCEB
+ℓsimulations. We evaluate the posterior for each
+bCEB
+ℓ, draw a 1000-element posterior sample and compute the rank statistics in each dimension (for
+mϕ,gϕ in/2, andα). The distribution of the rank statistics, shown in fig. 10, confirms a well-calibrated
+6https://optuna.readthedocs.io/en/stable/index.html
+– 20 –
+
+0 500 1000mφ
+0 500 1000gφin/2
+0 500 1000α
+Posterior ranksFigure 10: Distribution of the posterior rank statistics form ϕ,gϕ in/2,αfor the amortized inference
+NPE. The shaded area represents the 99 % confidence level of a uniform distribution.
+posterior as we do not observe significant deviation from uniformity, with the shaded areas represent-
+ing the 99 % confidence level of a uniform distribution.
+As a complement to SBC, posterior coverage tests represent a necessary and sufficient condition
+for an accurate posterior. For instance, theTest of accuracy with random points(TARP) [75] consists
+of samplingθ ifrom the prior and producing associated datax i. For each simulationx i, a set of
+posterior samplesθ(j)
+sis generated from the inferred joint posterior distribution. Assuming a reference
+pointθ r, we count how many posterior samples lie within a specified radius aroundθ r, defining
+a credible region at a given credibility level. Repeating this over many simulations allows us to
+compute the expected coverage probability (ECP), i.e., the fraction of simulations in which the true
+parameter lies within the credible region. For a well-calibrated posterior, the ECP is expected to
+match the nominal credibility level. Figure 11 shows the ECP as a function of the credibility level
+for our three parameters,m ϕ,gϕ in/2, andα, demonstrating that the posterior is well-calibrated, as the
+credibility levels and ECP are fully consistent.
+References
+[1] M. Kamionkowski, A. Kosowsky and A. Stebbins,Statistics of cosmic microwave background
+polarization,Phys. Rev. D55(1997) 7368 [astro-ph/9611125].
+[2] U. Seljak and M. Zaldarriaga,Signature of gravity waves in polarization of the microwave background,
+Phys. Rev. Lett.78(1997) 2054 [astro-ph/9609169].
+[3] A. Lue, L.-M. Wang and M. Kamionkowski,Cosmological signature of new parity violating
+interactions,Phys. Rev. Lett.83(1999) 1506 [astro-ph/9812088].
+[4] E. Komatsu,New physics from the polarized light of the cosmic microwave background,Nature Rev.
+Phys.4(2022) 452 [2202.13919].
+– 21 –
+
+0.5 1.00.00.20.40.60.81.0mφ
+0.5 1.0gφin/2
+0.5 1.0α
+Credibility levelExpected coverage probabilityFigure 11: TARP coverage test: expected coverage probability (ECP) as a function of the credibility
+level form ϕ,gϕ in/2, andα. The black dashed line corresponds to the maximum posterior accuracy
+for which the ECP perfectly matches the credibility level. The blue line represents the outcome of
+the TARP test for the posterior obtained in section 5.2.
+[5] D.J.E. Marsh,Axion Cosmology,Phys. Rept.643(2016) 1 [1510.07633].
+[6] W.-T. Ni,Equivalence Principles and Electromagnetism,Phys. Rev. Lett.38(1977) 301.
+[7] M.S. Turner and L.M. Widrow,Inflation Produced, Large Scale Magnetic Fields,Phys. Rev. D37
+(1988) 2743.
+[8] P. Sikivie,Experimental Tests of the Invisible Axion,Phys. Rev. Lett.51(1983) 1415.
+[9] R.M. Sullivan, A. Abghari, P. Diego-Palazuelos, L.T. Hergt and D. Scott,Planck PR4 (NPIPE)
+map-space cosmic birefringence,2502.07654.
+[10] Y . Minami and E. Komatsu,New Extraction of the Cosmic Birefringence from the Planck 2018
+Polarization Data,Phys. Rev. Lett.125(2020) 221301 [2011.11254].
+[11] P. Diego-Palazuelos et al.,Cosmic Birefringence from the Planck Data Release 4,Phys. Rev. Lett.128
+(2022) 091302 [2201.07682].
+[12] J.R. Eskilt,Frequency-dependent constraints on cosmic birefringence from the LFI and HFI Planck
+Data Release 4,Astron. Astrophys.662(2022) A10 [2201.13347].
+[13] J.R. Eskilt and E. Komatsu,Improved constraints on cosmic birefringence from the WMAP and Planck
+cosmic microwave background polarization data,Phys. Rev. D106(2022) 063503 [2205.13962].
+[14] AtacamaCosmologyTelescopecollaboration,The Atacama Cosmology Telescope: DR6 power spectra,
+likelihoods andΛCDM parameters,JCAP11(2025) 062 [2503.14452].
+[15] P. Diego-Palazuelos and E. Komatsu,Cosmic Birefringence from the Atacama Cosmology Telescope
+Data Release 6,2509.13654.
+– 22 –
+
+[16] QUaD collaboration,Parity Violation Constraints Using Cosmic Microwave Background Polarization
+Spectra from 2006 and 2007 Observations by the QUaD Polarimeter,Phys. Rev. Lett.102(2009)
+161302 [0811.0618].
+[17] N.J. Miller, M. Shimon and B.G. Keating,CMB polarization systematics due to beam asymmetry:
+Impact on cosmological birefringence,Phys. Rev. Lett.79(2009) 103002 [0903.1116].
+[18] C.C. Murphy et al.,Optical modeling of systematic uncertainties in detector polarization angles for the
+Atacama Cosmology Telescope,Appl. Opt.63(2024) 5079 [2403.00763].
+[19] Y . Minami, H. Ochi, K. Ichiki, N. Katayama, E. Komatsu and T. Matsumura,Simultaneous
+determination of the cosmic birefringence and miscalibrated polarization angles from CMB
+experiments,PTEP2019(2019) 083E02 [1904.12440].
+[20] BICEP/Keckcollaboration,BICEP/Keck XVIII: Measurement of BICEP3 polarization angles and
+consequences for constraining cosmic birefringence and inflation,Phys. Rev. D111(2025) 063505
+[2410.12089].
+[21] G. Coppi et al.,PROTOCALC, A W-band polarized calibrator for CMB Telescopes: application to
+Simons Observatory and CLASS,Astrophys. J. Suppl.279(2025) 30 [2502.14473].
+[22] M. Murata, H. Nakata, K. Iijima, S. Adachi, Y . Seino, K. Kiuchi et al.,The Simons Observatory: A fully
+remote controlled calibration system with a sparse wire grid for cosmic microwave background
+telescopes,Review of Scientific Instruments94(2023) 124502 [2309.02035].
+[23] B.D. Sherwin and T. Namikawa,Cosmic birefringence tomography and calibration independence with
+reionization signals in the CMB,Mon. Not. Roy. Astron. Soc.520(2023) 3298 [2108.09287].
+[24] H. Nakatsuka, T. Namikawa and E. Komatsu,Is cosmic birefringence due to dark energy or dark
+matter? A tomographic approach,Phys. Rev. D105(2022) 123509 [2203.08560].
+[25] LiteBIRD collaboration,Probing Cosmic Inflation with the LiteBIRD Cosmic Microwave Background
+Polarization Survey,PTEP2023(2023) 042F01 [2202.02773].
+[26] SimonsObservatorycollaboration,The Simons Observatory: Science goals and forecasts,JCAP02
+(2019) 056 [1808.07445].
+[27] ACT collaboration,The Atacama Cosmology Telescope: a measurement of the Cosmic Microwave
+Background power spectra at 98 and 150 GHz,JCAP12(2020) 045 [2007.07289].
+[28] SPT-3G collaboration,Measurements of the E-mode polarization and temperature-E-mode correlation
+of the CMB from SPT-3G 2018 data,Phys. Rev. D104(2021) 022003 [2101.01684].
+[29] W. Percival and M. Brown,Likelihood techniques for the combined analysis of cmb temperature and
+polarization power spectra,Mon. Not. Roy. Astron. Soc.372(2006) 1104 [astro-ph/0604547].
+[30] M. Gerbino, M. Lattanzi, M. Migliaccio, L. Pagano, L. Salvati, L. Colombo et al.,Likelihood methods
+for CMB experiments,Front. in Phys.8(2020) 15 [1909.09375].
+[31] M. Deistler, J. Boelts, P. Steinbach, G. Moss, T. Moreau, M. Gloeckler et al.,Simulation-based
+inference: A practical guide,arXiv e-prints(2025) [2508.12939].
+[32] K. Cranmer, J. Brehmer and G. Louppe,The frontier of simulation-based inference,Proc. Nat. Acad.
+Sci.117(2020) 30055 [1911.01429].
+[33] COIN collaboration,COS MOABC: Likelihood-free inference via Population Monte Carlo Approximate
+Bayesian Computation,Astron. Comput.13(2015) 1 [1504.06129].
+[34] E.W. Kolb and M.S. Turner,The Early Universe, vol. 69, Taylor and Francis (5, 2019),
+10.1201/9780429492860.
+[35] K.K. Rogers, R. Hlo ˇzek, A. Lagu ¨e, M.M. Ivanov, O.H.E. Philcox, G. Cabass et al.,Ultra-light axions
+and the S 8tension: joint constraints from the cosmic microwave background and galaxy clustering,
+JCAP06(2023) 023 [2301.08361].
+– 23 –
+
+[36] S.M. Carroll and G.B. Field,The Einstein equivalence principle and the polarization of radio galaxies,
+Phys. Rev. D43(1991) 3789.
+[37] D. Harari and P. Sikivie,Effects of a Nambu-Goldstone boson on the polarization of radio galaxies and
+the cosmic microwave background,Phys. Lett. B289(1992) 67.
+[38] F. Finelli and M. Galaverni,Rotation of Linear Polarization Plane and Circular Polarization from
+Cosmological Pseudo-Scalar Fields,Phys. Rev. D79(2009) 063002 [0802.4210].
+[39] K. Murai,Isotropic cosmic birefringence from an oscillating axionlike field,Phys. Rev. D111(2025)
+043514 [2407.14162].
+[40] A. Tejero-Cantero, J. Boelts, M. Deistler, J.-M. Lueckmann, C. Durkan, P. Gonc ¸alves et al.,sbi: A
+toolkit for simulation-based inference,J. Open Source Softw.5(2020) 2505 [2007.09114].
+[41] J. Boelts, M. Deistler, M. Gloeckler, A. Tejero-Cantero, J.-M. Lueckmann, G. Moss et al.,sbi reloaded:
+a toolkit for simulation-based inference workflows,J. Open Source Softw.10(2025) 7754
+[2411.17337].
+[42] D.S. Greenberg, M. Nonnenmacher and J.H. Macke,Automatic posterior transformation for
+likelihood-free inference,arXiv e-prints(2019) [1905.07488].
+[43] G. Papamakarios and I. Murray,Fastϵ-free Inference of Simulation Models with Bayesian Conditional
+Density Estimation,1605.06376.
+[44] G. Papamakarios, D.C. Sterratt and I. Murray,Sequential Neural Likelihood: Fast Likelihood-free
+Inference with Autoregressive Flows,1805.07226.
+[45] M. Gl ¨ockler, M. Deistler and J.H. Macke,Variational methods for simulation-based inference,
+2203.04176.
+[46] C. Durkan, I. Murray and G. Papamakarios,On contrastive learning for likelihood-free inference,arXiv
+e-prints(2020) [2002.03712].
+[47] S.T. Radev, U.K. Mertens, A. V oss, L. Ardizzone and U. K ¨othe,BayesFlow: Learning complex
+stochastic models with invertible neural networks,2003.06281.
+[48] M. Gl ¨ockler, M. Deistler and J.H. Macke,Adversarial robustness of amortized Bayesian inference,
+2305.14984.
+[49] G. Papamakarios, E. Nalisnick, D.J. Rezende, S. Mohamed and B. Lakshminarayanan,Normalizing
+Flows for Probabilistic Modeling and Inference,J. Machine Learning Res.22(2021) 2617
+[1912.02762].
+[50] G. Papamakarios, T. Pavlakou and I. Murray,Masked Autoregressive Flow for Density Estimation,
+1705.07057.
+[51] K. Murai, F. Naokawa, T. Namikawa and E. Komatsu,Isotropic cosmic birefringence from early dark
+energy,Phys. Rev. D107(2023) L041302 [2209.07804].
+[52] F. Naokawa and T. Namikawa,Gravitational lensing effect on cosmic birefringence,Phys. Rev. D108
+(2023) 063525 [2305.13976].
+[53] Planckcollaboration,Planck 2018 results. VI. Cosmological parameters,Astron. Astrophys.641(2020)
+A6 [1807.06209].
+[54] A. Spurio Mancini, D. Piras, J. Alsing, B. Joachimi and M.P. Hobson,CosmoPower: emulating
+cosmological power spectra for accelerated Bayesian inference from next-generation surveys,Mon.
+Not. Roy. Astron. Soc.511(2022) 1771 [2106.03846].
+[55] L. Pagano, P. de Bernardis, G. De Troia, G. Gubitosi, S. Masi, A. Melchiorri et al.,CMB Polarization
+Systematics, Cosmological Birefringence and the Gravitational Waves Background,Phys. Rev. D80
+(2009) 043522 [0905.1651].
+– 24 –
+
+[56] C. Rosset, M. Tristram, N. Ponthieu, P. Ade, J. Aumont, A. Catalano et al.,Planck pre-launch status:
+High Frequency Instrument polarization calibration,Astron. Astrophys520(2010) A13 [1004.2595].
+[57] Planckcollaboration,Planck intermediate results. XLIX. Parity-violation constraints from polarization
+data,Astron. Astrophys.596(2016) A110 [1605.08633].
+[58] J. Aumont, J.F. Mac ´ıas-P ´erez, A. Ritacco, N. Ponthieu and A. Mangilli,Absolute calibration of the
+polarisation angle for future CMB B-mode experiments from current and future measurements of the
+Crab nebula,Astron. Astrophys634(2020) A100.
+[59] A. Zonca, L. Singer, D. Lenz, M. Reinecke, C. Rosset, E. Hivon et al.,healpy: equal area pixelization
+and spherical harmonics transforms for data on the sphere in Python,Journal of Open Source Software
+4(2019) 1298.
+[60] S. Hamimeche and A. Lewis,Likelihood Analysis of CMB Temperature and Polarization Power
+Spectra,Phys. Rev. D77(2008) 103013 [0801.0554].
+[61] A. Idicherian Lonappan,Improving cosmic birefringence constraints via delensing,JCAP07(2025) 009
+[2503.04708].
+[62] M. Deistler, P.J. Goncalves and J.H. Macke,Truncated proposals for scalable and hassle-free
+simulation-based inference,arXiv e-prints(2022) [2210.04815].
+[63] T. Namikawa et al.,Simons Observatory: Constraining inflationary gravitational waves with
+multitracer B-mode delensing,Phys. Rev. D105(2022) 023511 [2110.09730].
+[64] LiteBIRD collaboration,LiteBIRD science goals and forecasts: improving sensitivity to inflationary
+gravitational waves with multitracer delensing,JCAP06(2024) 010 [2312.05194].
+[65] J. Alsing, B. Wandelt and S. Feeney,Massive optimal data compression and density estimation for
+scalable, likelihood-free inference in cosmology,Mon. Not. Roy. Astron. Soc.477(2018) 2874
+[1801.01497].
+[66] N. Jeffrey, J. Alsing and F. Lanusse,Likelihood-free inference with neural compression of DES SV weak
+lensing map statistics,Mon. Not. Roy. Astron. Soc.501(2021) 954 [2009.08459].
+[67] S. Dirmeier, C. Albert and F. Perez-Cruz,Simulation-based Inference for High-dimensional Data using
+Surjective Sequential Neural Likelihood Estimation,2308.01054.
+[68] P. Campeti, J.M. Delouis, L. Pagano, E. Allys, M. Lattanzi and M. Gerbino,From few to many maps: A
+fast map-level emulator for extreme augmentation of cosmic microwave background systematics
+datasets,Astron. Astrophys.700(2025) A136 [2503.11643].
+[69] C.R. Harris et al.,Array programming with NumPy,Nature585(2020) 357 [2006.10256].
+[70] J.D. Hunter,Matplotlib: A 2D Graphics Environment,Comput. Sci. Eng.9(2007) 90.
+[71] A. Lewis,GetDist: a Python package for analysing Monte Carlo samples,JCAP08(2025) 025
+[1910.13970].
+[72] T. Akiba, S. Sano, T. Yanase, T. Ohta and M. Koyama,Optuna: A Next-generation Hyperparameter
+Optimization Framework,arXiv e-prints(2019) arXiv:1907.10902 [1907.10902].
+[73] I.T. Jolliffe,Principal Component Analysis, Springer-Verlag, New York, 2 ed. (2002).
+[74] S. Talts, M. Betancourt, D. Simpson, A. Vehtari and A. Gelman,Validating Bayesian Inference
+Algorithms with Simulation-Based Calibration,1804.06788.
+[75] P. Lemos, A. Coogan, Y . Hezaveh and L. Perreault-Levasseur,Sampling-based accuracy testing of
+posterior estimators for general inference,Proc. Mach. Learn. Res.202(2023) 19256 [2302.03026].
+– 25 –
+

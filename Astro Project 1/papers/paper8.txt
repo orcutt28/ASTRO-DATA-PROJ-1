@@ -1,0 +1,701 @@
+Astronomy&Astrophysicsmanuscript no. aa©ESO 2026
+February 16, 2026
+The Effect of Gravitational Stratification on Kink Oscillations in
+Curved Coronal Loops
+Mingzhe Guo1,2, Bo Li2, and Mijie Shi2
+1Institute of Frontier and Interdisciplinary Science, Shandong University, Qingdao, 266237, China
+e-mail:m.guo@email.sdu.edu.cn
+2Shandong Key Laboratory of Space Environment and Exploration Technology, Institute of Space Sciences, Shandong University,
+Shandong, China
+Received; accepted
+ABSTRACT
+Context.Kink oscillation frequency is a key parameter for coronal seismology. It is still unclear how gravitational stratification affects
+the kink frequency in curved coronal loops.
+Aims.This work aims to investigate the effect of gravitational stratification on the frequency of kink oscillations in curved coronal
+loops and discuss their seismological potential.
+Methods.We conduct numerical computations within the ideal MHD framework to study different kink polarizations and harmonics
+in a curved, gravitationally stratified coronal loop. The oscillation frequencies derived from the Lagrangian displacement are compared
+with the WKB approximation.
+Results.For the vertically polarized fundamental mode, the oscillation frequency deviates from the WKB approximation by about
+18% in the current numerical setup. Nevertheless, the oscillation frequency closely matches the local Alfvén frequency near the loop
+apex. On the other hand, the frequency of the horizontally polarized fundamental mode exhibits only a 7% deviation in our current
+model from the WKB approximation and closely matches the local Alfvén frequency near one quarter of the loop. For the first
+overtones, the frequencies for both polarizations can be well described by the WKB approximation.
+Conclusions.The frequency of vertically polarized fundamental kink modes can be predicted by the local Alfvén frequency near
+the loop apex. In contrast, the WKB approximation remains highly reliable for estimating the frequency of horizontally polarized
+fundamental modes and first overtones, which is also well described by the local Alfvén frequency near one quarter of the loop. These
+results therefore pave the way for spatially dependent coronal seismology, enabling, e.g., the probing of magnetic field strength at
+different locations along a coronal loop.
+Key words.Magnetohydrodynamics (MHD) – Sun: corona – Sun: oscillations
+1. Introduction
+By combining magnetohydrodynamic (MHD) wave theory with
+observations, coronal seismology provides inversion schemes to
+indirectly infer some physical parameters, such as the coronal
+magnetic field (see, e.g., Nakariakov & Kolotkov 2020, for a re-
+cent review). As the only MHD wave mode that can disturb the
+axis of magnetic structures, kink waves can be used to diagnose
+the coronal magnetic field based on their measured frequencies
+regardless of standing or propagating waves (e.g., Nakariakov
+& Ofman 2001; Yang et al. 2020a,b, 2024). However, current
+seismology schemes are still based on the theoretical framework
+of kink modes in canonical magnetic cylinders (e.g., Zajtsev &
+Stepanov 1975; Edwin & Roberts 1983). Gravity and curvature
+of coronal loops are essential, but have not yet been taken into
+account simultaneously in the context of coronal seismology.
+As a typical magnetic structure in the solar corona, curved
+loops are known to be typical waveguides for kink waves (e.g.,
+Reale 2014; Nakariakov & Kolotkov 2020). The influence of
+loop curvature on kink modes was initially explored in two-
+dimensional (2D) models (e.g., Smith et al. 1997; Brady & Ar-
+ber 2005; Selwa et al. 2005; Verwichte et al. 2006a,b,c). These
+studies were restricted to the examination of vertical polariza-
+tions, which can be excited, for example, by slow modes in short
+loops (Lopin & Nagorny 2024) or vortex shedding (Karampelas& Van Doorsselaere 2021). Although vertical polarizations have
+also been confirmed in observations (e.g., Wang & Solanki 2004;
+Wang et al. 2008), the other polarization, namely the more fre-
+quently observed horizontal kink polarization (e.g., Zhong et al.
+2023), should also be examined. Analytically, Van Doorsselaere
+et al. (2004, 2009) found that the curvature in a toroidal loop
+model has little influence on kink eigenmodes under a force-free
+magnetic field. Numerically, the frequency difference between
+horizontally and vertically polarized kink oscillations has been
+found not to be observable in a semi-torus model (Terradas et al.
+2006). Considering the WKB approximation, Magyar & Nakari-
+akov (2020) showed that the analytical prediction can reasonably
+describe the kink frequency in their planar model. More recently,
+Guo et al. (2024) examined the oscillation and damping prop-
+erties for both horizontal and vertical polarizations, comparing
+their results with previous studies of different kink polarizations
+(Ruderman 2009; Guo et al. 2020). However, these studies on
+kink oscillations in curved loop models do not consider the ef-
+fect of gravitational stratification.
+In long coronal loops whose lengths significantly exceed the
+gravitational scale height, gravitational stratification is expected
+to influence loop dynamics. Density stratification affects the dis-
+placements of fundamental kink modes in coronal loops (e.g.,
+Erdélyi & Verth 2007). Andries et al. (2005b) analytically in-
+Article number, page 1 of 8arXiv:2602.12890v1  [astro-ph.SR]  13 Feb 2026
+A&A proofs:manuscript no. aa
+vestigated the influence of longitudinal density stratification on
+the frequencies and damping rates of kink eigenmodes. Further-
+more, based on deviations of the period ratio between the fun-
+damental mode and the first overtone (i.e.,P 1/P2) from 2, the
+density stratification can be determined (Andries et al. 2005a;
+Van Doorsselaere et al. 2007). However, magnetic stratification
+induced loop expansion can increaseP 1/P2and thus signifi-
+cantly affect the results of coronal seismology (Verth & Erdélyi
+2008). Regarding the propagation of kink modes, the effect of
+gravitational stratification was analytically investigated by Spruit
+(1981), who introduced a global cutoff. Although Lopin et al.
+(2014) offered a different perspective of the cutofffor kink waves
+in a stratified atmosphere, recent numerical work by Pelouze
+et al. (2023) has helped to clarify the physical scenario. In re-
+cent numerical studies of kink oscillations in magnetic cylinders,
+gravity is routinely included in the contexts of both seismology
+(e.g., Gao et al. 2024, 2025) and coronal heating (e.g., Karam-
+pelas et al. 2019). However, none of these studies of kink waves
+in stratified loops have simultaneously incorporated the effects
+of loop curvature.
+The combined effects of gravity and loop curvature on kink
+oscillations have not yet been investigated in the same model. In
+the current work, we examine kink eigenmodes in a curved coro-
+nal loop with the presence of gravity. This paper is organized as
+follows. Section 2 describes the equilibrium and the numerical
+setup. The simulation results are presented and discussed in Sec-
+tion 3 and Section 4, followed by a summary of the present work
+in Section 5.
+2. Model Description
+We considered a potential magnetic field similar to that in Guo
+et al. (2024). In Cartesian coordinate system (x,y,z), the initial
+magnetic field is given by
+Bx(x,z)=B 0cos x
+ΛB!
+exp 
+−z
+ΛB!
+,
+Bz(x,z)=−B 0sin x
+ΛB!
+exp 
+−z
+ΛB!
+,(1)
+whereB 0=30G,Λ B=2L B/πwithL B=145Mm. We also
+define a set of orthonormal basis vectors ( ˆet,ˆeh,ˆev),
+ˆet=cos(x/Λ B) ˆx−sin(x/Λ B)ˆz,
+ˆeh=ˆy,
+ˆev=sin(x/Λ B) ˆx+cos(x/Λ B)ˆz.(2)
+In thex−zplane, ˆet(ˆev) is locally parallel (perpendicular) to the
+magnetic field.
+We then consider a vertically stratified atmosphere. The
+gravity is given by
+g(z)=−g⊙R2
+⊙
+(z+R⊙)2ˆz,(3)
+whereg⊙is the gravitational acceleration on the solar surface,
+R⊙is the solar radius. The stratified background pressure and
+density are described by
+dp(z)
+dz=−g⊙R2
+⊙
+(z+R⊙)2ρ(z).(4)
+Note that the background temperature is constant. Combined
+with the ideal gas law, we can readily obtain the density andpressure of the background
+ρe(z)=ρ e0exp −g⊙R⊙
+A0Te+g⊙R2
+⊙
+A0Te1
+z+R⊙!
+,(5)
+pe(z)=A 0Teρe(z),(6)
+whereA 0=2k B/mH,Te=2MK,ρ e0=4.18×10−16g cm−3.
+The density-enhanced loop is then constructed. The internal
+loop density and pressure profiles at a given heightzare
+ρi(z)=2ρ e0exp −g⊙R⊙
+A0Ti+g⊙R2
+⊙
+A0Ti1
+z+R⊙!
+,(7)
+pi(z)=A 0Tiρi(z),(8)
+whereT i=1MK. This ensures a density ratio of 2 between the
+internal loop region and the external corona atz=0. The density
+and pressure distributions are given by
+ρ(¯r)=ρ e(z)+ρi(z)−ρ e(z)
+2
+1−tanh¯r
+R−1
+b
+,(9)
+p(¯r)=p e(z)+pi(z)−p e(z)
+2
+1−tanh¯r
+R−1
+b
+,(10)
+where
+¯r=s ψ−ψ 0
+∆ψ!2
++ y
+∆y!2
+,(11)
+with
+ψ=B 0ΛBcos x
+ΛB!
+exp 
+−z
+ΛB!
+,(12)
+andψ 0=ψ(x=100Mm,z=0),∆ψ=B 0ΛB,∆y=2Λ B. Here,
+R=cos (100/Λ B)−cos (101/Λ B)prescribes thex-extent of the
+loop at its footpoints. The parameterb=10 determines the width
+of the boundary layer. Note that the density enhanced loop is in
+a low-βenvironment with a maximum plasmaβof 0.016. The
+3D view of the initial state is shown in Figure 1a.
+Before proceeding, we need to specify our numerical setup.
+Regarding the bottom boundary atz=0, all the components of
+the velocity are set to vanish, while all the components of the
+magnetic field follow the zero gradient condition. The density
+and pressure are fixed at their initial values. Outflow boundary
+conditions are applied to all the other side boundaries. To ensure
+the stability of the computation, we also consider a velocity ab-
+sorption layer (see also Pelouze et al. 2023; Guo et al. 2023; Gao
+et al. 2024). The velocity is modified by
+v′(x,y,z;t)=α(t)γ(z)v(x,y,z;t),(13)
+where
+α(t)=0.998+0.002t
+tc,0<t≤t c,
+1,t>t c,(14)
+and
+γ(z)=0.5(
+1−tanh"
+0.3 z−90
+l0!#)
+,(15)
+witht c=2000s andl 0=1Mm being the unit of length. We
+then solve the set of ideal 3D MHD equations with the PLUTO
+Article number, page 2 of 8
+Mingzhe Guo et al.: Kink Waves in Gravitational Coronal Loops
+Fig. 1.3D rendering of the density-enhanced loop. The left panel shows the initial state before relaxation, and the right panel shows the relaxed
+state.
+code (Mignone et al. 2007). As in Guo et al. (2024), a similar
+magnetic field splitting method is used. We choose the piecewise
+parabolic scheme for spatial reconstruction, the HLLD Riemann
+solver to calculate the numerical fluxes, and the second-order
+Runge–Kutta method for time marching. The computational do-
+main is [−120,120]×[−15,15]×[0,100]Mm. We adopt a set of
+uniform grid with 600×120×400 cells.
+Note that relaxation is necessary, as it is not a magnetostatic
+balance system so far. The system reaches equilibrium after a
+relaxation period of 2000s, and the relaxed state is shown in
+Figure 1b. In the following, we consider this relaxed state as
+t=0. The maximum residual velocity in the system is less than
+2km/s. Since the characteristic evolution timescale of the sys-
+tem,|δρ/∇·(ρv)|, is much longer than the period of the wave
+of interest, the system can thus be regarded as a stable state.
+Then we specify the initial perturbations. We distinguish two
+different polarizations, namely horizontal and vertical. As dis-
+cussed in Guo et al. (2024), the density distribution across the
+loop cross-section is no longer axisymmetric due to gravity in-
+duced stratification. Since the density remains nearly constant in
+the horizontal direction at a given height, horizontally polarized
+modes experience little influence from stratification. In contrast,
+vertically polarized kink modes are expected to be more strongly
+affected by gravitational stratification. In the following, we first
+focus on vertical polarization. Similar to the initial conditions in
+Guo et al. (2024), we introduce an initial velocity perturbation
+of the form
+v(x,y,z;t=0)=v0sinθ
+2
+1−tanh¯r
+R−1
+b
+ˆev,(16)
+wherev 0=20km/s is the amplitude of the velocity perturbation,
+sinθ=z√
+x2+z2withθbeing the angle along the loop from
+the bottom. It ensures maximum velocity perturbation at loop
+apex and zero velocity at loop footpoints. For reference, we also
+consider a horizontal velocity perturbation in they-direction
+v(x,y,z;t=0)=v0sinθ
+2
+1−tanh¯r
+R−1
+b
+ˆeh.(17)In addition, we also consider another set of initial velocity con-
+ditions to excite the first overtones. The velocity perturbation in
+the vertical direction is given by
+v(x,y,z;t=0)=v 0sinθcosθ
+1−tanh¯r
+R−1
+b
+ˆev,(18)
+and the horizontal velocity perturbation is given by
+v(x,y,z;t=0)=v 0sinθcosθ
+1−tanh¯r
+R−1
+b
+ˆeh.(19)
+3. Results
+We first examine the frequency of the vertical polarization. To
+better compare the results with analytical predictions, we track
+the Lagrangian displacement of a fluid parcel. This is imple-
+mented by assigning passive tracer in the code. As such, we
+can follow the displacement of a fluid parcel within the loop re-
+gion. The solid lines in Figure 2 show the temporal evolution
+of the Lagrangian velocity of the specified fluid parcels. Dif-
+ferent fluid parcels in the loop are sampled, as distinguished
+by different colors. One fluid parcel is initially located at the
+loop apex ([x,y,z]=[0,0,70] Mm) att=0, the other two
+fluid parcels are initially located at one quarter position of the
+loop ([x,y,z]=[59.4,0,49.4]Mm) and the opposite quarter of
+the loop ([x,y,z]=[−59.4,0,49.4]Mm). Following a procedure
+similar to that in Guo et al. (2020, 2024), we estimate the oscilla-
+tion period as twice the average time interval between two adja-
+cent extrema of the oscillating profile. For the loop apex (black
+solid curve), this procedure yields a period ofPfun
+v=221.6s,
+while the oscillation period at the other two quarters of the loop
+is 226s. Neglecting the small measurement errors at different lo-
+cations, we find that the periods are similar. We also find that
+these oscillation profiles are in phase, and that the two quarters of
+the loop exhibit the same oscillation behaviour. This clearly indi-
+cates that the excited oscillation in the current loop corresponds
+to the fundamental mode. To be consistent with observations, we
+use the period at the loop apex to represent the oscillation period
+in the loop hereafter.
+Article number, page 3 of 8
+A&A proofs:manuscript no. aa
+Fig. 2.Temporal evolution ofv vfor the vertically polarized
+fundamental kink oscillations. The black, blue, and green lines
+representv vof fluid parcels initially located at the loop apex
+([x0,y0,z0]=[0,0,70] Mm), at one quarter of the loop ([x 1,y1,z1]=
+[59.4,0,49.4] Mm), and at the opposite quarter of the loop ([x 2,y2,z2]=
+[−59.4,0,49.4] Mm), respectively. The black and blue dashed line des-
+ignatev vmeasured at the fixed position [x 0,y0,z0] and [x 1,y1,z1].
+Fig. 3.Similar to Figure 2, but for the horizontal polarized fundamental
+kink oscillations.
+Under some assumptions in a straight magnetic cylinder,
+such as the thin-tube-thin-boundary (TTTB) approximation, the
+period can be predicted through modal analysis (e.g., Edwin &
+Roberts 1983; Goossens et al. 1992). When the Alfvén frequency
+varies along the loop axis, the oscillation frequency can be es-
+timated using the WKB approximation. For loops with an ax-
+isymmetric density profile across the loop, the WKB approxima-
+tion can describe the oscillation frequency quite well (Guo et al.
+2024). In the current model, applying the WKB approximation
+yields a predicted period
+PWKB=2ZL
+0ds
+ck(s)=2ZL
+0s
+ρi(s)+ρ e(s)
+2ρi(s)ds
+vAi(s),(20)
+Fig. 4.Temporal evolution ofv vfor the vertically polarized first
+overtones of kink oscillations. The black, blue, and green lines
+representv vof fluid parcels initially located at the loop apex
+([x0,y0,z0]=[0,0,70] Mm), at one quarter of the loop ([x 1,y1,z1]=
+[59.4,0,49.4] Mm), and at the opposite quarter of the loop ([x 2,y2,z2]=
+[−59.4,0,49.4] Mm), respectively.
+with
+vAi(s)=B(s)p
+µ0ρi(s),(21)
+wherec kis the kink speed,v Aiis the internal Alfvén speed along
+the loop axis,Lrepresents the loop length,sis the distance from
+a footpoint along the loop axis and can be expressed as a function
+ofz, andB(s) is the magnetic field strength alongs. According
+to this formula, we thus obtain a period ofP WKB =188.3 s.
+Therefore, the oscillation periodP vdeviates from this theoretical
+estimation (P WKB) by approximately 18%.
+In general, the Lagrangian velocity is expected to be different
+from the Eulerian velocity measured at a fixed position. How-
+ever, in the current case, Figure 2 shows that the Lagrangian
+velocity closely matches the velocity measured at the fixed po-
+sitions (filled black circles in Figure 2). This agreement can be
+understood by calculating the Lagrangian displacement from the
+perturbation amplitude and oscillation period. The resulting dis-
+placement is still smaller than the cross-sectional radius at the
+loop apex, confirming that the traced fluid parcel remains within
+the internal loop region with uniform velocity. In the following
+analysis, we focus on the Lagrangian velocity only.
+Figure 3 shows horizontal oscillation profiles similar to those
+in Figure 2. We can also compute the oscillation period from the
+different positions of the loop. At the apex (one quarter) of the
+loop, the period is measured asPfun
+h=174.8 s (178 s). The sim-
+ilar periods, as well as the in phase property of different posi-
+tions again indicates that the excited horizontal oscillation in the
+current loop is an axial fundamental mode. We use the period
+at the loop apex to represent the oscillation period. Therefore,
+the oscillation period of the horizontal polarization deviates from
+PWKB by only 7%.
+We also examine the oscillation profiles of the first over-
+tones. As for the fundamental modes, we consider both verti-
+cal and horizontal polarizations of the first overtones. Oscilla-
+tion profiles at the loop apex, as well as at one quarter and the
+opposite quarter of the loop are presented in Figures 4 and 5. As
+expected for the first overtones, the oscillation at one quarter of
+Article number, page 4 of 8
+Mingzhe Guo et al.: Kink Waves in Gravitational Coronal Loops
+Fig. 5.Similar to Figure 4, but for the horizontal first overtones of kink
+oscillations.
+the loop is in antiphase with that at the opposite quarter. The ve-
+locity at the loop apex is nearly zero, indicating that this location
+corresponds to a wave node. Before proceeding, we estimate the
+predicted period of the first overtones, which is half that of the
+fundamental modes, namely 94.15 s. To determine the oscilla-
+tion periods from the numerical results, the same procedure de-
+scribed in Figure 2 is applied to the oscillation profiles here. We
+find that the oscillation period for the vertically polarized mode
+isP1st
+v=95.4 s, while that for the horizontally polarized mode
+isP1st
+h=90.3 s. Both values closely match the predicted period,
+with a maximum deviation of about 4%.
+The damping of the oscillation profiles can also be observed.
+It is widely accepted that resonant absorption is the dominant
+damping mechanism of kink oscillations (e.g., Goossens et al.
+2002; Guo et al. 2024). However, resolving the resonant process
+within the boundary layer surrounding the loop requires a higher
+numerical resolution. Therefore, the damping process presented
+here may not be reliable. Nevertheless, in the present work, we
+mainly focus on the periods of different polarizations and har-
+monics, which are not significantly influenced by numerical res-
+olutions.
+In addition, we note that the oscillation profiles in Figure 3
+and Figure 5 are not as sinusoidal as those in the other figures,
+showing some reverse steepening. This may result from the ex-
+citation of higher harmonics of the kink oscillations. However, a
+detailed examination is beyond the scope of the current work.
+We further examine the distribution of the local Alfvén fre-
+quency to gain insight into the oscillation period. Having the
+Alfvén speed distribution at hand, we can calculate the local
+Alfvén frequency distributionω A(x,z). For axial fundamental
+modes and the first overtones, we have
+ωfun
+A(x,z)=π
+L(x,z)vA(x,z),(22)
+and
+ω1st
+A(x,z)=2π
+L(x,z)vA(x,z),(23)
+whereLis the length of the field line anchored at bottom
+boundary, threading a given point (x,z). Figure 6 shows the lo-
+cal Alfvén frequency distribution on the surfacey=0. We alsotranslate the periods of different kink polarizations to frequen-
+cies for both the fundamental modes and the first overtones. In
+Figure 6 (a), the local Alfvén frequency distribution for the fun-
+damental modes is illustrated. The frequency of the vertically
+polarized kink mode matches the local Alfvén frequency near
+the loop apex, as shown by the dashed black line. This sug-
+gests that we can use the local Alfvén frequency near the apex
+to predict the real oscillation frequency of the vertically polar-
+ized fundamental modes. When we move downward along the
+loop, the local Alfvén frequency increases. Near one quarter of
+the loop, the local frequency becomes comparable to both the
+value calculated from the WKB approximationP WKB and the
+measured periodPfun
+hof the horizontally polarized fundamental
+mode (dash-dotted line). As aforementioned, WKB theory can
+describe the frequency of horizontal modes quite well, as pre-
+viously confirmed by Guo et al. (2024). Figure 6 (b) shows the
+local Alfvén frequency distribution for the first overtones. We
+also overplot the frequencies of both the vertically and horizon-
+tally polarized first overtones. Since the periods of the two polar-
+izations are similar and closely match the WKB prediction, the
+frequencies for both polarizations can also be described by local
+Alfvén frequency near one quarter of the loop.
+Furthermore, we can also see the dashed lines outside the
+loop region in Figure 6. This leads to the wave tunneling effect
+and results in lateral leakage of the wave. This scenario has been
+discussed in Guo et al. (2024).
+4. Discussion
+4.1. Frequency deviations from WKB theory
+To understand the deviation of the oscillation frequency from
+the WKB approximation, we should revisit the local Alfvén fre-
+quency. For kink modes, the oscillation frequency is determined
+by contributions from both the internal and external loop re-
+gions. As shown in Figure 6, the local Alfvén frequency de-
+creases along the ˆe vdirection (perpendicular to the magnetic
+field lines). Therefore, for the vertically polarized kink mode,
+regions with both higher and lower frequencies than that inside
+the loop become relevant. For vertically polarized fundamental
+modes, the damping of the oscillation (see Figure 2) leads to
+an unequal contribution from the lower and upper loop regions.
+Given that the realistic oscillation is typically excited below the
+loop (e.g., Zimovets & Nakariakov 2015), leading to an initial
+upward motion, the upper loop region contributes more frac-
+tions. As a result, the measured oscillation frequency is lower
+than the WKB prediction. This is also consistent with previ-
+ous results in Guo et al. (2024) when a uniform density loop
+is considered. In the current case, the deviation from the WKB
+approximation is larger. This is because gravitational stratifi-
+cation enhances the non-uniformity of the loop along its axis.
+Consequently, a steeper gradient develops in the local Alfvén
+frequency, which introduces greater uncertainty into the WKB
+approximation. For vertically polarized first overtones, the an-
+tiphase oscillation with respect to the apex decreases the above
+effect. Therefore, the deviations of the vertically polarized first
+overtones from the WKB approximation are quite small. In the
+horizontal case, the loop oscillates in the ˆe hdirection of almost
+uniform local Alfvén frequencies, allowing the WKB approxi-
+mation to predict the oscillation frequency with a smaller devia-
+tion.
+The frequency of the vertically polarized fundamental mode
+matches the local Alfvén frequency near the loop apex. In prin-
+ciple, the frequency calculated from the WKB approximation
+Article number, page 5 of 8
+A&A proofs:manuscript no. aa
+Fig. 6.Map of the local Alfvén frequency on they=0 plane for (a) the fundamental modes and (b) the first overtones. The dashed (dash-dotted)
+lines represent contours of the frequencies corresponding to the vertical (horizontal) polarizations as labelled.
+should correspond to the local Alfvén frequency at some loca-
+tion in the loop region, as indicated by Eq. (20) and illustrated
+in Figure 6. In the current model, as discussed above, the mea-
+sured frequency is lower than the WKB prediction, meaning that
+the oscillation frequency is shifted toward the loop apex. This is
+not coincidental, but rather a natural consequence of vertically
+polarized fundamental modes in the current model.
+4.2. Implications for magnetic field measurements
+The oscillation frequency serves as a key observable of kink
+modes in coronal loops. However, in seismology processes
+in stratified coronal loops, it should be emphasized that even
+when using a WKB approximation that incorporates axial non-
+uniformity (as in Section 3), the inversion process inherently re-
+tains a degree of uncertainty. In the case of horizontally polarized
+kink modes, this uncertainty remains acceptable, given that the
+observed oscillation frequency deviates from the WKB predic-
+tion by only about 5%. However, seismological application for
+vertically polarized kink modes requires greater caution when
+based solely on the WKB theory. In realistic gravitationally strat-
+ified loops, axial non-uniformity may lead to significant devia-
+tions in oscillation frequency. Nevertheless, we suggest that one
+should consider the local Alfvén frequency near the loop apex in
+potential seismology applications when the vertical kink polar-
+ization is involved to avoid large uncertainties.
+The present results pave the way for spatially dependent in-
+ference of the coronal magnetic field strength. In coronal seis-
+mology, the magnetic field strength can be inferred from the
+kink speed, provided that the phase speed and density are known
+(e.g., Yang et al. 2020a,b, 2024). In the current scenario, as
+discussed above, the measured periods of different fundamen-
+tal polarizations reveal different local Alfvén frequencies. This
+provides a potential approach to probe the local magnetic field
+strength once the local density is determined. During the TRACE
+era, Wang et al. (2008) reported that different kink polarizations
+could coexist within the same coronal loop. However, unambigu-
+ous observation of kink polarizations has only become possible
+in recent years with multi-angle and high-resolution observa-
+tions (e.g., Zhong et al. 2023). In addition, higher temporal reso-
+Fig. 7.Initial density distribution along the loop axis. Dashed and dash-
+doted lines illustrate the function of exp(−z/60) and exp(−z/70), respec-
+tively.
+lution observations may further help to distinguish the different
+periods associated with different polarizations.
+4.3. Scale height diagnostics
+It has been known that deviations of the period ratioP 1/P2(i.e.,
+Pfun/P1stin the present context) from 2 can be used to diagnose
+the density scale height in a stratified atmosphere (e.g., Andries
+et al. 2005a; Van Doorsselaere et al. 2007). In our computa-
+tions, in principle, the density scale height can be inferred since
+we have obtained the period ratioPfun/P1stfor different polar-
+izations. Before proceeding, we first examine the initial density
+distribution along the loop axis. As shown in Figure 7, the den-
+sity profile does not follow an exact exponential form, but still
+lies between two exponential functions, namely exp(−z/60) and
+exp(−z/70). This indicates that the density distribution is close
+to exponential, with a scale height between 60 Mm and 70 Mm.
+Article number, page 6 of 8
+Mingzhe Guo et al.: Kink Waves in Gravitational Coronal Loops
+Fig. 8.The period ratioPfun/P1stas a function of the density stratifica-
+tionL/πH. The solid curves are derived from Equation (24). The dashed
+lines indicate the period ratio ofPfun
+h/P1st
+handPfun
+v/P1st
+vas labelled. See
+text for more details.
+According to Andries et al. (2005a), the relationship between the
+period ratioPfun/P1stand the scale heightHcan be derived.
+From a different perspective, inspired by Dymova & Ruder-
+man (2006), we consider solving the Sturm-Liouville problem
+−d2u(s)
+dz2=ω2
+c2
+k(s)u(s),u(s)=0 ats=0,L.(24)
+The procedure is to provide the nonuniform distribution ofc k(s)
+and then find the eigenvaluesω2. In Andries et al. (2005a), a
+uniform magnetic field is assumed, so the kink speedc kis
+ck(s)=s
+2B2
+0
+µ0ρ(s)(1+ρ ie),(25)
+whereρ ie =2 is the density ratio,ρ(s)=
+ρ0exp[−L/πHsin(πs/L)]. Then the period ratioPfun/P1st
+as a function ofL/πHpresented in Andries et al. (2005a) can
+be reproduced, as shown by the blue line in Figure 8. However,
+the magnetic field inhomogeneity in our current model has not
+been included. We then take the variation of the magnetic field
+strength, namelyB 0exp[−L/πΛ Bsin(πs/L) ], into account, and
+obtain anotherPfun/P1stversusL/πHcurve, shown by the black
+line in Figure 8. The difference between these two curves caused
+by the nonuniform magnetic field is evident, and thePfun/P1st
+even exceeds 2 in the black line whenL/πHis small.
+The period ratio exceeding 2 seems consistent with the re-
+sults of Verth & Erdélyi (2008), who showed that loop expan-
+sion can increase the period ratio. In the current model, the loop
+radius is kept constant in they-direction but varies in the ˆe vdirec-
+tion perpendicular to the magnetic field lines. As a result, only
+vertically polarized modes can feel the cross-sectional expansion
+from the footpoints to the loop apex. Consequently, the increase
+in radius in the ˆe v-direction leads to a period ratio of the vertical
+polarizations greater than 2.
+We then proceed to infer the density scale height. For the hor-
+izontally polarized case, we compute the period ratio between
+the fundamental mode and the first overtone asPfun
+h/P1st
+h=1.94.
+This period ratio corresponds to a scale height of approximately
+40Mm in our results, but exceeds 200Mm according to the curveof Andries et al. (2005a), which is significantly larger than the
+actual scale height (60–70Mm) of the model. This indicates that
+magnetic field inhomogeneity should be included in this inver-
+sion scheme. However, if we instead use the period ratio between
+the vertically polarized fundamental mode and the first overtone,
+namelyPfun
+v/P1st
+v=2.35, the scale height can not be derived be-
+cause this value falls outside the range shown in Figure 8.
+5. Summary
+We investigate the response of a gravitationally stratified coronal
+loop to different initial velocity perturbations. For the vertically
+polarized fundamental mode, the oscillation frequency deviates
+from the WKB approximation by approximately 18%. Neverthe-
+less, the measured oscillation frequency aligns closely with the
+local Alfvén frequency near the loop apex. For the horizontally
+polarized fundamental mode, the oscillation frequency is well
+reproduced by the WKB theory, with a deviation of only 7%.
+Moreover, the frequency closely matches local Alfvén frequency
+near one quarter of the loop. These results suggest that the local
+Alfvén frequency at the apex (quarter) of the loop can serve as a
+more accurate prediction of the frequency of vertically (horizon-
+tally) polarized fundamental kink oscillations in gravitationally
+stratified coronal loops. For the first overtones, the oscillation
+frequencies for both polarizations are close to the WKB approx-
+imation, and their frequencies are closely match the local Alfvén
+frequency close to one quarter of the loop.
+Our findings open the possibility for spatially seismological
+inference of the coronal magnetic field. The measured periods
+of fundamental oscillations for different polarizations provide
+the corresponding local Alfvén frequencies and, consequently,
+could enable the probing of the magnetic field strength at multi-
+ple locations along the loop, provided that the local density can
+be obtained in observations.
+In addition, the deviation of the period ratio between the fun-
+damental mode and the first overtone, namelyPfun/P1st, can be
+used to probe the density scale height in a stratified atmosphere.
+By comparison with the results of Andries et al. (2005a), we find
+that magnetic field inhomogeneity should be taken into account
+to obtain a more accurate estimate of the scale height.
+Acknowledgements.This work is supported by the National Natural Science
+Foundation of China (12203030, 12373055, 12273019). M.G. acknowledges
+the support from the National Natural Science Foundation of China, the QILU
+Young Scholars Program of Shandong University, the Taishan Scholars Program
+Special Fund (tsqn202408051) and the Shandong Provincial Natural Science
+Foundation for Excellent Young Scientists Program, Overseas (2025HWYQ-
+019).
+References
+Andries, J., Arregui, I., & Goossens, M. 2005a, ApJ, 624, L57
+Andries, J., Goossens, M., Hollweg, J. V ., Arregui, I., & Van Doorsselaere, T.
+2005b, A&A, 430, 1109
+Brady, C. S. & Arber, T. D. 2005, A&A, 438, 733
+Dymova, M. V . & Ruderman, M. S. 2006, A&A, 457, 1059
+Edwin, P. M. & Roberts, B. 1983, Sol. Phys., 88, 179
+Erdélyi, R. & Verth, G. 2007, A&A, 462, 743
+Gao, Y ., Tian, H., Van Doorsselaere, T., et al. 2025, Research in Astronomy and
+Astrophysics, 25, 015010
+Gao, Y ., Van Doorsselaere, T., Tian, H., Guo, M., & Karampelas, K. 2024, A&A,
+689, A195
+Goossens, M., Andries, J., & Aschwanden, M. J. 2002, A&A, 394, L39
+Goossens, M., Hollweg, J. V ., & Sakurai, T. 1992, Sol. Phys., 138, 233
+Guo, M., Duckenfield, T., Van Doorsselaere, T., et al. 2023, ApJ, 949, L1
+Guo, M., Li, B., & Van Doorsselaere, T. 2020, ApJ, 904, 116
+Guo, M., Van Doorsselaere, T., Li, B., & Goossens, M. 2024, A&A, 687, A30
+Karampelas, K. & Van Doorsselaere, T. 2021, ApJ, 908, L7
+Article number, page 7 of 8
+A&A proofs:manuscript no. aa
+Karampelas, K., Van Doorsselaere, T., & Guo, M. 2019, A&A, 623, A53
+Lopin, I. & Nagorny, I. 2024, MNRAS, 527, 5741
+Lopin, I. P., Nagorny, I. G., & Nippolainen, E. 2014, Sol. Phys., 289, 3033
+Magyar, N. & Nakariakov, V . M. 2020, ApJ, 894, L23
+Mignone, A., Bodo, G., Massaglia, S., et al. 2007, ApJS, 170, 228
+Nakariakov, V . M. & Kolotkov, D. Y . 2020, ARA&A, 58, 441
+Nakariakov, V . M. & Ofman, L. 2001, A&A, 372, L53
+Pelouze, G., Van Doorsselaere, T., Karampelas, K., Riedl, J. M., & Duckenfield,
+T. 2023, A&A, 672, A105
+Reale, F. 2014, Living Reviews in Solar Physics, 11, 4
+Ruderman, M. S. 2009, A&A, 506, 885
+Selwa, M., Murawski, K., Solanki, S. K., Wang, T. J., & Tóth, G. 2005, A&A,
+440, 385
+Smith, J. M., Roberts, B., & Oliver, R. 1997, A&A, 317, 752
+Spruit, H. C. 1981, A&A, 98, 155
+Terradas, J., Oliver, R., & Ballester, J. L. 2006, ApJ, 650, L91
+Van Doorsselaere, T., Debosscher, A., Andries, J., & Poedts, S. 2004, A&A, 424,
+1065
+Van Doorsselaere, T., Nakariakov, V . M., & Verwichte, E. 2007, A&A, 473, 959
+Van Doorsselaere, T., Verwichte, E., & Terradas, J. 2009, Space Sci. Rev., 149,
+299
+Verth, G. & Erdélyi, R. 2008, A&A, 486, 1015
+Verwichte, E., Foullon, C., & Nakariakov, V . M. 2006a, A&A, 446, 1139
+Verwichte, E., Foullon, C., & Nakariakov, V . M. 2006b, A&A, 449, 769
+Verwichte, E., Foullon, C., & Nakariakov, V . M. 2006c, A&A, 452, 615
+Wang, T. J. & Solanki, S. K. 2004, A&A, 421, L33
+Wang, T. J., Solanki, S. K., & Selwa, M. 2008, A&A, 489, 1307
+Yang, Z., Bethge, C., Tian, H., et al. 2020a, Science, 369, 694
+Yang, Z., Tian, H., Tomczyk, S., et al. 2024, Science, 386, 76
+Yang, Z., Tian, H., Tomczyk, S., et al. 2020b, Science in China E: Technological
+Sciences, 63, 2357
+Zajtsev, V . V . & Stepanov, A. V . 1975, Issledovaniia Geomagnetizmu Aeronomii
+i Fizike Solntsa, 37, 3
+Zhong, S., Nakariakov, V . M., Kolotkov, D. Y ., et al. 2023, Nature Communica-
+tions, 14, 5298
+Zimovets, I. V . & Nakariakov, V . M. 2015, A&A, 577, A4
+Article number, page 8 of 8

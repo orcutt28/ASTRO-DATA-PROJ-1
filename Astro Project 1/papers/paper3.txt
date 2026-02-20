@@ -1,0 +1,2264 @@
+Draft version February 16, 2026
+Typeset using L ATEXtwocolumnstyle in AASTeX7.0.1
+Unraveling the Origin of Unequal Mass Gravitational Wave Events: Insights from a Galactic High
+Mass X-ray Binary
+Neev Shah
+ ,1Mathieu Renzo
+ ,1Koushik Sen
+ ,1Aldana Grichener
+ ,1and Katelyn Breivik
+2
+1Steward Observatory, Department of Astronomy, The University of Arizona, 933 N. Cherry Ave., Tucson, AZ 85721, USA
+2McWilliams Center for Cosmology and Astrophysics, Department of Physics, Carnegie Mellon University, Pittsburgh, PA 15213, USA
+ABSTRACT
+The catalog of Gravitational Wave (GW) events is rapidly growing, providing key insights into the
+evolution of massive binaries and compact object formation. However, a key challenge is to explain
+the origin of exceptional events such as GW190814, among the most asymmetric mass-ratio mergers
+to date (q≈0.1). We show that it shares an evolutionary pathway with the most unequal mass
+Galactic High Mass X-ray Binary (HMXB) 4U 1700-37/ HD 153919. We demonstrate this unique
+connection by utilizing a rich set of existing observational constraints for the HMXB and compute
+detailed binary evolution models to explain its formation history. We find that conservative mass
+transfer, along with a directed natal kick are essential to explain its current state. We show that this
+system is unlikely to form a GW source due to a failed Common Envelope (CE) phase in the future,
+in agreement with previous work. With additional models, we show that a similar pathway naturally
+forms GW190814-like events, provided the first phase of mass transfer remains conservative, and the
+first-born (lower mass) compact object receives a large natal kick (≳100 km/s) for the subsequent
+CE phase to be successful and form a asymmetric mass-ratio GW source. Anchored by the number
+of analogous Galactic HMXBs, we estimate rates for such GW events, which broadly agree with their
+observed rate. Our work demonstrates a unified formation pathway for highly asymmetric mass-ratio
+HMXBs and GW events. Moreover, it highlights the critical role of finding and characterizing local
+analogs in different evolutionary phases, and using them as a bridge to understand the origin of GW
+sources, especially the outliers like GW190814.
+Keywords:Gravitational Wave sources — Massive stars — Binary stars — High Mass X-ray binaries
+— Stellar evolution
+1.INTRODUCTION
+Massive stars (>8−10 M ⊙) end their lives in ener-
+getic explosions or implosions, often leaving behind a
+compact remnant like a black hole (BH) or neutron star
+(NS) (e.g, A. Burrows & D. Vartanyan 2021; H. T. Janka
+2025; N. Soker 2025; A. Jerkstrand et al. 2026). Most
+massive stars live in binaries and higher order systems
+(e.g, H. A. Kobulnicky et al. 2014; M. Moe & R. Di Ste-
+fano 2017; S. S. R. Offner et al. 2023), a large fraction
+of which are in orbits close enough that they will likely
+interact at some point over their lifetimes (H. Sana et al.
+2012, 2025). Such systems are thought to be the progen-
+itors of high-energy phenomena such as X-ray binaries
+(XRBs) (e.g, T. M. Tauris & E. P. J. van den Heuvel
+2006), stripped envelope supernovae (e.g, N. Smith et al.
+Email: neevshah@arizona.edu2011; J. D. Lyman et al. 2016), gravitational wave (GW)
+sources (e.g, A. Vigna-G´ omez et al. 2018; T. M. Tauris
+et al. 2017; I. Mandel & A. Farmer 2022), gamma-ray
+bursts (GRB) (e.g, S. E. Woosley 1993; M. Cantiello
+et al. 2007), and various other transients (e.g, R. A.
+Chevalier 2012; B. D. Metzger 2022; N. Soker 2022; A.
+Grichener & N. Soker 2023).
+Although most massive binaries break at the forma-
+tion of the first compact object (e.g, M. Renzo et al.
+2019), in a minority of cases, a natural outcome is the
+presence of compact object(s) in binaries. In the local
+Universe, these systems have been observed for decades
+as X-ray binaries (see R. A. Remillard & J. E. McClin-
+tock 2006 for a review). More recently, astrometry with
+Gaia, and other radial velocity surveys have unraveled a
+small but growing population of non-interacting binaries
+that contain a compact object such as a BH (e.g, K. El-
+Badry et al. 2023a,b; S. Chakrabarti et al. 2023; GaiaarXiv:2602.12327v1  [astro-ph.HE]  12 Feb 2026
+2
+0 25 50 75 100 125
+Primary Compact Object Mass (M ⊙)0.00.20.40.60.81.0Mass Ratio ( q)
+GW190814GWTC-4.0
+0 10 20 30 40 50
+Stellar Companion Mass (M ⊙)0.00.20.40.60.81.0
+4U 1700-37Supergiant XRB
+Be XRB
+Figure 1.GW190814 and the HMXB 4U 1700-37/ HD 153919 represent extremes in their respective populations. GW190814
+has one of the most asymmetric mass-ratio among GW events, while the HMXB 4U 1700-37 contains the most massive companion
+star among known HMXBs.Left panel:The mass of the primary (heavier) compact object and the mass-ratio of the system
+for all the confident GW events in the cumulative GWTC 4.0 catalog ( The LIGO Scientific Collaboration et al. 2025c).Right
+panel:The mass of the companion star and the mass-ratio of the system for all the HMXBs in the catalog of F. Fortin et al.
+(2023). Blue circles denote Supergiant XRBs, while red circles represent Be XRBs. Open circles correspond to systems that
+are cataloged as having a NS in them, but do not have a mass estimate, for which we set their mass to be 1.4 M ⊙. Due to the
+heterogeneous datasets and methods used to estimate masses, and for illustration purposes, we only report the central values
+here and not their measurement errors. GW190814 and 4U 1700-37 are highlighted with larger circles in both panels. The goal
+of this work is to demonstrate an evolutionary link between the formation of both these systems.
+Collaboration et al. 2024; T. Shenar et al. 2022) or NS
+(e.g, K. El-Badry et al. 2024). Additionally, a handful of
+binary neutron star (BNS) systems have been observed
+in the Galaxy through pulsar observations (e.g, M. Bur-
+gay et al. 2003; R. N. Manchester et al. 2005).
+Double compact binaries are strong sources of GWs,
+especially close to merger. GWs from merging binary
+black holes (BBH) were directly detected for the first
+time in 2015 (B. P. Abbott et al. 2016). The sample has
+rapidly grown since, with over 200 mergers in the latest
+catalog, GWTC-4.0 ( The LIGO Scientific Collaboration
+et al. 2025a,b).
+In the catalog are a few exceptional events, such
+as one of the most3asymmetric mass-ratio4merger,
+GW190814, between a compact object of∼2.6 M ⊙,
+and a∼23 M ⊙BH (R. Abbott et al. 2020), see Fig.
+1. The highly asymmetric mass-ratio of this event, and
+the presence of a compact object straddling the “lower
+mass-gap” between the heaviest neutron stars and light-
+est black holes (e.g, F. ¨Ozel et al. 2010; W. M. Farr et al.
+2011, although see A. G. Abac et al. 2024) has been chal-
+lenging to interpret for most formation channels. Vari-
+3Although GW191219 163120 has a mass-ratio lower than
+GW190814, it has a lower SNR and the LVK reports its pa-
+rameters as prone to systematic uncertainties due to the lack of
+calibrated waveform models in that region of parameter space
+(R. Abbott et al. 2023).
+4In this work, unless otherwise specified, we define the mass-
+ratio asq=m 2/m1, wherem 2≤m 1.ous attempts have been made to explain its formation,
+such as through isolated binary evolution (e.g, M. Zevin
+et al. 2020; I. Mandel et al. 2021; I. Maga˜ na Hernandez
+& K. Breivik 2025), a triple scenario where the 2.6 M ⊙
+compact object is the remnant of a previous BNS merger
+(W. Lu et al. 2021), and through dynamical interactions
+in young star clusters (e.g, M. Arca Sedda 2021).
+Due to the unknown BH or NS nature of the lower
+mass compact object in GW190814, it is often catego-
+rized as an outlier to the underlying population (e.g,
+R. Abbott et al. 2021; R. Essick et al. 2022, however,
+see also A. Farah et al. 2022). Outlier events challenge
+conventional channels for the formation of such systems.
+Including or excluding them from analyses can signifi-
+cantly bias the inferred population parameters (e.g, S.
+Colloms et al. 2025). Therefore, it is important to care-
+fully characterize and study outlier events to understand
+whether they are true outliers that hint towards an ex-
+otic formation scenario, or just rare outcomes of an oth-
+erwise standard evolutionary pathway.
+GW events are a rare product of massive binary evolu-
+tion (see I. Mandel & F. S. Broekgaarden 2022 for a re-
+view on rates). This makes it challenging to reconstruct
+their past evolutionary history on an individual event-
+by-event basis just from the estimated masses and/ or
+spins of the compact objects (e.g, K. W. K. Wong et al.
+2023). Instead, most studies search for signatures of dif-
+ferent formation channels in the overall population prop-
+erties, such as the mass, redshift and spin distributions,
+3
+and possible correlations among them (L. A. C. van Son
+et al. 2022, see T. A. Callister 2024 for a review).
+However, another way of understanding the forma-
+tion of GW sources is by finding and characterizing
+their analogs in earlier evolutionary stages. Such sys-
+tems are often observed and well studied in the Milky
+Way and nearby galaxies. They are important anchors
+in the pathway to forming a GW source, and provide
+constraints on uncertainties in massive binary evolution,
+such as the details of the mass transfer (MT) process
+(e.g, K. Sen et al. 2025b), the explodability and na-
+tal kick received to compact remnants (e.g, A. Vigna-
+G´ omez et al. 2024), and uncertainties in common enve-
+lope evolution. Such uncertainties propagate in forming
+a GW source, making their astrophysical interpretation
+a challenging task.
+Utilizing local analogs can be particularly useful for
+understanding the formation of outlier events such as
+GW190814, which may not fit well with the rest of the
+GW population. A key intermediate stage in the path-
+way to becoming a gravitational wave source is a po-
+tential XRB phase (e.g, K. Sen et al. 2021). Although
+few presently observed XRBs in the local Universe will
+result in merging compact binaries in the future (e.g,
+M. Fishbach & V. Kalogera 2022; M. Gallegos-Garcia
+et al. 2022), any compact binary merger originating from
+isolated binary evolution will experience a (brief) XRB
+phase during its evolution (e.g, N. Langer et al. 2020).
+In Fig. 1, we show the mass vs mass-ratio for the known
+population of GW events and Galactic HMXBs.
+Given the extreme mass-ratio of GW190814, a poten-
+tial local analog for it is the runaway HMXB54U 1700-
+37/ HD 153919 (M. Falanga et al. 2015). One of the first
+X-ray sources discovered in the 1970s (C. Jones et al.
+1973), the 3.41 day period binary consists of an O6.5
+Iaf+ star HD 153919 (N. R. Walborn 1973). With an
+estimated mass of 40−60 M ⊙(e.g, G. Hammerschlag-
+Hensberge et al. 2003; M. Falanga et al. 2015), it is one
+of the most massive stars in known XRBs (see Fig. 1).
+The compact object in this system is equally interest-
+ing, with initial estimates putting its mass at≈2.5 M ⊙
+(J. S. Clark et al. 2002). However, recent observations
+hint that its mass may be lower at≈2 M ⊙(M. Falanga
+et al. 2015), but its NS or BH nature remains unclear
+(e.g, L. West-Ocampo et al. 2026). Using Hipparcos
+data, A. Ankay et al. (2001) identified NGC 6231 as
+the potential parent cluster of this system. This was
+54U 1700-37 refers to the X-ray source, while HD 153919 denotes
+the optical counterpart at the same location. In this work,
+we refer to HMXB 4U 1700-37 as the binary system, unless
+otherwise specified.confirmed by V. van der Meij et al. (2021) usingGaia
+EDR3, and verified by V. Hambaryan et al. (2022) us-
+ing the fullGaiaDR3. They find that the HMXB was
+ejected from NGC 6231 about 2 Myr ago, presumably
+due to the SN explosion that formed the compact ob-
+ject. The young age (<10 Myr) of NGC 6231 (e.g, H.
+Sana et al. 2007) implies that the progenitor star of the
+compact object had an initial mass>30 M ⊙(A. Ankay
+et al. 2001).
+The short period of the binary, its highly asymmet-
+ric mass-ratio, and young age have been challenging to
+interpret. V. van der Meij et al. (2021) proposed the
+system to have formed from a massive binary that un-
+derwent mass transfer while the more massive (donor)
+star was still on the Main Sequence (MS)6, termed as
+Case A MT (R. Kippenhahn & A. Weigert 1967). They
+also hypothesized that the compact remnant received a
+natal kick in a favorable direction that shrinks the orbit.
+The presence of a compact object in the lower mass-
+gap, and the highly asymmetric mass-ratio of this sys-
+tem makes it an interesting case study for understanding
+the formation of asymmetric mass-ratio systems such as
+GW190814, as they may share a common evolutionary
+pathway.
+Our goal in this work is two-fold. In Section 2, we
+first utilize the rich set of observational constraints for
+the HMXB 4U 1700-37/ HD 153919, and using Monte
+Carlo simulations reconstruct the properties of the bi-
+nary prior to the first (and so far the only) SN in the
+system. With these constraints, in Section 3 we com-
+pute detailed binary evolution models withMESAto
+chart its past evolutionary history and likely progenitor
+system. We evaluate the future evolution of the HMXB
+in Section 4. In Section 5, we compute additional de-
+tailed binary evolution models to explore the formation
+of GW190814-like systems. We demonstrate the condi-
+tions in which such a system can form, and its similar-
+ities and differences with the HMXB described earlier.
+We also provide estimates for the rates of such events in
+Section 6. In Sections 7 and 8, we discuss certain impli-
+cations and caveats for our models, and summarise our
+results.
+2.RECONSTRUCTION OF THE HMXB 4U 1700-37
+BEFORE SUPERNOVA
+In this section, we use Monte Carlo simulations to
+infer the pre-SN properties of the runaway HMXB 4U
+1700-37/ HD 153919. We utilize several observational
+6Such a scenario was originally proposed by K. Belczynski &
+R. E. Taam (2008) to explain the formation of an isolated neu-
+tron star in the young Westerlund 1 cluster.
+4
+constraints such as the mass of the companion star and
+the compact object, the current orbital period, and its
+systemic velocity with respect to its parent cluster NGC
+6231.
+The occurence of a SN in a binary can have a sig-
+nificant effect on its orbital properties (e.g, J. Boersma
+1961; W. N. Brandt & P. Podsiadlowski 1994; T. Wagg
+et al. 2025a). There can be diverse outcomes depend-
+ing on the amount of mass lost in the explosion. The
+momentum carried by the SN ejecta can change the bi-
+nary orbit (referred to as the “Blauuw kick”, A. Blaauw
+1961). Due to asymmetries in the explosion and/or neu-
+trino emission, the compact remnants can also receive a
+natal kick (J. I. Katz (1975), see S. Popov et al. (2025)
+for a review). The strength and directions of natal kicks,
+and its dependence on the nature of the compact rem-
+nant (NS or BH) are not well known (e.g, A. Vigna-
+G´ omez et al. 2024; P. Nagarajan & K. El-Badry 2025;
+P. Disberg & I. Mandel 2025; R. Valli et al. 2025). The
+combination of mass loss and natal kicks can lead to
+several observational consequences such as binary dis-
+ruption (e.g, E. De Donder et al. 1997; M. Renzo et al.
+2019), and if it remains bound, a change in the orbital
+period, eccentricity and even a systemic velocity to the
+binary as a whole.
+2.1.Methods
+With the help of observational constraints on the pa-
+rameters of a post-SN binary, we can infer its pre-SN pa-
+rameters. We follow the setup in K. El-Badry (2024a),
+which in turn uses W. N. Brandt & P. Podsiadlowski
+(1994) for calculating the outcomes of a SN in a binary.
+These calculations implicitly assume that the mass lost
+in a SN explosion is instantaneously removed from the
+system, given the very high ejecta speeds in a SN in
+comparison to the orbital velocity.
+We start by creating an initial population of pre-SN
+binaries, where we sample over the pre-SN masses and
+orbital periods. We assume that the pre-SN binary or-
+bit is circular. This is justified as we model short period
+binaries that undergo mass transfer, where tides are ex-
+pected to have circularized the orbit (however, see J. J.
+Eldridge (2009); K. A. Rocha et al. (2025); A. Parkosidis
+et al. (2025) for studies on eccentric MT). The post-SN
+binary properties depend on the pre-SN binary param-
+eters and the details of the SN explosion. The relevant
+parameters are the amount of mass lost in the SN, and
+the speed and direction of the compact object natal kick.
+We neglect any change in the mass of the companion star
+during the SN (T. M. Tauris & R. J. Takens 1998; R.
+Hirai et al. 2018; M. Ogata et al. 2021). This specifies allthe relevant parameters needed to generate the post-SN
+population from the pre-SN binary population.
+The mass of the progenitor star that forms the com-
+pact object is denoted bym 1,pre−SN , while its compan-
+ion has a massm 2. We denote the pre-SN orbital pe-
+riod asP pre−SN . We generate a population of 107bi-
+naries withm 2sampled uniformly between 40−50 M ⊙,
+which roughly spans the estimated mass of the visible
+companion today (V. van der Meij et al. 2021). We fix
+the post-SN mass of the compact object (m 1,post−SN )
+to be 2 M ⊙, and sample the mass lost in the SN explo-
+sion (∆m) uniformly between 0−20 M ⊙. Therefore, the
+pre-SN mass of the progenitor of the compact object as
+m1,pre−SN = 2 M ⊙+ ∆m. We assume that the mass of
+the compact object immediately post-SN is similar to its
+measured mass today, as compact objects in HMXBs are
+not expected to gain substantial mass due to the short
+timescale of the HMXB phase (e.g, T.-W. Wong et al.
+2012; T. M. Tauris & E. P. J. van den Heuvel 2023).
+We sample the pre-SN period of the binary uniformly
+between 0−30 days. Although we allow for extremely
+short periods pre-SN, they are not realistic as the stars
+will not fit inside a very small orbit. We sample the natal
+kicks to the compact object isotropically in direction,
+with magnitudes (v kick) from a lognormal distribution
+withµ= 5.60 andσ= 0.68 (P. Disberg & I. Mandel
+2025).
+Having defined the pre-SN binary population
+(m1,pre−SN , m2, P) and the relevant parameters for the
+SN explosion (∆m , v kick) , we can now compute the
+properties of the post-SN binary (or disrupted) pop-
+ulation. From the post-SN population, we select for
+systems that satisfy the observational constraints for
+the HMXB 4U 1700-37, (i.e,) they are bound (e <1)
+and have gained a systemic velocity (v sys) between
+50−80 km/s (V. van der Meij et al. 2021). We assume
+that most of its systemic velocity with respect to its
+birth cluster can be attributed to its post-SN systemic
+velocity, neglecting its evolution over time (during the
+runaway phase) and the impact of the velocity disper-
+sion of the cluster (M. C. Ram´ ırez-Tannus et al. 2021).
+However, the details of this depend on accurately mod-
+eling the effects of the cluster or galactic potential (T.
+Wagg et al. 2025b).
+The presen day orbital period of the XRB is∼
+3.41 days (N. Islam & B. Paul 2016), but it is possible
+that the period immediately post-SN period was differ-
+ent. It could have evolved to its current state due to
+wind mass loss from the companion star (that widens
+the orbit) and tidal effects (which may either shrink or
+widen the orbit, e.g, N. Britavskiy et al. 2024). To ac-
+count for this, we relax our post-SN period constraints
+5
+and select for systems that have a post-SN orbital period
+between 2−5 days. We choose a lower limit of 2 days,
+as shorter periods imply that the companion star would
+have filled its Roche Lobe after the SN, which is not
+plausible given its current evolutionary state.
+We do not impose any constraints on eccentricty, other
+than that it is bound post-SN, as the current eccentricity
+(if any) of the binary may not be representative of what
+it was immediately post-SN due to tidal circularization.
+2.2.Results
+In Fig. 2, we show a corner plot of the pre-SN mass of
+the compact object progenitor, the natal kick imparted
+to its remnant, and the pre-SN orbital period of the sys-
+tems that satisfy the imposed observational constraints.
+The shape of the probability distribution depends on
+the assumed pre-SN population. In this scenario, we
+uniformly explore the entire parameter space of interest
+that is physically relevant to this system given its obser-
+vational constraints (listed in the legend in Fig. 2).
+8.35+1.67
+−1.39
+Observational Constraints
+50<v sys/[km/s]<80
+2<Ppost−SN/[day]<5
+0510Ppre−SN(days)4.40+2.92
+−2.10
+5 10
+m1,pre−SN(M⊙)0400800vkick(km/s)
+0 5 10
+Ppre−SN(days)0400 800
+vkick(km/s)236.58+156.49
+−105.49
+Figure 2.Reconstruction of the properties of the HMXB 4U
+1700-37 pre-SN. The corner plot shows distributions of the
+pre-SN mass, pre-SN period and natal kick strength of the
+binary population that satisfy the observational constraints
+of the HMXB. Diagonal panels show their 1D marginal dis-
+tributions (with median and 1σuncertainties reported on the
+top), while other panels show correlations between different
+parameters, with darker colors representing regions of higher
+density. The goal of our binary evolution models is to match
+these pre-SN constraints.We find that the pre-SN mass of the progenitor of the
+compact object must have been between 4−13 M ⊙to
+explain its current orbital period and systemic velocity.
+Due to the short post-SN orbital period seen today, we
+also find that the pre-SN orbital period is constrained
+to be less than 13 days. Although we do not impose
+any constraints on the pre-SN orbital period, it is un-
+likely to have been very small (≲1−2 days) as the
+two stars would not have fit inside a very small pre-
+SN orbit. We also find that large pre-SN periods (>5
+days) require large natal kicks (>100 km/s), as it is
+not possible to shrink a binary’s post-SN period just
+through mass loss during the SN. This is important be-
+cause the first phase of MT in binaries, if stable, leads
+to mass-ratio reversal and orbital widening in most sce-
+narios (M. Renzo et al. 2019). We also know that this
+system originated in a young cluster with a high turn-
+off mass≥30 M ⊙. Since our Monte Carlo simulations
+suggest that the progenitor of the compact object had a
+pre-SN mass≤13 M ⊙, it must have lost a large amount
+of mass. This strongly suggests that this system likely
+went through a phase of MT in the past (from the pro-
+genitor of the compact object onto the current visible
+star), which would have widened its orbit. Therefore,
+the pre-SN period was likely large enough that a natal
+kick is necessarily needed to shrink the orbit post-SN to
+its current state (V. van der Meij et al. 2021). Thus,
+although our Monte Carlo simulations allow for pre-SN
+periods smaller than≈5 days, we do not expect such
+solutions to be physically plausible.
+3.EVOLUTIONARY HISTORY OF THE HMXB 4U
+1700-37/ HD 153919
+We utilize the pre-SN constraints that we obtained
+from our Monte Carlo simulations to reconstruct the
+past evolutionary history of the HMXB 4U-1700-37/ HD
+153919 with detailed binary evolution models, and de-
+scribe our setup below.
+3.1.Methods
+We simulate the evolution of massive binaries using
+the stellar evolution codeMESA(B. Paxton et al.
+2011, 2013, 2015, 2018, 2019; A. S. Jermyn et al. 2023,
+r24.08.01). Our inlists and output data are publicly
+available7at doi:10.5281/zenodo.18615967 and we sum-
+marize relevant parameters and assumptions below. We
+also perform resolution tests, and describe them in Ap-
+pendix B.
+7We also include scripts to reproduce all the figures in this work
+at doi:10.5281/zenodo.18615967
+6
+We use the Ledoux criterion (P. Ledoux 1947) to find
+convective zones, and assume a mixing length parameter
+αMLT= 2.0. We include semiconvection (α sc= 1) (N.
+Langer et al. 1983), and thermohaline mixing (α th= 1)
+(R. Kippenhahn et al. 1980). To account for convec-
+tive boundary overshooting above the core, we use the
+exponential model from F. Herwig (2000) with free pa-
+rameters (f, f 0) = (4.25×10−2,10−3) (A. Claret & G.
+Torres 2018), which broadly reproduces the width of
+the Main Sequence (MS) for a single 16 M ⊙star (I.
+Brott et al. 2011). We do not account for convective
+boundary over/undershooting for off-center convective
+layers. To aid in regions at the Eddington limit where
+convection is inefficient, we utilize the local implicit en-
+hancement of the convective flux in superadiabatic re-
+gions (use superad reductionfrom A. S. Jermyn et al.
+2023).
+To limit the computational difficulties in modeling
+massive interacting binaries, we include rotation only in
+the accretor, while we fix the donor to be non-rotating8.
+The accreted material carries angular momentum which
+can spin-up the star, which is observed in accretor stars,
+for example, a fraction of runaways (A. Blaauw 1993)
+such asζOphiuchi (T. Zehe et al. 2018; M. Renzo & Y.
+G¨ otberg 2021), in Be stars (T. Rivinius & R. Klement
+2026) and blue lurkers or stragglers (E. Leiner et al.
+2019). We treat rotation in the “shellular” approxima-
+tion (J. P. Zahn 1992; S. Ekstr¨ om et al. 2012), where the
+angular velocitiesωare constant on isobaric surfaces, ef-
+fectively assuming strong angular momentum transport
+in the horizontal direction due to turbulence. We start
+our accretor models with a Ω/Ω crit= 0 at Zero-Age
+Main Sequence (ZAMS), but this can change due to the
+gain/ loss of angular momentum through tides, winds or
+mass transfer. We also include the rotational enhance-
+ment of the wind mass loss (N. Langer 1998) to prevent
+the accretor from reaching critical rotation and regu-
+late the mass-transfer efficiency (see below and also T.
+Lechien et al. 2025; K. Sen et al. 2025b; Z. Xing et al.
+2026). We include several rotational mixing processes in
+a diffusion approximation, such as Eddington-Sweet cir-
+culation (P. A. Sweet 1950), secular and dynamic shear
+instabilities, and the Goldreich-Schubert-Fricke (GSF)
+instability (see A. Heger et al. 2000 for a review of these
+processes). We assume a Spruit-Taylor dynamo (H. C.
+Spruit 2002) for treating the transport of angular mo-
+8However, see D. D. Hendriks & R. G. Izzard (2023) for impacts
+of the donor’s rotation on mass transfer dynamics, although
+such effects are not explicitly included in 1D stellar evolution
+codes such asMESA.mentum, and choose the same parameters as in A. Heger
+et al. (2000).
+Stellar winds are a critical ingredient of massive star
+evolution, as they can modify their internal structure
+(e.g, M. Renzo et al. 2017; A. Romagnolo et al. 2026)
+and also affect the orbital evolution in binaries. For stars
+with a surface effective temperatureT eff>11000 K, we
+utilize the mass loss prescriptions from R. Bj¨ orklund
+et al. (2023), unless the surface hydrogen mass fraction
+falls below 0.4, in which case we use the optically thick
+Wolf-Rayet (WR) wind mass loss rates from T. Nugis &
+H. J. G. L. M. Lamers (2000). For cooler stars with a
+Teff<10000 K, we use the mass-loss rates from L. Decin
+et al. (2024) but do not allow it to exceed 10−6M⊙/yr.
+We interpolate linearly between the hot and cool winds
+for the temperature ranges 10000−11000 K.
+We treat mass transfer in a binary using the scheme
+described in U. Kolb & H. Ritter (1990). We assume
+that mass transfer is fully conservative until the accre-
+tor reaches a maximum Ω/Ω crit= 0.9, after which the
+mass-transfer efficiency depends on the rotationally en-
+hanced wind mass loss. We assume that the specific
+angular momentum and entropy of the transferred mass
+is equal to the corresponding values at the surface of
+the accretor, and the chemical composition is set by the
+stratification of the donor. The transferred mass that is
+not accreted leaves the binary system carrying with it
+the specific angular momentum of the orbital motion of
+the accretor (G. E. Soberman et al. 1997; E. P. J. van
+den Heuvel et al. 2017). We also include tidal effects
+(J. P. Zahn 1977; P. Hut 1981; J. R. Hurley et al. 2002),
+which can have a significant impact on the spins and
+orbital evolution of close binaries.
+3.2.Results
+Based on the results of our Monte Carlo simulations
+in Section 2.2, we compute binary evolution models at
+solar metallicity (Z ⊙= 0.0146, M. Asplund et al. 2009)
+that can reproduce i) the pre-SN mass of the progeni-
+tor of the compact object ii) the estimated mass of the
+companion star in the HMXB today and iii) the pre-SN
+orbital period of the binary. To illustrate the evolution
+and structure of our binary models, we focus our pre-
+sentation on a fiducial model that can explain the past
+evolutionary history of the HMXB 4U 1700-37. This cor-
+responds to a binary of initial masses 40 M ⊙and 28 M ⊙
+in a tight 3 day orbit. In Appendix C, we show a small
+grid with variations in the initial parameters.
+In Fig. 3, we show the evolution of the donor (top) and
+accretom (middle) on separate HR diagrams. We also
+show the evolution of their masses in the bottom panel.
+Due to the short initial period, the donor overflows its
+7
+50000 75000 100000 125000
+Teﬀ/[K]5.255.405.555.705.85log10(L/L⊙)Donor (40 M ⊙, Z⊙)
+35000 400005.45.55.6
+Fast Case A
+Slow Case A
+Case AB
+24000 30000 36000 42000 48000
+Teﬀ[K]5.15.45.76.0log10(L/L⊙) Post-SN
+Future Without
+A CompanionTodayAccretor (28 M ⊙, Z⊙)
+HD 153919
+van der Meij+21
+Hainich+20
+2 3 4 5 6 7
+Age (Myr)1624324048Mass (M⊙)Donor
+AccretorPost-SN
+HD 153919
+Progenitor of
+Compact Object
+Figure 3.The evolution of the donor and accretor in
+our fiducial model for forming the HMXB 4U 1700-37/ HD
+153919 atZ=Z ⊙= 0.0146. Their initial masses are 40 M ⊙
+and 28 M ⊙, respectively, and the initial orbital period is
+3 days.Top panel:Evolution of the donor on the HR di-
+agram. Blue and red curves highlight fast and slow Case A
+mass transfer, respectively, while green shows Case AB mass
+transfer. The diamond, plus, and star markers correspond
+to the Terminal Age Main Sequence (TAMS), core-helium
+ignition, and core-helium depletion, respectively. The inset
+panel zooms into the evolution of the donor during Case A
+mass transfer.Middle Panel:Evolution of the accretor on
+the HR diagram, representing our model for HD 153919. The
+purple and blue markers with errorbars show the observed
+location of HD 153919 from R. Hainich et al. (2020) and V.
+van der Meij et al. (2021), respectively.Bottom panel:The
+evolution of the mass of the donor (dash-dot) and accretor
+(solid) over time.Roche Lobe after 3.26 Myr, during the Main Sequence
+(MS) itself. This leads to a phase of mass transfer from
+the donor to the accretor, referred to as Case A (R. Kip-
+penhahn & A. Weigert 1967). This consists of an initial
+thermal timescale mass transfer (∼0.2 Myr), known as
+fast Case A (highlighted in blue in Fig. 3). As the donor
+regains thermal equilibrium, it slowly grows in size on a
+nuclear timescale, which leads to a steady period of mass
+transfer referred to as slow Case A (highlighted in red in
+Fig. 3). This phase ends around∼5 Myr, which roughly
+corresponds to when the donor has finished its supply of
+hydrogen in its core. It starts contracting on a thermal
+timescale, ending RLOF. At this stage, the donor has
+lost around∼18 M ⊙and has a mass of∼22 M ⊙. Due
+to the stripping of its envelope during MT, the surface
+has an elevated helium mass fraction (Y surf= 0.67) and
+is hot with aT eff∼42500 K. The mass of the helium
+core at this point is almost 17.2 M ⊙.
+On the other hand, the accretor (still on the MS) has
+grown from an initial 28 M ⊙to≈40.9 M ⊙. This corre-
+sponds to an average mass transfer efficiency⟨β RLOF⟩=
+|∆M acc|/|∆M don| ≈0.75. This is due to the short or-
+bital period of the binary, as tidal interactions allow
+mass transfer to remain fairly conservative. Due to the
+increase in mass, the accretor now has a luminosity of
+log10(L/L⊙)≈5.6 and a surface temperature of 39400 K
+(the end of the highlighted red phase in the bottom panel
+of Fig. 3).
+The orbital period of the binary only widened from
+an initial period of 3 days to∼3.7 days post-MT. The
+donor star, which still has a thin hydrogen envelope
+of∼4.7 M ⊙, rapidly expands on a thermal timescale
+during hydrogen shell burning (e.g, Y. G¨ otberg et al.
+2017; E. Laplace et al. 2020), and again overflows its
+Roche Lobe. As this occurs after the initial Case A mass
+transfer, this phase is referred to as Case AB (with the
+B referencing mass transfer occuring after the MS but
+before helium depletion R. Kippenhahn & A. Weigert
+1967). This phase is highlighted in green in Fig. 3. The
+donor loses an additional∼3.5 M ⊙, bringing its total
+mass down to 18.4 M ⊙. Tides prevent the accretor from
+reaching critical rotation, and it is again able to accrete
+most of the transferred mass, growing to∼44 M ⊙. This
+phase ends just after≈10000 yr, which roughly corre-
+sponds to the thermal timescale of the donor. It is now
+even more stripped of hydrogen (surface mass fraction
+∼0.18), and starts contracting towards higher surface
+temperatures.
+Around the same time, it ignites helium in its center,
+and the core-helium burning phase lasts≈0.44 Myr.
+During this phase, it has a hot helium rich surface, and
+8
+would resemble a Wolf-Rayet9star (e.g, T. Shenar et al.
+2020) with a strong optically thick wind. These mass
+loss rates are of the order of 10−6−10−5M⊙/yr, and
+the donor star loses an additional∼6 M ⊙during the
+WR phase until helium depletion. At this point, it is
+just a few thousand years away from core-collapse (e.g,
+T. A. Weaver et al. 1978), and we terminate its evo-
+lution inMESA. It has a mass of∼12.5 M ⊙, with a
+Carbon-Oxygen (CO) core mass of∼10.6 M ⊙and a
+central12C/16O∼0.38. There is no hydrogen left on
+the surface, which mostly consists of helium, carbon and
+some oxygen. Meanwhile, the initially less massive star
+(representing the current visible star in the XRB) has a
+mass of 43.4 M ⊙. The orbital period of the binary has in-
+creased to∼6 days, primarily due to the orbital widen-
+ing caused by wind mass loss from the donor during its
+core-helium burning phase (T. Nugis & H. J. G. L. M.
+Lamers 2000).
+The pre-SN mass of the progenitor of the compact
+object, and the pre-SN orbital period align with our
+expectations of its pre-SN properties from the Monte
+Carlo simulations in Section 2.2. The mass of the accre-
+tor in our models, which corresponds to the visible star
+in the HMXB is also consistent with its mass estimated
+through observations.
+At the end of the donor star’s life, it may successfully
+explode in a stripped envelope SNe and leave behind
+a 2 M ⊙compact object (see Section 7.4 for a discussion
+on explodability). Once the accretor grows large enough
+that it is close to filling its Roche Lobe, the system would
+resemble the HMXB 4U 1700-37 that we observe today.
+Due to previous mass accetion, we find that the surface
+of the companion star would appear to be enriched in
+helium and CNO-processed nitrogen, with surface mass
+fractions of≈0.42 and≈4×10−3,respectively. In
+Section 7, we discuss certain limitations of our fiducial
+model, and provide further justification for why this sys-
+tem likely formed through Case A MT.
+4.CAN THE HMXB 4U 1700-37 FORM A GW
+SOURCE IN THE FUTURE?
+Once the companion star HD 153919 in the HMXB
+fills its Roche Lobe10, it will start transferring mass
+onto the compact object. However, given the highly
+asymmetric mass-ratio of the system (q≈1/20), this is
+likely to become unstable (see also Section 7.6, M. Quast
+9Note that while Wolf-Rayet is a spectroscopic class, we do not
+compute synthetic spectra. In our stellar evolution models, we
+switch to Wolf-Rayet wind mass loss rates based on the surface
+temperature and helium abundance, as defined in Section 3.1.
+10The X-rays observed today are likely from wind accretion, as
+expected in most HMXBs.et al. 2019; A. Olejak et al. 2025). We find that the
+mass transfer rate exceeds 0.1 M ⊙/yr, which generally
+signifies the onset of dynamical instability (J. Klencki &
+B. D. Metzger 2025). We assume such systems to un-
+dergo a Common Envelope (CE) phase (T. Fragos et al.
+2023).
+We do not attempt to model the CE phase directly
+withMESA, and instead utilize theαλformalism (R. F.
+Webbink 1984; M. de Kool 1990) to study its outcome.
+This depends on the binding energy of the envelope of
+the star filling its Roche Lobe, as well as energy sources
+such as the orbital energy that can be used to unbind
+the envelope. The effective energy of the envelope,E env,
+depends on the density structure and internal energy of
+the star, and is given by–
+Eenv(m) =ZM
+mdm′
+−Gm′
+r(m′)+αthu(m′)
+(1)
+Here,mrefers to the mass coordinate corresponding
+to the core-envelope boundary, andMis the total mass
+of the star. The first term in the integral refers to the
+gravitational potential energy of the mass shell at coor-
+dinatem′. In the second term,urefers to the available
+internal energy in that shell, andα this the fraction of
+internal energy that can be used to unbind the envelope.
+If such sources are available to eject the envelope, it re-
+duces the gravitational binding energy and we refer to
+their sum as the effective energy of the envelope.
+The core-envelope boundary is not well defined, and
+is sensitive to overshooting and other mixing processes
+in single stars (e.g, N. Ivanova et al. 2020). In bina-
+ries, rejuvenation plays an important role in determining
+the boundary location (M. Renzo et al. 2023; C. Lan-
+dri et al. 2025). To account for these uncertainties, we
+use three different definitions for determining its loca-
+tion, following T. Fragos et al. (2023). We define the
+core-envelope boundary as the outermost mass coordi-
+nate (m=M core) where the hydrogen mass fractionX
+is less than 0.01,0.1,0.3, respectively. The effective en-
+velope energy is often re-parameterized usingλ(M. de
+Kool 1990), defined as–
+Eenv=−GM∗Menv
+λR∗(2)
+whereM ∗is the mass of the star,M env≡M∗−M coreis
+the mass of its envelope, andE env≡E env(m=M core).
+We can then quantify the outcome of a CE phase using
+energy conservation, given by
+αCE∆Eorb=E bind (3)
+9
+αCEG M coreMCO
+2af−G M∗MCO
+2ai
+=G M∗Menv
+λ R∗.
+(4)
+whereα CErefers to the fraction of orbital energy that
+can be used to unbind the envelope,M COrefers to the
+mass of the compact object,a ianda frefer to the orbital
+separations before and after the CE phase, respectively,
+andE bind=|E env|refers to the effective binding energy
+of the envelope.
+We consider a CE phase to be successful if the post-
+CE orbital separationa fis large enough such that
+the remnant core of the star that loses its envelope
+Rcore≡R(m=M core) fits inside its Roche-Lobe. This
+can be rephrased as the minimumα CEneeded for the
+remnant core to just fill its Roche-Lobe post-CE. In our
+fiducial model, if the requiredα CEis less than 1, we
+define the CE phase to be successful, while for values
+greater than 1, we assume that there is a premature
+merger between the compact object and the compan-
+ion’s core before the envelope can be ejected. However,
+αCE>1 does not necessarily imply a failed CE phase,
+as there may be additional energy sources such as en-
+ergy released by accretion onto the compact object (see
+N. Ivanova et al. 2020 for a review) that may help eject
+the envelope. We neglect any potential response of the
+remnant core to the CE phase, that isR coredoes not
+change, and energy losses via radiation.
+We save the internal structure of the companion star
+in our fiducial model for the HMXB 4U 1700-37/ HD
+153919 at the onset of RLOF, and compute the bind-
+ing energy of its envelope. The star is still on the MS
+and has a central hydrogen mass fraction of≈0.22.
+Therefore, using theX= 0.3 definition, we get the
+core-envelope boundary to be located at≈28.6 M ⊙,
+which roughly lies at the boundary of the present day
+convective MS core of the star. Using this boundary
+location, and the most optimistic assumption that all
+of the internal energy in the envelope is available, we
+get the effective binding energy of the envelope to be
+≈2.35×1050erg. This corresponds to aλ≈0.5. Using
+the energy balance Eqn. 3, we find that the minimum
+αCEthat would be required for a successful CE phase
+is≈18. Such anα CEis quite large, and implies that
+the CE phase is likely going to fail to eject the envelope,
+and lead to a premature merger between the core of the
+star and the compact object, in agreement with previous
+work (e.g, P. Podsiadlowski 1994; E. P. J. van den Heuvel
+et al. 2017; T. M. Tauris et al. 2017; R. Hainich et al.
+2020). Although such systems are not GW sources for
+ground-based detectors, they could appear as energetic
+transients (see A. Grichener (2025) for a review on otherpossible multi-messenger signatures) such as LFBOTs
+(J. Klencki & B. D. Metzger 2025) or form a Thorne-
+˙Zytkow Object (e.g, K. S. Thorne & A. N. Zytkow 1975;
+K. Nathaniel et al. 2025; A. O’Grady et al. 2026).
+5.FORMATION OF GW190814
+In the previous section, we constructed detailed bi-
+nary evolution models at solar metallicity to demon-
+strate the past evolutionary history of the most asym-
+metric HMXB in the Galaxy. However, we found that it
+is unlikely to lead to the formation of a highly asymmet-
+ric GW source, as the system will prematurely merge in
+a future CE phase due to the star’s high envelope bind-
+ing energy. In this section, we compute another set of
+detailed binary evolution models, and demonstrate sce-
+narios in which a CE phase is successful, and leads to
+the formation of a highly asymmetric GW source such
+as GW190814.
+The progenitor binaries of the GW events detected by
+the LVK formed when the universe was much younger,
+and therefore likely metal poor. L. A. C. van Son et al.
+(2025) find that BNS formation is not metallicity de-
+pendent, while BBH formation is more efficient at lower
+metallicity. For these reasons, to describe the forma-
+tion of a GW190814-like binary that consists of a mas-
+sive BH, we computeMESAmodels at a metallicty of
+Z=Z ⊙/10 = 0.00146.
+A key difference in stellar evolution at lower metal-
+licity is that the mass lost through line-driven winds
+becomes signifcantly weaker (e.g., J. S. Vink et al. 2001;
+M. R. Mokiem et al. 2007). In the Section 3.2, we found
+that the progenitor of the compact object lost a signif-
+icant amount of mass during its evolution, particularly
+during its core-helium burning phase. This was crucial
+in lowering its pre-SN mass down to what we inferred
+from our Monte Carlo simulations, and potentially aid
+in its explodability.
+Since we now compute binary evolution models at a
+lower metallicity, we also lower the initial masses of our
+stars. However, we emphasize that the broad evolution-
+ary pathway remains the same. Based on an initial ex-
+ploratory work, our fiducial GW190814-like model con-
+sists of a binary with initial parameters 27 M ⊙+ 25 M ⊙
+in a 3.5 day orbit. Donors that are substantially more
+massive than 27 M ⊙will result in pre-SN masses that
+are potentially too large to successfully explode. On the
+other hand, accretors that are much less massive than
+25 M⊙will leave behind smaller BHs, which will not ap-
+pear as GW sources that arehighly asymmetricin their
+mass-ratio.
+10
+5.1.Evolution before first-SN
+In Fig. 4, we show the evolutionary track of the ac-
+cretor in the binary on the HR diagram (top panel), as
+well as the evolution of their masses over time (bottom
+panel).
+As stars at lower metallicity are more compact, mass
+transfer begins later in the evolution. After 5.9 Myr, the
+donor star overflows its Roche-Lobe during the MS, initi-
+ating Case A mass transfer. This phase lasts for around
+0.75 Myr. Once the donor reaches TAMS, it starts con-
+tracting, and detaches itself from its Roche-Lobe. At
+this stage, the donor star has a mass of 16.9 M ⊙, while
+the accretor has grown to about 34.9 M ⊙. Due to the
+short orbital period, strong tidal forces prevent the ac-
+cretor from reaching critical rotation, and mass transfer
+remains nearly fully conservative. The donor soon re-
+expands once it starts hydrogen shell burning, initiating
+the second phase of Case AB mass transfer, similar to
+our fiducial model in Section 3.2. At the end of this
+phase, the binary consists of a 14.4 M ⊙donor, and a
+37.4 M ⊙accretor in a tight 6.4 day orbit. Around the
+same time, the donor contracts (ending MT) and ig-
+nites helium in its core, which lasts for∼0.5 Myr. At
+core-helium depletion, the donor is left with a mass of
+12.7 M ⊙, with a carbon-oxygen core mass of 10.7 M ⊙
+(and a central12C/16O∼0.39). On the other hand, the
+accretor, now the more massive star in this system has
+a mass of 37.3 M ⊙.
+Since we terminate our donor models at core helium
+depletion, we neglect the impact of binary and tidal in-
+teractions after this point. We assume that at least in
+some cases, the donor star successfully explodes at the
+end of its life, and leaves behind a NS, or a low mass BH
+due to fallback or accretion during the SN. This may re-
+semble the lower mass compact object in GW190814.
+We discuss the effects of explodability in more detail in
+Sec. 7.4. The compact object may also receive a natal
+kick at birth, in analogy with the case of the HMXB
+4U 1700-37. Depending on its strength and direction, a
+variety of post-SN outcomes are possible. This is unlike
+the Galactic HMXB 4U 1700-37, which was bounded by
+observational constraints on the post-SN orbit.
+5.2.Evolution after first-SN
+For systems that remain bound post-SN, the binary
+consists of a compact object and a companion star,
+which was originally the accretor. Depending on the
+size of the orbit post-SN and the radial evolution of the
+companion star, it may (or may not) fill its Roche-Lobe
+during its evolution.
+If it does fill its Roche-Lobe, a phase of reverse-RLOF
+onto the compact object will ensue. The outcome of
+10000 20000 30000 40000
+Teﬀ[K]5.05.35.65.9log10(L/L⊙)Accretor (25 M ⊙, Z⊙/10)
+4000 5000 60005.755.85Accretor (25 M ⊙, Z⊙/10)
+6 7 8
+Age (Myr)02040Mass (M⊙)
+Envelope
+Helium Core
+(Forms
+Heavier BH)Donor
+Accretor
+Forms Lighter
+Compact ObjectFigure 4.The evolution of the accretor in our fidu-
+cial model for forming a GW190814-like binary at a
+Z=Z ⊙/10 = 0.00146. The initial masses of the donor
+and accretor are 27 M ⊙and 25 M ⊙, and the initial orbital
+period is 3.5 days.Top panel:Evolution of the accretor on
+the HR diagram. The colors and marker symbols follow the
+same style as in Fig. 3. The inset panel zooms into the late
+stages of the core-helium burning phase, where it ascends the
+RSG branch, and developes a convective envelope (shown in
+purple).Bottom panel:The evolution of the mass of the
+donor (dash-dot) and accretor (solid) over time. The former
+forms the lighter compact object, while the latter has a mas-
+sive helium core (shown in golden), and is the progenitor of
+the massive BH in an asymmetric mass-ratio GW190814-like
+event.
+this phase sensitively depends on the evolutionary state
+of the companion star and the stability of mass transfer
+at the onset of RLOF. The highly asymmetric mass-
+ratio of the system (q= 2.6/37.3≈1/14) is similar to
+the mass-ratio of the Galactic HMXB that we described
+in Section 2.2. We again assume that mass transfer be-
+comes unstable and leads to a CE phase.
+5.2.1.Fate of CE phase
+We use theαλformalism, as described in Section 4 to
+determine the outcome of the CE phase. However, as the
+post-SN orbital separation can take a range of values,
+the density structure of the star, and correspondingly
+11
+the binding energy of its envelope at the onset of CE
+could vary significantly.
+To account for the different possible outcomes post-
+SN, we “detach” the companion star from the compact
+object, and follow its evolution as a single star inMESA
+(following M. Renzo & Y. G¨ otberg 2021; M. Renzo et al.
+2023). This allows us to model the evolution of its den-
+sity structure and envelope binding energy along with its
+radial evolution, thereby accounting for different possi-
+ble post-SN orbital separations11.
+In the top panel of Fig. 5, we show the effective bind-
+ing energy of the envelope of the companion star as a
+function of its total stellar radius, which we use as a
+proxy for its temporal evolution. For most of its evo-
+lution, as the star grows in radius, there is a moderate
+decrease in its binding energy. Notably, our models ig-
+nite helium in their core while crossing the Hertzprung-
+Gap, and spend most of the core-helium burning phase
+in a blue loop (see Fig. 4 and Fig. 5, M. Renzo et al.
+2023). However, during the end of its core-helium burn-
+ing phase, when it has grown to a size of almost 1250 R ⊙,
+it developes a loosely bound convective envelope and
+starts ascending the Red Super Giant (RSG) branch
+(highlighted in purple in Fig. 4). This dramatically
+decreases the effective binding energy of its envelope,
+making it easier to eject during a potential CE phase
+(e.g, J. Klencki et al. 2021).
+Using the effective binding energy of the star’s enve-
+lope, and the method described in Section 4, we calcu-
+late the minimumα CEthat would be required to eject
+it as a function of its stellar radius. This is shown in the
+bottom panel of Fig. 5, where the line colors and shaded
+bands follow the same convention as the top panel. For
+most of its evolution, whenR ∗<1250 R ⊙, the minimum
+αCErequired to successfully eject the envelope is much
+greater than one. These correspond to the cases similar
+to the HMXB 4U 1700-37, where we assume that the
+CE phase would fail, and there would be a premature
+merger between the compact object and the core of the
+star.
+However, forR ∗>1250 R ⊙, we find that the min-
+imumα CErequired to eject falls below one. In such
+scenarios, we assume that the CE phase is successful in
+ejecting the envelope, and would leave behind a tight,
+and potentially circularized binary consisting of the rem-
+nant core of the star that lost its envelope, and the com-
+pact object.
+11We neglect the impact of tides and potential irradiation from
+an accreting compact object in orbit around the star.
+104910501051Envelope Binding
+Energy (erg)TAMSHe ZAMSHe TAMSWith Internal Energy
+Without Internal Energy
+0 500 1000 1500
+Radius (R⊙)10−1100101αCETAMSHe ZAMSHe TAMSFigure 5.The need for stellar radii≳1250 R ⊙for a success-
+ful Common Envelope phase (α CE<1).Top panel:The evo-
+lution of the binding energy of the envelope as a function of
+the total radius of the star. Blue curves include the contribu-
+tion of internal energy, while golden curves only include the
+gravitational binding energy. The solid lines correspond to
+theX= 0.1 definition for the core-envelope boundary, while
+the shaded bands encompass theX= 0.01 andX= 0.3 lim-
+its. The vertical dash-dot lines denote the stellar radius when
+it reaches TAMS, ignites helium in its core (He ZAMS), and
+finishes core-helium burning (He TAMS), respectively.Bot-
+tom panel:The minimumα CErequired to eject the envelope
+as a function of the stellar radius, with the same color and
+shading conventions as the top panel.
+5.2.2.Forming a highly asymmetric mass-ratio double
+compact system
+In ourMESAmodels, we find that for the systems
+that survive the CE phase, their remnant cores just have
+≈0.03 Myr left to the end of core-helium burning phase.
+They have a helium core mass of≈20 M ⊙, and radius
+≈0.8 R ⊙, which would appear as a WR star. For an
+αCE= 1, the post-CE orbital separation is≈2−5 R ⊙,
+depending on whether we exclude or include internal en-
+ergy. In either case, the remnant core comfortably fits
+inside the new Roche-Lobe. Due to the short time left,
+we assume that the mass of the core will not change
+significantly. It may appear as an X-ray source, sim-
+ilar to Cygnus X-3, which consists of a massive WR
+12
+star in a tight orbit with a compact companion (e.g,
+K. Belczynski et al. 2013; A. Veledina et al. 2024). At
+core-collapse, such a heavy core in our fiducial model is
+potentially too large to explode. It will likely implode
+on itself with little to no mass loss, leaving behind a
+≈20 M ⊙BH. Assuming that such massive BH’s receive
+negligible natal kicks, these systems would now consists
+of a NS or a low-mass BH with a massive≈20 M ⊙
+BH companion in a tight circular orbit of a few solar
+radii. At this time, the compact binary emits GWs at
+a frequency of≈0.1 mHz, which lies in the LISA fre-
+quency range (P. Amaro-Seoane et al. 2023), and may
+be a detectable source. The subsequent evolution of this
+system will be dominated by a GW-driven inspiral. For
+post-CE orbital separations of 2−5 R ⊙, we find that
+it takes at most≈80 Myr for the inspiral to end in a
+finale as a compact binary coalescence that may be ob-
+served by the LVK detectors (P. C. Peters & J. Mathews
+1963). These signals would consist of a low mass com-
+pact object that may be a NS or BH, with a massive
+BH companion, that would appear similar to the highly
+asymmetric mass-ratio event GW190814. Since these
+are post-CE systems and the formation of the massive
+BH likely did not induce any significant eccentricity in
+the binary, we do not expect any measureable eccentric-
+ity at merger. Additionally, we also do not expect the
+second born massive BH to have any significant spin,
+which is also consistent with the estimated spin of the
+primary BH in GW190814. We discuss this in more de-
+tail in Section 7.5.
+6.RATES OF GW190814-LIKE EVENTS
+In Section 3.2, we demonstrated that the highly asym-
+metric mass-ratio Galactic HMXB 4U 1700-37 can form
+through isolated binary evolution, starting from a rel-
+atively equal mass-ratio binary that undergoes conser-
+vative mass transfer. In Section 5, we showed that a
+similar formation pathway works at lower metallicity as
+well, and leads to the formation of a highly asymmet-
+ric mass-ratio GW190814 like source if the CE phase is
+successful. Assuming an evolutionary link between the
+two systems, we can utilize the number of highly asym-
+metric mass-ratio Galactic HMXBs observed to estimate
+the rate of highly asymmetric mass-ratio GW events like
+GW190814. There exist two such HMXBs in the Galaxy.
+One of them is the Galactic HMXB 4U 1700-37 that we
+modeled in Section 3.2. The other is the X-ray pul-
+sar GX 301-2, which has a≈36−50 M ⊙B supergiant
+companion, Wray 977 (L. Kaper et al. 1995). Assum-
+ing that the number of Milky Way equivalent galaxies
+(MWEG) in the local Universe is∼1.16×107Gpc−3
+(R. K. Kopparapu et al. 2008; J. Abadie et al. 2010),and that the average lifetime of observing a binary in
+the HMXB phase is≈0.1 Myr (T. M. Tauris & E. P. J.
+van den Heuvel 2023), the local rate of observing highly
+asymmetric mass-ratio HMXBs is given by–
+RHMXB ∼2
+MWEG×1.16×107MWEG
+Gpc−3×1
+0.1 Myr
+(5)
+= 232 Gpc−3yr−1(6)
+However, as we demonstrated in Sections 3.2 and 5,
+not all highly asymmetric mass-ratio HMXBs will form
+GW190814-like events. We found that a successful CE
+phase occurs if the companion star fills its Roche-Lobe
+when it is a RSG with a loosely bound convective enve-
+lope. In our fiducial model, this requires the size of the
+Roche Lobe after the first-SN to be≈1250−1500 R ⊙. In
+Fig. 6, we show the distribution of possible Roche-Lobe
+sizes after the first-SN (calculated using fits from P. P.
+Eggleton 1983). Based on our fiducial model, we assume
+that a 12.7 M ⊙star explodes to leave behind a 2.6 M ⊙
+compact object, and it has a companion of≈37 M ⊙
+in a≈7 day orbit. The only free parameters that de-
+termine the size of the post-SN RL are the magnitude
+and direction of the natal kick. Similar to Section 2.1,
+we assume isotropic natal kicks (v kick) to arise from a
+lognormal distribution (P. Disberg & I. Mandel 2025).
+We find that≈42% of systems are disrupted due to
+the SN. For the systems that remain bound, the yel-
+low shaded band corresponds to post-SN Roche Lobes
+that are smaller than 1250 R ⊙, which would only ap-
+pear as a highly asymmetric mass-ratio HMXB, but not
+form a GW source due to a failed CE phase. The pur-
+ple shaded band corresponds to post-SN Roche Lobes
+that are≈1250−1500 R ⊙, which will have a success-
+ful CE phase and form a highly asymmetric mass-ratio
+GW source. The blue shaded band corresponds to or-
+bits that are so large that the star never fills its Roche
+Lobe. For the assumed kick distribution, we find that
+only≈0.24% of systems that appear as a HMXB can
+form a GW source through a successful CE phase. No-
+tably, the first-born compact objects in those systems
+all receive natal kicks greater than 100 km/s (bottom
+panel of Fig. 6), similar to what we needed to explain
+the HMXB 4U 1700-37 in Section 2.2. Thus we can es-
+timate the local rate of highly asymmetric mass-ratio
+GW190814-like events to be
+RGW∼0.0024× R HMXB ∼0.56 Gpc−3yr−1(7)
+This estimate is within an order of magnitude of the
+1−23 Gpc−3yr−1rate of GW190814-like events esti-
+13
+mated by the LVK collaboration (R. Abbott et al. 2020),
+which is based on a single event (GW190814). However,
+we caution that our rate estimate depends on key un-
+certain factors such as the lifetime of the HMXB phase,
+and the radial extent of the star for a successful CE
+phase. A detailed rate calculation also requires the
+use of population-synthesis techniques to account for
+the star formation history, metallicity dependence, and
+other uncertainties in linking Galactic HMXBs to GW
+events (e.g., M. Zevin et al. 2020; M. Oh et al. 2023; I.
+Maga˜ na Hernandez & K. Breivik 2025). The observed
+rate of highly asymmetric mass-ratio GW events may
+also include contributions from other formation scenar-
+ios, both within the context of isolated binary evolution,
+as well as other pathways such as dynamical interactions
+or triple evolution.
+7.DISCUSSION
+In this section we discuss additional observational con-
+straints for the HMXB 4U 1700-37/ HD 153919, and
+certain assumptions and caveats for our corresponding
+models. We discuss the explodability of the first-born
+compact object, the stability of the second phase of mass
+transfer and the expected spins of the massive BH in our
+models for GW190814. We also compare our results to
+previous studies that explored the origin of GW190814-
+like events.
+7.1.Kinematic Age of the HMXB 4U 1700-37
+Using kinematic and distance measurements with
+Gaia, V. van der Meij et al. (2021) estimated that the
+HMXB 4U 1700-37 has a kinematic age of≈2.2 Myr.
+This information can also be used to constrain its evo-
+lutionary history. Our models for the companion star
+HD 153919 agree with its estimated mass and observed
+surface properties, such as its effective temperature and
+luminosity. However, we find a discrepancy in the time
+it takes to evolve to its current state post-SN (i.e, its
+kinematic age). In our models, the companion star has
+≈1 Myr left on the MS after the SN, and only≈0.7 Myr
+to reach the observed position of HD 153919 on the HR
+diagram. This implies a factor of 2−3×discrepancy in
+the kinematic age of the system. Although unresolved,
+we list a few potential explanations below–
+1.Higher systemic velocity in the past:This would
+imply a smaller kinematic age. This could hap-
+pen if the system has slowed down over time as it
+escapes the cluster potential well.
+2.Larger initial donor mass:This would imply a
+shorter lifetime for the progenitor of the compact
+object, thereby extending the time spent by the
+102103104post-SN Orbital Separation ( R⊙)
+101102103104
+post-SN Roche Lobe ( R⊙)10−710−510−310−1PDFSuccessful
+CENo
+Interactionfdisrupted = 0.42
+Failed CE
+0 200 400 600 800 1000
+Kick (km/s)0.0000.005PDFFigure 6.Only≈0.24% of asymmetric mass-ratio HMXBs
+form asymmetric mass-ratio GW sources, all of which need
+natal kicks≳100 km/s to the first-born compact object.
+Top panel:The distribution of post-SN Roche Lobe sizes
+for our fiducial model for the formation of a GW190814-like
+system, assuming the natal kicks to follow a lognormal dis-
+tribution. Yellow band corresponds to post-SN Roche Lobes
+smaller than 1250 R ⊙, which may appear as highly asymmet-
+ric Galactic HMXBs, but are unlikely to form a GW source in
+the future due to a failed CE phase. Purple band corresponds
+to post-SN Roche Lobes between≈1250−1500 R ⊙, which
+have a successful CE phase and form a highly asymmetric
+mass-ratio GW190814-like source. Blue band denotes orbits
+large enough such that the star does not fill its Roche Lobe
+during its subsequent evolution. The top axis denotes the
+corresponding orbital separation, for the assumed mass-ratio
+ofq= 2.6 M ⊙/37.3 M ⊙≈1/14.Bottom panel:The distri-
+bution of natal kicks for a successful CE phase (in purple),
+while the assumed lognormal prior is shown in dotted black.
+companion star in the post-SN phase. However,
+a larger donor mass would also imply a slightly
+larger pre-SN mass of the progenitor of the com-
+pact object, which may be inconsistent with what
+we inferred from the Monte Carlo simulations in
+Section 2.
+3.Smaller initial accretor mass:This would imply
+a smaller mass for the star post-SN, increasing its
+MS lifetime (see Appendix C). However, this could
+be in tension with the estimated luminosity and
+mass of the companion star, as we find that (ini-
+tially) lower mass accretors are less luminous and
+less massive at present day than what is inferred
+from observations.
+14
+4.Stronger core rejuvenation:As the accretor gains
+mass, its core gets rejuvenated, which increases
+its MS lifetime. If rejuvenation is stronger than
+implemented in our evolutionary models, it may
+increase its kinematic age.
+The discrepancy could also be addressed by a combi-
+nation of the above factors. Previous studies have also
+found a 2×discrepancy in the ages as measured from
+single star evolutionary grids and kinematic ages (e.g.,
+D. J. Lennon et al. 2018), and further studies are needed
+to address this issue.
+7.2.Rotational Velocity of HD 153919
+HD 153919 is the visible companion star to the X-ray
+source 4U 1700-37. As it is likely a product of past mass
+transfer, it may have a high surface rotational velocity.
+However, R. Hainich et al. (2020) used spectral obser-
+vations and modeling to estimate an upper limit on its
+projected rotational velocity of 110+30
+−50km/s. This im-
+plies that HD 153919 is currently sub-synchronous with
+the 3.41 day orbit. However, in our models, tidal forces
+are strong enough to keep the companion star sychro-
+nized to the orbital period, and as a result have a large
+surface rotational velocity of≈300−400 km/s. How-
+ever, various studies (e.g, Y. Qin et al. 2018; L. Ma & J.
+Fuller 2023) have suggested that tidal effects may not be
+as large as currently implemented (following J. P. Zahn
+1977 as implemented in J. R. Hurley et al. 2002). By
+turning off tidal forces in our models, we find much bet-
+ter agreement with the observed surface rotational ve-
+locity of the companion star. In the first phase of mass
+transfer prior to SN, tidal effects were crucial to keep
+the accretor star from reaching critical rotation, allowing
+for nearly conservative mass transfer. The truth likely
+lies somewhere in between. The exact strength of tidal
+forces is currently uncertain, and depends sensitively on
+the internal structure of the star. The surface rotational
+velocity of HD 153919 depends on a complex interplay
+of AM transport during MT, the effects of time varying
+tidal effects, and angular momentum lost through winds
+that are not captured in full detail by our models, and
+warrants further study, along with more observational
+constraints.
+7.3.Does the HMXB 4U 1700-37 need to form through
+Case A mass transfer?
+Common Envelope:Given the short period of the
+HMXB today, it could also be a post-CE system. How-
+ever, the companion star HD 153919 has an estimated
+mass of≈40−50 M ⊙. Since it likely did not gain ap-
+preciable mass during a CE phase, the progenitor of the
+compact object must have been much more massive than≈40−50 M ⊙, as unstable mass transfer generally oc-
+curs in systems with an asymmetric mass-ratio. For a
+CE phase to be successful, the progenitor of the compact
+object must have been in the post-MS phase with a well
+developed core-envelope boundary. Thus, given its high
+initial mass, its core would potentially be too massive
+to successfully explode and leave behind a≈2 M ⊙com-
+pact object as is seen in the system today. Additionally,
+based on the results of our Monte Carlo simulations de-
+scribed in Section 2.2, we know that the pre-SN mass
+of the progenitor of the compact object was less than
+13 M⊙, which is far too small of a core for a star that
+had an initial mass more than≈40−50 M ⊙. Thus, a
+CE phase in the past is unlikely to explain the observed
+properties of the HMXB.
+Case B:Another possibility is that the first phase of
+MT remained stable, but occured after the MS of the
+donor, that is Case B. However, this is unlikely to ex-
+plain the short period of the system today. Based on
+our Monte Carlo simulations, the orbital period pre-SN
+must have been<10 days. For the mass range relevant
+to the system of study, Case B occurs for initial periods
+that are much longer than 10 days (e.g, K. Sen et al.
+2023). Additionally, M. Renzo et al. (2019) showed that
+for Case B mass transfer, the orbital period of the bi-
+nary post-stable MT is longer than its initial period in
+most cases, except for scenarios where mass transfer is
+non conservative (β <0.6)andthere are extreme losses
+in angular momentum (γ RLOF≥2). Therefore, we find
+that it is exceedingly difficult for a binary post-Case B
+MT to shrink significantly post-SN and explain the sys-
+tem’s short orbital period today. Additionally, even for
+Case B, the progenitor of the compact object would al-
+ready have a well developed core before MT occurs, and
+would be potentially too massive to successfully explode
+and form a≈2 M ⊙compact object.
+7.4.Explodability of first-born compact object
+In Sections 3.2 and 5, we described an evolution-
+ary pathway to forming highly asymmetric mass-ratio
+Galactic HMXBs and GW sources. In both scenarios,
+we require that the donor star in the binary successfully
+explodes at the end of its life, and leaves behind a low
+mass compact object which could either be a NS or a
+low mass BH. Observations of the Galactic HMXB 4U
+1700-37 strongly suggest that this pathway can occur in
+nature, as this system, which originated in a very young
+cluster, consists of a low mass compact object with a
+massive stellar companion.
+However, the explodability of massive stars is sensi-
+tive to their pre-SN structure and past evolutionary his-
+tory such as mass lost through winds or binary interac-
+15
+tions. Various 3D simulations of core-collapse SNe are
+converging on the imporance of neutrino-driven convec-
+tion in driving successful explosions (e.g, A. Burrows
+& D. Vartanyan 2021; H. T. Janka 2025). However,
+they are computationally intensive and can only be done
+for a few progenitor models at a time, which are gen-
+erally computed with 1D stellar evolution models. At
+present, there is a lack of large grids of 1D models at
+core-collapse, that span a wide range of single and bi-
+nary star evolutionary histories, and accurately compute
+through the late stages of nucelar burning that require
+large nuclear networks (e.g, R. Farmer et al. 2016; M.
+Renzo et al. 2024; A. Grichener et al. 2025). This has
+led to the development of various simplified prescrip-
+tions and explodability criterion (e.g., C. L. Fryer et al.
+2012; R. A. Patton & T. Sukhbold 2020; K. Maltsev
+et al. 2025) that are used in population-synthesis stud-
+ies to map stars to their remnant properties, such as the
+mass of the compact object, which can be tied to the
+natal kick that they recieve (e.g, I. Mandel & B. M¨ uller
+2020).
+In our detailed binary evolution models computed
+with MESA, we only evolve the stars till core helium
+depletion. Therefore, we have access to the mass and
+composition of the helium core, the carbon-oxygen core,
+and its density profile at that time, which may al-
+ready determine its explodability (e.g, E. Laplace et al.
+2025). Our models have core masses that lie between
+∼10−13 M ⊙. The explodability of stars with carbon-
+oxygen core masses between∼7−15 M ⊙is uncertain,
+and potentially stochastic (e.g, K. Maltsev et al. 2025).
+If such stars do explode after losing their envelopes,
+they would appear as stripped envelope SNe, with ejecta
+masses of≈8−10 M ⊙. This is on the higher end
+of estimated ejecta masses of observed stripped enve-
+lope SNe (J. D. Lyman et al. 2016). However, recent
+studies (e.g, F. R. N. Schneider et al. 2021; E. Laplace
+et al. 2021; D. Vartanyan et al. 2021; R. Farmer et al.
+2023) find that donors in binary system may be easier
+to explode than their single star counterparts (but see
+also S. Kumar & L. Boccioli 2024). Additionally, such
+stripped envelope SN would have a massive compan-
+ion star next to it, which may be observable with follow
+up deep imaging campaigns to search for surviving com-
+panions in such supernovae (e.g, E. Zapartas et al. 2017,
+2026; D. Souropanis et al. 2026). On the higher mass
+end, it is expected that helium cores>15 M ⊙are poten-
+tially too large to lead to successful explosions (e.g,C. L.
+Fryer et al. 2012; R. A. Patton & T. Sukhbold 2020; K.
+Maltsev et al. 2025, but see also T. Kuroda et al. 2018;A. Burrows et al. 2023, 2024, 2025)12. Further work
+is needed in 1D simulations to compute large grids of
+pre-SN models with large nuclear networks that span a
+wide range of single and binary evolutionary histories,
+as well as a large grid of 3D simulations to better under-
+stand the landscape of explodability and develop more
+accurate prescriptions that can be used in population
+synthesis simulations. To explicitly confirm whether the
+first-born compact object in our models for highly asym-
+metric mass-ratio HMXBs and GW events can be a NS
+or a low mass BH, we need to evolve our models beyond
+core helium depletion till core-collapse, which we defer
+to future work.
+7.5.Spin of the massive BH
+In addition to the masses of the compact objects and
+the distance to the source, the GW signal also encodes
+information on their spins. While it is difficult to mea-
+sure individual spins, the GW detectors are sensitive to
+χeff, a mass-weighted combination of the two spins pro-
+jected onto the orbital angular momentum. For highly
+asymmetric mass-ratio systems, wherem 1is much larger
+thanm 2, the GW signal provides a strong constraint on
+the spin of the massive BH. This is true for GW190814,
+where the spin of the primary BH is tightly constrained
+to be≤0.07 (R. Abbott et al. 2020).
+Spins of compact objects are closely tied to the evolu-
+tionary history of their progenitors, such as the angular
+momentum (AM) transport between their cores and en-
+velopes, the mass and angular momentum gained or lost
+through winds and binary interactions, and also the ef-
+fects of tides in close binaries. Based on our current
+understanding of AM transport within stars, it is ex-
+pected that the first-born BHs are born with negligible
+spin (e.g, J. Fuller & L. Ma 2019). However, the progen-
+itor of the second born BH may get spun up before its
+death through tidal interactions with its companion (e.g,
+S. S. Bavera et al. 2020, see also K. Sen et al. 2025a).
+In our evolutionary scenario for GW190814-like sys-
+tems, we find that the massive BH is the second born
+compact object. To first order, if one assumes efficient
+tidal locking, it may be expected to have a large spin,
+which would be in tension with the measured low spin
+of the massive BH in GW190814. However, detailed nu-
+merical studies of tides in WR+BH binaries (L. Ma &
+J. Fuller 2023) find that spin up through tides is not
+be as efficient as previously assumed. The strength of
+tidal forces scales asq2, thus it also gets progressively
+12With rotation and magnetic fields,≳100 M ⊙carbon-oxygen
+cores can potentially explode as well (D. M. Siegel et al. 2022;
+O. Gottlieb et al. 2025).
+16
+smaller as the mass-ratio of the binary decreases. Ad-
+ditionally, our models undergo a CE phase towards the
+end of core-helium burning, with only≈0.03 Myr left
+till helium depletion in our fiducial model. Therefore,
+even if we disregard the damping of tidal forces due to
+the asymmetric mass-ratio of the system, there is likely
+not enough time for tides to spin up the star’s remannt
+core prior to the end of its life. Thus, we expect the
+massive BH to not have any significant spin, and em-
+phasize that the measured negligible spin of the massive
+BH in GW190814 need not imply that it is the first-born
+compact object in the binary.
+7.6.Stability of second phase of mass transfer
+In our fiducial model for both the HMXB 4U 1700-37
+and GW190814, we assume that mass transfer from the
+companion star to the first-born compact object is un-
+stable, and leads to a CE phase. This is primarily based
+on the extreme mass-ratio of the binary (e.g, J. S. W.
+Claeys et al. 2014; K. Pavlovskii et al. 2017). We also
+find that the mass transfer rates during this phase ex-
+ceed 0.1 M ⊙/yr, which has been used as threshold indi-
+cating the onset of dynamical instability (e.g., T. Fragos
+et al. 2023). In our default setup, we assume that mass
+lost from the system carries with it the specific angu-
+lar momentum of the accretor’s center of mass. How-
+ever, recently A. Olejak et al. (2025) suggested that mass
+transfer in such extreme mass-ratio binaries may remain
+stable if mass transfer is assumed to be non conservative,
+and the mass that is lost from the system carries away
+the specific angular momentum of the donor’s center of
+mass. In such a scenario, the binary widens during mass
+transfer, allowing it to remain stable. On implementing
+such a setup in our binary evolution models, we find that
+although mass transfer remains stable and avoids a CE
+phase, the orbit of the binary widens to≈80 R ⊙. This
+is large enough such that when the double compact bi-
+nary forms, it takes much longer to merge through a GW
+driven inspiral than the age of the Universe. Therefore,
+we do not expect such a pathway to contribute to the
+formation of highly asymmetric mass-ratio GW events.
+However, it may play a role in the future evolution of
+the HMXB 4U 1700-37/ HD 153919, and further work
+is needed to determine the stability of mass transfer in
+such extreme mass-ratio binaries.
+Additionally, M. Quast et al. (2019) showed that mass-
+transfer in HMXBs could remain stable on a nuclear
+timescale if the donor star has a steep H/He gradient
+beneath its surface. They suggest that the presence of a
+gradient can stabilize mass transfer upto mass-ratios of
+≈1/20. However, for the gradient to be revealed at the
+surface, the star must have lost a significant amount ofmass in the past. To explain this, M. Quast et al. (2019)
+suggest that the HMXB phase may have been preceded
+by a prior CE phase that strips its envelope, and reveals
+the H/He gradient. Such stripped stars would have dif-
+ferent surface abundances and spectra than predicted by
+our models where the companion star was an accretor in
+the past. In such a scenario, it may also be a challenge to
+explain the presence of the low mass compact object in
+the HMXB 4U 1700-37, although further observations
+of this system and HD 153919 in particular will help
+distinguish between different formation pathways.
+7.7.Comparison to previous work
+Various studies have aimed at understanding the po-
+tential formation pathways for GW190814-like systems
+(e.g, M. Zevin et al. 2020; I. Mandel et al. 2021; M.
+Arca Sedda 2021; W. Lu et al. 2021; I. Maga˜ na Hernan-
+dez & K. Breivik 2025). In the context of isolated binary
+evolution, such studies have focused on the mass of the
+secondary compact object, and/or the mass-ratio of the
+event. The majority of these studies have only explored
+these questions using rapid binary population synthe-
+sis techniques. In particular, M. Zevin et al. (2020)
+find two potential scenarios for forming such systems,
+one where the low-mass compact object forms first, and
+another where the larger BH forms first. The evolu-
+tionary scenario that we demonstrate in this work with
+detailed binary evolution models is qualitatively simi-
+lar to the former where the first born compact object
+requires a large natal kick to widen the orbit post-SN.
+However, they find that the rates of such systems are a
+couple of orders of magnitude lower than the LVK esti-
+mated rate of GW190814-like events. Motivated by the
+existence of a low mass compact object in the highly
+asymmetric mass-ratio Galactic HMXB 4U 1700-37, we
+showed that the former scenario can occur in nature and
+demonstrated its feasibility with detailed binary evolu-
+tion models (althought see Z. Xing et al. 2025). The
+same formation pathway was also found by I. Mandel
+et al. (2021), but required Hertzprung-Gap donors to
+survive the CE phase. This may not be possible, given
+the high envelope binding energies while crossing the
+HG. Additionally, as discussed in Section 5, we find that
+star should be ascending the RSG branch and nearing
+the end of its core-helium burning phase for a successful
+CE phase.
+8.CONCLUSION
+The catalog of GW events from compact binary merg-
+ers is expected to rapidly grow in the coming years. Un-
+derstanding where, and how these sources form is a key
+goal for studies of massive (and binary) star evolution.
+17
+However, the masses and spins of the compact objects
+as inferred from the GW data are often insufficient to
+infer their formation history, which can involve many
+intermediate stages. This is particularly relevant for
+the astrophysical interpretation of the (numerous) ex-
+ceptional GW events that may be outliers to the rest
+of the GW population, which is bound to increase as
+the catalog size increases. In such situations, it can be
+beneficial to understand the origins of the (numerous)
+earlier stages in the evolution of massive stars in bina-
+ries. Such systems abound in the local Universe, such
+as Algols (e.g, K. Sen et al. 2025b), WR+O systems
+(e.g, D. Vanbeveren et al. 1998; M. Nuijten & G. Nele-
+mans 2025), O+BH binaries (e.g, T. Shenar et al. 2022,
+see K. Deshmukh et al. 2026 for a potential candidate),
+HXMBs (e.g, F. Fortin et al. 2023; D. Kaltenbrunner
+et al. 2026), DNSs (e.g, A. Vigna-G´ omez et al. 2018),
+companions to stripped envelope supernovae (e.g, E. Za-
+partas et al. 2017, 2026; D. Souropanis et al. 2026) etc.
+They offer a treasure trove of observational constraints
+that can be utilized to understand their evolutionary
+history, which are inaccessible when solely studying GW
+sources.
+We demonstrate this approach for GW190814, which,
+with aq≈0.1 remains the most asymmetric mass-
+ratio compact binary merger observed by the LVK detec-
+tors. Although there have been several proposed forma-
+tion pathways for this event, its origin remains unclear.
+Leveraging the highly asymmetric mass-ratio Galactic
+HMXB 4U 1700-37, we find that:
+•Utilizing several observables such as its orbital
+properties, kinematics, and local environment, we
+use Monte Carlo simulations to reconstruct the
+state of the HMXb 4U 1700-37/ HD 153919 pre-
+SN. We found that the progenitor of the compact
+object had a pre-SN mass<13 M ⊙, and the bi-
+nary had a pre-SN orbital period<10 days. This
+strongly suggests that the system underwent a
+phase of mass transfer in the past, during the Main
+Sequence of the primary (case A).
+•We construct detailed binary evolution models
+withMESAto explain the evolutionary history of
+the HMXB, and find that conservative mass trans-
+fer on the Main Sequence (Case A), along with a
+directed natal kick can explain the observed prop-
+erties of the system today.
+•We demonstrate that that the HMXB is unlikely
+to form a GW source in the future. It will likely
+undergo a failed CE phase in the future due to
+the high binding energy of the companion star’senvelope, in agreement with previous work (e.g,
+P. Podsiadlowski 1994; E. P. J. van den Heuvel
+et al. 2017; T. M. Tauris et al. 2017; R. Hainich
+et al. 2020).
+•By computing additional models at lower metallic-
+ity, we show that a similar evolutionary pathway
+can also form highly asymmetric mass-ratio GW
+sources like GW190814. The first phase of mass
+transfer remains stable and conservative, which in-
+verts the mass-ratio of the binary. For a successful
+CE phase in the future, we find that the first born
+compact object must receive a strong natal kick
+(≳100 km/s) to widen the orbit post-SN. This al-
+lows for the CE phase to occur when the compan-
+ion star is a RSG with a loosely bound convective
+envelope that is easier to eject.
+•In both scenarios, we find that the first-born com-
+pact object is the lower mass compact object, that
+is a NS or a low mass BH. For the systems that
+form a GW source, the massive BH is the second
+born compact object, and we expect it to have
+negligible spin, in agreement with measured spin
+of the primary (more massive) BH in GW190814.
+•Utilizing the fact that there exist two highly asym-
+metric Galactic HMXBs, we estimate the local
+rate of highly asymmetric GW190814-like events
+to be≈0.5 Gpc−3yr−1, which is in broad agree-
+ment with GW observations.
+As the ground-based GW detectors rapidly increase
+the sample of detected events, it will enable a better
+characterization of highly asymmetric mass-ratio BBH
+or NSBH systems (e.g, Z. Xing et al. 2024). It will allow
+us to understand the nature of individual events, as well
+as explore correlations in their mass, spin, and redshift
+distributions. Such studies could potentially distinguish
+between the different formation pathways proposed for
+the formation of such systems. Additionally, several on-
+going or future surveys such asGaia(e.g, Gaia Col-
+laboration et al. 2023; K. El-Badry 2024b), LSST (e.g,
+K. M. Hambleton et al. 2023), Roman (e.g, C. Y. Lam
+et al. 2023), eROSITA (e.g, A. Merloni et al. 2024) will
+rapidly increase the sample of products of massive bi-
+nary evolution in various stages. These systems provide
+a local anchors to understand various uncertainties in
+the evolution of massive stars and compact objects in
+binaries, and can be utilized as a bridge to understand
+the origin of GW sources.
+18
+ACKNOWLEDGMENTS
+N.S. would like to thank Thomas Callister, Amanda
+Farah, Nathan Smith and Gurtina Besla for useful
+discussions. M.R. acknowledges support from NASA
+(ATP: 95380NSSC24K0932) and NSF-AST-2510584.
+K.B. acknowledges support from NSF-AST-2510583 and
+the Falco-DeBenedetti Early Career Professorship. This
+work utilized the ElGato High Performance Computing
+cluster at the University of Arizona. The Theoretical
+Astrophysics Program (TAP) at the University of Ari-
+zona provided resources to support this work. We re-
+spectfully acknowledge the University of Arizona is on
+the land and territories of Indigenous peoples. Today,
+Arizona is home to 22 federally recognized tribes, with
+Tucson being home to the O’odham and the Yaqui. The
+university strives to build sustainable relationships with
+sovereign Native Nations and Indigenous communities
+through education offerings, partnerships, and commu-
+nity service.
+This work has made use of the HMXB catalogue
+(https://binary-revolution.github.io/HMXBwebcat/)
+maintained by the Binary rEvolution team
+(https://github.com/Binary-rEvolution).
+This research has made use of data or software ob-
+tained from the Gravitational Wave Open Science Cen-
+ter (gwosc.org), a service of the LIGO Scientific Col-
+laboration, the Virgo Collaboration, and KAGRA. This
+material is based upon work supported by NSF’s LIGO
+Laboratory which is a major facility fully funded by
+the National Science Foundation, as well as the Sci-
+ence and Technology Facilities Council (STFC) of the
+United Kingdom, the Max-Planck-Society (MPS), and
+the State of Niedersachsen/Germany for support of the
+construction of Advanced LIGO and construction and
+operation of the GEO600 detector. Additional supportfor Advanced LIGO was provided by the Australian Re-
+search Council. Virgo is funded, through the European
+Gravitational Observatory (EGO), by the French Centre
+National de Recherche Scientifique (CNRS), the Italian
+Istituto Nazionale di Fisica Nucleare (INFN) and the
+Dutch Nikhef, with contributions by institutions from
+Belgium, Germany, Greece, Hungary, Ireland, Japan,
+Monaco, Poland, Portugal, Spain. KAGRA is supported
+by Ministry of Education, Culture, Sports, Science and
+Technology (MEXT), Japan Society for the Promotion
+of Science (JSPS) in Japan; National Research Founda-
+tion (NRF) and Ministry of Science and ICT (MSIT) in
+Korea; Academia Sinica (AS) and National Science and
+Technology Council (NSTC) in Taiwan.
+9.SOFTWARE
+This work made use of the following software pack-
+ages:astropy( Astropy Collaboration et al. 2013, 2018,
+2022),Jupyter(F. Perez & B. E. Granger 2007; T.
+Kluyver et al. 2016),matplotlib(J. D. Hunter 2007),
+numpy(C. R. Harris et al. 2020),pandas( Wes McKin-
+ney 2010; T. pandas development team 2025),python
+(G. Van Rossum & F. L. Drake 2009),scipy(P. Vir-
+tanen et al. 2020; R. Gommers et al. 2025),Bilby(G.
+Ashton et al. 2019; I. M. Romero-Shaw et al. 2020; C.
+Talbot et al. 2025), andcorner.py(D. Foreman-Mackey
+2016; D. Foreman-Mackey et al. 2024).
+This research has made use of the Astrophysics Data
+System, funded by NASA under Cooperative Agreement
+80NSSC21M00561.
+This work uses Modules for Experiments in Stellar
+Astrophysics (MESA B. Paxton et al. 2011, 2013, 2015,
+2018, 2019; A. S. Jermyn et al. 2023).
+Software citation information aggregated usingThe
+Software Citation Station(T. Wagg & F. S. Broek-
+gaarden 2024; T. Wagg et al. 2025).
+APPENDIX
+A.ADDITIONAL DETAILS ABOUT THE MESA SETUP
+The MESA EOS is a blend of the OPAL (F. J. Rogers & A. Nayfonov 2002), SCVH (D. Saumon et al. 1995), FreeEOS
+(A. W. Irwin 2004), HELM (F. X. Timmes & F. D. Swesty 2000), PC (A. Y. Potekhin & G. Chabrier 2010), and Skye
+(A. S. Jermyn et al. 2021) EOSes. Radiative opacities are primarily from OPAL (C. A. Iglesias & F. J. Rogers 1993,
+1996), with low-temperature data from J. W. Ferguson et al. (2005) and the high-temperature, Compton-scattering
+dominated regime by J. Poutanen (2017). Electron conduction opacities are from S. Cassisi et al. (2007) and S. Blouin
+et al. (2020). Nuclear reaction rates are from JINA REACLIB (R. H. Cyburt et al. 2010), NACRE (C. Angulo et al.
+1999) and additional tabulated weak reaction rates G. M. Fuller et al. (1985); T. Oda et al. (1994); K. Langanke & G.
+Mart´ ınez-Pinedo (2000). Screening is included via the prescription of A. I. Chugunov et al. (2007). Thermal neutrino
+loss rates are from N. Itoh et al. (1996). Roche lobe radii in binary systems are computed using the fit of P. P. Eggleton
+(1983).
+19
+50000 75000 100000 125000
+Teﬀ/[K]5.05.25.45.65.8log10(L/L⊙)
+∆x= 1.0,∆t= 0.8 Donor
+∆x= 0.67,∆t= 0.53 Donor
+∆x= 1.0,∆t= 0.8 Accretor
+∆x= 0.67,∆t= 0.53 Accretor
+(a)
+0 50000 100000 150000
+Teﬀ/[K]5.05.25.45.65.8log10(L/L⊙)
+∆x= 1.0,∆t= 0.8 Donor
+∆x= 0.67,∆t= 0.53 Donor
+∆x= 1.0,∆t= 0.8 Accretor
+∆x= 0.67,∆t= 0.53 Accretor (b)
+Figure 7.(a) The evolution of the accretor and donor star, modeling the evolutionary history of the HMXB 4U 1700-37 on the
+HR diagram for two different choices of resolution. (b) The evolution of the accretor and donor star, modeling the formation of
+GW190814 on the HR diagram for two different choices of resolution.
+B.RESOLUTION TESTS
+To ensure that our results are robust to the choice of spatial and temporal resolution inMESA, we repeated our
+fiducial binary evolution calculations by increasing the number of mesh points, i.e. decreasingmesh delta coeffand
+mesh time coeffby a factor of 2/3. In Fig 7, we show that the evolution of the donor and accretor stars on the
+HR diagram for our fiducial models to explain the evolutionary history of the HMXB 4U 1700-37 (left panel) and
+a GW190814-like system (right panel). The blue and red solid colors represent the default resolution for the donor
+and accretor, where we havemesh delta coeff≡∆ x= 1 andmesh time coeff≡∆ t= 0.8. The cyan and pink
+dashed lines represent higher resolution models, where we decrease both ∆ xand ∆ tby a factor of 2/3. We find
+that the evolutionary tracks of both the donor and accretor stars are nearly identical for both choices of resolution,
+demonstrating that our results are robust and there is convergence in the numerical treatment of binary evolution in
+MESA. The number of zones in our accretor models for the HMXB 4U 1700-37 are≈1600 and≈2400 for the fiducial
+and high resolution runs, while the number of timesteps are≈67250 and≈68600, respectively. The accretor models
+for the formation of a GW190814-like system have≈1700 and≈2500 zones for the fiducial and high resolution runs,
+while the number of timesteps are≈14500 and≈17500, respectively.
+C.VARIATIONS IN INITIAL CONDITIONS
+To demonstrate that our binary evolution models for the formation of the HMXB 4U 1700-37/ HD 153919 are robust
+against small variations in initial parameters, we compute a small grid where we vary the initial mass of the accretor
+star from the value chosen for the fiducial model. Their evolution on the HR diagram is shown in Fig 8. All models
+follow a similar evolutionary track as the fiducial model. Depending on the mass of the accretor, the tracks shift up
+or down in luminosity. Additionally, lower mass accretors also spend more time on the Main Sequence post-SN, which
+may help address the discrepancy in the kinematic age of the system as discussed in Section 7.1. Our models can be
+further constrained with more observational studies of the surface properties and the distance to HD 153919, which
+will help resolve its exact position on the HR diagram.
+REFERENCES
+Abac, A. G., Abbott, R., Abouelfettouh, I., et al. 2024,
+ApJL, 970, L34, doi: 10.3847/2041-8213/ad5beb
+Abadie, J., Abbott, B. P., Abbott, R., et al. 2010, Classical
+and Quantum Gravity, 27, 173001,
+doi: 10.1088/0264-9381/27/17/173001Abbott, B. P., Abbott, R., Abbott, T. D., et al. 2016,
+PhRvL, 116, 061102,
+doi: 10.1103/PhysRevLett.116.061102
+Abbott, R., Abbott, T. D., Abraham, S., et al. 2020, ApJL,
+896, L44, doi: 10.3847/2041-8213/ab960f
+20
+30000 35000 40000 45000
+Teﬀ[K]5.005.255.505.756.00log10(L/L⊙)
+252627282930 HD 153919
+van der Meij+21
+Hainich+20
+Figure 8.The evolution of accretors on the HR diagram. The dark blue curve highlights the fiducial model for the accretor
+in the formation of the HMXB 4U 1700-37/ HD 153919, while lighter shades represent variations in the mass of the accretor
+(denoted in gray in solar masses at the beginning of their evolution).
+Abbott, R., Abbott, T. D., Abraham, S., et al. 2021, ApJL,
+913, L7, doi: 10.3847/2041-8213/abe949
+Abbott, R., Abbott, T. D., Acernese, F., et al. 2023,
+Physical Review X, 13, 041039,
+doi: 10.1103/PhysRevX.13.041039
+Amaro-Seoane, P., Andrews, J., Arca Sedda, M., et al.
+2023, Living Reviews in Relativity, 26, 2,
+doi: 10.1007/s41114-022-00041-y
+Angulo, C., Arnould, M., Rayet, M., et al. 1999, NuPhA,
+656, 3, doi: 10.1016/S0375-9474(99)00030-5
+Ankay, A., Kaper, L., de Bruijne, J. H. J., et al. 2001,
+A&A, 370, 170, doi: 10.1051/0004-6361:20010192
+Arca Sedda, M. 2021, ApJL, 908, L38,
+doi: 10.3847/2041-8213/abdfcd
+Ashton, G., H¨ ubner, M., Lasky, P. D., et al. 2019, ApJS,
+241, 27, doi: 10.3847/1538-4365/ab06fc
+Asplund, M., Grevesse, N., Sauval, A. J., & Scott, P. 2009,
+ARA&A, 47, 481,
+doi: 10.1146/annurev.astro.46.060407.145222
+Astropy Collaboration, Robitaille, T. P., Tollerud, E. J.,
+et al. 2013, A&A, 558, A33,
+doi: 10.1051/0004-6361/201322068
+Astropy Collaboration, Price-Whelan, A. M., Sip˝ ocz, B. M.,
+et al. 2018, AJ, 156, 123, doi: 10.3847/1538-3881/aabc4f
+Astropy Collaboration, Price-Whelan, A. M., Lim, P. L.,
+et al. 2022, ApJ, 935, 167, doi: 10.3847/1538-4357/ac7c74
+Bavera, S. S., Fragos, T., Qin, Y., et al. 2020, A&A, 635,
+A97, doi: 10.1051/0004-6361/201936204Belczynski, K., Bulik, T., Mandel, I., et al. 2013, ApJ, 764,
+96, doi: 10.1088/0004-637X/764/1/96
+Belczynski, K., & Taam, R. E. 2008, ApJ, 685, 400,
+doi: 10.1086/590551
+Bj¨ orklund, R., Sundqvist, J. O., Singh, S. M., Puls, J., &
+Najarro, F. 2023, A&A, 676, A109,
+doi: 10.1051/0004-6361/202141948
+Blaauw, A. 1961, BAN, 15, 265
+Blaauw, A. 1993, in Astronomical Society of the Pacific
+Conference Series, Vol. 35, Massive Stars: Their Lives in
+the Interstellar Medium, ed. J. P. Cassinelli & E. B.
+Churchwell, 207
+Blouin, S., Shaffer, N. R., Saumon, D., & Starrett, C. E.
+2020, ApJ, 899, 46, doi: 10.3847/1538-4357/ab9e75
+Boersma, J. 1961, BAN, 15, 291
+Brandt, W. N., & Podsiadlowski, P. 1994, arXiv e-prints,
+astro, doi: 10.48550/arXiv.astro-ph/9412023
+Britavskiy, N., Renzo, M., Naz´ e, Y., Rauw, G., &
+Vynatheya, P. 2024, A&A, 684, A35,
+doi: 10.1051/0004-6361/202348484
+Brott, I., de Mink, S. E., Cantiello, M., et al. 2011, A&A,
+530, A115, doi: 10.1051/0004-6361/201016113
+Burgay, M., D’Amico, N., Possenti, A., et al. 2003, Nature,
+426, 531, doi: 10.1038/nature02124
+Burrows, A., & Vartanyan, D. 2021, Nature, 589, 29,
+doi: 10.1038/s41586-020-03059-w
+Burrows, A., Vartanyan, D., & Wang, T. 2023, ApJ, 957,
+68, doi: 10.3847/1538-4357/acfc1c
+21
+Burrows, A., Wang, T., & Vartanyan, D. 2024, ApJL, 964,
+L16, doi: 10.3847/2041-8213/ad319e
+Burrows, A., Wang, T., & Vartanyan, D. 2025, ApJ, 987,
+164, doi: 10.3847/1538-4357/addd04
+Callister, T. A. 2024, arXiv e-prints, arXiv:2410.19145,
+doi: 10.48550/arXiv.2410.19145
+Cantiello, M., Yoon, S. C., Langer, N., & Livio, M. 2007,
+A&A, 465, L29, doi: 10.1051/0004-6361:20077115
+Cassisi, S., Potekhin, A. Y., Pietrinferni, A., Catelan, M., &
+Salaris, M. 2007, ApJ, 661, 1094, doi: 10.1086/516819
+Chakrabarti, S., Simon, J. D., Craig, P. A., et al. 2023, AJ,
+166, 6, doi: 10.3847/1538-3881/accf21
+Chevalier, R. A. 2012, ApJL, 752, L2,
+doi: 10.1088/2041-8205/752/1/L2
+Chugunov, A. I., Dewitt, H. E., & Yakovlev, D. G. 2007,
+PhRvD, 76, 025028, doi: 10.1103/PhysRevD.76.025028
+Claeys, J. S. W., Pols, O. R., Izzard, R. G., Vink, J., &
+Verbunt, F. W. M. 2014, A&A, 563, A83,
+doi: 10.1051/0004-6361/201322714
+Claret, A., & Torres, G. 2018, ApJ, 859, 100,
+doi: 10.3847/1538-4357/aabd35
+Clark, J. S., Goodwin, S. P., Crowther, P. A., et al. 2002,
+A&A, 392, 909, doi: 10.1051/0004-6361:20021184
+Colloms, S., Doctor, Z., & Berry, C. P. L. 2025, arXiv
+e-prints, arXiv:2508.14159.
+https://arxiv.org/abs/2508.14159
+Cyburt, R. H., Amthor, A. M., Ferguson, R., et al. 2010,
+ApJS, 189, 240, doi: 10.1088/0067-0049/189/1/240
+De Donder, E., Vanbeveren, D., & van Bever, J. 1997,
+A&A, 318, 812
+de Kool, M. 1990, ApJ, 358, 189, doi: 10.1086/168974
+Decin, L., Richards, A. M. S., Marchant, P., & Sana, H.
+2024, A&A, 681, A17, doi: 10.1051/0004-6361/202244635
+Deshmukh, K., Sana, H., Verhamme, O., et al. 2026, arXiv
+e-prints, arXiv:2602.03650.
+https://arxiv.org/abs/2602.03650
+Disberg, P., & Mandel, I. 2025, ApJL, 989, L8,
+doi: 10.3847/2041-8213/adf286
+Eggleton, P. P. 1983, ApJ, 268, 368, doi: 10.1086/160960
+Ekstr¨ om, S., Georgy, C., Eggenberger, P., et al. 2012,
+A&A, 537, A146, doi: 10.1051/0004-6361/201117751
+El-Badry, K. 2024a, The Open Journal of Astrophysics, 7,
+38, doi: 10.33232/001c.117652
+El-Badry, K. 2024b, NewAR, 98, 101694,
+doi: 10.1016/j.newar.2024.101694
+El-Badry, K., Rix, H.-W., Quataert, E., et al. 2023a,
+MNRAS, 518, 1057, doi: 10.1093/mnras/stac3140
+El-Badry, K., Rix, H.-W., Cendes, Y., et al. 2023b,
+MNRAS, 521, 4323, doi: 10.1093/mnras/stad799El-Badry, K., Rix, H.-W., Latham, D. W., et al. 2024, The
+Open Journal of Astrophysics, 7, 58,
+doi: 10.33232/001c.121261
+Eldridge, J. J. 2009, MNRAS, 400, L20,
+doi: 10.1111/j.1745-3933.2009.00753.x
+Essick, R., Farah, A., Galaudage, S., et al. 2022, ApJ, 926,
+34, doi: 10.3847/1538-4357/ac3978
+Falanga, M., Bozzo, E., Lutovinov, A., et al. 2015, A&A,
+577, A130, doi: 10.1051/0004-6361/201425191
+Farah, A., Fishbach, M., Essick, R., Holz, D. E., &
+Galaudage, S. 2022, ApJ, 931, 108,
+doi: 10.3847/1538-4357/ac5f03
+Farmer, R., Fields, C. E., Petermann, I., et al. 2016, ApJS,
+227, 22, doi: 10.3847/1538-4365/227/2/22
+Farmer, R., Laplace, E., Ma, J.-z., de Mink, S. E., &
+Justham, S. 2023, ApJ, 948, 111,
+doi: 10.3847/1538-4357/acc315
+Farr, W. M., Sravan, N., Cantrell, A., et al. 2011, ApJ, 741,
+103, doi: 10.1088/0004-637X/741/2/103
+Ferguson, J. W., Alexander, D. R., Allard, F., et al. 2005,
+ApJ, 623, 585, doi: 10.1086/428642
+Fishbach, M., & Kalogera, V. 2022, ApJL, 929, L26,
+doi: 10.3847/2041-8213/ac64a5
+Foreman-Mackey, D. 2016, The Journal of Open Source
+Software, 1, 24, doi: 10.21105/joss.00024
+Foreman-Mackey, D., Price-Whelan, A., Vousden, W., et al.
+2024, dfm/corner.py: v2.2.3, v2.2.3 Zenodo,
+doi: 10.5281/zenodo.14209694
+Fortin, F., Garc´ ıa, F., Simaz Bunzel, A., & Chaty, S. 2023,
+A&A, 671, A149, doi: 10.1051/0004-6361/202245236
+Fragos, T., Andrews, J. J., Bavera, S. S., et al. 2023, ApJS,
+264, 45, doi: 10.3847/1538-4365/ac90c1
+Fryer, C. L., Belczynski, K., Wiktorowicz, G., et al. 2012,
+The Astrophysical Journal, 749, 91,
+doi: 10.1088/0004-637x/749/1/91
+Fuller, G. M., Fowler, W. A., & Newman, M. J. 1985, ApJ,
+293, 1, doi: 10.1086/163208
+Fuller, J., & Ma, L. 2019, ApJL, 881, L1,
+doi: 10.3847/2041-8213/ab339b
+Gaia Collaboration, Vallenari, A., Brown, A. G. A., et al.
+2023, A&A, 674, A1, doi: 10.1051/0004-6361/202243940
+Gaia Collaboration, Panuzzo, P., Mazeh, T., et al. 2024,
+A&A, 686, L2, doi: 10.1051/0004-6361/202449763
+Gallegos-Garcia, M., Fishbach, M., Kalogera, V., L Berry,
+C. P., & Doctor, Z. 2022, ApJL, 938, L19,
+doi: 10.3847/2041-8213/ac96ef
+Gommers, R., Virtanen, P., Haberland, M., et al. 2025,
+scipy/scipy: SciPy 1.16.2, v1.16.2 Zenodo,
+doi: 10.5281/zenodo.17101542
+22
+G¨ otberg, Y., de Mink, S. E., & Groh, J. H. 2017, A&A,
+608, A11, doi: 10.1051/0004-6361/201730472
+Gottlieb, O., Metzger, B. D., Issa, D., et al. 2025, arXiv
+e-prints, arXiv:2508.15887,
+doi: 10.48550/arXiv.2508.15887
+Grichener, A. 2025, Ap&SS, 370, 11,
+doi: 10.1007/s10509-025-04402-1
+Grichener, A., & Soker, N. 2023, MNRAS, 523, 6041,
+doi: 10.1093/mnras/stad1872
+Grichener, A., Renzo, M., Kerzendorf, W. E., et al. 2025,
+ApJS, 279, 49, doi: 10.3847/1538-4365/ade717
+Hainich, R., Oskinova, L. M., Torrej´ on, J. M., et al. 2020,
+A&A, 634, A49, doi: 10.1051/0004-6361/201935498
+Hambaryan, V., Stoyanov, K. A., Mugrauer, M., et al.
+2022, MNRAS, 511, 4123, doi: 10.1093/mnras/stac184
+Hambleton, K. M., Bianco, F. B., Street, R., et al. 2023,
+PASP, 135, 105002, doi: 10.1088/1538-3873/acdb9a
+Hammerschlag-Hensberge, G., van Kerkwijk, M. H., &
+Kaper, L. 2003, A&A, 407, 685,
+doi: 10.1051/0004-6361:20030962
+Harris, C. R., Millman, K. J., van der Walt, S. J., et al.
+2020, Nature, 585, 357, doi: 10.1038/s41586-020-2649-2
+Heger, A., Langer, N., & Woosley, S. E. 2000, ApJ, 528,
+368, doi: 10.1086/308158
+Hendriks, D. D., & Izzard, R. G. 2023, MNRAS, 524, 4315,
+doi: 10.1093/mnras/stad2077
+Herwig, F. 2000, A&A, 360, 952,
+doi: 10.48550/arXiv.astro-ph/0007139
+Hirai, R., Podsiadlowski, P., & Yamada, S. 2018, ApJ, 864,
+119, doi: 10.3847/1538-4357/aad6a0
+Hunter, J. D. 2007, Computing in Science & Engineering, 9,
+90, doi: 10.1109/MCSE.2007.55
+Hurley, J. R., Tout, C. A., & Pols, O. R. 2002, MNRAS,
+329, 897, doi: 10.1046/j.1365-8711.2002.05038.x
+Hut, P. 1981, A&A, 99, 126
+Iglesias, C. A., & Rogers, F. J. 1993, ApJ, 412, 752,
+doi: 10.1086/172958
+Iglesias, C. A., & Rogers, F. J. 1996, ApJ, 464, 943,
+doi: 10.1086/177381
+Irwin, A. W. 2004, The FreeEOS Code for Calculating the
+Equation of State for Stellar Interiors,
+http://freeeos.sourceforge.net/
+Islam, N., & Paul, B. 2016, MNRAS, 461, 816,
+doi: 10.1093/mnras/stw1299
+Itoh, N., Hayashi, H., Nishikawa, A., & Kohyama, Y. 1996,
+ApJS, 102, 411, doi: 10.1086/192264
+Ivanova, N., Justham, S., & Ricker, P. 2020, Common
+Envelope Evolution, doi: 10.1088/2514-3433/abb6f0
+Janka, H. T. 2025, arXiv e-prints, arXiv:2502.14836,
+doi: 10.48550/arXiv.2502.14836Jerkstrand, A., Milisavljevic, D., & M¨ uller, B. 2026, in
+Encyclopedia of Astrophysics, Volume 2, Vol. 2, 639–668,
+doi: 10.1016/B978-0-443-21439-4.00090-0
+Jermyn, A. S., Schwab, J., Bauer, E., Timmes, F. X., &
+Potekhin, A. Y. 2021, ApJ, 913, 72,
+doi: 10.3847/1538-4357/abf48e
+Jermyn, A. S., Bauer, E. B., Schwab, J., et al. 2023, ApJS,
+265, 15, doi: 10.3847/1538-4365/acae8d
+Jones, C., Forman, W., Tananbaum, H., et al. 1973, ApJL,
+181, L43, doi: 10.1086/181181
+Kaltenbrunner, D., Maitra, C., Haberl, F., et al. 2026,
+arXiv e-prints, arXiv:2602.08152.
+https://arxiv.org/abs/2602.08152
+Kaper, L., Lamers, H. J. G. L. M., Ruymaekers, E., van
+den Heuvel, E. P. J., & Zuiderwijk, E. J. 1995, A&A,
+300, 446, doi: 10.48550/arXiv.astro-ph/9503003
+Katz, J. I. 1975, Nature, 253, 698, doi: 10.1038/253698a0
+Kippenhahn, R., Ruschenplatt, G., & Thomas, H. C. 1980,
+A&A, 91, 175
+Kippenhahn, R., & Weigert, A. 1967, ZA, 65, 251
+Klencki, J., & Metzger, B. D. 2025, arXiv e-prints,
+arXiv:2510.09745, doi: 10.48550/arXiv.2510.09745
+Klencki, J., Nelemans, G., Istrate, A. G., & Chruslinska, M.
+2021, A&A, 645, A54, doi: 10.1051/0004-6361/202038707
+Kluyver, T., Ragan-Kelley, B., P´ erez, F., et al. 2016, in
+Positioning and Power in Academic Publishing: Players,
+Agents and Agendas, ed. F. Loizides & B. Schmidt, IOS
+Press, 87 – 90
+Kobulnicky, H. A., Kiminki, D. C., Lundquist, M. J., et al.
+2014, ApJS, 213, 34, doi: 10.1088/0067-0049/213/2/34
+Kolb, U., & Ritter, H. 1990, A&A, 236, 385
+Kopparapu, R. K., Hanna, C., Kalogera, V., et al. 2008,
+ApJ, 675, 1459, doi: 10.1086/527348
+Kumar, S., & Boccioli, L. 2024, Research Notes of the
+American Astronomical Society, 8, 302,
+doi: 10.3847/2515-5172/ad9baa
+Kuroda, T., Kotake, K., Takiwaki, T., & Thielemann, F.-K.
+2018, MNRAS, 477, L80, doi: 10.1093/mnrasl/sly059
+Lam, C. Y., Abrams, N., Andrews, J., et al. 2023, arXiv
+e-prints, arXiv:2306.12514,
+doi: 10.48550/arXiv.2306.12514
+Landri, C., Ricker, P. M., Renzo, M., Rau, S., &
+Vigna-G´ omez, A. 2025, ApJ, 979, 57,
+doi: 10.3847/1538-4357/ad9d3c
+Langanke, K., & Mart´ ınez-Pinedo, G. 2000, Nuclear
+Physics A, 673, 481, doi: 10.1016/S0375-9474(00)00131-7
+Langer, N. 1998, A&A, 329, 551
+Langer, N., Fricke, K. J., & Sugimoto, D. 1983, A&A, 126,
+207
+23
+Langer, N., Sch¨ urmann, C., Stoll, K., et al. 2020, A&A,
+638, A39, doi: 10.1051/0004-6361/201937375
+Laplace, E., G¨ otberg, Y., de Mink, S. E., Justham, S., &
+Farmer, R. 2020, A&A, 637, A6,
+doi: 10.1051/0004-6361/201937300
+Laplace, E., Justham, S., Renzo, M., et al. 2021, A&A, 656,
+A58, doi: 10.1051/0004-6361/202140506
+Laplace, E., Schneider, F. R. N., & Podsiadlowski, P. 2025,
+A&A, 695, A71, doi: 10.1051/0004-6361/202451077
+Lechien, T., de Mink, S. E., Valli, R., et al. 2025, ApJL,
+990, L51, doi: 10.3847/2041-8213/adfdd4
+Ledoux, P. 1947, ApJ, 105, 305, doi: 10.1086/144905
+Leiner, E., Mathieu, R. D., Vanderburg, A., Gosnell, N. M.,
+& Smith, J. C. 2019, ApJ, 881, 47,
+doi: 10.3847/1538-4357/ab2bf8
+Lennon, D. J., Evans, C. J., van der Marel, R. P., et al.
+2018, A&A, 619, A78, doi: 10.1051/0004-6361/201833465
+Lu, W., Beniamini, P., & Bonnerot, C. 2021, MNRAS, 500,
+1817, doi: 10.1093/mnras/staa3372
+Lyman, J. D., Bersier, D., James, P. A., et al. 2016,
+MNRAS, 457, 328, doi: 10.1093/mnras/stv2983
+Ma, L., & Fuller, J. 2023, ApJ, 952, 53,
+doi: 10.3847/1538-4357/acdb74
+Maga˜ na Hernandez, I., & Breivik, K. 2025, arXiv e-prints,
+arXiv:2511.16648, doi: 10.48550/arXiv.2511.16648
+Maltsev, K., Schneider, F. R. N., Mandel, I., et al. 2025,
+A&A, 700, A20, doi: 10.1051/0004-6361/202554931
+Manchester, R. N., Hobbs, G. B., Teoh, A., & Hobbs, M.
+2005, AJ, 129, 1993, doi: 10.1086/428488
+Mandel, I., & Broekgaarden, F. S. 2022, Living Reviews in
+Relativity, 25, 1, doi: 10.1007/s41114-021-00034-3
+Mandel, I., & Farmer, A. 2022, PhR, 955, 1,
+doi: 10.1016/j.physrep.2022.01.003
+Mandel, I., & M¨ uller, B. 2020, MNRAS, 499, 3214,
+doi: 10.1093/mnras/staa3043
+Mandel, I., M¨ uller, B., Riley, J., et al. 2021, MNRAS, 500,
+1380, doi: 10.1093/mnras/staa3390
+Merloni, A., Lamer, G., Liu, T., et al. 2024, A&A, 682,
+A34, doi: 10.1051/0004-6361/202347165
+Metzger, B. D. 2022, ApJ, 932, 84,
+doi: 10.3847/1538-4357/ac6d59
+Moe, M., & Di Stefano, R. 2017, ApJS, 230, 15,
+doi: 10.3847/1538-4365/aa6fb6
+Mokiem, M. R., de Koter, A., Vink, J. S., et al. 2007, A&A,
+473, 603, doi: 10.1051/0004-6361:20077545
+Nagarajan, P., & El-Badry, K. 2025, PASP, 137, 034203,
+doi: 10.1088/1538-3873/adb6d6
+Nathaniel, K., Vigna-G´ omez, A., Grichener, A., et al. 2025,
+A&A, 694, A83, doi: 10.1051/0004-6361/202451531
+Nugis, T., & Lamers, H. J. G. L. M. 2000, A&A, 360, 227Nuijten, M., & Nelemans, G. 2025, A&A, 695, A117,
+doi: 10.1051/0004-6361/202451564
+Oda, T., Hino, M., Muto, K., Takahara, M., & Sato, K.
+1994, Atomic Data and Nuclear Data Tables, 56, 231,
+doi: 10.1006/adnd.1994.1007
+Offner, S. S. R., Moe, M., Kratter, K. M., et al. 2023, in
+Astronomical Society of the Pacific Conference Series,
+Vol. 534, Protostars and Planets VII, ed. S. Inutsuka,
+Y. Aikawa, T. Muto, K. Tomida, & M. Tamura, 275,
+doi: 10.48550/arXiv.2203.10066
+Ogata, M., Hirai, R., & Hijikawa, K. 2021, MNRAS, 505,
+2485, doi: 10.1093/mnras/stab1439
+O’Grady, A., Moriya, T. J., Renzo, M., & Vigna-G´ omez, A.
+2026, in Encyclopedia of Astrophysics, Volume 3, Vol. 3,
+336–357, doi: 10.1016/B978-0-443-21439-4.00093-6
+Oh, M., Fishbach, M., Kimball, C., Kalogera, V., & Ye, C.
+2023, ApJ, 953, 152, doi: 10.3847/1538-4357/ace349
+Olejak, A., Klencki, J., Vigna-Gomez, A., et al. 2025, arXiv
+e-prints, arXiv:2511.10728,
+doi: 10.48550/arXiv.2511.10728
+¨Ozel, F., Psaltis, D., Narayan, R., & McClintock, J. E.
+2010, ApJ, 725, 1918,
+doi: 10.1088/0004-637X/725/2/1918
+pandas development team, T. 2025, pandas-dev/pandas:
+Pandas, v2.3.3 Zenodo, doi: 10.5281/zenodo.17229934
+Parkosidis, A., Toonen, S., Dosopoulou, F., & Laplace, E.
+2025, arXiv e-prints, arXiv:2509.05243,
+doi: 10.48550/arXiv.2509.05243
+Patton, R. A., & Sukhbold, T. 2020, Monthly Notices of
+the Royal Astronomical Society, 499, 2803–2816,
+doi: 10.1093/mnras/staa3029
+Pavlovskii, K., Ivanova, N., Belczynski, K., & Van, K. X.
+2017, MNRAS, 465, 2092, doi: 10.1093/mnras/stw2786
+Paxton, B., Bildsten, L., Dotter, A., et al. 2011, ApJS, 192,
+3, doi: 10.1088/0067-0049/192/1/3
+Paxton, B., Cantiello, M., Arras, P., et al. 2013, ApJS, 208,
+4, doi: 10.1088/0067-0049/208/1/4
+Paxton, B., Marchant, P., Schwab, J., et al. 2015, ApJS,
+220, 15, doi: 10.1088/0067-0049/220/1/15
+Paxton, B., Schwab, J., Bauer, E. B., et al. 2018, ApJS,
+234, 34, doi: 10.3847/1538-4365/aaa5a8
+Paxton, B., Smolec, R., Schwab, J., et al. 2019, ApJS, 243,
+10, doi: 10.3847/1538-4365/ab2241
+Perez, F., & Granger, B. E. 2007, Computing in Science
+and Engineering, 9, 21, doi: 10.1109/MCSE.2007.53
+Peters, P. C., & Mathews, J. 1963, Phys. Rev., 131, 435,
+doi: 10.1103/PhysRev.131.435
+Podsiadlowski, P. 1994, Mem. Soc. Astron. Italiana, 65, 359
+Popov, S., M¨ uller, B., & Mandel, I. 2025, NewAR, 101,
+101734, doi: 10.1016/j.newar.2025.101734
+24
+Potekhin, A. Y., & Chabrier, G. 2010, Contributions to
+Plasma Physics, 50, 82, doi: 10.1002/ctpp.201010017
+Poutanen, J. 2017, ApJ, 835, 119,
+doi: 10.3847/1538-4357/835/2/119
+Qin, Y., Fragos, T., Meynet, G., et al. 2018, A&A, 616,
+A28, doi: 10.1051/0004-6361/201832839
+Quast, M., Langer, N., & Tauris, T. M. 2019, A&A, 628,
+A19, doi: 10.1051/0004-6361/201935453
+Ram´ ırez-Tannus, M. C., Backs, F., de Koter, A., et al.
+2021, A&A, 645, L10, doi: 10.1051/0004-6361/202039673
+Remillard, R. A., & McClintock, J. E. 2006, ARA&A, 44,
+49, doi: 10.1146/annurev.astro.44.051905.092532
+Renzo, M., Goldberg, J. A., Grichener, A., Gottlieb, O., &
+Cantiello, M. 2024, Progenitor with small reaction
+networks should not be used as initial conditions for core
+collapse, https://arxiv.org/abs/2406.02590
+Renzo, M., & G¨ otberg, Y. 2021, ApJ, 923, 277,
+doi: 10.3847/1538-4357/ac29c5
+Renzo, M., Ott, C. D., Shore, S. N., & de Mink, S. E. 2017,
+A&A, 603, A118, doi: 10.1051/0004-6361/201730698
+Renzo, M., Zapartas, E., Justham, S., et al. 2023, ApJL,
+942, L32, doi: 10.3847/2041-8213/aca4d3
+Renzo, M., Zapartas, E., de Mink, S. E., et al. 2019, A&A,
+624, A66, doi: 10.1051/0004-6361/201833297
+Rivinius, T., & Klement, R. 2026, in Encyclopedia of
+Astrophysics, Vol. 2, 430–448,
+doi: 10.1016/B978-0-443-21439-4.00042-0
+Rocha, K. A., Hur, R., Kalogera, V., et al. 2025, ApJ, 983,
+39, doi: 10.3847/1538-4357/adb970
+Rogers, F. J., & Nayfonov, A. 2002, ApJ, 576, 1064,
+doi: 10.1086/341894
+Romagnolo, A., Broekgaarden, F. S., Antoniadis, K., &
+Gormaz-Matamala, A. C. 2026, arXiv e-prints,
+arXiv:2601.02263, doi: 10.48550/arXiv.2601.02263
+Romero-Shaw, I. M., Talbot, C., Biscoveanu, S., et al. 2020,
+MNRAS, 499, 3295, doi: 10.1093/mnras/staa2850
+Sana, H., Rauw, G., Sung, H., Gosset, E., & Vreux, J.-M.
+2007, MNRAS, 377, 945,
+doi: 10.1111/j.1365-2966.2007.11672.x
+Sana, H., de Mink, S. E., de Koter, A., et al. 2012, Science,
+337, 444, doi: 10.1126/science.1223344
+Sana, H., Shenar, T., Bodensteiner, J., et al. 2025, Nature
+Astronomy, 9, 1337, doi: 10.1038/s41550-025-02610-x
+Saumon, D., Chabrier, G., & van Horn, H. M. 1995, ApJS,
+99, 713, doi: 10.1086/192204
+Schneider, F. R. N., Podsiadlowski, P., & M¨ uller, B. 2021,
+A&A, 645, A5, doi: 10.1051/0004-6361/202039219
+Sen, K., Olejak, A., & Banerjee, S. 2025a, A&A, 696, A54,
+doi: 10.1051/0004-6361/202553829Sen, K., Xu, X.-T., Langer, N., et al. 2021, A&A, 652,
+A138, doi: 10.1051/0004-6361/202141214
+Sen, K., Langer, N., Pauli, D., et al. 2023, A&A, 672, A198,
+doi: 10.1051/0004-6361/202245378
+Sen, K., Renzo, M., Jin, H., et al. 2025b, arXiv e-prints,
+arXiv:2511.15347, doi: 10.48550/arXiv.2511.15347
+Shenar, T., Gilkis, A., Vink, J. S., Sana, H., & Sander,
+A. A. C. 2020, A&A, 634, A79,
+doi: 10.1051/0004-6361/201936948
+Shenar, T., Sana, H., Mahy, L., et al. 2022, Nature
+Astronomy, 6, 1085, doi: 10.1038/s41550-022-01730-y
+Siegel, D. M., Agarwal, A., Barnes, J., et al. 2022, ApJ,
+941, 100, doi: 10.3847/1538-4357/ac8d04
+Smith, N., Li, W., Filippenko, A. V., & Chornock, R. 2011,
+MNRAS, 412, 1522,
+doi: 10.1111/j.1365-2966.2011.17229.x
+Soberman, G. E., Phinney, E. S., & van den Heuvel,
+E. P. J. 1997, A&A, 327, 620,
+doi: 10.48550/arXiv.astro-ph/9703016
+Soker, N. 2022, Research in Astronomy and Astrophysics,
+22, 055010, doi: 10.1088/1674-4527/ac5b40
+Soker, N. 2025, NewA, 121, 102453,
+doi: 10.1016/j.newast.2025.102453
+Souropanis, D., Zapartas, E., Pessi, T., et al. 2026,
+MNRAS, 545, staf2163, doi: 10.1093/mnras/staf2163
+Spruit, H. C. 2002, A&A, 381, 923,
+doi: 10.1051/0004-6361:20011465
+Sweet, P. A. 1950, MNRAS, 110, 548,
+doi: 10.1093/mnras/110.6.548
+Talbot, C., Ashton, G., H¨ ubner, M., et al. 2025,
+bilby-dev/bilby: v2.7.0rc0, v2.7.0rc0 Zenodo,
+doi: 10.5281/zenodo.17314023
+Tauris, T. M., & Takens, R. J. 1998, A&A, 330, 1047
+Tauris, T. M., & van den Heuvel, E. P. J. 2006, in Compact
+stellar X-ray sources, ed. W. H. G. Lewin & M. van der
+Klis, Vol. 39, 623–665,
+doi: 10.48550/arXiv.astro-ph/0303456
+Tauris, T. M., & van den Heuvel, E. P. J. 2023, Physics of
+Binary Star Evolution. From Stars to X-ray Binaries and
+Gravitational Wave Sources,
+doi: 10.48550/arXiv.2305.09388
+Tauris, T. M., Kramer, M., Freire, P. C. C., et al. 2017,
+ApJ, 846, 170, doi: 10.3847/1538-4357/aa7e89
+The LIGO Scientific Collaboration, The Virgo
+Collaboration, & the KAGRA Collaboration. 2025a,
+arXiv e-prints, arXiv:2508.18082,
+doi: 10.48550/arXiv.2508.18082
+25
+The LIGO Scientific Collaboration, the Virgo
+Collaboration, & the KAGRA Collaboration. 2025b,
+arXiv e-prints, arXiv:2508.18083.
+https://arxiv.org/abs/2508.18083
+The LIGO Scientific Collaboration, the Virgo
+Collaboration, the KAGRA Collaboration, et al. 2025c,
+arXiv e-prints, arXiv:2508.18079,
+doi: 10.48550/arXiv.2508.18079
+Thorne, K. S., & Zytkow, A. N. 1975, ApJL, 199, L19,
+doi: 10.1086/181839
+Timmes, F. X., & Swesty, F. D. 2000, ApJS, 126, 501,
+doi: 10.1086/313304
+Valli, R., de Mink, S. E., Justham, S., et al. 2025, arXiv
+e-prints, arXiv:2505.08857,
+doi: 10.48550/arXiv.2505.08857
+van den Heuvel, E. P. J., Portegies Zwart, S. F., & de
+Mink, S. E. 2017, MNRAS, 471, 4256,
+doi: 10.1093/mnras/stx1430
+van der Meij, V., Guo, D., Kaper, L., & Renzo, M. 2021,
+A&A, 655, A31, doi: 10.1051/0004-6361/202040114
+Van Rossum, G., & Drake, F. L. 2009, Python 3 Reference
+Manual (Scotts Valley, CA: CreateSpace)
+van Son, L. A. C., de Mink, S. E., Renzo, M., et al. 2022,
+ApJ, 940, 184, doi: 10.3847/1538-4357/ac9b0a
+van Son, L. A. C., Roy, S. K., Mandel, I., et al. 2025, ApJ,
+979, 209, doi: 10.3847/1538-4357/ada14a
+Vanbeveren, D., De Donder, E., Van Bever, J., Van
+Rensbergen, W., & De Loore, C. 1998, NewA, 3, 443,
+doi: 10.1016/S1384-1076(98)00020-7
+Vartanyan, D., Laplace, E., Renzo, M., et al. 2021, ApJL,
+916, L5, doi: 10.3847/2041-8213/ac0b42
+Veledina, A., Muleri, F., Poutanen, J., et al. 2024, Nature
+Astronomy, 8, 1031, doi: 10.1038/s41550-024-02294-9
+Vigna-G´ omez, A., Neijssel, C. J., Stevenson, S., et al. 2018,
+MNRAS, 481, 4009, doi: 10.1093/mnras/sty2463
+Vigna-G´ omez, A., Willcox, R., Tamborra, I., et al. 2024,
+PhRvL, 132, 191403,
+doi: 10.1103/PhysRevLett.132.191403
+Vink, J. S., de Koter, A., & Lamers, H. J. G. L. M. 2001,
+A&A, 369, 574, doi: 10.1051/0004-6361:20010127
+Virtanen, P., Gommers, R., Oliphant, T. E., et al. 2020,
+Nature Methods, 17, 261, doi: 10.1038/s41592-019-0686-2
+Wagg, T., Broekgaarden, F., & G¨ ultekin, K. 2025,
+TomWagg/software-citation-station: v1.3, v1.3 Zenodo,
+doi: 10.5281/zenodo.17145205Wagg, T., & Broekgaarden, F. S. 2024, arXiv e-prints,
+arXiv:2406.04405. https://arxiv.org/abs/2406.04405
+Wagg, T., Hendriks, D. D., Renzo, M., & Breivik, K. 2025a,
+The Open Journal of Astrophysics, 8, 85,
+doi: 10.33232/001c.141718
+Wagg, T., Dalcanton, J. J., Renzo, M., et al. 2025b, AJ,
+170, 192, doi: 10.3847/1538-3881/adf55e
+Walborn, N. R. 1973, AJ, 78, 1067, doi: 10.1086/111509
+Weaver, T. A., Zimmerman, G. B., & Woosley, S. E. 1978,
+ApJ, 225, 1021, doi: 10.1086/156569
+Webbink, R. F. 1984, ApJ, 277, 355, doi: 10.1086/161701
+Wes McKinney. 2010, in Proceedings of the 9th Python in
+Science Conference, ed. St´ efan van der Walt & Jarrod
+Millman, 56 – 61, doi: 10.25080/Majora-92bf1922-00a
+West-Ocampo, L., Fogantini, F. A., Saavedra, E. A., et al.
+2026, arXiv e-prints, arXiv:2602.04622.
+https://arxiv.org/abs/2602.04622
+Wong, K. W. K., Breivik, K., Farr, W. M., & Luger, R.
+2023, ApJ, 950, 181, doi: 10.3847/1538-4357/acc863
+Wong, T.-W., Valsecchi, F., Fragos, T., & Kalogera, V.
+2012, ApJ, 747, 111, doi: 10.1088/0004-637X/747/2/111
+Woosley, S. E. 1993, ApJ, 405, 273, doi: 10.1086/172359
+Xing, Z., Fragos, T., Kalogera, V., et al. 2026, arXiv
+e-prints, arXiv:2602.06259,
+doi: 10.48550/arXiv.2602.06259
+Xing, Z., Bavera, S. S., Fragos, T., et al. 2024, A&A, 683,
+A144, doi: 10.1051/0004-6361/202347971
+Xing, Z., Kalogera, V., Fragos, T., et al. 2025, ApJ, 989,
+188, doi: 10.3847/1538-4357/adec6d
+Zahn, J. P. 1977, A&A, 57, 383
+Zahn, J. P. 1992, A&A, 265, 115
+Zapartas, E., de Mink, S. E., Van Dyk, S. D., et al. 2017,
+ApJ, 842, 125, doi: 10.3847/1538-4357/aa7467
+Zapartas, E., Fox, O. D., Su, J., et al. 2026, MNRAS, 546,
+staf2208, doi: 10.1093/mnras/staf2208
+Zehe, T., Mugrauer, M., Neuh¨ auser, R., et al. 2018,
+Astronomische Nachrichten, 339, 46,
+doi: 10.1002/asna.201713383
+Zevin, M., Spera, M., Berry, C. P. L., & Kalogera, V. 2020,
+ApJL, 899, L1, doi: 10.3847/2041-8213/aba74e

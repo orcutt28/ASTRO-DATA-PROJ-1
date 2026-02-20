@@ -1,0 +1,702 @@
+Astronomy&Astrophysicsmanuscript no. AA_main©ESO 2026
+February 16, 2026
+A tight relation between the distribution of globular clusters and
+dark matter in AS1063.
+J.M. Diego1,⋆, C. Goolsby2, C.J. Conselice2, and J.M. Palencia1
+1Instituto de Física de Cantabria (CSIC-UC). Avda. Los Castros s/n. 39005 Santander, Spain
+2Jodrell Bank Centre for Astrophysics, Alan Turing Building, University of Manchester, Oxford Road, Manchester M13 9PL, UK
+February 16, 2026
+ABSTRACT
+Based on deep high resolution JWST images of AS1063, and after a careful masking of artifacts, extended features in the cluster,
+and background galaxies (including known lensed ones), we have identified tens of thousands of unresolved point sources in the
+central region of the galaxy cluster. We extended the identification of these point sources up to 1.18 Mpc from the center of the cluster
+using data in the second module. Most of these sources are expected to be globular clusters orbiting in the deep potential well of the
+cluster, but also the surviving compact cores of satellite galaxies. We study the distribution of the globular clusters and compared it
+with the distribution of mass from a lens model derived from the same JWST data. We find a very tight correlation between the two
+distributions, but also some differences, including a more concentrated distribution for the globular clusters than for dark matter. We
+explored the possibility of using the distribution of globular clusters as a proxy for the lensing mass. We find that a simple smoothing
+kernel can transform the discrete distribution of point sources into a continuous two-dimensional distribution that matches well the
+lensing convergence. This suggests that globular clusters can be used as tracers of the dark matter distribution in other massive clusters
+where gravitational lensing constraints are scarce but globular clusters can be detected more easily, for instance in low redshift galaxy
+clusters.
+Key words.gravitational lensing – dark matter – cosmology
+1. Introduction
+Data from theJames Webbspace telescope (JWST) allows us to
+study galaxy clusters and the background galaxies they magnify
+with unprecedented detail. Much attention has been paid to the
+latter, where some of the best studied so far galaxies at high red-
+shift are found magnified behind powerful gravitational lenses.
+This has enabled a wealth of studies on these very young galax-
+ies, including also detailed spectroscopy that takes advantage of
+the magnification provided by the cluster lenses.
+But the new JWST images also reveal a never seen before
+(at these redshifts) wealth of unresolved sources in the galaxy
+clusters themselves (Lee et al. 2022; Harris & Reina-Campos
+2023). Most of these compact sources are believed to be
+globular clusters (GC) that are stripped away from their host
+galaxies and, thanks to their very compact nature, can survive
+the strong tidal forces that ripped apart their host galaxies. Some
+of these point sources are also expected to be compact cores
+of galaxies surrounding the central super massive black hole
+(SMBH) of each galaxy. These very compact cores can survive
+close encounters with other galaxies, or with the galaxy cluster
+central region. Since self-gravitating systems have negative
+specific heats, during an interaction the heat transfer between
+the cluster core and the satellite galaxy can result in the satellite
+core contracting (gravothermal instability Lynden-Bell & Wood
+1968; Lightman & Shapiro 1978; Ernst et al. 2007), which
+together with tidal shocks accelerate the core contraction in
+the satellite galaxies (Gnedin et al. 1999), making them more
+prone to survive strong tidal forces. The surviving satellite cores
+⋆jdiego@ifca.unican.esend up being very compact and appear as unresolved sources
+in JWST images. For simplicity we refer to the two types of
+point-like objects as GCs, but keeping in mind that their nature
+and origin can be quite different. Owing to their compactness, it
+is very unlikely a GC collides with another galaxy in the cluster
+or that two GCs collide with each other, so the interaction with
+the surrounding medium is mostly only gravitational. Hence
+GCs behave as collisionless particles, pretty much as dark matter
+(DM) particles are expected to behave. This expected similarity
+in how GCs and DM interact with their surrounding medium
+begs the question about the possibility of using GCs as tracers
+of the distribution of the invisible DM, that may outperform
+the suggested correlation between the intracluster-light and
+DM Montes & Trujillo (2019); Manuwal et al. (2025); Yoo
+et al. (2025), which has been recently suggested to be a biased
+tracer of the DM distribution Butler et al. (2025). Results from
+simulations indicate that such tight relationship between GC
+and DM should exist (Côté et al. 2003; Harris et al. 2017;
+Reina-Campos et al. 2022, 2023), and observations with JWST
+start to show this relationship with actual data (Diego et al.
+2023, 2024). Very large numbers of GCs have been observed in
+nearby galaxy clusters (Peng et al. 2011; Durrell et al. 2014),
+each with an estimated number of O(105) GCs.
+A correlation between the number of GCs,N gc, and the virial
+mass of the host halo,M vir, is well established for a wide range
+of halo masses. From the relation of Burkert & Forbes (2020),
+Mvir=5×109NgcM⊙,(1)
+we expect a massive cluster with massM vir=1015M⊙to host
+a staggeringN gc∼2×105GCs within the virial radius. This
+Article number, page 1 of 8arXiv:2602.12332v1  [astro-ph.GA]  12 Feb 2026
+A&A proofs:manuscript no. AA_main
+number corresponds to a mean projected number density of
+≈1 GC per 6×6 kpc2unit area assuming a virial radius of 1.5
+Mpc, or in volumetric units this corresponds to one GC per 423
+kpc3volume, or a mean distance of 84 kpc between GCs. The
+gravitational acceleration that one massive 107M⊙GC imparts
+onto another GC at 84 kpc distance is≈105times weaker than
+the acceleration from aM vir=1015M⊙cluster at 1.5 Mpc, thus
+making the attraction between two GCs, separated by the mean
+distance above, negligible compared with the attraction imparted
+by the galaxy cluster as a whole. Together with the fact that
+GCs are very compact (r<50 pc), close encounters between
+GCs are expected to be extremely rare. The rarity of two body
+interactions between GCs distinguishes their dynamics from the
+well studied stars inside an evolved globular cluster, which tend
+to converge to an state of energy equipartition due to two-body
+relaxation (King 1962; Spitzer 1969; Meylan & Heggie 1997;
+Baumgardt 2017), but see also Trenti & van der Marel (2013)
+for an alternative perspective. Due to the low probability of
+two-body relaxation and the relatively narrow mass function
+of GCs, equipartition is not expected in the system of GCs in
+galaxy clusters. Some level of dynamical friction is certainly
+expected as the more massive GCs. Specially the galactic cores
+remnants hosting a SMBH with masses exceeding 108M⊙, will
+be slowed down more than the lighter GCs, but this has not been
+studied in detail in galaxy clusters, so the situation is unclear.
+The massive galaxy clusters that host GCs are also powerful
+gravitational lenses. Through strong lensing it is possible to map
+the mass distribution in the inner regions of the lenses (where
+strong lensing takes place) and compare it with the distribution
+of GCs. Hence, the expected correlation between the distribu-
+tion of DM and GCs can be tested in galaxy cluster lenses. For
+a galaxy cluster to act as a strong lens, the surface mass den-
+sity needs to exceed a critical value that scales inversely propor-
+tional with the distance to the cluster. Hence, low redshift clus-
+ters (where GCs can be studied best) never become supercritical
+and can not produce strong lensing. One needs to go to higher
+redshifts (z≳0.2) in order to use strong lensing to map the mass
+in cluster cores.
+Early studies of GCs in galaxy cluster lenses were carried
+out by HST data, on relatively low redshift clusters, such as
+Abell 1689 (z=0.183), where a similarity between the profiles of
+the total projected lensing mass (mostly DM) and GCs was al-
+ready demonstrated (Alamo-Martínez et al. 2013). Similar stud-
+ies based on HST are limited due to sensitivity of the telescope to
+the infrared (where evolved GCs are brightest) and the scarcity
+of low redshift cluster lenses. In aged stellar populations, as
+the ones expected in GCs within galaxy clusters, the emission
+peaks at 1.6µm in the rest-frame of the GC (Sawicki 2002;
+Muzzin et al. 2013), where HST’s ability to detect point sources
+is at its worst. Meanwhile, JWST’s larger mirror and sensitiv-
+ity in the infrared makes it the ideal telescope to study GCs in
+galaxy cluster lenses. The first attempt was already made with
+the very first scientific observation of JWST, the galaxy cluster
+lens SMACS0723 (Lee et al. 2022; Faisst et al. 2022), quickly
+followed by a comparison with its lensing mass (Pascale et al.
+2022; Mahler et al. 2023; Diego et al. 2023). Many studies of
+GCs with JWST followed Harris & Reina-Campos (2023); Mar-
+tis et al. (2024); D’Abrusco et al. (2025); Harris et al. (2025).
+Other observatories, such as Euclid, have recently followed the
+study of GCs in nearby galaxy clusters, such as Fornax (Saifol-
+lahi et al. 2025). While Euclid performs shallower observations,
+it has a much larger field of view, which is better suited for
+nearby clusters. For instance, at the distance of the Fornax clus-ter, an object appears 9.86 magnitudes brighter than if the same
+object is atz=0.35 (ignoring color corrections), thus compen-
+sating for the reduced depth. At the redshift of Fornax, no strong
+lensing is expected but weak lensing mass maps can be obtained
+by Euclid thanks to its very large sky coverage. Studies of nearby
+clusters comparing the distribution of GCs and DM (from weak
+lensing) can be attempted in the near future.
+Among the strong lensing clusters showing an abundance of
+GCs in JWST data, AS1063 atz=0.348 (also known as RXC
+J2248.7-4431 Guzzo et al. 2009), is a remarkable example given
+the depth of JWST data and relatively lower redshift (distance
+modulus 41.32). This cluster was selected as one of the clusters
+for the Hubble Frontier Fields (HFF) program (Lotz et al. 2017)
+due to its large mass and existence of known gravitationally
+lensed galaxies (Postman et al. 2012; Balestra et al. 2013;
+Monna et al. 2014; Johnson et al. 2014; Richard et al. 2014;
+Zitrin et al. 2015). As part of this program, the central∼10
+arcmin2region was observed in wavelengths ranging from 0.45
+µm to 1.6µm and to a depth of∼28.5 mag in the visible and IR
+bands. The area observed by the HFF program around AS1063
+was later doubled thanks to the Beyond Ultra-deep Frontier
+Fields and Legacy Observations (BUFFALO) program (Stein-
+hardt et al. 2020), although with shallower observations than
+in the HFF program. JWST data complements the high-quality
+Hubble Space Telescope (HST) data extending the wavelength
+coverage to≈5µm and similar depths.
+The high-quality data provided by the HFF program allowed
+the identification of hundreds of multiply lensed galaxies
+behind the six clusters HFF clusters. Many of the new lensed
+galaxies were spectroscopically confirmed from the ground,
+with the Multi Unit Spectroscopic Explorer (MUSE, Bacon
+et al. 2010) playing a pivotal role. Improved lens models for this
+cluster were derived from the HFF data (Caminha et al. 2016;
+Diego et al. 2016; Vega-Ferrero et al. 2019; Chan et al. 2020;
+Granata et al. 2022) making this cluster one of the best studied
+gravitational lenses.
+AS1063 was recently observed by JWST as part of the
+GLIMPSE program (Atek et al. 2025), with very long expo-
+sures making AS1063 an ideal object for both lensing and GC
+studies. GLIMPSE data has been used for a variety of studies
+from high redshift galaxies (Kokorev et al. 2025a,b; Korber et al.
+2025; Chemerynska et al. 2025), including very low metallicity
+ones (or Pop III galaxy candidates Fujimoto et al. 2025), to early
+SMBH (Fei et al. 2025). The new JWST data allows for novel
+studies that could not be attempted before. Precise lens mod-
+els of massive galaxy clusters tracing the projected distribution
+of mass (mostly DM), can be compared with the distribution of
+GCs detected by JWST. GCs are expected to react to the gravita-
+tional potential in a very similar fashion as DM does, assuming
+DM is composed of collisionless particles. Using GCs as visible
+tracers of DM shall open new avenues to advance on the under-
+standing of this mysterious substance.
+Based on previous HST data and the new JWST data, a new
+lens model was derived in Diego et al. (2026) (or paper-I). In this
+work we used this lens model to compare with the distribution of
+GCs, which is the main focus of this paper. Here we present the
+GCs from the same GLIMPSE data and compare the distribution
+of GCs with the lensing mass from paper-I.
+The paper is organized as follows. Sect. 2 describes briefly
+the JWST data used in this work. In Sect. 3 we focus our at-
+tention on the GCs describing the steps followed to derive the
+GC catalog. We compare the lens model and GC distribution in
+Article number, page 2 of 8
+J.M. Diego et al.: Relation between lensing and globular clusters
+  
+10”
+A
+B
+D E CENz=3Z=1.23
+Z=0.73
+Z=1.23z<3?
+Fig. 1.Color image of AS1063 combining 12 HST and JWST filters (range 0.4–5 micron). Three critical curves from our lens model are shown at
+z=0.73 (cyan),z=1.23 (yellow), andz=3 (red). The yellow arrows mark two families of lensed galaxies atz≈1.23 intersected by the critical
+curve at that redshift, while the cyan arrows mark one family of lensed images from a galaxy atz=0.73 intersected by the cyan critical curve.
+White circles mark the position of prominent elliptical galaxies. The small panels A, B, D and E show zoomed-in regions of a filtered version of
+the sum of JWST’s SW filters. Yellow circles mark the position of automatically detected point sources in the filtered images. The white contours
+show the masked regions where no point source detection is performed except for the very central region (panel D) where identification of point
+sources is done visually inside the 1" radius masked region. The mask of the full region containing bright and/or extended sources as well as
+artifacts is shown in panel C (bottom right).
+Sect. 4, including also a simple recipe to infer the lensing mass
+from the distribution of GCs. Section 5 estimates the level of
+contamination from background galaxies that is needed in or-
+der to correct the one-dimensional density profile. We discuss
+the one dimensional profiles in Sect. 6. Finally, Sect. 7 summa-
+rizes our conclusions. We adopted a standard flat cosmological
+model withΩ M=0.3 andh=0.7. At the redshift of the lens(z=0.348), and for this cosmological model, one arcsecond
+corresponds to 4.921 kpc.
+2. JWST data
+AS1063 was observed in 2024 by JWST as part of the Cy-
+cle2 GLIMPSE program (PI Hakim Atek, Program ID G0-
+Article number, page 3 of 8
+A&A proofs:manuscript no. AA_main
+Fig. 2.Map of GC distribution obtained from the data (red points,
+28026) and inpainted (black points, 3501) in the masked regions. Some
+artifacts (diffraction spikes) and large lensed galaxies (giant arcs) are
+obvious in the distribution of inpainted points. Big blue circles mark
+the position of prominent members (white circles in Fig. 1).
+3293). An overview of the GLIMPSE program and details of
+the data are given in Atek et al. (2025). Typical 5σdepth for
+a point source (0′′.2 aperture diameter) is 30.9 mag across 9 fil-
+ters: F090W, F115W, F150W, F200W, F277W, F356W, F410M,
+F444W, F480M totaling 120 hours of exposure time.
+This JWST data were reduced in a similar fashion as in the
+EPOCHS series of papers (e.g. Conselice et al. 2024; Adams
+et al. 2025). We use a modified version of the official JWST
+pipeline version 1.8.2, using Calibration Reference Data Sys-
+tem (CRDS) pmap1364 to a pixel scale of 0′′.03 pix−1. To better
+preserve the light from the foreground cluster and prevent over-
+subtraction due to the bright central galaxy we do not include 1/f
+subtraction, and we employ a custom 2d background subtraction
+between stages 2 and 3 (Goolsby et al. in preparation) . We fur-
+ther include the subtraction of custom wisp templates (Adams
+et al. 2025), and the images are aligned to GAIA DR3 during
+stage 3 (Gaia Collaboration et al. 2023).
+3. Globular clusters in AS1063
+We used the short wavelength filters, F090W, F115W, F150W,
+and F200W, to detect GCs since they have the best spatial
+resolution and sensitivity to unresolved sources in JWST. We
+applied two steps of high pass filters to remove signal above
+some spatial scale and boost the signal-to-noise ratio for point
+sources. In particular, we used the standard difference of two
+Gaussian smoothed versions of the same image, also known
+as À Trous wavelet. This is equivalent to a high pass filter
+in Fourier space and very similar to the popular Mexican hat
+wavelet. Before applying the filter, we masked bright sources
+(by setting a threshold in the filtered images) and artifacts that
+otherwise would result in spurious point sources in our final
+map. Among the artifacts, we masked bright diffraction features
+around stars and other bright sources (such as AGNs). We alsomasked other bright extended galaxies (foreground, member,
+and background galaxies) and all known and candidate lensed
+galaxies from paper-I, in particular thin giant arcs that, similarly
+to the case of the diffraction spikes, would result in spurious
+point sources along the arc after the filtering process. These arcs
+also contain many unresolved sources that could be confused
+with GCs, so they need to be masked. We also masked the cores
+of bright member galaxies and large spirals in the cluster, which
+can also result in point sources after the filter is applied. Finally,
+we masked the edges of the image (rectangular regions of width
+≈6”.6), since these have significantly higher noise and result in
+more spurious detections.
+A small level of contamination is still expected after the
+masking, but this should come mostly from compact dwarf
+galaxies in the cluster, which nevertheless serve also as tracers
+of the potential and often contain GCs as well. Also, compact
+dwarf galaxies are much less common than diffuse ones, with the
+latter being effectively suppressed by the filtering process. More
+importantly, small high-z galaxies are a true contamination to
+our sample, but these should have a rather uniform distribution
+across the field of view. We discuss the level of contamination in
+section 5 where we use the data in the second module to assess
+the level of contamination. The final mask in the main module
+is shown in the bottom right panel (C) of Fig. 1. After masking,
+we built the high-pass filtered image. In the first step, we started
+with a filterG 0.5−G 5whereG 0.5is a Gaussian with FWHM=0.5
+pixels andG 5is a Gaussian with FWHM=5 pix. The first
+scale (0.5 pix) reduces slightly the instrumental noise while the
+second scale (5 pix) removes structures larger than 5 pixels.
+At this point, the filtered image shows large positive peaks at
+the position of luminous sources. If these were not already
+included in our mask, we added these regions to the mask and
+remove these luminous sources. The resulting image has most
+of the large scale structure removed, or masked, but still shows
+diffuse emission around bright sources with a large gradient
+in the light, specially around the BCG. To reduce this diffuse
+emission even further we performed a second high pass filter
+similar to the previous one but with scales 1 and 3 pixels, that
+is,G 1−G 3. As before,G 1reduces the contribution from noisy
+pixels whileG 3removes the unwanted diffuse emission. The fil-
+terG 1−G 3sharpens the point sources facilitating their detection.
+The final step is to detect the point sources in the filtered
+detection map. This map is built after adding the double-filtered
+images of F090W, F115W, F150W, and F200W. Equal weights
+are assumed for each band, which corresponds to an agnostic
+prior on the spectra of the GCs. We started by the brightest pixel,
+recorded it, and masked the area around that pixel with a disk of
+radius 3 pixels. Then we found the new maximum and repeated
+the process until a predetermined threshold was reached. We
+defined the threshold as the point where detections start to show
+a regular pattern associated with the CCDs, as this is a clear
+sign that we are reaching the noise detection level. Even though
+we stopped the detection at this point, the final catalog of GCs
+contains only objects detected at twice this threshold to reduce
+the number of spurious detections, but among the discarded
+sources there are definitely more, but faint, GCs.
+The detected GCs are shown in Fig. 2 as red dots. A clear
+concentration is found around the BCG with the GC distribution
+stretching in the same NE direction as the lens model shown in
+Fig. 1. A direct comparison of the surface number density of
+Article number, page 4 of 8
+J.M. Diego et al.: Relation between lensing and globular clusters
+Fig. 3.Number density of GCs vs mean convergence computed in boxes
+of 3”×3”. The dashed line corresponds toy=0.4x0.7and fits reasonably
+well the observed correlation.
+GCs,Σ GCvs the local average of the lens model convergence,
+<κ>, reveals a strong correlation, as shown in Fig. 3.
+To derive this result, we first computed the surface density of
+GCs, n GC, and average convergence,<κ >, in boxes of 3”×3”.
+Then we selected areas with similar n GCand computed the mean
+and dispersion of< κ >values in the same regions. We find the
+scaling law< κ >=0.4n0.7
+GCfits well the correlation. From this
+simple relation we see that regions in the lens plane with GC
+densities n GC>4 arcsec−2should be supercritical (κ >1) and
+contain multiply lensed galaxies. The relation seems to break
+at very high values of n GCbut this is due to the baryonic con-
+tribution to the convergence that increasesκnear the center of
+halos while the number density of GCs plateaus at the center of
+halos. In the opposite regime where n GCis low, the correlation
+seems to hold. This is an important result which can be exploited
+to fill the gap of incomplete lens models with few lensing con-
+straints in the outskirts of the cluster. The relation between n GC
+andκmay be also used in combination with strong lensing, for
+instance in two merging clusters, A & B, where one of the clus-
+ters is rich, A, in lensing constraints but the other one, B, is not.
+The well constrained cluster A can be used to calibrate the n GC–κ
+relation which can later be used to infer the mass distribution of
+the poorly constrained B cluster, from its system of GCs and the
+above relation. This approach should be tested in merging clus-
+ters with lensing constraints in both subclusters, although early
+results on the merging cluster MACS0416 suggest that this ap-
+proach should be feasible (see Fig. 8 in Diego et al. 2024)
+The final number of GCs (red points) in Fig. 2 is 28026 but
+this does not account for the number of missing GCs in the
+masked regions, which we estimated it to be≈3500. We ob-
+tained this number of masked objects and their spatial distribu-
+tion by first computing the density of GCs in every pixel in the
+image,ρ gc(x,y), and then doing a Monte Carlo to simulate the
+objects contained in the masked region.
+To compute the continuous 2D surface density of GCs,ρ gc,
+we convolved the discrete distribution by a function that depends
+on the inverse of the distance to a GC,
+ρgc(x,y)=Z
+F(x,y)W(x−x′,y−y′)dx′dy′,(2)
+whereF(x,y)=1 at the position of a GC and 0 otherwise andW
+is the convolution kernel,
+W(x−x′,y−y′)=1
+(SL+d)α,(3)withdthe distance between positions (x,y) and (x′,y′) andS L
+is a constant representing the softening length, needed to avoid
+the convolution kernel to diverge ford=0. This approach
+is similar to Sepherd’s algorithm whereα=2 is usually (but
+not necessarily) adopted. In our case, we are interested in a
+value ofαthat results inρ gc(x,y) reproducing the mass profile
+from the lens model, soρ gc(x,y) can be also used as a proxy
+for the lensing mass in future clusters with poor or no lensing
+constraints. We find that a value ofα=1.6 results in a good fit to
+the lens model profile (see section 6). The value of the softening
+length is not as critical and values around 0”.5<S L<1”
+produce satisfactory results. For this work we usedS L=0”.9.
+The convolution is efficiently computed in Fourier space. A
+first estimation of the density can be obtained even when there
+are holes in the distribution of GCs, as for instance in the masked
+regions. The relatively slow decline of the kernel with distance,
+d−α, guarantees that even in the center of large masked regions
+the density is not much smaller than in the edges. The density in
+these regions is then a relatively good approximation to the ex-
+pected density of GCs in the masked regions. We can use this
+first estimation of the density to fill the holes, or inpaint the
+masked region, through a Monte Carlo where we randomly place
+GCs in the masked regions according to the pre-estimated den-
+sity. The final result is shown in Fig. 2 with red points showing
+the original distribution of GCs and black points showing the in-
+painted GCs in the masked region. The process can be iterated
+several times until the density converges, but for our particular
+case, one simple iteration produces satisfactory enough results.
+The edge portion of the mask is not inpainted since it is noisy
+and contains too many spurious sources.
+4. Lens model vs GC distribution
+Following Harris et al. (2017), the total mass in GCs should
+be 2.9×10−5times the total mass of the galaxy cluster. This
+relation is applied at the virial radius and for the halo virial
+mass. Neither the lens model nor the mapping of the GCs extend
+to the virial radius (without gaps in the data such as the gap
+between modules 1 and 2 in JWST data), so we take this relation
+as an approximation. Instead we consider a radius of 60" which
+is the maximum distance from the center at which we can detect
+GCs in the main module. The total mass contained in the lens
+model up to 60" is 4.23×1014M⊙, so the total mass in GCs
+should be 2.9×10−5times smaller, or 8.47×109M⊙. Within
+the same radius, we find 27895 GCs (including the inpainted
+ones), so the average mass per GC isM=3.03×105M⊙, or in
+log scale, log10(M)=5.48. This is just a little above the typical
+mass of GCs in the Milky Way, where Baumgardt & Hilker
+(2018) finds a mean log mass of log10(M)=5.2 and dispersion
+σlog(M) =0.5, and comparable to expectations from N-body
+simulations (Pfeffer et al. 2018).
+Using the observed distribution of GCs (red points in Fig. 2)
+plus the inpainted GCs (black points in the same figure), we in-
+ject these distributions into Eq. 2 and recompute the 2D density
+map of GCs in the entire field of view.
+The result is shown in Fig. 4 in gray color. The contours of
+the GC density are shown in green and we compare them with
+the contours of the convergence,κ, from the lens model (paper-
+I) in cyan. The agreement between contours is remarkable, con-
+firming that the distribution of GCs can be used as an alternative
+way of inferring the distribution of dark matter, even in the ab-
+sence of strong lensing constraints. This technique may be par-
+Article number, page 5 of 8
+A&A proofs:manuscript no. AA_main
+Fig. 4.Map of GC density after inpainting the masked regions (gray).
+The green contours are for the GC density map (gray scale image) while
+the cyan contours are for the lens model convergence map from paper-I.
+The two thicker cyan contours correspond toκ=0.3 andκ=1.8.
+ticularly useful for low redshift clusters in which the low redshift
+results in subcritical surface mass densities and hence no strong
+lensing, while on the other hand the low redshift is a great ally
+for the detection of more GCs in the galaxy cluster.
+An alternative, more quantitative way, of showing the tight
+relation betweenρ gcandκis shown in Fig. 5 where we plot the
+pixel by pixel correlation betweenρ gc(x,y) andκ(x,y). For this
+comparison, we renormalizeρ gcby the usual constant,β, which
+minimizes the variance of the difference∆ =κ−β×ρ gcand is
+simply given by:
+β=R
+κ(x,y)ρ gc(x,y)dxdyR
+ρ2gc(x,y)dxdy(4)
+The correspondence betweenρ gcandκis very good for values of
+the convergence above log10(κ)≈−0.5 orκ≈0.3. For smaller
+values ofκthe discrepancy is partially due to the shallower slope
+of the assumed kernel (α=1.6 in Eq. 3) which extrapolates the
+density at large radius (where GC are not detected or masked by
+the edge portion of the mask), while DM is known to fall faster
+(α≈2 or NFW-like). Also, at large radii the relative contribution
+from background small galaxies, which are misidentified as GC
+by our filtering algorithm become more relevant. We address the
+possible level of contamination from foreground objects in the
+next section.
+5. Contamination level
+We repeat the same process described in section 3 but in the
+second module of the GLIMPSE data. This second module al-
+lows us to detect GCs from 1.′8 (0.53 Mpc) to 4′(1.18 Mpc)
+from the cluster center. Several bright stars fall in this module
+that increases the size of the masked region. On the other hand,
+fewer cluster members and no giant arcs are found in this mod-
+ule. The number density of high redshift and compact galaxies
+Fig. 5.Scatter plot of convergence vs GC density maps. The solid line
+is thex=ymodel. The GC density,ρ gchas been re-scaled by the factor
+βthat minimizes the variance of the difference mapr=κ−β×ρ gc.
+(that can contaminate our sample) is supposed to be the same
+as in the main module as long as the luminosity function of
+high-redshift galaxies is close to a power law with slope -2. This
+would compensate for the magnification bias resulting in a uni-
+form distribution of lensed galaxies. The resulting mask and de-
+tected GCs candidates are shown in Figure 6. In total we detect
+5327 GCs and estimate that 804 should have been detected in the
+masked region. The average number density in the second mod-
+ule is n GC=1.67×10−2kpc−2. The spatial distribution shows a
+mild gradient in the north-south direction with a slight increase
+in number density in the direction of the cluster center.
+With the detection of GCs in the second module we estimate
+the level of contamination from compact background galaxies as
+the surface number density of GCs at the largest radii (0.015 GC
+per kpc2, see next section). This represents a conservative upper
+limit to the contamination, since some of these distant detections
+are real GCs in the outskirts of the cluster.
+6. The radial distribution of GCs
+We show the one dimensional profiles of the GC distribution
+and lensing mass in Fig. 7. The lensing mass profile derived
+in paper-I (convergence atz s=3) is shown as a dark blue
+line while the profile of GCs is shown as a thick black solid
+line. For easier comparison with the lensing convergence, we
+have re-scaled the number density of GCs by a factor 4. The
+inner 1" is masked during the process of detecting clusters but
+we perform a visual inspection in this region of the filtered
+maps and detect GCs by eye in this small region (see Fig. 1).
+This central 1" shows a small but noticeable deficit of GCs
+when compared with neighboring regions. This could be due
+to the higher photon noise at the center of the BCG which
+makes detection of GCs more challenging. Although potentially
+interesting, this apparent deficit in the number of GCs in the
+central 1” is not reliable so we ignore distances smaller than 1”
+in our analysis. We observe the number density of GCs remains
+constant between 3” and 13”. This is similar to the trend
+observed in the lensing mass. The number density of GCs starts
+to decline abover≳13”. The decline in the lensing mass, or
+convergence, starts at larger distances. Between 13”<r<60”
+the GC number density falls approximately as the expectedr−2
+found in simulations (Reina-Campos et al. 2023).
+At even larger radii, we can derive the profile from the sec-
+ond module of JWST-GLIMPSE that extends the field of view to
+Article number, page 6 of 8
+J.M. Diego et al.: Relation between lensing and globular clusters
+Fig. 6.Mask (black) and detected GC (red dots, 5327) in the second
+module. The cyan dots are the inpainted GCs in the masked region
+(804). The orientation is the same as in Fig. 1.
+≈4′from the center and close to the virial radius of the cluster.
+We repeat the same process as in the main module and derive the
+profile of the number density of GCs. This is shown in the same
+figure as a thick solid black line between radii 100”≲r≲250”.
+We can use the profile at the largest radius as an upper limit for
+the level of contamination from small compact background ob-
+jects, which also enter our GC catalog. We estimate the level
+of contamination as 0.015 GC per kpc2(or 14.7% the average
+number density of GCs in the inner 60" radius region), shown as
+a horizontal black dotted line in the figure. This value is above,
+but still close to, the background contamination level estimated
+in the outskirts of the Coma cluster from shallower HST-ACS
+imaging in Peng et al. (2011). The corrected GC profiles ob-
+tained after subtracting this level of contamination are shown
+as a thin black solid line. At radiir>50”, the lensing mass
+from our model in paper-I falls faster thanr−2. This is due to a
+known bias in our lensing reconstruction beyond the maximum
+radius constrained by lensing, but if GC are true tracers of dark
+matter, the corrected GC profile shown in Fig. 7 suggests that
+aroundr=100” the mass profile should still fall close tor−2.
+For comparison we also show the profile of the light (including
+the intracluster light) as observed in the F444W filter that has a
+similar decline with radius as the GC distribution. However, be-
+ing much fainter than individual GCs, the light profile can only
+be detected at shorter distances from the center of the cluster (see
+also Montes & Trujillo 2019), while GCs can be detected all the
+way (and beyond) the virial radius.
+The light profile (or baryons, orange line) determines the
+shape of the lensing model (blue line) in the innerr<2”, but
+beyond this radius the projected mass profile is dominated by
+the contribution from DM. From this plot, it is evident that the
+mismatch between the intracluster light (core or few kpc) and
+projected mass in the lens model (large core). Meanwhile, the
+GC distribution, although with a somewhat smaller core than the
+lensing convergence profile, resembles much better the distribu-
+Fig. 7.Profiles of AS1063 centered on the BCG. The projected mass
+from the lens model is plotted as dark blue (in units ofΣ/Σ crit) with
+the two blue vertical dotted lines marking the range of distances with
+lensing constraints. The light profile (including the intracluster light)
+in the filter F444W is shown as an orange line. The map of the light
+is masked and only the unamasked pixels are used for the profile. The
+masked BCG results in a nil light profile at the very center. The number
+density of GCs is shown as a thick black line that is re-scaled by a factor
+four to match the convergence profile for easier comparison. The gap in
+the profile corresponds to the gap between the two modules where no
+GCs are detected. The GC number density profile at large radii (100”≲
+r≲250”), is computed in the second module. After subtracting the
+estimated level of contamination from background objects (horizontal
+dotted line), the resulting corrected profile is shown in black as a thin
+solid line.
+tion of dark matter and shows also a large core. The similarity
+between the GC and DM profiles is better highlighted when we
+compare the profile of the continuous 2D distribution of GCs,
+orρ gc(given by Eq. 2) with the lens model. This is shown as a
+red curve in Fig. 7. The agreement with the lens model is excel-
+lent in the region constrained by lensing. Abover≈50” the red
+curve (ρ GC) is above the blue one (κ) due mostly to the biased
+low lensing solution beyond the constrained region and the shal-
+lower decline in the smoothing kernel ofρ GCat radii where we
+do not have GCs.
+7. Conclusions
+We take advantage of the exceptionally deep images taken as
+part of JWST’s GLIMPSE program in AS1063, to detect the
+faint population of GCs in this cluster. We find tens of thousands
+of GCs in the central module and thousands in the second
+module that extend the coverage up to distances close to the
+virial radius. We find a good correlation between the spatial
+distribution of GCs and lensing mass. We define a smoothing
+kernel that can transform the discrete distribution of GCs into a
+continuous distribution that resembles the lensing convergence.
+Similar transformations can be used in other clusters in which
+lensing constraints are not available (for instance in low redshift
+subcritical clusters) in order to get a proxy for the mass distribu-
+tion. We compare pixel-by-pixel the smoothed GC distribution
+with the lensing convergence and find a good correspondence.
+We also detect GCs in the second module and set the upper
+limit of the contamination from background objects as the
+density of GCs at the largest radius. After correcting for this
+contamination, the derived GC profile falls approximately asr−2
+Article number, page 7 of 8
+A&A proofs:manuscript no. AA_main
+up to the largest radius probed by our analysis.
+GCs offer an alternative proxy for the spatial distribution of
+lensing mass in clusters, a fact that can be exploited in future
+analysis of galaxy clusters that show, or do not show, strong lens-
+ing features.
+Acknowledgements.J.M.D. acknowledges the support of projects PID2022-
+138896NB-C51 (MCIU/AEI/MINECO/FEDER, UE) Ministerio de Ciencia, In-
+vestigación y Universidades and SA101P24. This work is based on observations
+made with the NASA/ESA/CSAJames WebbSpace Telescope. The data were
+obtained from the Mikulski Archive for Space Telescopes at the Space Tele-
+scope Science Institute, which is operated by the Association of Universities for
+Research in Astronomy, Inc., under NASA contract NAS 5-03127 for JWST.
+These observations are associated with JWST program #3293.
+References
+Adams, N. J., Austin, D., Harvey, T., et al. 2025, Monthly Notices of the Royal
+Astronomical Society, 542, 1705–1729
+Alamo-Martínez, K. A., Blakeslee, J. P., Jee, M. J., et al. 2013, ApJ, 775, 20
+Atek, H., Chisholm, J., Kokorev, V ., et al. 2025, arXiv e-prints,
+arXiv:2511.07542
+Bacon, R., Accardo, M., Adjali, L., et al. 2010, in Society of Photo-Optical In-
+strumentation Engineers (SPIE) Conference Series, V ol. 7735, Ground-based
+and Airborne Instrumentation for Astronomy III, ed. I. S. McLean, S. K. Ram-
+say, & H. Takami, 773508
+Balestra, I., Vanzella, E., Rosati, P., et al. 2013, A&A, 559, L9
+Baumgardt, H. 2017, MNRAS, 464, 2174
+Baumgardt, H. & Hilker, M. 2018, MNRAS, 478, 1520
+Burkert, A. & Forbes, D. A. 2020, AJ, 159, 56
+Butler, J., Martin, G., Hatch, N. A., et al. 2025, MNRAS, 539, 2279
+Caminha, G. B., Grillo, C., Rosati, P., et al. 2016, A&A, 587, A80
+Chan, B. M. Y ., Broadhurst, T., Lim, J., et al. 2020, ApJ, 888, 35
+Chemerynska, I., Atek, H., Furtak, L. J., et al. 2025, arXiv e-prints,
+arXiv:2509.24881
+Conselice, C. J., Adams, N., Harvey, T., et al. 2024, EPOCHS I. The Discovery
+and Star Forming Properties of Galaxies in the Epoch of Reionization at 6.5<
+z<18 with PEARLS and Public JWST data
+Côté, P., McLaughlin, D. E., Cohen, J. G., & Blakeslee, J. P. 2003, ApJ, 591, 850
+D’Abrusco, R., Mirabile, M., Cantiello, M., et al. 2025, arXiv e-prints,
+arXiv:2511.01576
+Diego, J. M., Adams, N. J., Willner, S. P., et al. 2024, A&A, 690, A114
+Diego, J. M., Broadhurst, T., Chen, C., et al. 2016, MNRAS, 456, 356
+Diego, J. M., Palencia, J. M., Goolsby, C., et al. 2026, arXiv e-prints,
+arXiv:2601.11704
+Diego, J. M., Pascale, M., Frye, B., et al. 2023, A&A, 679, A159
+Durrell, P. R., Côté, P., Peng, E. W., et al. 2014, ApJ, 794, 103
+Ernst, A., Glaschke, P., Fiestas, J., Just, A., & Spurzem, R. 2007, MNRAS, 377,
+465
+Faisst, A. L., Chary, R. R., Brammer, G., & Toft, S. 2022, ApJ, 941, L11
+Fei, Q., Fujimoto, S., Naidu, R. P., et al. 2025, arXiv e-prints, arXiv:2509.20452
+Fujimoto, S., Naidu, R. P., Chisholm, J., et al. 2025, ApJ, 989, 46
+Gaia Collaboration, Vallenari, A., Brown, A. G. A., et al. 2023, A&A, 674, A1
+Gnedin, O. Y ., Lee, H. M., & Ostriker, J. P. 1999, ApJ, 522, 935
+Granata, G., Mercurio, A., Grillo, C., et al. 2022, A&A, 659, A24
+Guzzo, L., Schuecker, P., Böhringer, H., et al. 2009, A&A, 499, 357
+Harris, W. E., Blakeslee, J. P., & Harris, G. L. H. 2017, ApJ, 836, 67
+Harris, W. E. & Reina-Campos, M. 2023, MNRAS, 526, 2696
+Harris, W. E., Reina-Campos, M., Koekemoer, A. M., et al. 2025, ApJ, 991, 7
+Johnson, T. L., Sharon, K., Bayliss, M. B., et al. 2014, ApJ, 797, 48
+King, I. 1962, AJ, 67, 471
+Kokorev, V ., Atek, H., Chisholm, J., et al. 2025a, ApJ, 983, L22
+Kokorev, V ., Chisholm, J., Naidu, R. P., et al. 2025b, arXiv e-prints,
+arXiv:2511.07515
+Korber, D., Chemerynska, I., Furtak, L. J., et al. 2025, arXiv e-prints,
+arXiv:2510.04771
+Lee, M. G., Bae, J. H., & Jang, I. S. 2022, ApJ, 940, L19
+Lightman, A. P. & Shapiro, S. L. 1978, Reviews of Modern Physics, 50, 437
+Lotz, J. M., Koekemoer, A., Coe, D., et al. 2017, ApJ, 837, 97
+Lynden-Bell, D. & Wood, R. 1968, MNRAS, 138, 495
+Mahler, G., Jauzac, M., Richard, J., et al. 2023, ApJ, 945, 49
+Manuwal, A., Avila-Reese, V ., Montenegro-Taborda, D., Rodriguez-Gomez, V .,
+& Cervantes Sodi, B. 2025, MNRAS, 543, 4020
+Martis, N. S., Sarrouh, G. T. E., Willott, C. J., et al. 2024, ApJ, 975, 76
+Meylan, G. & Heggie, D. C. 1997, A&A Rev., 8, 1
+Monna, A., Seitz, S., Greisel, N., et al. 2014, MNRAS, 438, 1417Montes, M. & Trujillo, I. 2019, MNRAS, 482, 2838
+Muzzin, A., Wilson, G., Demarco, R., et al. 2013, ApJ, 767, 39
+Pascale, M., Frye, B. L., Diego, J., et al. 2022, ApJ, 938, L6
+Peng, E. W., Ferguson, H. C., Goudfrooij, P., et al. 2011, ApJ, 730, 23
+Pfeffer, J., Kruijssen, J. M. D., Crain, R. A., & Bastian, N. 2018, MNRAS, 475,
+4309
+Postman, M., Coe, D., Benítez, N., et al. 2012, ApJS, 199, 25
+Reina-Campos, M., Trujillo-Gomez, S., Deason, A. J., et al. 2022, MNRAS, 513,
+3925
+Reina-Campos, M., Trujillo-Gomez, S., Pfeffer, J. L., et al. 2023, MNRAS, 521,
+6368
+Richard, J., Jauzac, M., Limousin, M., et al. 2014, MNRAS, 444, 268
+Saifollahi, T., V oggel, K., Lançon, A., et al. 2025, A&A, 697, A10
+Sawicki, M. 2002, AJ, 124, 3050
+Spitzer, Jr., L. 1969, ApJ, 158, L139
+Steinhardt, C. L., Jauzac, M., Acebron, A., et al. 2020, ApJS, 247, 64
+Trenti, M. & van der Marel, R. 2013, MNRAS, 435, 3272
+Vega-Ferrero, J., Diego, J. M., & Bernstein, G. M. 2019, MN-
+RAS[arXiv:1905.00017]
+Yoo, J., Shin, J., Hwang, H. S., et al. 2025, ApJ, 988, 229
+Zitrin, A., Fabris, A., Merten, J., et al. 2015, ApJ, 801, 44
+Article number, page 8 of 8

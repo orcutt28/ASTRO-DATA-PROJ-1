@@ -1,0 +1,1379 @@
+Publications of the Astronomical Society of Japan, 2025,00, 1–13
+doi: 10.1093/pasj/xxx000
+Advance access publication date:
+X-ray line diagnostics of the multi-phase gas in the
+Centaurus cluster core with XRISM/Resolve
+Marie KONDO,1,∗Kotaro FUKUSHIMA,2Kazunori SUDA,3Anwesh MAJUMDER,4,5Kosuke SATO,6,1,∗
+Kyoko MATSUSHITA,3François MERNIER,7,8,9,10Kazuhiro NAKAZAWA,11Aurora SIMIONESCU,5Jean-
+Paul BREUER,12Yasushi FUKAZAWA,12Ryuichi FUJIMOTO,2Isamu HATSUKADE,13Kokoro HOSOGI,14
+Michael LOEWENSTEIN,8,9,10Tomáš PLŠEK,15Ming SUN,14Misaki URATA,12Norbert WERNER,15
+Noriko Y. YAMASAKI,2,16and Yutaka FUJITA17
+1Department of Physics, Saitama University, 255 Shimo-Okubo, Sakura-ku, Saitama, Saitama 338-8570, Japan
+2Institute of Space and Astronautical Science, JAXA, 3-1-1 Y oshinodai, Chuo-ku, Sagamihara, Kanagawa 252-5210, Japan
+3Department of Physics, Tokyo University of Science, 1-3 Kagurazaka, Shinjuku-ku, Tokyo 162-8601, Japan
+4Waterloo Centre for Astrophysics, University of Waterloo, 200 University Avenue West, Waterloo, Ontario N2L 3G1, Canada
+5SRON Space Research Organisation Netherlands, Niels Bohrweg 4, 2333 CA Leiden, The Netherlands
+6Department of Astrophysics and Atmospheric Sciences, Kyoto Sangyo University, Motoyama, Kamigamo, Kita-ku, Kyoto, Kyoto
+603-8555, Japan
+7IRAP , CNRS, Université de Toulouse, CNES, UT3-UPS, Toulouse, France
+8Department of Astronomy, University of Maryland, College Park, Maryland 20742, USA
+9Goddard Space Flight Center, NASA, Greenbelt, Maryland 20771, USA
+10Center for Research and Exploration in Space Science and Technology, NASA/GSFC (CRESST II), Greenbelt, Maryland
+20771, USA
+11Department of Physics, Nagoya University, Furo-cho, Chikusa-ku, Nagoya, Aichi 464-8602, Japan
+12Department of Physics, Hiroshima University, 1-3-1 Kagamiyama, Higashi-Hiroshima, Hiroshima 739-8526, Japan
+13Faculty of Engineering, University of Miyazaki, 1-1 Gakuen-Kibanadai-Nishi, Miyazaki, Miyazaki 889-2192, Japan
+14Department of Physics and Astronomy, University of Alabama in Huntsville, Huntsville, Alabama, USA
+15Department of Theoretical Physics and Astrophysics, Masaryk University, Kotlá ˇrská 2, Brno 611 37, Czech
+16Department of Physics, The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan
+17Department of Physics, Tokyo Metropolitan University, 1-1 Minami-Osawa, Hachioji, Tokyo 192-0397, Japan
+∗E-mail: m.kondo.366@ms.saitama-u.ac.jp, ksksato@cc.kyoto-su.ac.jp
+ORCID: 0009-0005-5685-1562, 0000-0001-8055-7113, 0000-0002-3525-7186, 0000-0001-5774-1633, 0000-0003-2907-0902, 0000-0002-7031-4772, 0000-0003-
+2930-350X, 0000-0002-9714-3862, 0000-0001-6131-4802, 0000-0002-0921-8837, 0000-0002-2374-7073, 0000-0003-3518-3049, 0000-0002-1661-4029, 0000-
+0001-6411-3651, 0000-0001-5880-0703, 0009-0008-3206-235X, 0000-0003-0392-0120, 0000-0003-4885-5537, 0000-0003-0058-9719
+Abstract
+We report the multi-temperature structure of the intracluster medium (ICM) in the Centaurus cluster core observed with XRISM/Resolve. Thanks
+to its high energy resolution, Resolve enables us to measure fine structures of highly ionized emission lines from Si to Fe and to directly determine
+the excitation temperature and the ionization temperature from the emission line ratio diagnostics. The observed spectrum in the Centaurus core
+is well-represented by a double-temperature thermal plasma at collisional ionization equilibrium state rather than an isothermal one. The line
+ratio diagnostics also support this biphasic temperature structure. Particularly, the observed line ratios show a trend of increasing ionization
+temperature with atomic mass, while the ionization and excitation temperatures of Fe show nearly the same temperature. The resultant line
+ratios, which are well-represented by the two temperatures ICM,∼1.6and∼3keV, are also fairly consistent with the expected numbers when
+assuming the radial single-temperature ICM was projected in the cluster core along the line of sight. Due to the limited low-energy sensitivity of
+the Resolve with the gate valve closed, we investigated the effect of the cool component using the XMM-Newton/RGS spectrum, but it ultimately
+did not affect our results. The observed flux ratio between the FeXXVHeαresonance and forbidden lines shows an about 20% reduction,
+suggesting the presence of resonant scattering.
+Keywords:galaxies: clusters: individual: Centaurus — galaxies: clusters: intracluster medium — X-rays: galaxies: clusters
+1 Introduction
+Galaxy clusters are the largest gravitationally bound structures in
+the Universe. They consist of dark matter, hot gas, and galax-
+ies, with the intracluster medium (ICM) being the dominant com-
+ponent that can be observed through electromagnetic radiation
+(e.g., Ikebe et al. 1997; Sarazin et al. 1998). Their thermo-dynamic properties, including temperature structure and hydro-
+static equilibrium, are important for estimating cluster masses,
+which directly constrain cosmological parameters (e.g., Allen et
+al. 2001; Makishima et al. 2001). Despite the fact that radiative
+cooling should be effective in the relatively dense environment
+of the cluster core region, X-ray observations have revealed that
+many galaxy clusters have cool cores, regions where the tempera-
+Received:,Accepted:
+© 2025. Astronomical Society of Japan.arXiv:2602.12814v1  [astro-ph.HE]  13 Feb 2026
+2Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+12h49m00s48m50s40s30s-41°14'
+16'
+18'
+20'
+22'
+Right ascension (J2000)Declination (J2000)Resolve 
+RGS
+dispersion direction
+105
+104
+103
+Fig. 1.The XRISM/Resolve FoV (green box) overlaid on the Chandra
+X-ray image in the 2.0–8.0 keV energy band for the Centaurus clus-
+ter core. The missing part of the FoV corresponds to the calibration
+pixel 12. The extraction region for the XMM-Newton/RGS spectral anal-
+ysis is shown by white solid lines. The data sets are available at
+https://doi.org/10.25574/cdc.500. Alt text: One X-ray image.
+ture stops decreasing and is maintained at a certain level. X-ray ob-
+servations have indeed shown low-temperature gas in cool cores;
+however, the quantity of this gas is significantly lower than ex-
+pected (e.g., Peterson et al. 2001; Tamura et al. 2001; Kaastra et
+al. 2001; Peterson & Fabian 2006). Active galactic nuclei (AGNs)
+are often found in the cores of galaxies, so they are often thought
+to be the heating sources (e.g., McNamara & Nulsen 2007). The
+energy could be transferred to the surrounding ICM through sound
+waves (e.g., Fabian et al. 2006), shocks (e.g., Randall et al. 2015),
+cosmic rays (e.g., Fujita et al. 2013), and turbulence (e.g., Kim &
+Narayan 2003). Understanding the temperature structure of cool-
+core clusters enables us to trace the history of cooling, heating,
+and gas mixing processes that shaped their cores. Recent X-ray
+CCD observations with Chandra, XMM-Newton, and Suzaku have
+revealed that multi-temperature models accurately represent the
+multi-phase ICM structure in cool cores (e.g., Abell 4059: Mernier
+et al. 2015, Hydra A: Simionescu et al. 2009, Abell 496: Ghizzardi
+et al. 2014).
+The temperature measurements of the ICM with X-ray CCD
+have mainly been derived from the continuum spectral shape,
+which is affected by uncertainties such as the effective area and
+background modeling. In addition, the coupling between the tem-
+perature of the continuum shape and abundances from emission
+lines makes it difficult to determine the accurate temperature due
+to insufficient energy resolution capability. In particular, the Fe-L
+complex around 1 keV has been reported to significantly affect the
+temperature measurements. The temperature measurements based
+on emission line ratios from different energy levels are less af-
+fected by such uncertainties. Before the Hitomi era, such temper-
+ature measurements were conducted only using strong emission
+lines.
+The high spectral resolution of Hitomi enabled precise diagnos-
+tics of the thermal and dynamical states of the ICM in the Perseus
+cluster. Hitomi Collaboration et al. (2018c) performed the direct
+measurement of not only the electron temperature but also vari-
+ous ionization degrees of elements from Si to Fe using the Hitomi
+observation of the Perseus cluster. They also report the excita-
+tion temperature derived from the same ionization state, such asLyβ/Lyα, and the ionization temperature from the different ion-
+ization state, such as Lyα/Heα, from the emission line diagnos-
+tics. While most line ratios are largely consistent with a single-
+temperature CIE plasma, small deviations are identified: the ion-
+ization temperature increases with atomic mass, and the excitation
+temperature is lower than the ionization temperature for Fe in the
+core. These results agree with a multi-temperature structure pro-
+jected along the line of sight using the temperature profile from
+Chandra. The dynamical properties of the ICM were constrained
+by emission line widths of S, Ca, and Fe (Hitomi Collaboration
+et al. 2018a), measuring both the line-of-sight velocity dispersion
+of random motion, including turbulence,σ v, and of the thermal
+motion of ions,σ th. The resultant ion temperature from the line
+width is consistent with the electron temperature within the 68%
+confidence level.
+Finally, the FeXXVHeαresonance line (w) was found to be
+suppressed toward the core, and its width was broader than the
+other FeXXVtriplet lines (Hitomi Collaboration et al. 2018b). The
+expected turbulent velocities required to reproduce the observed
+fluxes of Fe Heα w(optically thick), Heαforbidden (z), Heβ,
+andXXVILyα(optically thin) in Monte Carlo radiative-transfer
+simulations were consistent with direct measurements.
+An X-ray microcalorimeter spectrometer, Resolve (Kelley et al.
+2025), onboard XRISM satellite (Tashiro et al. 2025) enables us
+to perform the high-resolution spectroscopy of the ICM in galaxy
+clusters. As for direct measurements of the ICM thermal struc-
+ture, observations of Abell 2029 demonstrated an intriguing re-
+sult. Sarkar et al. (2025) investigated the multi-temperature struc-
+ture of Abell 2029 using line diagnostics. Detailed line diagnos-
+tics using the XRISM satellite have so far been carried out only
+for Abell 2029. In addition to the Perseus cluster observed with
+Hitomi and Abell 2029, it is essential to perform temperature mea-
+surements for clusters across other temperature ranges as well. For
+instance, intermediate-temperature clusters allow the use of not
+only Fe lines but also Si and S lines, which are predominantly
+emitted by cooler gas, for detailed line diagnostics. The Centaurus
+cluster is one of the nearest X-ray bright clusters. The AGN of its
+central galaxy, NGC 4696, is quieter than that of the Perseus clus-
+ter. Its central temperature is lower than that of the Perseus clus-
+ter. In terms of AGN activity and ICM temperature, the Centaurus
+cluster is a suitable target for comparison with the Perseus cluster.
+Previous studies with Chandra have revealed complex dynamical
+structures in the central region (Sanders & Fabian 2002). These
+studies identified a plume-like structure extending approximately
+60 arcseconds from the cluster center and found that the temper-
+ature increases sharply near the end of the plume, indicating the
+presence of a cold front.
+The presence of multi-temperature plasma in the Centaurus
+cluster core has been reported (Fukazawa et al. 1994; Ikebe et
+al. 1999). Based on Chandra observations, Sanders et al. (2016)
+showed two-dimensional deviation maps of surface brightness,
+temperature, and metallicity relative to the azimuthally averaged
+distribution of the ICM. They found positive correlations between
+the low-temperature and high-surface-brightness regions, as well
+as between the metal-rich and high-surface-brightness regions.
+These spatial correlations were interpreted as evidence of gas mo-
+tions induced by sloshing. Sanders et al. (2008) found a cool com-
+ponent (0.3–0.45 keV) in the core of the Centaurus cluster based
+on the ratio of the FeXVII17.1 Å lines to the 15.0 Å line and
+limits on OVIIemission with the XMM-Newton RGS. They also
+reported that the amount of cool gas detected is significantly lower
+than that predicted by the cooling-flow model. Other character-
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 03
+6.550 6.575 6.600 6.625 6.650
+Energy (keV)0.00.10.20.30.40.50.60.7Countss−1keV−1Zoom-in around He-α Fe
+(a) "1T"
+(b) "1T w/ zgauss"
+(c) "2T w/ zgauss"
+(d) "gadem w/ zgauss"Zoom-in around He-α Fe
+(a) "1T"
+(b) "1T w/ zgauss"
+(c) "2T w/ zgauss"
+(d) "gadem w/ zgauss"Zoom-in around He-α Fe
+(a) "1T"
+(b) "1T w/ zgauss"
+(c) "2T w/ zgauss"
+(d) "gadem w/ zgauss"Zoom-in around He-α Fe
+(a) "1T"
+(b) "1T w/ zgauss"
+(c) "2T w/ zgauss"
+(d) "gadem w/ zgauss"6.550 6.575 6.600 6.625 6.650-303(a)(Data-Model)/Error(Data-Model)/Error(Data-Model)/Error(Data-Model)/Error6.550 6.575 6.600 6.625 6.650-303(b)
+6.550 6.575 6.600 6.625 6.650-303(c)
+6.550 6.575 6.600 6.625 6.650
+Energy (keV)-303(d)
+0.010.1Countss−1keV−1(c) "2T w/ zgauss"(b) "1T w/ zgauss"
+(d) "gadem w/ zgauss"(c) "2T w/ zgauss"(b) "1T w/ zgauss"
+(d) "gadem w/ zgauss"(c) "2T w/ zgauss"(b) "1T w/ zgauss"
+(d) "gadem w/ zgauss"
+Si XIV Lyβ1Si XIV Lyβ2
+S XV w
+S XVI Lyα1S XVI Lyα2
+-303(Data-Model)/Error
+2.2 2.3 2.4 2.5 2.6 2.7
+Energy (keV)-303
+0.010.1Countss1keV1
+Fe XXV He1
+Fe XXV He2
+Fe XXV He
+Fe XXV He
+Fe XXVI Ly1
+Fe XXVI Ly2
+Ni XXVII wNi XXVII z
+-303(Data-Model)/Error
+7.0 7.5 8.0 8.5 9.0
+Energy (keV)-303
+Fig. 2.Upper left panel shows the zoom-in spectra around Fe Heαtriplet for the Resolve entire region spectrum. The orange, red, blue, and light blue
+solid lines indicate the best-fit models: (a) “1T”, (b) “1T w/ zgauss”, (c) “2T w/ zgauss”, and (d) “gadem w/ zgauss”, respectively. The upper right panels
+show the residuals corresponding to models (a) to (d). The gray-shaded region shows the energy range around the FeXXVresonance line. The lower
+panels show the zoom-in Resolve spectral fits in the 2.2–2.7 keV band (left) and the 6.7–9.0 keV band (right). The thin blue solid and dashed lines indicate
+the higher and lower temperature components of the “2T w/ zgauss” model, respectively. The middle panels show the residuals between the data and the
+“1T w/ zgauss” and “2T w/ zgauss” models. The bottom panels also show the residuals between the data and the “1T w/ zgauss” and “gadem w/ zgauss”
+models. Alt text: Seven line graphs. The upper left graph shows X-ray spectra near the HeαFe line. The upper right plots display residuals for four test
+models. In the two plots shown below, the y-axis of the upper panel represents the count rate per kiloelectron volt, whereas the y-axes of the middle and
+lower panels show the residuals between the data and the model.
+istics of the Centaurus cluster are the high Fe abundance (∼1.5
+Solar, e.g., Sanders & Fabian 2002). Fukushima et al. (2022) re-
+ported temperature and metal abundances using Chandra ACIS-S,
+XMM-Newton MOS, pn, and RGS data. In the innermost region
+within 5 arcsec from the cluster center, the RGS spectrum was
+well-represented by a three-temperature model, with the hottest
+component at3.02±0.09keV and an emission-measure-weighted
+temperature of1.6±0.8keV .
+XRISM observed Centaurus as one of the first targets during
+its Performance Verification (PV) phase, following the calibration
+phase. The first study presented its Resolve spectrum, as well as a
+map of its bulk and turbulent gas velocity measurements (XRISMCollaboration et al. 2025a). This study uses the same deep dataset
+to examine the ICM temperature. Details on abundances are stud-
+ied in Mernier et al. (2026) and Fukushima et al. in preparation.
+Throughout this paper, we performed the spectral analysis using
+the Xspec 12.14.1 package and used the AtomDB version 3.1.3 to
+reproduce CIE plasma spectra. We adopted the solar abundance
+table provided by Lodders et al. (2009). The Galactic hydrogen
+column density ofN H= 7.77×1020cm−2(HI4PI Collaboration
+et al. 2016) in the direction of the Centaurus cluster, the same as in
+XRISM Collaboration et al. (2025a), was adopted for the spectral
+analysis, unless noted otherwise. Errors are given at the 1σ(68%)
+confidence level.
+4Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+Table 1.Summary of the resultant best-fit parameters with each spectral model.
+ModelkT mid kTlow Norm mid/Norm low χ2/d.o.f.
+(keV) (keV)
+RGS
+2T1.85+0.03
+−0.030.80+0.02
+−0.0124±2 4160.00/3742
+kT kT mid kTlow Norm/Norm mid Norm mid/Norm low C-stat/d.o.f. AIC
+(keV) (keV) (keV)
+Resolve
+1T2.37+0.02
+−0.02– – – –11997.01/1287812023.01
+1T w/ zgauss2.39+0.02
+−0.02– – – –11973.12/1287612003.12
+2T3.02+0.12
+−0.111.63+0.08
+−0.09–1.0±0.2–11839.35/1287611869.35
+2T w/ zgauss3.02+0.09
+−0.111.54+0.07
+−0.11–1.2±0.3–11778.75/1287411812.75
+3T w/ zgauss3.05+0.08
+−0.121.59+0.07
+−0.100.80(fix)1.1±0.324 (fix)11776.64/1287411810.64
+kTmean σkT kTlow C-stat/d.o.f. AIC
+(keV) (keV) (keV)
+Resolve
+gadem w/ zgauss2.25+0.04
+−0.061.22+0.10
+−0.06–11777.26/1287511809.26
+gadem+1T w/ zgauss2.29+0.09
+−0.101.17+0.15
+−0.110.80 (fix)11776.65/1287411810.65
+Table 2.Comparison of the resultant Fe, bulk velocity, and velocity
+dispersion with each model.
+Model Fe Velocity Dispersion
+(Solar) (km s−1)
+RGS
+2T1.76+0.09
+−0.05120 (fix)
+Fe Bulk Velocity∗Velocity Dispersion
+(Solar) (km s−1) (km s−1)
+Resolve
+1T1.62+0.04
+−0.04−163+4
+−4124+5
+−5
+1T w/ zgauss1.70+0.04
+−0.04−165+4
+−4120+7
+−7
+2T1.60+0.04
+−0.04−161+4
+−4126+5
+−5
+2T w/ zgauss1.73+0.04
+−0.04−165+4
+−4122+7
+−7
+3T w/ zgauss1.73+0.04
+−0.04−165+4
+−4122+7
+−7
+Fe Bulk Velocity Velocity Dispersion
+(Solar) (km s−1) (km s−1)
+Resolve
+gadem w/ zgauss1.74+0.04
+−0.04−165+4
+−4122+7
+−7
+gadem+1T w/ zgauss1.74+0.04
+−0.05−165+4
+−4122+7
+−7
+∗Line-of-sight bulk velocity relative to NGC 4696, which has3008±7km s−1
+of the heliocentric velocity.
+2 Observation and data reduction
+2.1 XRISM/Resolve
+XRISM carried out an observation of the core region of the
+Centaurus cluster from December 28th, 2023, to January 3rd, 2024
+(OBSID=000138000). The aim point was located1′northwest of
+NGC 4696. We used only the Resolve instrument (Kelley et al.
+2025) in this paper. The observed region with XRISM/Resolve
+is shown in figure 1. During this observation, the gate valve was
+closed, and data in theE>∼2 keV band were available. Data reduc-
+tion was basically performed on the entire field of view (FoV) of
+Resolve according to the XRISM Data Reduction Guide1, except
+that pixel 27 was included in the spectral analysis as described in
+XRISM Collaboration et al. (2025a). The non-X-ray background
+(NXB) model2of the Resolve distributed by the XRISM team was
+included within the spectral fit model. The cleaned exposure time
+after screening was 287.4 ksec. We used only high-resolution pri-
+1https://heasarc.gsfc.nasa.gov/docs/xrism/analysis/abc_guide/xrism_abc.html
+2https://heasarc.gsfc.nasa.gov/docs/xrism/analysis/nxb/nxb_spectral_models.htmlmary events. In this study, we only performed the spectral fitting
+from the entire region of the Resolve, without dividing the region
+into subregions.
+2.2 XMM-Newton/RGS
+Two XMM-Newton observations capture the center of NGC 4696
+at the RGS pointing position (den Herder et al. 2001). In this pa-
+per, we used only the longer exposure data (obsID=0406200101)
+to avoid the impact of differences in roll angles and observa-
+tion coordinates on the fitting results, as shown in Mernier et al.
+(2026). The data reduction procedure of the XMM-Newton RGS
+data was performed with XMM-Newton Science Analysis System
+(SAS) version 21.0. We processed the RGS1 and RGS2 data with
+thergsproctask in the SAS package. The exposure times after
+filtering for RGS1 and RGS2 were 119.2 ksec and 113.8 ksec,
+respectively. Following Fukushima et al. (2022), the first- and
+second-order RGS spectra were extracted by specifying the rect-
+angular cross-dispersion limits of the source regions, rather than
+using thexpsfincltask in the SAS package. We extracted the
+spectra with a 2′width region along the cross-dispersion direction
+within the central chip of the MOS detectors, centered on (R.A.,
+Dec.) J2000.0 =(12h48m49.s05,−41◦18′46.′′1). This spectral extrac-
+tion region is shown in figure 1. As for the dispersion direction, it
+is difficult to derive the spatial information from the RGS spectra
+of extended sources, such as the ICM.
+3 Spectral analysis and results
+3.1 Spectral analysis with XRISM/Resolve
+3.1.1 Single-temperature approach
+We first fitted the Resolve spectrum for the entire region in the
+1.8–12 keV energy band, with a thermal plasma model (bvvapec
+model, Smith et al. 2001), multiplied by an absorption model
+(tbabs model, Wilms et al. 2000) to account for the Galactic ab-
+sorption. The spectrum is binned so as to have a minimum of
+1 count per energy bin. We fit the spectrum using C-statistics
+(Cash 1979). The model formula can be expressed as follows:
+tbabs×bvvapec(hereafter, we refer to this model as the “1T”
+model). We fixed the abundances of elements from C to Al at 1.5
+Solar. The abundances of Si, S, Ar, Ca, Cr, Mn, Fe, and Ni were
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 05
+left free, while those of the remaining elements between Si and Zn
+were linked to the Fe abundance.
+The spectrum is shown in figure 2 and the best-fit parameters
+are summarized in tables 1 and 2. Although the overall continuum
+is reasonably reproduced with the “1T” model, positive residuals
+are seen at the S Heαlines and at the Fe Lyαlines, while neg-
+ative residuals appear at the FeXXVHeαresonance (w) line (see
+figure 2). If this resonance line is suppressed by resonant scatter-
+ing, the velocity dispersion would be overestimated, whereas the
+Fe abundance would be underestimated, because both quantities
+are predominantly constrained by the line profile of the Fe Heα
+complex (Hitomi Collaboration et al. 2018b). To mitigate this is-
+sue, we excluded the FeXXVHeα wline from AtomDB and added
+azgausscomponent into the model formula to the line (“Resolve
+1T w/ zgauss” model). The line centroid energy for thezgauss
+component was fixed at6.7004keV, and its redshift was tied to
+that of the ICM (bvvapec). Tables 1 and 2 summarizes the resul-
+tant fit parameters. As shown in figure 2, the fit around FeXXV
+Heα, particularly at thewline, improved significantly. The ve-
+locity dispersion becomes slightly smaller, and the Fe abundance
+becomes slightly larger than those with the original “1T” model,
+although the change in velocity dispersion remains within the1σ
+uncertainty. This behavior is consistent with the possibility that
+resonant scattering is suppressing thewline in the Centaurus clus-
+ter core.
+3.1.2 Two-temperature approach
+XRISM Collaboration et al. (2025a) reported that the Resolve
+spectrum of the central1.5′×2.0′region in the sub-array anal-
+ysis required two temperature components. We therefore added
+an additional thermal component, expressed as follows:tbabs×
+(bvvapec+bvvapec)(hereafter the Resolve “2T” model), and fit-
+ted the Resolve full-array spectrum. The redshift, velocity disper-
+sion, and abundance of each component were tied and treated as
+free parameters. To model the FeXXVHeα wline in the same man-
+ner as in the Resolve “1T w/ zgauss” fit, we also defined a model
+of the formtbabs×(bvvapec+bvvapec+zgauss), referred to as
+the “2T w/ zgauss” model. Note that this model includes only one
+zgausscomponent to represent the FeXXVHeαresonance line.
+Hereafter, we denote the two temperatures derived from both the
+“2T” and “2T w/ zgauss” models askTandkT mid. The resultant
+parameters of these two fits are listed in tables 1 and 2. As shown
+in lower panels of figure 2, the “2T” model provides a better fit to
+the S Heαlines and to the Fe Lyαlines, which show positive resid-
+uals in the 1T fit. This improvement leads to the lower C-statistic
+value obtained with the “2T” model. The “2T w/ zgauss” model
+further improves the fit around the FeXXVHeαcomplex, partic-
+ularly at the resonance line, and yields a lower C-statistic value.
+The Fe abundance, bulk velocity, and velocity dispersion obtained
+with the “2T w/ zgauss” model are close to those derived from the
+“1T w/ zgauss” model. We further evaluated the models with the
+Akaike Information Criterion (AIC; Akaike 1974) to compare their
+goodness of fits. The AIC is defined asAIC i=−2ln(L i) + 2k i,
+whereL iis the maximized likelihood function,k iis the number of
+free parameters of modeli. The smaller the AIC value, the better
+the model fits. By comparing the AIC values of “1T w/ zgauss”
+model and “2T w/ zgauss” model,∆AIC = 190.37was deter-
+mined. Similarly, by comparing “2T” model and “2T w/ zgauss”
+model,∆AIC = 56.60was also calculated. Thus, “2T w/ zgauss”
+model provides a superior description of the spectrum compared
+with “1T w/ zgauss” model, and model “2T w/ zgauss” provides
+a superior description compared with model “2T”. We also testedmodels with an additional temperature component, but the fits did
+not improve, and the temperature of the new component could not
+be constrained.
+3.1.3 DEM approach
+We also fitted a multi-temperature model with a differential emis-
+sion measure (DEM) to the Resolve spectrum expressed astbabs×
+(bvvgadem+zgauss), hereafter “gadem w/ zgauss”. In the
+bvvgademmodel, the emission measure follows a Gaussian dis-
+tribution characterized by a mean temperature,kT mean, and a stan-
+dard deviation,σ kT. As in the “1T w/ zgauss” and “2T w/ zgauss”
+models, we excluded the FeXXVHeα wline from AtomDB
+and represented it using azgaussmodel (hereafter “gadem w/
+zgauss”). The resultant fit parameters are listed in tables 1 and
+2. The derived mean temperature is close to that from the “1T”
+model, whileσ kTis comparable to the separation of the two tem-
+peratures derived from the “2T w/ zgauss” model. The C-statistic
+value, Fe abundance, bulk velocity, and velocity dispersion are
+nearly identical to those of the “2T w/ zgauss” model. As shown
+in lower panels of figure 2, the 2T andgademmodels had no sig-
+nificant deviation in the residual distribution.
+3.2 Joint analysis with XMM-Newton/RGS
+3.2.1 Constraint of the cool component with the RGS spectra
+Previous studies have reported the presence of an X-ray-emitting
+component cooler than 1 keV in the Centaurus cluster core (e.g.,
+Sanders et al. 2008; Takahashi et al. 2009; Fukushima et al. 2022).
+The Resolve instrument has no sensitivity below the 2 keV band-
+pass because the gate valve is closed and therefore cannot con-
+strain the emission of such a cool gas component. We analyzed
+the RGS data to assess this cool-phase gas and then incorporated
+it into the Resolve spectral analysis. In this work, we adopted a2′-
+width extraction region for RGS, which is smaller than the Resolve
+FoV as shown in figure 1. Since the cooler component below 1
+keV would be more centrally concentrated than the hot-phase ICM
+(Pinto et al. 2015), the2′RGS extraction region should still con-
+tain most of this compact cool component. In addition, widening
+the RGS extraction region would degrade the effective spectral res-
+olution and increase the contribution of the hotter gas, making it
+less suitable for detecting the cool component. For these reasons,
+we used the 2′-wide RGS data to constrain the low-temperature
+component in the Resolve spectral modeling.
+The RGS spectra were grouped so that each bin had at least
+20 counts, and fitted by minimizing theχ2value. The first-
+and second-order spectra of RGS were fitted in the 0.45–1.75
+and 0.80–1.75 keV energy bands, respectively, as shown in fig-
+ure 3. The RGS1 and RGS2 spectra, including both the first- and
+second-order spectra, were fitted simultaneously. To account for
+the spectral broadening caused by the spatial extent of the source,
+we used thergsxsrcmodel in XSPEC with the MOS image in
+the 0.45–2.0 keV band. We generated the background spectra
+using the SAS toolrgsbkgmodeland subtracted them from the
+source spectra. Similar to the spectral fits of the Resolve, the
+RGS spectra were fitted with the two-temperature model, multi-
+plied by an absorption model. The model formula is expressed
+as follows:rgsxsrc×tbabs×(bvvapec+bvvapec)(“RGS 2T”
+model). The velocity dispersion was fixed at120km s−1in the
+“RGS 2T” model. We treated the Galactic hydrogen column den-
+sityN Has a free parameter. The resultant parameters are shown in
+tables 1 and 2. The RGS analysis provides two temperature com-
+ponents, 1.9 and 0.8 keV . The higher-temperature component is
+6Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+10−410−30.010.11Countss−1keV−1cm−1RGS 1
+N VII
+O VIII
+Ne X
+Fe XXII
+Mg XII
+0.5 0.6 0.7 0.8 1.0 1.2 1.4-303(Data-Model)/Error
+0.5 0.6 0.7 0.8 1.0 1.2 1.410−410−30.010.11Countss−1keV−1cm−1RGS 2
+N VII
+O VIII
+Ne X
+Fe XXII
+Mg XII
+0.5 0.6 0.7 0.8 1.0 1.2 1.4
+Energy (keV)-303(Data-Model)/Error
+Fig. 3.The RGS spectra of the Centaurus cluster with a 2 arcmin extrac-
+tion width. The black data points represent the first-order spectra, and
+the light gray data points represent the second-order spectra. The 0.90–
+1.18 keV and 0.52–0.62 keV bands of RGS1 and RGS2 are unavailable
+because CCD7 of RGS1 and CCD4 of RGS2 are unavailable. The red
+solid line represents the best-fit model. The blue lines indicate the two-
+temperature components. The models are plotted only where CCDs are
+working. The light blue data points represent the background spectra. The
+lower panels display the residuals between the data and the model. Alt
+text: Two line graphs. In the upper panel of each graph, the y-axis shows
+the count rate per second per kilo–electron volt. In the lower panel of each
+graph, the y-axis shows the residuals between the data and the model.
+The x-axis in all panels shows the energy.
+consistent withkT mid(∼1.6keV) found with the Resolve “2T w/
+zgauss” model, implying that they represent the same phase gas.
+The lower-temperature component (kT low) matched the interstellar
+medium associated with NGC 4696 (Takahashi et al. 2009) and is
+also consistent with the central temperature measured with XMM-
+Newton (Sanders et al. 2016), supporting the assumption of the
+localized cooler component.
+We investigated the dependence of the derived temperatures
+on the assumed velocity dispersion by fixing it at1000km s−1
+or allowing it to vary freely. Both cases yielded consistent tem-
+peratures with the value in table 1 within the statistical uncer-
+tainties. To examine the impact of the RGS background sub-
+traction method, we performed, in addition to the subtraction of
+the RGS background spectrum, two alternative tests: (i) repre-
+senting the RGS background spectrum by a simple power-law
+component and (ii) modelling it with a more complex formula
+(constant×(bknpow+gauss+gauss)). In all cases, the tem-
+peratures derived from the “RGS 2T” model fits are consistent.We tested three configurations ofN Hin which it was fixed at
+7.77×1020cm−2as adopted in the Resolve spectral fits, treated
+as a free parameter, and fixed at1.22×1021cm−2(Willingale et
+al. 2013). In all cases, the derived temperatures are consistent with
+each other. The two-temperature model applied by Sanders et al.
+(2008) yielded temperatures of1.85±0.02keV and0.766±0.008
+keV which are in good agreement with our results. Like the tem-
+peratures, the RGS and XRISM Fe abundances reported here are
+also fairly consistent with each other, although we note more gen-
+erally that the Fe abundances from the RGS analysis are sensitive
+to many modelling assumptions (de Plaa et al. 2017; Fukushima et
+al. 2022), and a similar analysis of the same RGS data in Mernier
+et al. (2026) yields considerably different Fe abundances.
+3.2.2 Impact on the spectral analysis for Resolve
+Since thekT lowcomponent could not be constrained from the
+Resolve spectral fits alone, we included the additionalkT lowcom-
+ponent from the RGS analysis into the Resolve analysis. We
+fixed the temperature of thekT lowcomponent and also fixed the
+normalization ratio of thekT midtokT lowcomponents derived
+from the RGS spectral fit. The model formula is represented as
+tbabs×(bvvapec+bvvapec+bvvapec+zgauss)(Resolve “3T
+w/ zgauss” model). Although the spatial extraction regions of RGS
+and Resolve are not identical, we tested the effect of including the
+RGS-derived low-temperature component using the RGS normal-
+ization ratio as a trial assumption. The resultant parameters are
+shown in tables 1 and 2. The parameters derived from the Resolve
+“2T w/ zgauss” model are consistent with those from the “3T w/
+zgauss” model.
+We also applied the same approach as in the Resolve “3T w/
+zgauss” model to the “gadem w/ zgauss” model. We added the
+kTlowcomponents derived from the RGS analysis into the DEM
+model. The model formula istbabs×(bvvgadem+bvvapec+
+zgauss)(“gadem+1T w/ zgauss” model). The temperature of the
+bvvapecmodel was fixed to thekT lowvalue from the RGS anal-
+ysis. The resultant best-fit parameters are listed in tables 1 and 2.
+The temperatures from the “gadem+1T w/ zgauss” model (with
+kTlowcomponent) and the “gadem w/ zgauss” model (without
+kTlowcomponent) are consistent with each other. Thus, thekT low
+component would have no impact on the results of the Resolve
+spectral fits above 2 keV , regardless of whether the main band is
+reproduced by the two-temperature or DEM approach.
+3.3 Line ratio diagnostics
+As shown in figure 4, emission lines from Si to Ni are clearly
+detected. While the continuum of the Resolve spectrum, whose
+shape roughly represents the electron temperature, is well repre-
+sented by both the “1T” and “2T” approaches, the “1T” model fails
+to explain the intensities for several lines (see figure 2). Due to the
+strong dependence of line emissivities on plasma temperature, de-
+tailed diagnostics of observed line fluxes serve as a sensitive probe
+of the temperature structure.
+To measure the fluxes of the individual lines, we excluded those
+listed in table 3 from thebvvapecmodel, and addedzgausscom-
+ponents to the Resolve “1T w/ zgauss model”. The rest-frame
+centroid energy of each line in table 3 was taken from AtomDB
+3.1.3. Its redshift was tied to that of thebvvapecmodel and left
+free to vary. We adopted the 1T model for this analysis because
+it already reproduces the observed continuum well, and as shown
+in figure 4, the continuum is accurately modeled after adding the
+Gaussian components. Therefore, an additional temperature com-
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 07
+10−30.010.1110Countss−1keV−1
+Si XIII wSi XIII z
+Si XIV Lyα
+Si XIV Lyβ
+S XV w
+S XV HeβS XVI Lyα
+S XVI Lyβ
+S XVI LyγAr XVII w
+Ar XVIII Lyα
+Ar XVIII LyβCa XIX w
+Ca XIX HeβCa XX Lyα
+Fe XXV wFe XXV z
+Fe XXV Heβ
+Fe XXV Heγ
+Fe XXV HeδFe XXVI Lyα
+Ni XXVII wNi XXVII z
+2 3 4 5 6 7 8 9 10 11
+Energy (keV)-303(Data-Model)/Error
+Fig. 4.Resolve spectrum of the Centaurus cluster. The red solid line represents the best-fit model described in section 3.3, in which the lines listed in
+table 3 are excluded from thebvvapecmodel andzgausscomponents are added to the Resolve “1T w/ zgauss” model. The light gray lines show the
+model ofzgausscomponents. The light blue dashed line represents the NXB model. The lower panel displays the residuals between the data and the
+model. Alt text: One line graph. In the upper panel, the y-axis shows the count rate per second per kilo–electron volt. In the lower panel, the y-axis shows
+the residuals between the data and the model. The x-axis shows the energy.
+ponent is unnecessary for the purpose of measuring individual line
+fluxes. Emission lines not listed in table 3 remained included in
+thebvvapecmodel. The abundance and velocity dispersion of
+thebvvapecmodel were fixed to the numbers derived from the
+Resolve “1T w/ zgauss” model. The temperature and normaliza-
+tion of the model were left free. In the energy range of 5.4–9.0
+keV , the energy scale uncertainty is±0.3eV (Eckart et al. 2025).
+Allowing the redshift of each line to vary within this±0.3eV
+range does not change the best-fit line widths or fluxes. Since the
+Lyman-series doublets, with the exception of FeXXVILyα, were
+not resolved spectrally, the line widths and flux ratios were tied to
+the values of the corresponding Lyα 1, as shown in table 3. The
+unresolved substructures of SXVHeβ, CaXIXHeβ, FeXXVHeγ,
+and FeXXVHeδwere represented by a singlezgaussmodel. The
+resultant normalization and line width of each line obtained by fit-
+ting are shown in table 3.
+Figure 5 shows the temperature dependence of line flux ratios in
+a CIE plasma (theapecmodel). The excitation temperatures ob-
+tained from the line ratios of different transitions of the same ions
+(same in both the element and ionization state) are shown in the
+upper part of figure 5. The ionization temperatures, which are the
+line ratios of different ionization stages of the same elements, are
+shown in the lower part of figure 5. The derived excitation temper-
+atures from the observed line ratios, such as S Heβ/w, Fe Heβ 1/z,
+and Fe Heγ/z, are broadly consistent with the temperature derived
+from the Resolve “1T w/ zgauss” model. On the other hand, all the
+measured ratios give tighter constraints on the ionization tempera-
+tures.
+Figure 6 summarizes the derived excitation and ionization tem-
+peratures from the observed line ratios. Under a CIE plasma, the
+excitation and ionization temperatures are expected to be the same.
+Although the excitation temperatures are consistent with the tem-
+perature derived from the Resolve “1T w/ zgauss” model, the ion-
+ization temperatures show a systematic increase with atomic num-
+bers. A similar trend has been reported for the Perseus cluster
+observation with Hitomi (Hitomi Collaboration et al. 2018c), and
+these indicate the existence of the multi-phase gas in the cluster
+core.
+Some of the galaxy clusters observed with XRISM/Resolve
+observations exhibit FeXXVILyα 2/Lyα 1flux ratios that exceed
+the value predicted by a CIE plasma model (A2029: XrismCollaboration et al. 2025b, Coma: Xrism Collaboration et
+al. 2025c). In the Centaurus cluster, the measured FeXXVI
+Lyα 2/Lyα 1flux ratio is consistent with the expected number for a
+CIE plasma within the statistical uncertainty. Whether using only
+the Lyα 1or the combined FeXXVILyα 1+Lyα 2flux, the ion-
+ization temperatures inferred from the line flux ratios are different
+from the resultant temperature derived from the Resolve “1T w/
+zgauss” model, although only the FeXXVILyα 1is adopted in the
+analysis of the line ratios in this paper.
+Figure 7 shows the measured line ratio of FeXXVHeαreso-
+nance (w) and forbidden (z). The observedw/zratio is smaller
+than that expected from the isothermal CIE plasma model, sug-
+gesting that thewline is suppressed by resonant scattering, as
+reported in the central region of the Perseus cluster (Hitomi
+Collaboration et al. 2018b).
+3.4 Ion temperature measurements
+As described in sections 3.1, 3.3, the CIE assumption seems to
+hold in the ICM of the Centaurus cluster core. Here, we further test
+this assumption by measuring the ion temperature and comparing
+it to the electron temperature. Thanks to the high-resolution spec-
+troscopy of Resolve, it is possible to directly and quantitatively es-
+timate each component of the line broadening: the sum of a natural
+width, the instrumental resolution of the detector, the turbulent gas
+motion, and the thermal motion of ions. Since the natural width
+is much smaller than the other components, the line broadening
+is denoted asσ v+th=p
+σ2v+σ2
+th, whereσ vis broadening due to
+turbulent gas motion andσ this broadening due to thermal motion
+of ions.σ this expressed asσ th=p
+kTion/m ion, whereT ionis the
+ion temperature, andm ionis the ion mass. The line broadening
+due to thermal motion of ions depends on the ion mass, while the
+broadening due to turbulent gas motion is independent of the ion
+mass.
+We estimated the velocities using the emission lines listed in ta-
+ble 3, but the following lines were excluded from the analysis: (i)
+lines represent by a singlezgaussmodel for two lines, (ii) lines
+for which only an upper limit on the line width was obtained, (iii)
+Lyα 2, Lyβ 2, Heβ 2lines except for FeXXVILyα 2. The Siwandz
+lines were excluded because the statistics were inadequate to use
+them. As shown in the left panel of figure 8, the observed line
+8Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+0 2 4 60.000.050.100.150.20
+Si Lyβ1/Lyα1
+T emperature (keV)
+T emperature (keV)Line Flux Ratio Line Flux RatioAtomDB 3.0.9
+AtomDB 3.1.3
+Best-fit observed ratio
+Observed ratio
+T emperature ("Resolve 1T w/ zgauss")0 2 4 60.00.10.2S Heβ/w
+0 2 4 60.00.10.2S Lyβ1/Lyα1
+0 2 4 60.0000.0250.0500.0750.100
+S Lyγ1/Lyα1
+0 2 4 60.00.10.20.30.4
+Ar Lyβ1/Lyα1
+0 2 4 60.00.20.40.6Fe Heβ1/z
+0 2 4 60.00.10.2Fe Heγ/z
+0 2 4 60.00.51.0S Lyα1/w
+0 2 4 60510S Lyα1/Heβ
+0 2 4 60.00.20.40.6
+Ar Lyα1/w
+0 2 4 60.00.10.20.30.4
+Ca Lyα1/w
+0 2 4 6024Ca Lyα1/Heβ
+0 2 4 60.000.050.100.150.20
+Fe Lyα1/z
+0 2 4 60.00.20.40.6
+Fe Lyα1/Heβ1
+0 2 4 60.00.51.01.52.0
+Fe Lyα1/Heγ
+0 2 4 6024Fe Lyα1/Heδ
+Fig. 5.Upper seven panels show the line flux ratio against the excitation temperatures. Gray dashed lines and black solid lines represent the temperature
+dependence of the line flux ratios based on AtomDB 3.0.9 and 3.1.3, respectively. The star-shaped markers show the best-fit observed ratios. The blue
+boxes indicate the range of observed ratios and the corresponding excitation temperatures derived from AtomDB 3.1.3. The red bands represent the
+temperature derived from the Resolve “1T w/ zgauss” model. The lower nine panels follow the same format, but the x-axis corresponds to the ionization
+temperatures. Alt text: Sixteen line-ratio plots comparing temperatures derived from the observed data with those predicted by AtomDB 3.0.9 and 3.1.3.
+Blue squares indicate the best-fit results.
+widths can be decomposed into the turbulent broadening (velocity
+dispersion) and thermal broadening for each ion at a certain tem-
+perature. As described in subsection 3.1, the velocity dispersions
+were derived from spectral fits using a thermal plasma model thatincludes the effect of the thermal broadening. Now we express
+the sum of the turbulent and thermal broadenings as a single ve-
+locity dispersion. Although the uncertainty in the full-width half
+maximum (FWHM) of the instrumental line-spread function (LSF,
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 09
+Table 3.List of the emission lines removed in thebvapecmodel and the resultant fit parameters of
+the “zgauss” model for line diagnostics.
+Line name E Constraints Flux Width
+(keV) Tied to Width Flux (photons cm−2s−1) (eV)
+SiXIIIz1.8394 SiXIIIw×1–1.4+0.5
+−0.5×10−4–
+SiXIIIw1.8650 – – –2.8+0.6
+−0.5×10−42.4+1.1
+−0.8
+SiXIVLyα 1 2.0061 – – –4.0+0.3
+−0.3×10−41.2+0.3
+−0.3
+SiXIVLyα 2 2.0043 SiXIVLyα 1 ×1×0.5– –
+SiXIVLyβ 1 2.3766 – – –5.5+0.7
+−0.7×10−51.2+0.5
+−0.6
+SiXIVLyβ 2 2.3761 SiXIVLyα 2 ×1×0.5– –
+SXVw2.4606 – – –1.9+0.2
+−0.2×10−41.5+0.3
+−0.3
+SXVHeβ 1*2.8840 – – –2.6+0.4
+−0.4×10−5<1.3
+SXVILyα 1 2.6227 – – –1.7+0.1
+−0.1×10−41.0+0.3
+−0.3
+SXVILyα 2 2.6197 SXVILyα 1 ×1×0.5– –
+SXVILyβ 1 3.1067 – – –2.5+0.3
+−0.3×10−51.8+0.4
+−0.4
+SXVILyβ 2 3.1059 SXVILyβ 1 ×1×0.5– –
+SXVILyγ 1 3.2763 – – –7.9+1.6
+−1.5×10−62.3+0.8
+−0.8
+SXVILyγ 2 3.2759 SXVILyγ 1 ×1×0.5– –
+ArXVIIw3.1396 – – –4.7+0.4
+−0.4×10−52.0+0.3
+−0.3
+ArXVIIILyα 1 3.3230 – – –2.0+0.3
+−0.2×10−52.2+0.7
+−0.6
+ArXVIIILyα 2 3.3182 ArXVIIILyα 1×1×0.5– –
+ArXVIIILyβ 1 3.9357 – – –4.2+1.0
+−0.9×10−6<2.3
+ArXVIIILyβ 2 3.9343 ArXVIIILyβ 1×1×0.5– –
+CaXIXw3.9024 – – –3.3+0.3
+−0.3×10−52.0+0.3
+−0.3
+CaXIXHeβ 1*4.5835 – – –4.2+1.0
+−1.0×10−6<2.2
+CaXXLyα 1 4.1075 – – –7.1+1.1
+−1.1×10−61.4+0.8
+−0.9
+CaXXLyα 2 4.1001 CaXXLyα 1 ×1×0.5– –
+FeXXVz6.6366 – – –3.0+0.2
+−0.2×10−52.4+0.3
+−0.3
+FeXXVw6.7004 – – –6.5+0.3
+−0.3×10−53.1+0.2
+−0.2
+FeXXVHeβ 1 7.8815 – – –9.2+1.0
+−0.9×10−63.0+0.5
+−0.4
+FeXXVHeβ 2 7.8720 FeXXVHeβ 1×1–2.3+0.7
+−0.6×10−6–
+FeXXVHeγ 1*8.2955 – – –4.2+0.8
+−0.8×10−66.1+1.6
+−1.4
+FeXXVHeδ 1*8.4874 – – –1.3+0.5
+−0.5×10−61.9+1.2
+−1.2
+FeXXVILyα 1 6.9731 – – –2.4+0.6
+−0.6×10−61.6+1.2
+−1.5
+FeXXVILyα 2 6.9519 – – –1.6+0.6
+−0.5×10−63.1+1.7
+−1.4
+NiXXVIIz7.7316 NiXXVIIw×1–9.2+4.6
+−3.9×10−7–
+NiXXVIIw7.8056 – – –2.2+0.6
+−0.6×10−6<2.4
+∗Each complex (SXVHeβ, CaXIXHeβ, FeXXVHeγ, and FeXXVHeδ) was represented by a singlezgauss
+component.
+Leutenegger et al. 2025) results in errors in the velocity dispersion
+(±0.15eV at 6.7 keV and±0.06eV at 2.5 keV adds±2km s−1
+and±6km s−1, respectively, toσ v=120km s−1) smaller than our
+statistical error of±7km s−1, they are dominated by uncertainty in
+line broadening due to potential energy-scale misalignment across
+the pixels. Aside from at 5.9 keV (where the energy scales are con-
+trived to agree) and 6.5 keV (where the dispersion in energy-scale
+errors across pixels was determined to be 0.2 eV , see Simionescu
+et al. 2026), there is no available estimate for this potential broad-
+ening. Therefore, we have used the recommended values for the
+energy-scale uncertainty (±1eV below 5.4 keV and±0.3eV over
+the range 5.4–8.0 keV , Eckart et al. 2025) as a conservative es-
+timate of possible broadening due to energy scale misalignment
+across the array. Since line broadening results in determination
+of larger velocity dispersion, the associated velocity errors only
+extend to values below the best-fit value. The quadrature sum of
+statistical and systematic errors was taken into account in the fit
+shown in figure 8, which shows the total velocity dispersion of the
+sum of the turbulence (σ v) and thermal broadening (σ th). Sinceσ v
+was assumed to be constant for all lines, the contribution of broad-
+ening due to the thermal motion of ions is larger for elements with
+smaller atomic numbers relative to the observed line width. Weexamined the correlation ofσ v+th=p
+σ2v+σ2
+thto describe these
+line broadenings. Here, bothσ vandkT ionwere freely varied. The
+red solid, blue dashed, and green dash-dotted lines represent the
+resultant best-fit values ofσ v+th,σv, andσ th, respectively. The
+right panel of figure 8 shows the confidence contour map ofσ v
+andkT ion. The derived ion temperature is consistent with the elec-
+tron temperature from the Resolve “1T w/ zgauss” model.
+4 Discussion
+4.1 Origins of deviation from the 1T CIE plasma
+As described in section 3.1, the observed Resolve spectrum is bet-
+ter represented by the two-temperature or, more generally, multi-
+temperature CIE plasma models than by the single-temperature
+model. The line ratio diagnostics also indicate the possible pres-
+ence of multi-temperature plasma in the central region of the
+Centaurus cluster. Figure 9 shows a comparison of the observed
+line flux ratios and the ratios predicted by the single-temperature,
+two-temperature thermal plasma, andgademmodels. The line-
+flux ratios of each element predicted by the two-temperature
+plasma model show better agreement with the observations com-
+pared to those from the single-temperature model. Thegadem
+10Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+Si Ly1/Ly1
+S He/w
+S Ly1/Ly1
+S Ly1/Ly1
+Ar Ly1/Ly1
+Fe He1/z
+Fe He/z
+0123456T emperature (keV)Excitation T emperatures
+S Ly1/w
+S Ly1/He
+Ar Ly1/w
+Ca Ly1/w
+Ca Ly1/He
+Fe Ly1/z
+Fe Ly1/He1
+Fe Ly1/He
+Fe Ly1/He
+Ionization T emperatures
+derived from the observed ratio
+derived from the best-fit ratio
+"Resolve 1T w/ zgauss"
+Fig. 6.Summary of the derived excitation and ionization temperatures
+from line flux ratios. The star-shaped markers show the excitation and
+ionization temperatures from the resultant best-fit line flux ratios. The hor-
+izontal red line shows the temperature from the Resolve “1T w/ zgauss”
+model. Alt text: Two line graphs. The y-axis of each panel shows the tem-
+perature from 0 keV to 6.5 keV. Each data point represents the temperature
+derived from an individual line flux ratio.
+1.5 2.0 2.5 3.0 3.5
+T emperature (keV)1.52.02.53.03.5Line Flux RatioFe w/z AtomDB 3.0.9
+AtomDB 3.1.3
+SPEX v3.08.01
+Observed with Resolve
+Fig. 7.Comparisons of the observed FeXXVHeα w/zline ratio with model
+predictions with AtomDB 3.0.9, 3.1.3, and SPEX v3.08.01. The vertical
+error bar of the blue cross represents the observedw/zratio, with its hori-
+zontal error corresponding to the temperature uncertainty derived from the
+Resolve “1T w/ zgauss” model. The gray dashed line, black solid line, and
+green dash-dotted line indicate the temperature dependences of the ratio
+for AtomDB 3.0.9, 3.1.3, and SPEX v3.08.01, respectively. Alt text: One
+line graphs. The y-axis shows the line flux ratio. The x-axis show the
+temperature from 1.5 keV to 3.5 keV.
+model also produces improved agreement in comparison to the
+single-temperature case. Some observed line ratios, such as Ar
+Lyβ1/Lyα 1and Ar Lyα 1/w, indicated a tendency to exceed or fall
+below the predicted numbers of those models. To quantify these
+differences, we calculated theχ2values between the observed line
+flux ratios and those predicted by each model. The resultantχ2
+values for the single-, two-, three-temperature CIE plasma, and
+gademmodels compared to the observed ratios are 46.2, 4.3, 4.0,
+and 6.4, respectively, for 16 degrees of freedom with no free pa-
+rameters. Theseχ2values show that the two-temperature plasma
+model best reproduces the observed line-flux ratios.
+One plausible course for the deviation from a 1T plasma isthe projection effect, which occurs when the radial temperature
+gradient from the center to the outskirts is integrated along the
+line of sight. To examine this possibility, we used the three-
+dimensional radial profiles of the temperature, density, and abun-
+dance derived from Chandra observation data with the SPEXclus
+model (Štofanová et al. 2025; see Majumder 2025; Mernier et al.
+2026 for details of the analysis with the SPEXclusmodel). For
+the outer region of the Centaurus cluster, we adopted the three-
+dimensional radial profiles from the Suzaku analysis of Walker et
+al. (2013). By integrating these three-dimensional radial profiles
+along the line of sight, we calculated the line flux ratios, which are
+shown as the orange x-shaped markers (“projection”) in figure 9.
+The projection model yields aχ2value of 11.4. The resultantχ2
+value is significantly smaller than that predicted by the 1T model.
+Although theχ2value from the projection model is higher than
+those predicted by the 2T and gadem models, the observed line
+flux ratios, especially for Fe, are well represented by the projection
+model. On the other hand, a slight residual is observed in the S line
+ratio. This may be caused by uncertainties in the projection model
+based on the Fe reference from Chandra observations, and/or by
+the influence of the low-temperature component indicated by the
+RGS analysis as described in section 3.2.1. When the S Lyα 1/w,
+Lyα 1/Heβline ratios were excluded, theχ2value for the projec-
+tion modelχ2value was 4.7 for 14 degrees of freedom, consistent
+with those predicted by the 2T and gadem models. Therefore, we
+concluded that the projection effect adequately explains the obser-
+vational results with XRISM/Resolve.
+The projection effect also reasonably explains the tendency for
+elements with lower atomic numbers to have lower ionization tem-
+peratures. In addition, the line widths of emission lines from
+the lighter elements tend to be broader than those from the heav-
+ier ones as described in section 3.4, since the emission-measure
+weighted average fluxes of the lines from the lighter elements
+should be biased to the cool gas in the line of sight, which is con-
+firmed by the RGS observation. Therefore, the observed line ra-
+tios from the Resolve observations are consistent with the previous
+Chandra and XMM-Newton observations.
+4.2 Comparison with Previous Observations of Other
+Galaxy Clusters
+Hitomi Collaboration et al. (2018c) compared the observed and
+model-predicted Fe line ratios, which provide excitation temper-
+atures, in the core of the Perseus cluster. In this study, we com-
+pared not only the Fe ratios but also the line ratios of Si, S, and
+Ar, which also provide excitation temperatures. As shown in fig-
+ure 9, the observed Fe line ratios, which are used to derive the
+ionization temperature, tend to be higher than those predicted by
+the single-temperature CIE model. This trend is consistent with
+that observed in the Perseus cluster (Hitomi Collaboration et al.
+2018c). Hitomi Collaboration et al. (2018c) reported that the ob-
+served Fe Lyα/z, Fe Lyα/Heβ, and Fe Lyα/Heγratios were higher
+than those predicted by the two-temperature CIE plasma model. In
+contrast, in this work, the observed Fe Lyα 1/z, Fe Lyα 1/Heβ 1, and
+Fe Lyα 1/Heγratios show good agreement with the 2T CIE model
+predictions.
+Sarkar et al. (2025) performed temperature measurements for
+Abell 2029 using line diagnostics based on various Fe lines. Since
+the ICM in Abell 2029 is hotter than that in the Centaurus clus-
+ter, the Fe emission lines are stronger. In the central and north-
+ern regions, they resolved the cooler gas component lower than
+the temperature derived from the single-temperature CIE model.
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 011
+25 30 35 40 45 50 55 60
+Ion mass (amu)050100150200250Velocity dispersion (km/s)Si Lyα1
+Si Lyβ1S w
+S Lyα1
+S Lyβ1
+S Lyγ1Ar w
+Ar Lyα1
+Ca w
+Ca Lyα1Fe w
+Fe z
+Fe Heβ1
+Fe Lyα1
+Fe Lyα2best-fit σv+th=(σ2
+v+σ2
+th)1/2 
+best-fit σv 
+best-fit σth 
+Systematic uncertainty
+0 20 40 60 80 100 120 140
+σv (km/s)024681012kTion (keV)
+Electron T emperature1σ2σ3σ
+Fig. 8.Left:The velocity dispersion of each line plotted against ion mass. The error bars for each line represent only statistical uncertainties. The
+gray-hatched boxes for each point correspond to systematic uncertainties of 0.3 eV for Fe and 1 eV for other elements. The fit was performed using
+uncertainties calculated by adding the statistical and systematic errors in quadrature. Data points from the same element are horizontally shifted for
+visibility. The red solid, blue dashed, and green dash-dotted lines represent the best-fittedσ v+th,σv, andσ thvalues, respectively.Right:The confidence
+contour map ofσ vandkT ion. The black dash-dotted, dashed, and solid curves indicate the 1σ, 2σ, and 3σconfidence levels. The star-shaped marker
+shows the resultant best-fit value. The blue solid horizontal and blue dashed vertical lines represent the electron temperature andσ vvalues, respectively,
+derived from the “1T w/ zgauss” model. Alt text: Two-line graph. In the left panel, the y-axis shows the velocity dispersion, and the x-axis shows the ion
+mass. In the right panel, the y-axis showskT ionand the x-axis showsσ v.
+0.1110Line Flux RatioObserved
+1T
+2T
+gadem
+projectionObserved
+1T
+2T
+gadem
+projection
+Si Lyβ1/Lyα1
+S Heβ/w
+S Lyβ1/Lyα1
+S Lyγ1/Lyα1
+Ar Lyβ1/Lyα1
+Fe Heβ1/z
+Fe Heγ/z
+S Lyα1/w
+S Lyα1/Heβ
+Ar Lyα1/w
+Ca Lyα1/w
+Ca Lyα1/Heβ
+Fe Lyα1/z
+Fe Lyα1/Heβ1
+Fe Lyα1/Heγ
+Fe Lyα1/Heδ0.5124Observed / Model
+Fig. 9.Top panel shows comparisons between the observed line flux ra-
+tios and those predicted by the CIE model based on AtomDB 3.1.3. Black
+crosses represent the observed ratios. The red circle, blue triangle, light
+blue inverted triangle, and orange x-shaped markers correspond to the
+predictions from the 1T, 2T CIE plasma,gadem, and projection models,
+respectively, as described in the text. The bottom panel shows the ratio of
+observed to model-predicted line flux ratios. Vertical dotted line separates
+the ratios corresponding to the excitation temperatures and those corre-
+sponding to the ionization temperatures. Alt text: One graph. The y-axis
+of the top panel shows the line flux ratio. The y-axis of the bottom panel
+shows the residuals between the data and the models.
+They interpreted this as evidence for the presence of multi-phase
+gas. In the pointing located further to the north, The tempera-
+tures from the line ratios were consistent with the values predicted
+by the single-temperature CIE model. For the Centaurus cluster
+as well, it is possible that in the outer regions the temperatures
+derived from line diagnostics agree with those predicted by thesingle-temperature CIE model.
+For the Perseus cluster observation (Hitomi Collaboration et al.
+2018c), bothσ vandkT ionwere set as free parameters to derive
+the ion temperature. On the other hand, for the Centaurus cluster,
+when bothσ vandkT ionwere allowed to vary freely, the best-fit
+value ofσ vbecame significantly smaller than that obtained from
+the Resolve “1T w/ zgauss” model. Therefore, we fixedσ vand
+allowed onlykT ionto vary (section 3.4). Due to its lower temper-
+ature compared with the Perseus cluster, we expect that the un-
+certainty in the velocity dispersion,σ v, in the Centaurus cluster
+is large. Since thermal broadening contributes only a small frac-
+tion to the total line width, the thermal and turbulent components
+cannot be separated.
+4.3 Resonant Scattering
+The effect of resonant scattering is most prominently seen in
+the FeXXVHeαresonance line, which is the strongest line
+in the Resolve spectrum. Following the procedure of Hitomi
+Collaboration et al. (2018b), we calculated the optical depth
+based on the Chandra data analysis with the SPEXclusmodel
+(Majumder 2025), and the results are shown in figure 10. Under
+the assumption of a velocity dispersion of 100 km s−1, the optical
+depth of the FeXXVHeαresonance line reaches∼0.7within 1
+arcmin from the cluster center. Therefore, resonant scattering can
+be diagnosed by deviations of the observed FeXXVw/zratio from
+the CIE prediction.
+As demonstrated in section 3.3, the observedw/zratio of
+2.1+0.3
+−0.2 is lower than the values expected by any of the isothermal
+CIE models used for comparison. At the temperature of2.39+0.02
+−0.02
+keV derived from the Resolve “1T w/ zgauss” model, the predicted
+intrinsicw/zratio is about2.6. The multi-temperature “projec-
+tion” model also yields a similar value of∼2.5. If the deficit is
+interpreted as the result of resonant scattering, the FeXXVHeα w
+line is suppressed by approximately20%. Although the difference
+between the observed and predictedw/zratios from the isother-
+mal CIE prediction is within2σ-level significance, it provides a
+hint of resonant scattering in the central region of the Centaurus
+cluster.
+12Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+Projected Radius (arcmin)
+2 5 10 20
+Projected Radius (kpc)0.11Optical Depth τ0.2 0.5 1 2
+σv=0kms−1
+σv=100kms−1
+σv=150kms−1
+Fig. 10.The radial profile of optical depth of the Centaurus cluster. The
+solid lines in red, blue, and cyan indicate the results for velocity dispersion
+of 0 km s−1, 100 km s−1, and 150 km s−1, respectively. Alt text: One line
+graph. The y-axis shows the optical depth. The x-axis shows projected
+radius.
+Resonance scattering not only suppresses spectral lines at op-
+tical depths≥1, but also appears to enhance the wings of these
+spectral line profiles when attempting to describe them using a
+Gaussian model under conditions of limited energy resolution and
+insufficient statistics (Hitomi Collaboration et al. 2018b). The ob-
+served line width was larger for FeXXVHeα wthanz, where the
+difference was about2σ(table 3). As noted in section 3.4, the
+observed line width of each emission line involves systematic un-
+certainties due to the uncertainty in the FWHM of the instrumen-
+tal line-spread function. With this systematic uncertainty, the ob-
+served width of the FeXXVHeα wline remains larger than the
+width of thezline. Although other possibilities, such as a charge
+exchange effect, recombining plasma, or the uncertainties in the
+atomic excitations in Hitomi Collaboration et al. (2018b) could
+not be entirely ruled out, the resonant scattering provides the most
+plausible explanation for these observational results, namely the
+w/zline ratio and the broader line width of thewline. The ob-
+served Fewline suppression is consistent with the turbulent mo-
+tions inferred from the line broadening, and hence the motions are
+consistent with being isotropic. This indicates that the line broad-
+ening is driven by small scale motions rather than a superposition
+of bulk flow in the line of sight. Consequently, we found the in-
+dication of resonant scattering in the Centaurus cluster core; the
+significance was approximately at the 2σlevel.
+5 Summary and Conclusion
+We found the temperature structure of the Centaurus cluster core
+with XRISM/Resolve. In the spectral analysis in the 1.8–12 keV
+energy band, the two-temperature and DEM models better repre-
+sented the observed spectrum of the cluster core than the isother-
+mal model. Even if the cool component (kT <1 keV) derived from
+the XMM-Newton/RGS analysis is added in the spectral model,
+the resultant parameters of the Resolve spectral analysis are not
+affected. We performed line diagnostics using the line flux ratios
+of Si, S, Ar, Ca, and Fe to determine the excitation and ioniza-tion temperatures. The excitation temperatures derived from the
+line ratios other than Ar Lyβ 1/Lyα 1agree with the derived tem-
+perature from the Resolve “1T w/ zgauss” model. On the other
+hand, the resultant ionization temperatures revealed the deviation
+from the 1T CIE plasma model. The derived ionization temper-
+ature from the line flux ratios exhibited a tendency to increase in
+proportion to the atomic mass. A similar trend was reported in the
+central region of the Perseus cluster observed with Hitomi/SXS.
+As a result, the derived temperature from the Resolve observation
+above 2 keV indicates the multi-temperature gas, and the tempera-
+ture structure of the Centaurus cluster core can be simply explained
+by the projection effect. The observed FeXXVw/zratio was lower
+than the value predicted by a CIE plasma model. Compared with
+the isothermal CIE plasma model, the Fewline was suppressed
+by approximately 20%, and the line width was broader than that
+of the Fezline. These results suggest the presence of resonance
+scattering in the core of the Centaurus cluster, with a significance
+of approximately 2σlevel.
+Acknowledgments
+We would like to thank Drs. Makoto S. Tashiro, Yukikatsu
+Terada, and Satoru Katsuda for constructive comments. This
+work was supported by JSPS Core-to-Core Program, (grant num-
+ber:JPJSCCA20220002). NW and TP were supported by the
+GACR EXPRO grant No. 21-13491X. The authors are also grate-
+ful to R. Mushotzky and C. A. Kilbourne for valuable comments
+and discussions.
+Appendix 1 Details of the Resolve spectral
+analysis
+Figure 11 shows the wide-band spectral fits and their residuals with
+the Resolve “2T w/ zgauss” and “3T w/ zgauss” models in the
+1.8–12 keV band. The lower temperature component below 1 keV
+derived from the XMM-Newton/RGS analysis was negligible for
+the Resovle spectral fit analysis above 2 keV . Figures 12 and 13
+show the resultant fits and their residuals around H- and He-like
+emission lines from each element. Resultant parameters for each
+line are shown in table 3.
+Appendix 2 Comparison of the projected line
+ratios between AtomDB and the SPEX
+The projected line ratio models derived from theclusmodel based
+on the Chandra and Suzaku observations represent the observed
+line ratios as described in section 4.1. We compared the line ratios
+derived from the AtomDB and the SPEX, although theclusmodel
+was developed based on SPEX. Figure 14 shows a comparison of
+the predicted line ratios derived from the AtomDB and SPEX, and
+the observed line ratio is the same as those in figure 9. These two
+profiles are generally consistent with each other, although slight
+differences are seen between AtomDB and SPEXACT in the line
+flux ratios of the S and Fe lines.
+References
+Akaike H., 1974, ITAC, 19, 716.
+Allen, S. W., Ettori, S., & Fabian, A. C. 2001, MNRAS, 324, 4, 877.
+Cash, W. 1979, ApJ, 228, 939.
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 013
+10−410−30.010.11Countss−1keV−1"2T w/ zgauss"
+2 3 4 5 67891011
+Energy (keV)-303(Data-Model)/Error
+10−410−30.010.11Countss−1keV−1"3T w/ zgauss"
+2 3 4 5 67891011
+Energy (keV)-303(Data-Model)/Error
+Fig. 11.Spectral fits with the Resolve “2T w/ zgauss” (left) and the “3T w/ zgauss” (right) models in the 1.8–12 keV band. The red solid line corresponds
+to the best-fit parameter of each model. The light gray lines indicate each temperature and Gaussian component for the best-fit models. The light blue
+dashed line indicates the NXB model. The lower panels show the residuals between the data and the model. Alt text: Two line graphs. In the top panels,
+the y-axis shows the count per second per kilo-electron volt. In the bottom panel, the y-axis shows the residual between the data and the model.
+Eckart, M. E., Brown, G. V ., Chiao, M. P., et al. 2025, Journal of
+Astronomical Telescopes, Instruments, and Systems, 11, 042018.
+Fabian, A. C., Sanders, J. S., Taylor, G. B., et al. 2006, MNRAS, 366, 2, 417.
+Fujita, Y ., Kimura, S., & Ohira, Y . 2013, MNRAS, 432, 2, 1434.
+Fukazawa, Y ., Ohashi, T., Fabian, A. C., et al. 1994, PASJ, 46, 3, L55.
+Fukushima, K., Kobayashi, S. B., & Matsushita, K. 2022, MNRAS, 514, 3,
+4222.
+Ghizzardi, S., De Grandi, S., & Molendi, S. 2014, A&A, 570, A117.
+den Herder, J. W., Brinkman, A. C., Kahn, S. M., et al. 2001, A&A, 365, L7.
+HI4PI Collaboration, Ben Bekhti, N., Flöer, L., et al. 2016, A&A, 594, A116.
+Hitomi Collaboration, Aharonian, F., Akamatsu, H., et al. 2018a, PASJ, 70,
+2, 9.
+Hitomi Collaboration, Aharonian, F., Akamatsu, H., et al. 2018b, PASJ, 70,
+2, 10.
+Hitomi Collaboration, Aharonian, F., Akamatsu, H., et al. 2018c, PASJ, 70,
+2, 11.
+Ikebe, Y ., Makishima, K., Ezawa, H., et al. 1997, ApJ, 481, 2, 660.
+Ikebe, Y ., Makishima, K., Fukazawa, Y ., et al. 1999, ApJ, 525, 1, 58.
+Kaastra, J. S., Ferrigno, C., Tamura, T., et al. 2001, A&A, 365, L99.
+Kelley, R. L., Ishisaki, Y ., Costantini, E., et al. 2025, Journal of Astronomical
+Telescopes, Instruments, and Systems, 11, 042026.
+Kim, W.-T. & Narayan, R. 2003, ApJL, 596, 2, L139.
+Leutenegger, M. A., Brown, G. V ., Chiao, M. P., et al. 2025, Journal of
+Astronomical Telescopes, Instruments, and Systems, 11, 042024.
+Lodders, K., Palme, H., & Gail, H.-P. 2009, Landolt Börnstein, 4B, 712.
+Majumder, A. 2025, Doctoral dissertation, University of Amsterdam,
+https://pure.uva.nl/ws/files/230368085/Chapter_4.pdf
+Makishima, K., Ezawa, H., Fukuzawa, Y ., et al. 2001, PASJ, 53, 3, 401.
+McNamara, B. R. & Nulsen, P. E. J. 2007, ARA&A, 45, 1, 117.
+Mernier, F., de Plaa, J., Lovisari, L., et al. 2015, A&A, 575, A37.
+Mernier F., Fukushima K., Simionescu A., Kondo M., Majumder A., Plšek
+T., Werner N., et al., 2026, A&A, 706, A86.
+Peterson, J. R., Paerels, F. B. S., Kaastra, J. S., et al. 2001, A&A, 365, L104.
+Peterson, J. R. & Fabian, A. C. 2006, Phys. Rep., 427, 1, 1.
+Pinto, C., Sanders, J. S., Werner, N., et al. 2015, A&A, 575, A38.
+de Plaa, J., Kaastra, J. S., Werner, N., et al. 2017, A&A, 607, A98.
+Randall, S. W., Nulsen, P. E. J., Jones, C., et al. 2015, ApJ, 805, 2, 112.
+Sanders, J. S. & Fabian, A. C. 2002, MNRAS, 331, 2, 273.
+Sanders, J. S., Fabian, A. C., Allen, S. W., et al. 2008, MNRAS, 385, 3, 1186.
+Sanders, J. S., Fabian, A. C., Taylor, G. B., et al. 2016, MNRAS, 457, 1, 82.
+doi:10.1093/mnras/stv2972
+Sarazin, C. L., Wise, M. W., & Markevitch, M. L. 1998, ApJ, 498, 2, 606.
+Sarkar, A., Miller, E., Ota, N., et al. 2025, PASJ, 77, S254.
+Simionescu, A., Kilbourne, C., Russell, H. R., et al. 2026, A&A in press
+(doi:10.48550/arXiv.2601.16901)Simionescu, A., Werner, N., Böhringer, H., et al. 2009, A&A, 493, 2, 409.
+Smith, R. K., Brickhouse, N. S., Liedahl, D. A., et al. 2001, ApJL, 556, 2,
+L91.
+Štofanová, L., Simionescu, A., & Kaastra, J. S. 2025, A&A, 694, A149.
+Takahashi, I., Kawaharada, M., Makishima, K., et al. 2009, ApJ, 701, 1, 377.
+Tamura, T., Kaastra, J. S., Peterson, J. R., et al. 2001, A&A, 365, L87.
+Tashiro, M., Kelley, R., Watanabe, S., et al. 2025, PASJ, 77, S1.
+Walker, S. A., Fabian, A. C., Sanders, J. S., et al. 2013, MNRAS, 432, 1,
+554.
+Willingale, R., Starling, R. L. C., Beardmore, A. P., et al. 2013, MNRAS,
+431, 1, 394.
+Wilms, J., Allen, A., & McCray, R. 2000, ApJ, 542, 2, 914.
+XRISM Collaboration, Audard, M., Awaki, H., et al. 2025a, Nature, 638,
+8050, 365.
+Xrism Collaboration, Audard, M., Awaki, H., et al. 2025b, ApJL, 982, 1, L5.
+Xrism Collaboration, Audard, M., Awaki, H., et al. 2025c, ApJL, 985, 1,
+L20.
+14Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+0.10.20.30.4Countss−1keV−1
+Si XIV Lyα1Si XIV Lyα2
+0.050.100.150.20
+Si XIV Lyβ1Si XIV Lyβ2
+0.20.40.6
+S XVI Lyα1S XVI Lyα2
+1.96 1.98 2.00-303(Data-Model)/Err2.34 2.36-303
+2.58 2.59 2.60 2.61
+Energy (keV)-303
+0.10.20.3Countss−1keV−1
+S XVI Lyβ1S XVI Lyβ2
+Ar XVII w
+0.10.2
+S XVI Lyγ1S XVI Lyγ2
+Ar XVIII Lyα1Ar XVIII Lyα2
+0.10.20.30.4
+Ar XVIII Lyβ1Ar XVIII Lyβ2Ca XIX w
+3.050 3.075 3.100
+Energy (keV)-303(Data-Model)/Err3.25 3.30
+Energy (keV)-303
+3.85 3.90 3.95
+Energy (keV)-303
+0.050.100.15Countss−1keV−1
+Ca XX Lyα1Ca XX Lyα2
+0.020.04
+Fe XXVI Lyα1Fe XXVI Lyα2
+4.025 4.050 4.075 4.100
+Energy (keV)-303(Data-Model)/Err6.85 6.90 6.95
+Energy (keV)-303
+Fig. 12.Resultant spectral fits and their residuals around H-like emission lines from each element. The spectra were grouped for display purposes. The
+red solid and gray lines show the best-fit model and eachzgausscomponent, respectively. The light blue lines indicate the NXB model. The lower panel
+shows the residuals between the data and the best-fit model. Alt text: Eight line graphs. In the upper panel of each graph, the y-axis shows the count
+rate per second per kilo–electron volt. In the lower panel of each graph, the y-axis shows the residuals between the data and the model. The x-axis in all
+panels shows the energy.
+Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 015
+0.020.04Countss−1keV−1
+Si XIII wSi XIII z0.20.4
+S XV w
+0.050.100.15
+S XV Heβ
+1.800 1.825 1.850 1.875 1.900-303(Data-Model)/Err 2.400 2.425 2.450-303
+2.84 2.85 2.86 2.87-303
+0.10.20.3Countss−1keV−1
+S XVI Lyβ1S XVI Lyβ2
+Ar XVII w
+0.10.20.30.4
+Ar XVIII Lyβ1Ar XVIII Lyβ2Ca XIX w
+0.050.10
+Ca XIX Heβ
+3.05 3.10 3.15
+Energy (keV)-303(Data-Model)/Err 3.85 3.90
+Energy (keV)-303
+4.500 4.525 4.550 4.575
+Energy (keV)-303
+0.20.40.6Countss−1keV−1
+Fe XXV wFe XXV z
+0.020.040.06
+Fe XXV Heβ1Fe XXV Heβ2Ni XXVII wNi XXVII z
+0.0250.0500.075
+Fe XXV Heβ1Fe XXV Heβ2
+6.55 6.60 6.65
+Energy (keV)-303(Data-Model)/Err 7.6 7.7 7.8 7.9
+Energy (keV)-303
+7.775 7.800 7.825 7.850
+Energy (keV)-303
+0.010.020.03Countss−1keV−1
+Fe XXV Heγ
+Fe XXV Heδ
+8.2 8.4
+Energy (keV)-303(Data-Model)/Err
+Fig. 13.Same as figure 12, but for He-like emission lines from each element. Alt text: Eight line graphs. In the upper panel of each graph, the y-axis
+shows the count rate per second per kilo–electron volt. In the lower panel of each graph, the y-axis shows the residuals between the data and the model.
+The x-axis in all panels shows the energy.
+16Publications of the Astronomical Society of Japan(2025), Vol. 00, No. 0
+0.1110Line Flux RatioObserved
+AtomDB
+SPEXACT
+Si Lyβ1/Lyα1
+S Heβ/w
+S Lyβ1/Lyα1
+S Lyγ1/Lyα1
+Ar Lyβ1/Lyα1
+Fe Heβ1/z
+Fe Heγ/z
+S Lyα1/w
+S Lyα1/Heβ
+Ar Lyα1/w
+Ca Lyα1/w
+Ca Lyα1/Heβ
+Fe Lyα1/z
+Fe Lyα1/Heβ1
+Fe Lyα1/Heγ
+Fe Lyα1/Heδ0.51.02Observed / Model
+Fig. 14.Comparisons between the observed line flux ratios and the pre-
+dicted ratios by the AtomDB and SPEX. Black crosses show the observed
+line ratios. The orange x-shaped and gray square markers correspond
+to the predictions from the projection model based on the AtomDB 3.1.3
+and SPEXACT 3.08.01. The bottom panel shows the ratio of observed to
+model-predicted line ratios. Vertical dotted line separates the ratios cor-
+responding to the excitation temperatures and those corresponding to the
+ionization temperatures. Alt text: One graph. The y-axis of the top panel
+shows the line flux ratio. The y-axis of the bottom panel shows the residu-
+als between the data and the models.
